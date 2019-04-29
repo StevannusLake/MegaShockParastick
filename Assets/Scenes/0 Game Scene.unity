@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_YDamping: 5
   m_ZDamping: 0
   m_ScreenX: 0.5
-  m_ScreenY: 0.65
+  m_ScreenY: 0.75
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
@@ -1842,7 +1842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365027979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -1.4080002, z: -10}
+  m_LocalPosition: {x: 0.2, y: -0.408, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2087839696}
@@ -2471,7 +2471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523000484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.6414523, y: -82.0483, z: 26.257242}
+  m_LocalPosition: {x: 7.6414523, y: -81.7283, z: 26.257242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 180368713}
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1968270232}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 5.6
+    OrthographicSize: 5.5
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -3913,7 +3913,7 @@ MonoBehaviour:
   m_YDamping: 5
   m_ZDamping: 0
   m_ScreenX: 0.5
-  m_ScreenY: 0.65
+  m_ScreenY: 0.75
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
@@ -5905,6 +5905,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4179097162074151845, guid: 81ac7b6d0d9a45c46aced52e332248c8,
         type: 3}
+    - target: {fileID: 310374473505167149, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: platformObjectsArray.Array.data[0].surfaceGameObject
+      value: 
+      objectReference: {fileID: 3701895529713030841, guid: f1610640219d0684b975bfa891a7c85a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a9781b656b8cf49a10c29c02bc8f42, type: 3}
 --- !u!1 &1842531686
@@ -6704,7 +6710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956837806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.6414523, y: -81.3783, z: 26.257242}
+  m_LocalPosition: {x: 7.6414523, y: -82.3783, z: 26.257242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 120747980}
@@ -6952,6 +6958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7cccbfd8b777e4ea82f75b46db8fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myEmotion: {fileID: 0}
   SlingshotForce: 4
   MaxSlingshotForce: 12
   prevMagnitude: 0

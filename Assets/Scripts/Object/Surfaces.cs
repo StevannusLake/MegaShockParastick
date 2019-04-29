@@ -39,7 +39,7 @@ public class Surfaces : MonoBehaviour
             zRotation = 0;
         }
 
-        zRotation += rotationSpeed * Time.deltaTime * 100;
+        zRotation += rotationSpeed * Time.deltaTime * 40;
         Vector3 rotationVector = new Vector3(0, 0, zRotation);
         myTransform.eulerAngles = rotationVector;
     }

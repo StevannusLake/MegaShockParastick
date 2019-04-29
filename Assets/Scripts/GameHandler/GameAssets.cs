@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameAssets : MonoBehaviour
-{  
+{
+
+
+    public static GameAssets i;
     
-    private static GameAssets _instance;
-    public static GameAssets i
-    {
-        get
-        {
-            return _instance;
-        }
-    }
 
     void Awake()
     {
-        if (_instance == null) _instance = this;
-        else if (_instance != this) Destroy(gameObject);
+        if (i == null) i = this;
+        else if (i != this) Destroy(gameObject);
     }
 
 
