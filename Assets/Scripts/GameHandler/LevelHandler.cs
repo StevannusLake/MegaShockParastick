@@ -39,7 +39,7 @@ public class LevelHandler : MonoBehaviour
     void CheckForCoinRespawn()
     {
         timerForCoinRespawn += GameManager.instance.playerDistanceTraveled;
-        if (GameManager.instance.playerDistanceTraveled>20)
+        if (GameManager.instance.playerDistanceTraveled>10)
         {
             timerForCoinRespawn = 0;
             ObjectSpawner.instance.canRespawnCoins = true;

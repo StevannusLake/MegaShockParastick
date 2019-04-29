@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectTypes;
     public bool shouldSpawnInStart = false;
-    public bool canRespawnCoins = false;
+    public bool canRespawnCoins = true;
     float SpawnRateInSeconds = 1.0f; // First time to start the spawning . For test only
     public static ObjectSpawner instance;
     private void Awake()
@@ -58,13 +58,15 @@ public class ObjectSpawner : MonoBehaviour
     {
         if(canRespawnCoins)
         {
-            for (int i = 0; i < 8; i++)
+            int randomNumberOfCoins = Random.Range(3, 10);
+            for (int i = 0; i < randomNumberOfCoins; i++)
             {
-                float angle = i * Mathf.PI * 2f / 8;
+                float angle = i * Mathf.PI * 2f / randomNumberOfCoins;
                 Vector3 newPos = new Vector2(surfacePos.position.x + Mathf.Cos(angle) * surfaceRadius, surfacePos.position.y + Mathf.Sin(angle) * surfaceRadius);
                 GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), newPos, Quaternion.identity, surfacePos.parent);
-                canRespawnCoins = false;
+                
             }
+            canRespawnCoins = false;
         }
        
     }

@@ -17,14 +17,7 @@ public class ScreenEffectManager : MonoBehaviour
     }
    
     //Test for screen shake
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(0, 0, 50, 100), "Test Camera Shake"))
-        {
-            ShakeIt(ShakeType.CameraPosition);
-        }
-
-    }
+   
 
     //  CAMERA SHAKE
     public void ShakeIt(ShakeType type) //Use to shake camera from other scripts
