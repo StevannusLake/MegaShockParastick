@@ -202,37 +202,40 @@ public class Movement : MonoBehaviour
     // stop movement once touch something
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        myRigidBody.velocity = Vector2.zero;
-
-        if (collision.collider.CompareTag(deadlyTag))
+        if(!MainMenu.activeSelf)
         {
-            // Die and Second Chance Menu pop out
-            UIManager.Instance.CallSecondChanceMenu();
-        }
-        else
-        {
-            surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
-        }
-
-        // stick on the surface
-        if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0)
-        {
-            surfaceTransform = collision.gameObject.transform;
-            myTransform.SetParent(surfaceTransform);
             myRigidBody.velocity = Vector2.zero;
-            myRigidBody.angularVelocity = 0;
-            myRigidBody.gravityScale = 0;
-            myMoveStick = MoveState.STICK;
-            surfaceStickCount = 1;
-            collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
 
-            myAnimation.PlayIdle();
-        }
+            if (collision.collider.CompareTag(deadlyTag))
+            {
+                // Die and Second Chance Menu pop out
+                UIManager.Instance.CallSecondChanceMenu();
+            }
+            else
+            {
+                surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+            }
 
-        if(collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 1)
-        {
-            // Die and Second Chance Menu pop out
-            UIManager.Instance.CallSecondChanceMenu();
+            // stick on the surface
+            if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0)
+            {
+                surfaceTransform = collision.gameObject.transform;
+                myTransform.SetParent(surfaceTransform);
+                myRigidBody.velocity = Vector2.zero;
+                myRigidBody.angularVelocity = 0;
+                myRigidBody.gravityScale = 0;
+                myMoveStick = MoveState.STICK;
+                surfaceStickCount = 1;
+                collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
+
+                myAnimation.PlayIdle();
+            }
+
+            if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 1)
+            {
+                // Die and Second Chance Menu pop out
+                UIManager.Instance.CallSecondChanceMenu();
+            }
         }
     }
 
