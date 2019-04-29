@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     public Text coinText;
     public Text coinText2;
 
+    public GameObject TutorialScreen;
+
     public Button SecondChanceButton;
 
     private void Awake()
@@ -38,6 +40,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         highScoreInMainMenu.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore",0).ToString("F1")+" mm";
+
+        TutorialScreen.SetActive(false);
     }
 
     private void Update()
@@ -144,5 +148,15 @@ public class UIManager : MonoBehaviour
     public void ButtonSound()
     {
         AudioManager.PlaySound(AudioManager.Sound.Button);
+    }
+
+    public void OpenTutorial()
+    {
+        TutorialScreen.SetActive(true);
+    }
+
+    public void CloseTutorial()
+    {
+        TutorialScreen.SetActive(false);
     }
 }
