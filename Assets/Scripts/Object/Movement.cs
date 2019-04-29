@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     public PlayerEmotion myEmotion;
     Transform myTransform;
     Rigidbody2D myRigidBody;
+    CircleCollider2D myCollider;
     Vector2 facingVector;
     Vector2 initialInputPosition;
     Vector2 finalInputPosition;
@@ -55,14 +56,24 @@ public class Movement : MonoBehaviour
 
     public GameObject MainMenu;
 
+    /// <summary>
+    /// 0 : alive, 1 : dead animation, 2 : die and call menu
+    /// </summary>
+    public static int deadState = 0;
+    public float deadVelocity;
+    bool isDead;
+
+    public GameObject Cinemachine;
+
     // Start is called before the first frame update
     void Start()
     {
-        myAnimation = GetComponent<PlayerAnimation>();
+        //myAnimation = GetComponent<PlayerAnimation>();
         myMoveStick = MoveState.STICK;
         myTransform = GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
-        
+        myCollider = GetComponent<CircleCollider2D>();
+
         surfaceTransform = initialGroundTransform;
 
         facingVector = (Vector2)myTransform.right;
@@ -73,7 +84,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!UIManager.Instance.LoseMenu.activeSelf || !MainMenu.activeSelf)
+        if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
         {
             SlingShot();
             DotsSpawner();
@@ -85,6 +96,36 @@ public class Movement : MonoBehaviour
 
             DistanceCounter();
         }
+        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 1)
+        {
+            myEmotion.EmoteDeath();
+            Cinemachine.SetActive(false);
+            myCollider.isTrigger = true;
+            PlayDead();
+        }
+        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 2)
+        {
+            UIManager.Instance.CallSecondChanceMenu();
+            myEmotion.EmoteIdle();
+            isDead = false;
+            deadState = 0;
+            myCollider.isTrigger = false;
+            Cinemachine.SetActive(true);
+        }
+
+        if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf)
+        {
+            DropDead();
+        }
+        else if(UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf)
+        {
+            deadState = 0;
+            if(myCollider.isTrigger == true)
+            {
+                myCollider.isTrigger = false;
+            }
+        }
+        Debug.Log(deadState);
     }
 
     void SlingShot()
@@ -100,7 +141,8 @@ public class Movement : MonoBehaviour
                 isCancel = true;
                 mousePressed = true;
 
-                myAnimation.PlayHold();
+               // myAnimation.PlayHold();
+                myEmotion.EmoteBeforeFlying();
             }
 
             if(mousePressed)
@@ -124,7 +166,8 @@ public class Movement : MonoBehaviour
                 spawnDot = false;
                 isCancel = false;
 
-                myAnimation.PlayJump();
+               // myAnimation.PlayJump();
+                myEmotion.EmoteFlying();
             }
 
             if(Input.GetMouseButtonUp(0))
@@ -146,7 +189,8 @@ public class Movement : MonoBehaviour
             isCancel = false;
             spawnDot = true;
 
-            myAnimation.PlayHold();
+           // myAnimation.PlayHold();
+            myEmotion.EmoteBeforeFlying();
         }
 
         if(isCancel == false && launchVelocity.magnitude <= 0.9)
@@ -154,7 +198,8 @@ public class Movement : MonoBehaviour
             spawnDot = false;
             isCancel = true;
 
-            myAnimation.PlayIdle();
+           // myAnimation.PlayIdle();
+            myEmotion.EmoteIdle();
         }
     }
 
@@ -169,8 +214,11 @@ public class Movement : MonoBehaviour
         resultantVelocity *= SlingshotForce;
         
         float i = MaxSlingshotForce / resultantVelocity.magnitude;
-        i = i > 1 ? 1 : i;
-        resultantVelocity *= i;
+        float control = i > 1 ? 1 : i;
+        if( i > 1)
+        {
+            resultantVelocity *= control;
+        }
 
         //keep the slingshot velocity (reza)
         prevSlingShotVelocity = resultantVelocity.magnitude;
@@ -209,14 +257,18 @@ public class Movement : MonoBehaviour
     // stop movement once touch something
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!MainMenu.activeSelf)
+        if(!MainMenu.activeSelf && deadState == 0)
         {
             myRigidBody.velocity = Vector2.zero;
 
             if (collision.collider.CompareTag(deadlyTag))
             {
                 // Die and Second Chance Menu pop out
-                UIManager.Instance.CallSecondChanceMenu();
+                //UIManager.Instance.CallSecondChanceMenu();
+                if (deadState == 0)
+                {
+                    deadState = 1;
+                }
             }
             else
             {
@@ -235,15 +287,16 @@ public class Movement : MonoBehaviour
                 surfaceStickCount = 1;
                 collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
 
-                myAnimation.PlayIdle();
+               // myAnimation.PlayIdle();
+                myEmotion.EmoteIdle();
             }
-
+/*
             if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 1)
             {
                 // Die and Second Chance Menu pop out
                 UIManager.Instance.CallSecondChanceMenu();
             }
-        }
+ */       }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -251,9 +304,13 @@ public class Movement : MonoBehaviour
         if (other.CompareTag(deadlyTag))
         {
             // Die and Second Chance Menu pop out
-            UIManager.Instance.CallSecondChanceMenu();
+            //UIManager.Instance.CallSecondChanceMenu();
+            if(deadState == 0)
+            {
+                deadState = 1;
+            }
         }
-        if(other.CompareTag("Coin"))
+        if(other.CompareTag("Coin") && deadState == 0)
         {
             GameManager.instance.AddCoin(1);
             Destroy(other.gameObject);
@@ -316,8 +373,11 @@ public class Movement : MonoBehaviour
         launchVelocity *= SlingshotForce;
 
         float i = MaxSlingshotForce / launchVelocity.magnitude;
-        i = i > 1 ? 1 : i;
-        launchVelocity *= i;
+        float control = i > 1 ? 1 : i;
+        if (i > 1)
+        {
+            launchVelocity *= control;
+        }
 
         return (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
     }
@@ -358,6 +418,40 @@ public class Movement : MonoBehaviour
 
             distanceCounterText.text = playerDistance.ToString("F1") + " m";
             GameManager.instance.playerDistanceTraveled = playerDistance;
+        }
+    }
+
+    // dead state == 1
+    void PlayDead()
+    {
+        if(!isDead)
+        {
+            isDead = true;
+            myRigidBody.velocity = new Vector2(0, deadVelocity);
+        }
+    }
+
+    void DropDead()
+    {
+        Vector2 cameraBottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+
+        if(myTransform.position.y <= cameraBottom.y)
+        {
+            if(deadState == 0)
+            {
+                deadState = 1;
+                Debug.Log("DropDead 0 to 1");
+            }
+            else if(deadState == 1)
+            {
+                deadState = 2;
+                Debug.Log("DropDead 1 to 2");
+            }
+            else if(deadState == 2)
+            {
+                myRigidBody.velocity = Vector2.zero;
+                Debug.Log("DropDead 2");
+            }
         }
     }
 }

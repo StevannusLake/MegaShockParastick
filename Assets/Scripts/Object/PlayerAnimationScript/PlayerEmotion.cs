@@ -24,26 +24,26 @@ public class PlayerEmotion : MonoBehaviour
 
     public void EmoteBeforeFlying()
     {
-
+        mySprite.sprite = BeforeFlying;
     }
 
     public void EmoteFlying()
     {
-
+        mySprite.sprite = Flying;
     }
 
     public void EmoteDeath()
     {
-
+        mySprite.sprite = Death;
     }
 
     public void EmoteIdle()
     {
-
+        mySprite.sprite = Idle;
     }
 
     public void EmoteStuck()
     {
-
+        mySprite.sprite = Stuck;
     }
 }
