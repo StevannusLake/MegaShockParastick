@@ -21,7 +21,8 @@ public class Movement : MonoBehaviour
     Vector2 finalInputPosition;
     Vector2 currentInputPosition;
     Vector2 slingshotVelocity;
-    public float maxSlingshotVelocity;
+    public float SlingshotForce;
+    public float MaxSlingshotForce;
     public float prevMagnitude;
     public float prevSlingShotVelocity;
     public MoveState myMoveStick;
@@ -164,7 +165,12 @@ public class Movement : MonoBehaviour
         displacementVector *= -1;
         resultantVelocity = displacementVector;
         
-        resultantVelocity *= maxSlingshotVelocity;
+        resultantVelocity *= SlingshotForce;
+        
+        float i = MaxSlingshotForce / resultantVelocity.magnitude;
+        i = i > 1 ? 1 : i;
+        resultantVelocity *= i;
+
         //keep the slingshot velocity (reza)
         prevSlingShotVelocity = resultantVelocity.magnitude;
         return resultantVelocity;
@@ -302,7 +308,11 @@ public class Movement : MonoBehaviour
         Vector2 gravity = new Vector2(0, Physics2D.gravity.magnitude);
         Vector2 launchVelocity = currentInputPosition - initialInputPosition;
         
-        launchVelocity *= maxSlingshotVelocity;
+        launchVelocity *= SlingshotForce;
+
+        float i = MaxSlingshotForce / launchVelocity.magnitude;
+        i = i > 1 ? 1 : i;
+        launchVelocity *= i;
 
         return (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
     }
