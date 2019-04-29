@@ -12,6 +12,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject bottomObject;
     public static BoxCollider2D borderCollider;
     public bool isAlreadyMade;
+    private bool DangerAlreadyMade = false;
     public int numberOfMapToGenerate = 2;
 
     private void Awake()
@@ -65,22 +66,50 @@ public class LevelGenerator : MonoBehaviour
     void RespawnPlatforms()
     {
         int randomNum = RandomNumGenerator(0, platformPlacementList.Count);
+        
         for (int i = 0; i < platformPlacementList.Count; i++)
         {
-            int randomPlatform = Random.Range(0, GameAssets.i.platformObjectsArray.Length);
-            Renderer renderer = platformPlacementList[i].GetComponent<Renderer>();
-            float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
-            GameObject Platforms = Instantiate(GameAssets.i.platformObjectsArray[randomPlatform].surfaceGameObject,
-                new Vector3(randXOnRenderer, platformPlacementList[i].transform.position.y),
-                GameAssets.i.platformObjectsArray[randomPlatform].surfaceGameObject.transform.rotation,
-                transform);
-            //Add the platform to platform list
+            if(i== (int)((platformPlacementList.Count)/2f))
+            {
+
+                Renderer renderer = platformPlacementList[i].GetComponent<Renderer>();
+                float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
+                GameObject Platforms = Instantiate(GameAssets.i.platformObjectsArray[0].surfaceGameObject,
+                    new Vector3(randXOnRenderer, platformPlacementList[i].transform.position.y),
+                    GameAssets.i.platformObjectsArray[0].surfaceGameObject.transform.rotation,
+                    transform);
+
+                //Add the platform to platform list
+
+                if (i == randomNum) ObjectSpawner.instance.RespawnCoins(Platforms.transform, GameAssets.i.platformObjectsArray[0].radiusForCoins);
+                platformList.Add(Platforms);
+            }
+            else
+            {
+
+                Renderer renderer = platformPlacementList[i].GetComponent<Renderer>();
+                float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
+                GameObject Platforms = Instantiate(GameAssets.i.platformObjectsArray[1].surfaceGameObject,
+                    new Vector3(randXOnRenderer, platformPlacementList[i].transform.position.y),
+                    GameAssets.i.platformObjectsArray[1].surfaceGameObject.transform.rotation,
+                    transform);
+
+                //Add the platform to platform list
+
+                if (i == randomNum) ObjectSpawner.instance.RespawnCoins(Platforms.transform, GameAssets.i.platformObjectsArray[1].radiusForCoins);
+                platformList.Add(Platforms);
+            }
             
-            if(i== randomNum) ObjectSpawner.instance.RespawnCoins(Platforms.transform, GameAssets.i.platformObjectsArray[randomPlatform].radiusForCoins);
-            platformList.Add(Platforms);
+
+            
+          
 
         }
     }
+
+
+
+ 
 
     private int RandomNumGenerator(int min, int max)
     {

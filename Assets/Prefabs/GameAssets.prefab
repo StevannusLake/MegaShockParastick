@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8355907324169003293
+--- !u!1 &5926361052105428501
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2807952778537847807}
-  - component: {fileID: 310374473505167149}
+  - component: {fileID: 522231353140847863}
+  - component: {fileID: 2703892033919399973}
   m_Layer: 0
   m_Name: GameAssets
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2807952778537847807
+--- !u!4 &522231353140847863
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8355907324169003293}
+  m_GameObject: {fileID: 5926361052105428501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.18530835, y: 0.45617756, z: -0.029296875}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &310374473505167149
+--- !u!114 &2703892033919399973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8355907324169003293}
+  m_GameObject: {fileID: 5926361052105428501}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4a6167c4a1d5f342b24923591d13113, type: 3}
@@ -54,7 +54,7 @@ MonoBehaviour:
     maxPitch: 0
   platformObjectsArray:
   - types: 1
-    surfaceGameObject: {fileID: 5315248456801891616, guid: bd8f9f50ce483b642ab9a03a00a1fda7,
+    surfaceGameObject: {fileID: 3701895529713030841, guid: f1610640219d0684b975bfa891a7c85a,
       type: 3}
     radiusForCoins: 0.8
   - types: 0
@@ -67,5 +67,8 @@ MonoBehaviour:
     direction: 0
   - levelLayOutPrefab: {fileID: 6297840910022389218, guid: e7f4d93472b5c0149bb4f6cb67257a64,
       type: 3}
-    direction: 0
-  itemsArray: []
+    direction: 1
+  itemsArray:
+  - itemPrefab: {fileID: 4179097162074151845, guid: 81ac7b6d0d9a45c46aced52e332248c8,
+      type: 3}
+    type: 0

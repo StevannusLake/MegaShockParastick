@@ -10,8 +10,7 @@ public class MixingCameraController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-       
+    {  
         mixingCamera = GetComponent<CinemachineMixingCamera>();
     }
 
@@ -29,5 +28,10 @@ public class MixingCameraController : MonoBehaviour
 
     }
 
+    public void StopFollowing()
+    {
+        mixingCamera.gameObject.SetActive(false);
+       
+    }
    
 }

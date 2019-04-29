@@ -9,7 +9,7 @@ public class Surfaces : MonoBehaviour
     Transform myTransform;
     CircleCollider2D myCollider;
     static float zRotation;
-
+    private int rotationSpeedRandom;
     public int stickCount = 0;
     string nSurfaceTag = "NSurface";
 
@@ -18,6 +18,7 @@ public class Surfaces : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rotationSpeedRandom = Random.Range(55, 75);
         myTransform = GetComponent<Transform>();
         myCollider = GetComponent<CircleCollider2D>();
     }
@@ -39,7 +40,7 @@ public class Surfaces : MonoBehaviour
             zRotation = 0;
         }
 
-        zRotation += rotationSpeed * Time.deltaTime * 100;
+        zRotation += rotationSpeed * Time.deltaTime * rotationSpeedRandom;
         Vector3 rotationVector = new Vector3(0, 0, zRotation);
         myTransform.eulerAngles = rotationVector;
     }
