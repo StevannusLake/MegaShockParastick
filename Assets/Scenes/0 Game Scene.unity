@@ -1709,11 +1709,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79075de4ca66274dbd97612746c1344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeforeFlying: {fileID: 0}
-  Flying: {fileID: 0}
-  Death: {fileID: 0}
-  Idle: {fileID: 0}
-  Stuck: {fileID: 0}
+  BeforeFlying: {fileID: 21300000, guid: bb02a8d48bb493f4c9246e3a59535a18, type: 3}
+  Flying: {fileID: 21300000, guid: c9c598c914f3f0349a4675996113d780, type: 3}
+  Death: {fileID: 21300000, guid: 9f4c05509b15a1543a61359c77b20f40, type: 3}
+  Idle: {fileID: 21300000, guid: e967e1e958ac27c4591668d0c47f96e4, type: 3}
+  Stuck: {fileID: 21300000, guid: 421dcf51d6cfeee4cbf4bdbd417e86a5, type: 3}
 --- !u!1 &299392137
 GameObject:
   m_ObjectHideFlags: 0
