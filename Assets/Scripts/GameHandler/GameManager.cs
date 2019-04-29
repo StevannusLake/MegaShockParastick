@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public float currentActiveLevelGeneratorID = 0;
     public LevelHandler levelHandler;
     public AudioSource audioSourcePlayer;
+    public float highScore;
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -24,9 +26,9 @@ public class GameManager : MonoBehaviour
         if (skinCollected == null)
         {
             skinCollected = new List<Skin>();
-            // skinCollected[0] = default skin  // Initialize skin
-            LoadData();     
+            // skinCollected[0] = default skin  // Initialize skin   
         }
+        LoadData();
     }
 
 
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
         coin -= n;
     }
 
-    private void SaveData()
+    public void SaveData()
     {
         for (int i = 0; i < numOfSkinCollected; ++i)
         {
@@ -75,16 +77,23 @@ public class GameManager : MonoBehaviour
         }
         PlayerPrefs.SetInt("Coin", coin);
         PlayerPrefs.SetInt("NumOfSkin", numOfSkinCollected);
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
+            {
+                PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
+            }
+        }
     }
 
-    private void LoadData()
+    public void LoadData()
     {
         numOfSkinCollected = PlayerPrefs.GetInt("NumOfSkin", 0);
         for (int i = 0; i < numOfSkinCollected; ++i)
         {
-            for (int j = 0;j < Shop.instance.skinList.Length;j++)
+            for (int j = 0; j < Shop.instance.skinList.Length; j++)
             {
-                if(Shop.instance.skinList[j].name == PlayerPrefs.GetString("Skin[" + i + "].name", ""))
+                if (Shop.instance.skinList[j].name == PlayerPrefs.GetString("Skin[" + i + "].name", ""))
                 {
                     skinCollected.Add(Shop.instance.skinList[j].GetComponent<Skin>());
                     break;
@@ -92,6 +101,8 @@ public class GameManager : MonoBehaviour
             }
         }
         coin = PlayerPrefs.GetInt("Coin", 0);
+        if (!PlayerPrefs.HasKey("HighScore"))
+            PlayerPrefs.SetFloat("HighScore", 0f);
     }
 
     void OnApplicationQuit()

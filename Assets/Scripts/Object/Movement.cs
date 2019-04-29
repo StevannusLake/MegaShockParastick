@@ -251,7 +251,6 @@ public class Movement : MonoBehaviour
         {
             // Die and Second Chance Menu pop out
             UIManager.Instance.CallSecondChanceMenu();
-            
         }
     }
 

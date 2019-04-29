@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class UIManager : MonoBehaviour
     public GameObject MainMenu;
     public Movement playerMovement;
     public GameObject SecondChanceMenu;
+    public Text currentScore;
+    public Text highScore;
+    public GameObject player;
 
     private void Awake()
     {
@@ -27,6 +31,10 @@ public class UIManager : MonoBehaviour
     public void CallLoseMenu()
     {
         LoseMenu.SetActive(true);
+        // Update score
+        GameManager.instance.SaveData();
+        currentScore.text = "" + player.GetComponent<Movement>().playerDistance.ToString("F1") + " m";
+        highScore.text = "" + PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " m";
         CloseSecondChanceMenu();
     }
 
