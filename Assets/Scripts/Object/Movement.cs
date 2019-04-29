@@ -356,6 +356,7 @@ public class Movement : MonoBehaviour
             initialPosition = this.transform.position.y;
 
             distanceCounterText.text = playerDistance.ToString("F1") + " m";
+            GameManager.instance.playerDistanceTraveled = playerDistance;
         }
     }
 }

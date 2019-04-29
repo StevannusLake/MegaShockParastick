@@ -10,6 +10,7 @@ public class LevelHandler : MonoBehaviour
     public CurrentDirection currentDirection;
     public GameObject finalLayout;
     public float currentActiveLevelGeneratorID = 0;
+    public float timerForCoinRespawn = 0;
     public int numberOfSectionToHold;
     private float screenX;
     [Header("Distance from wall which player will lose when collide with")]
@@ -31,7 +32,18 @@ public class LevelHandler : MonoBehaviour
     {
        RemovePastSections();
        LoseIfPlayerMoveOutOfScreen();
+        CheckForCoinRespawn();
          
+    }
+
+    void CheckForCoinRespawn()
+    {
+        timerForCoinRespawn += GameManager.instance.playerDistanceTraveled;
+        if (GameManager.instance.playerDistanceTraveled>20)
+        {
+            timerForCoinRespawn = 0;
+            ObjectSpawner.instance.canRespawnCoins = true;
+        }
     }
     void LoseIfPlayerMoveOutOfScreen()
     {

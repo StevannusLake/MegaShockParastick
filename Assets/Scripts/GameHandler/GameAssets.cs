@@ -48,6 +48,7 @@ public class GameAssets : MonoBehaviour
     {
         public Surfaces.SurfaceTypes types;
         public GameObject surfaceGameObject;
+        public float radiusForCoins;
     }
     #endregion
 
@@ -61,5 +62,19 @@ public class GameAssets : MonoBehaviour
         public GameObject levelLayOutPrefab;
         public CurrentDirection direction;
     }
+    #endregion
+
+
+
+    #region Items
+    
+    public Items[] itemsArray;
+    [System.Serializable]
+    public class Items
+    {
+        public GameObject itemPrefab;
+        public ItemType type;
+    }
+
     #endregion
 }

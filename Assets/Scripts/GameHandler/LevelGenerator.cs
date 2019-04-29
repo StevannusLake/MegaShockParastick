@@ -74,6 +74,7 @@ public class LevelGenerator : MonoBehaviour
                 GameAssets.i.platformObjectsArray[randomPlatform].surfaceGameObject.transform.rotation,
                 transform);
             //Add the platform to platform list
+            ObjectSpawner.instance.RespawnCoins(Platforms.transform, GameAssets.i.platformObjectsArray[randomPlatform].radiusForCoins);
             platformList.Add(Platforms);
 
         }

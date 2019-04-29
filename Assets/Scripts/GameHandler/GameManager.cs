@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private int coin = 0;
     public List<Skin> skinCollected;
     public int numOfSkinCollected = 0;
+    public float playerDistanceTraveled;
     public GameObject player;
     public static GameManager instance;
     public float currentActiveLevelGeneratorID = 0;

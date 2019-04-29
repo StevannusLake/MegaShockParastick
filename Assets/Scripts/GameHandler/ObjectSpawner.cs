@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum ItemType { Coin }
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectTypes;
     public bool shouldSpawnInStart = false;
+    public bool canRespawnCoins = false;
     float SpawnRateInSeconds = 1.0f; // First time to start the spawning . For test only
     public static ObjectSpawner instance;
     private void Awake()
@@ -49,5 +50,37 @@ public class ObjectSpawner : MonoBehaviour
         
         SpawnRateInSeconds = Random.Range(3.0f,6.0f);
         Invoke("SpawnObject", SpawnRateInSeconds);
+    }
+
+
+
+    public void RespawnCoins(Transform surfacePos , float surfaceRadius)
+    {
+        if(canRespawnCoins)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                float angle = i * Mathf.PI * 2f / 8;
+                Vector3 newPos = new Vector2(surfacePos.position.x + Mathf.Cos(angle) * surfaceRadius, surfacePos.position.y + Mathf.Sin(angle) * surfaceRadius);
+                GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), newPos, Quaternion.identity, surfacePos.parent);
+                canRespawnCoins = false;
+            }
+        }
+       
+    }
+
+
+
+    public GameObject GetGameObjectType(ItemType typeObject)
+    {
+        foreach (GameAssets.Items itemGameObject in GameAssets.i.itemsArray)
+        {
+            if (itemGameObject.type == typeObject)
+            {
+                return itemGameObject.itemPrefab;
+            }
+        }
+        Debug.LogError("Item" + typeObject + "wasnt found!");
+        return null;
     }
 }
