@@ -16,4 +16,34 @@ public class PlayerEmotion : MonoBehaviour
     {
         mySprite = GetComponent<SpriteRenderer>();
     }
+
+    private void Update()
+    {
+        
+    }
+
+    public void EmoteBeforeFlying()
+    {
+
+    }
+
+    public void EmoteFlying()
+    {
+
+    }
+
+    public void EmoteDeath()
+    {
+
+    }
+
+    public void EmoteIdle()
+    {
+
+    }
+
+    public void EmoteStuck()
+    {
+
+    }
 }
