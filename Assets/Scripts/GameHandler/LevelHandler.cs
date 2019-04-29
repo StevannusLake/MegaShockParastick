@@ -32,7 +32,7 @@ public class LevelHandler : MonoBehaviour
     private void Update()
     {
        RemovePastSections();
-       LoseIfPlayerMoveOutOfScreen();
+      // LoseIfPlayerMoveOutOfScreen();
         CheckForCoinRespawn();
          
     }

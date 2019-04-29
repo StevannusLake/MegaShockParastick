@@ -2207,7 +2207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0
-  stickCount: 0
+  stickCount: 1
   OnRotation: 0
 --- !u!1 &508106764
 GameObject:
@@ -6983,6 +6983,8 @@ MonoBehaviour:
   distanceCounterText: {fileID: 1149006335}
   initialPosition: 0
   MainMenu: {fileID: 1354248950}
+  deadVelocity: 10
+  Cinemachine: {fileID: 2087839692}
 --- !u!50 &1968270235
 Rigidbody2D:
   serializedVersion: 4

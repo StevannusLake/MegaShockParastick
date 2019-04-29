@@ -22,12 +22,9 @@ public class Water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!LoseMenu.activeSelf)
+        if (!LoseMenu.activeSelf && !MainMenu.activeSelf && Movement.deadState == 0)
         {
-            if (!MainMenu.activeSelf)
-            {
-                LiquidMove();
-            }
+            LiquidMove();
         }
     }
 
