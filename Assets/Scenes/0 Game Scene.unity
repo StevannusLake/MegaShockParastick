@@ -7438,6 +7438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7cccbfd8b777e4ea82f75b46db8fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myEmotion: {fileID: 283918336}
   SlingshotForce: 4
   MaxSlingshotForce: 12
   prevMagnitude: 0

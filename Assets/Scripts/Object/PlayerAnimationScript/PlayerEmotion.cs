@@ -10,4 +10,10 @@ public class PlayerEmotion : MonoBehaviour
     public Sprite Idle;
     public Sprite Stuck;
 
+    SpriteRenderer mySprite;
+
+    private void Start()
+    {
+        mySprite = GetComponent<SpriteRenderer>();
+    }
 }

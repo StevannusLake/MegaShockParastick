@@ -14,6 +14,7 @@ public enum MoveState
 public class Movement : MonoBehaviour
 {
     PlayerAnimation myAnimation;
+    public PlayerEmotion myEmotion;
     Transform myTransform;
     Rigidbody2D myRigidBody;
     Vector2 facingVector;
