@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
     public float initialPosition = 0;
 
     public GameObject MainMenu;
+    public GameObject SecondChanceMenu;
 
     /// <summary>
     /// 0 : alive, 1 : dead animation, 2 : die and call menu
@@ -95,15 +96,17 @@ public class Movement : MonoBehaviour
             if (!spawnDot) DecreaseCameraZoomMagnitude();
 
             DistanceCounter();
+
+            Falling();
         }
-        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 1)
+        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 1)
         {
             myEmotion.EmoteDeath();
             Cinemachine.SetActive(false);
             myCollider.isTrigger = true;
             PlayDead();
         }
-        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 2)
+        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
         {
             UIManager.Instance.CallSecondChanceMenu();
             myEmotion.EmoteIdle();
@@ -113,19 +116,20 @@ public class Movement : MonoBehaviour
             Cinemachine.SetActive(true);
         }
 
-        if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf)
+        if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf)
         {
             DropDead();
         }
-        else if(UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf)
+        else if(UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf)
         {
             deadState = 0;
+            myRigidBody.velocity = Vector2.zero;
+            myRigidBody.gravityScale = 0;
             if(myCollider.isTrigger == true)
             {
                 myCollider.isTrigger = false;
             }
         }
-        Debug.Log(deadState);
     }
 
     void SlingShot()
@@ -174,6 +178,7 @@ public class Movement : MonoBehaviour
             {
                 mousePressed = false;
                 spawnDot = false;
+                myEmotion.EmoteIdle();
             }
         }
     }
@@ -301,6 +306,8 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Vector2 cameraBottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+
         if (other.CompareTag(deadlyTag))
         {
             // Die and Second Chance Menu pop out
@@ -439,19 +446,28 @@ public class Movement : MonoBehaviour
         {
             if(deadState == 0)
             {
+                myRigidBody.velocity = Vector2.zero;
                 deadState = 1;
-                Debug.Log("DropDead 0 to 1");
+                //Debug.Log("DropDead 0 to 1");
             }
             else if(deadState == 1)
             {
                 deadState = 2;
-                Debug.Log("DropDead 1 to 2");
+                //Debug.Log("DropDead 1 to 2");
             }
             else if(deadState == 2)
             {
                 myRigidBody.velocity = Vector2.zero;
-                Debug.Log("DropDead 2");
+                //Debug.Log("DropDead 2");
             }
+        }
+    }
+
+    void Falling()
+    {
+        if(myRigidBody.velocity.y != 0)
+        {
+            myEmotion.EmoteFlying();
         }
     }
 }

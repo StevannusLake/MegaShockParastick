@@ -8,6 +8,7 @@ public class Water : MonoBehaviour
     Camera cam;
     public int waterMovingSpeed;
     public GameObject MainMenu;
+    public GameObject SecondChanceMenu;
 
     Transform myTransform;
 
@@ -22,7 +23,7 @@ public class Water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!LoseMenu.activeSelf && !MainMenu.activeSelf && Movement.deadState == 0)
+        if (!LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && Movement.deadState == 0)
         {
             LiquidMove();
         }
