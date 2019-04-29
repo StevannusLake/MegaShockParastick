@@ -10,6 +10,7 @@ public class LevelHandler : MonoBehaviour
     public CurrentDirection currentDirection;
     public GameObject finalLayout;
     public float currentActiveLevelGeneratorID = 0;
+    public float distanceToRespawnCoin;
     public float timerForCoinRespawn = 0;
     public int numberOfSectionToHold;
     private float screenX;
@@ -39,7 +40,7 @@ public class LevelHandler : MonoBehaviour
     void CheckForCoinRespawn()
     {
         timerForCoinRespawn += GameManager.instance.playerDistanceTraveled;
-        if (GameManager.instance.playerDistanceTraveled>10)
+        if (GameManager.instance.playerDistanceTraveled> distanceToRespawnCoin)
         {
             timerForCoinRespawn = 0;
             ObjectSpawner.instance.canRespawnCoins = true;
