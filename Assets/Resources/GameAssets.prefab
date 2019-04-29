@@ -60,7 +60,7 @@ MonoBehaviour:
     surfaceGameObject: {fileID: 5315248456801891616, guid: bd8f9f50ce483b642ab9a03a00a1fda7,
       type: 3}
   levelLayoutsArray:
-  - levelLayOutPrefab: {fileID: 8856757321480711151, guid: 9fc975ed833e9b14caf4deeaaf314d65,
+  - levelLayOutPrefab: {fileID: 2264447121544812085, guid: 9fc975ed833e9b14caf4deeaaf314d65,
       type: 3}
     direction: 0
   - levelLayOutPrefab: {fileID: 6297840910022389218, guid: e7f4d93472b5c0149bb4f6cb67257a64,

@@ -54,7 +54,7 @@ public class LevelHandler : MonoBehaviour
         {
             if(obj.GetComponentInChildren<LevelGenerator>().levelGeneratorID + numberOfSectionToHold < currentActiveLevelGeneratorID)
             {
-                obj.SetActive(false);
+                obj.transform.parent.gameObject.SetActive(false);
             }
         }
     }

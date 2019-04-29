@@ -6,7 +6,7 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
     public int levelGeneratorID = 0;
-   [HideInInspector] public List<GameObject> platformPlacementList;
+     public List<GameObject> platformPlacementList;
     public List<GameObject> platformList;
     public GameObject topObject;
     public GameObject bottomObject;
@@ -16,21 +16,25 @@ public class LevelGenerator : MonoBehaviour
 
     private void Awake()
     {
-        AddChildsToList();
+        
+
+        platformList = new List<GameObject>();
+        platformPlacementList = new List<GameObject>();
 
     }
     private void Start()
     {
-        borderCollider = gameObject.GetComponent<BoxCollider2D>();   
-        if (levelGeneratorID == 0) GenerateMapOnTop();    
+        borderCollider = transform.parent.Find("PipeShape").GetComponent<BoxCollider2D>();
+        AddChildsToList();
         RespawnPlatforms();
         SortAllPlatfromsBasedOnDistance();
         GetTheToppestAndBottomPlatform();
         RemoveSpriteRenderers();
         AddSelfToLevelHandler();
+        if (levelGeneratorID == 0) GenerateMapOnTop();
     }
 
-    void SendLastGeneratedLevel(LevelGenerator lastGenerator,CurrentDirection direction)
+    void SendLastGeneratedLevel(LevelGenerator lastGenerator, CurrentDirection direction)
     {
         LevelHandler.instance.GetLastGeneratedLevel(lastGenerator, direction);
     }
@@ -39,7 +43,11 @@ public class LevelGenerator : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            platformPlacementList.Add(transform.GetChild(i).gameObject);
+            if(transform.GetChild(i).gameObject.tag=="PlatformChild")
+            {
+                platformPlacementList.Add(transform.GetChild(i).gameObject);
+            }
+           
         }
     }
     void AddSelfToLevelHandler()
@@ -48,7 +56,7 @@ public class LevelGenerator : MonoBehaviour
     }
     void RemoveSpriteRenderers()
     {
-        foreach(GameObject obj in platformPlacementList)
+        foreach (GameObject obj in platformPlacementList)
         {
             obj.GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -67,14 +75,14 @@ public class LevelGenerator : MonoBehaviour
                 transform);
             //Add the platform to platform list
             platformList.Add(Platforms);
-       
+
         }
     }
-   
+
 
     private void OnGUI()
     {
-        if(GUI.Button(new Rect(0,200,100,200),"Generate Map"))
+        if (GUI.Button(new Rect(0, 200, 100, 200), "Generate Map"))
         {
             GenerateMapOnTop();
         }
@@ -86,57 +94,47 @@ public class LevelGenerator : MonoBehaviour
     }
 
     void GetTheToppestAndBottomPlatform()
-    { 
+    {
         topObject = platformList.Last();
         bottomObject = platformList.First();
     }
 
-    void GenerateMapOnTop()
+    public void GenerateMapOnTop()
     {
-        
+
         //
-        for (int i=1; i<numberOfMapToGenerate+1;i++)
+        for (int i = 1; i < numberOfMapToGenerate + 1; i++)
         {
-            float y = transform.GetComponent<BoxCollider2D>().bounds.center.y * i;
-            float desiredY = y + transform.GetComponent<BoxCollider2D>().bounds.size.y *i;
-            GameObject newLayout=  Instantiate(GameAssets.i.levelLayoutsArray[0].levelLayOutPrefab, new Vector3(transform.position.x, desiredY), Quaternion.identity);       
+            float y = transform.parent.position.y -0.01f;
+            float desiredY = y + borderCollider.bounds.size.y * i;
+            GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[0].levelLayOutPrefab, new Vector3(transform.parent.position.x, desiredY), Quaternion.identity);
             //Change level generator ID upon creation
-            newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID =+ levelGeneratorID+i;
-            newLayout.name = "LevelLayout-"+(this.levelGeneratorID + 2)+"(" +GameAssets.i.levelLayoutsArray[0].direction+")" ;
+            newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
+            newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[0].direction + ")";
             SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[0].direction);
         }
         // Make sure to sort
-       
+
 
     }
 
-   
 
 
-    [System.Serializable]
-    private class sort : IComparer<GameObject>
+
+
+
+
+
+
+}
+
+public class sort : IComparer<GameObject>
+{
+
+    int IComparer<GameObject>.Compare(GameObject _objA, GameObject _objB)
     {
-        
-        int IComparer<GameObject>.Compare(GameObject _objA, GameObject _objB)
-        {
-            float t1 = Vector2.Distance(_objA.transform.position, new Vector2(LevelGenerator.borderCollider.bounds.min.x, LevelGenerator.borderCollider.bounds.min.y));
-            float t2 = Vector2.Distance(_objB.transform.position, new Vector2(LevelGenerator.borderCollider.bounds.min.x, LevelGenerator.borderCollider.bounds.min.y));
-            return t1.CompareTo(t2);
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(levelGeneratorID!=0)
-        {
-            if (other.gameObject.tag == "Player" && !isAlreadyMade)
-            {
-                GenerateMapOnTop();
-                isAlreadyMade = true;
-            }
-           
-        }
-       
+        float t1 = Vector2.Distance(_objA.transform.position, new Vector2(LevelGenerator.borderCollider.bounds.min.x, LevelGenerator.borderCollider.bounds.min.y));
+        float t2 = Vector2.Distance(_objB.transform.position, new Vector2(LevelGenerator.borderCollider.bounds.min.x, LevelGenerator.borderCollider.bounds.min.y));
+        return t1.CompareTo(t2);
     }
 }
