@@ -80,6 +80,9 @@ public class Movement : MonoBehaviour
         facingVector = (Vector2)myTransform.right;
         
         initialPosition = this.gameObject.transform.position.y;
+
+        playerDistance = ButtonManager.instance.TempScore;
+        distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";
     }
 
     // Update is called once per frame
@@ -172,6 +175,8 @@ public class Movement : MonoBehaviour
 
                // myAnimation.PlayJump();
                 myEmotion.EmoteFlying();
+
+                AudioManager.PlaySound(AudioManager.Sound.PlayerUnstick);
             }
 
             if(Input.GetMouseButtonUp(0))
@@ -268,6 +273,8 @@ public class Movement : MonoBehaviour
 
             if (collision.collider.CompareTag(deadlyTag))
             {
+                AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
+
                 // Die and Second Chance Menu pop out
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
@@ -283,6 +290,8 @@ public class Movement : MonoBehaviour
             // stick on the surface
             if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0)
             {
+                AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
+
                 surfaceTransform = collision.gameObject.transform;
                 myTransform.SetParent(surfaceTransform);
                 myRigidBody.velocity = Vector2.zero;
@@ -310,15 +319,20 @@ public class Movement : MonoBehaviour
 
         if (other.CompareTag(deadlyTag))
         {
+            AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
+
             // Die and Second Chance Menu pop out
             //UIManager.Instance.CallSecondChanceMenu();
-            if(deadState == 0)
+            if (deadState == 0)
             {
                 deadState = 1;
             }
         }
         if(other.CompareTag("Coin") && deadState == 0)
         {
+            AudioManager.PlaySound(AudioManager.Sound.CollectCoin);
+            AudioManager.PlaySound(AudioManager.Sound.CollectCoinMain);
+
             GameManager.instance.AddCoin(1);
             Destroy(other.gameObject);
         }
@@ -423,7 +437,7 @@ public class Movement : MonoBehaviour
             playerDistance += (tempCurrentDistance - initialPosition);
             initialPosition = this.transform.position.y;
 
-            distanceCounterText.text = playerDistance.ToString("F1") + " m";
+            distanceCounterText.text = playerDistance.ToString("F1") + " mm";
             GameManager.instance.playerDistanceTraveled = playerDistance;
         }
     }
@@ -435,6 +449,8 @@ public class Movement : MonoBehaviour
         {
             isDead = true;
             myRigidBody.velocity = new Vector2(0, deadVelocity);
+
+            AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
         }
     }
 

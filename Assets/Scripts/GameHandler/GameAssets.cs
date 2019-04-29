@@ -27,8 +27,9 @@ public class GameAssets : MonoBehaviour
     {
         public AudioManager.Sound sound;
         public AudioClip audioClip;
-        [Range(0,1)]  public float minPitch;
-        [Range(0,1)] public float maxPitch;
+        [Range(0,1)]  public float minPitch = 1;
+        [Range(0,1)] public float maxPitch = 1;
+        [Range(0, 1)] public float volume = 1;
     }
 
 

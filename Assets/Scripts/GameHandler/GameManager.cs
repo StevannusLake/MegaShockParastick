@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
             // skinCollected[0] = default skin  // Initialize skin   
         }
         LoadData();
+
+        AudioManager.PlaySound(AudioManager.Sound.InGameBGM);
     }
 
 

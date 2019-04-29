@@ -45,13 +45,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundAudioClipArray:
   - sound: 0
-    audioClip: {fileID: 0}
-    minPitch: 0
-    maxPitch: 0
+    audioClip: {fileID: 8300000, guid: 69c332c2de9715e40b9ca64b33cf12e8, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
   - sound: 1
-    audioClip: {fileID: 0}
-    minPitch: 0
-    maxPitch: 0
+    audioClip: {fileID: 8300000, guid: 44bd9e2bdcceff64f8c7bd8ef98fd374, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 22ac086ed9e646742ac3e05599fd7664, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: d8989fb46899c6a4bb80969edb3673f5, type: 3}
+    minPitch: 0.7
+    maxPitch: 1
+    volume: 0.7
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: f1e07e57442f81c4cbe8e312a298b315, type: 3}
+    minPitch: 0.7
+    maxPitch: 1
+    volume: 0.7
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: b7a489f9d9a611849849a3cc84fb3ef8, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: 7cf208c9464e52e43b16a85d639e9369, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
+  - sound: 7
+    audioClip: {fileID: 8300000, guid: d4bba1d6ed923844b8f40c59e36c31d4, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: 4c4ac1e7c3aeb6b42abccd8a09ceba31, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: f00fe7928d95b2247b19c2094cdfa244, type: 3}
+    minPitch: 1
+    maxPitch: 1
+    volume: 0.7
   platformObjectsArray:
   - types: 1
     surfaceGameObject: {fileID: 3701895529713030841, guid: f1610640219d0684b975bfa891a7c85a,

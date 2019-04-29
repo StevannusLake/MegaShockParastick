@@ -6,10 +6,17 @@ public static class AudioManager
 {
     public enum Sound
     {
-        PlayerJump,
-        PlayerMove,
-        ExampleSoundThatPlayEveryFrame,
+        PlayerUnstick,
         PlayerStick,
+        Button,
+        CollectCoin,
+        CollectCoinMain,
+        Continue,
+        Lose,
+        PlayerDie,
+        Reborn,
+        InGameBGM,
+
     }
 
     
@@ -17,7 +24,7 @@ public static class AudioManager
     public static void Initialize()
     {
         soundTimerDictionary = new Dictionary<Sound, float>();
-        soundTimerDictionary[Sound.ExampleSoundThatPlayEveryFrame] = 0;
+        soundTimerDictionary[Sound.PlayerUnstick] = 0;
         
     }
 
@@ -30,6 +37,7 @@ public static class AudioManager
         if(CanPlaySound(sound))
         {
             GameManager.instance.audioSourcePlayer.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
+            GameManager.instance.audioSourcePlayer.volume = GetAudioClipVolume(sound);
             GameManager.instance.audioSourcePlayer.PlayOneShot(GetAudioClip(sound));        
         }
   
@@ -54,7 +62,7 @@ public static class AudioManager
             default:
                 return true;
 
-            case Sound.ExampleSoundThatPlayEveryFrame:
+            case Sound.PlayerUnstick:
                 if(soundTimerDictionary.ContainsKey(sound))
                 {
                     float lastTimePlayed = soundTimerDictionary[sound];
@@ -110,6 +118,18 @@ public static class AudioManager
             if (soundAudioClip.sound == sound)
             {
                 return soundAudioClip.maxPitch;
+            }
+        }
+        Debug.LogError("Sound" + sound + "wasnt found!");
+        return 0;
+    }
+    private static float GetAudioClipVolume(Sound sound)
+    {
+        foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
+        {
+            if (soundAudioClip.sound == sound)
+            {
+                return soundAudioClip.volume;
             }
         }
         Debug.LogError("Sound" + sound + "wasnt found!");
