@@ -252,6 +252,11 @@ public class Movement : MonoBehaviour
             // Die and Second Chance Menu pop out
             UIManager.Instance.CallSecondChanceMenu();
         }
+        if(other.CompareTag("Coin"))
+        {
+            GameManager.instance.AddCoin(1);
+            Destroy(other.gameObject);
+        }
     }
 
 

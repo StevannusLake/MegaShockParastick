@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     public Text currentScore;
     public Text highScore;
     public GameObject player;
+    public GameObject scoreInGameUI;
+    public Text highScoreInMainMenu;
+    public Text coinText;
+    public Text coinText2;
 
     private void Awake()
     {
@@ -28,13 +32,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        highScoreInMainMenu.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore",0).ToString("F1")+" m";
+    }
+
     public void CallLoseMenu()
     {
         LoseMenu.SetActive(true);
         // Update score
         GameManager.instance.SaveData();
-        currentScore.text = "" + player.GetComponent<Movement>().playerDistance.ToString("F1") + " m";
+        scoreInGameUI.SetActive(false);
+        currentScore.text = "Your Score : " + player.GetComponent<Movement>().playerDistance.ToString("F1") + " m";
         highScore.text = "" + PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " m";
+        coinText.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
         CloseSecondChanceMenu();
     }
 
@@ -64,6 +75,7 @@ public class UIManager : MonoBehaviour
     public void CallSecondChanceMenu()
     {        
         SecondChanceMenu.SetActive(true);
+        coinText2.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
     }
 
     public void CloseSecondChanceMenu()
