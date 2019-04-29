@@ -62,7 +62,7 @@ MonoBehaviour:
       type: 3}
     radiusForCoins: 0.8
   levelLayoutsArray:
-  - levelLayOutPrefab: {fileID: 2264447121544812085, guid: 9fc975ed833e9b14caf4deeaaf314d65,
+  - levelLayOutPrefab: {fileID: 7974139658797291163, guid: 9fc975ed833e9b14caf4deeaaf314d65,
       type: 3}
     direction: 0
   - levelLayOutPrefab: {fileID: 6297840910022389218, guid: e7f4d93472b5c0149bb4f6cb67257a64,
