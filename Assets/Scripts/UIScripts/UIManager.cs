@@ -54,12 +54,16 @@ public class UIManager : MonoBehaviour
     }
 
     public void CallSecondChanceMenu()
-    {
+    {        
         SecondChanceMenu.SetActive(true);
     }
 
     public void CloseSecondChanceMenu()
     {
+        if (GameManager.instance.GetCoin() >= 25)
+        {
+            GameManager.instance.DecreaseCoin(25);
+        }
         SecondChanceMenu.SetActive(false);
     }
 }
