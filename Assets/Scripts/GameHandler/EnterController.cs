@@ -6,9 +6,10 @@ public class EnterController : MonoBehaviour
 {
     private LevelGenerator levelGenerator;
 
-    private void Start()
+    private void Awake()
     {
-        levelGenerator = transform.parent.GetComponentInChildren<LevelGenerator>();
+       
+        levelGenerator = transform.parent.gameObject.GetComponentInChildren<LevelGenerator>();
     }
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)

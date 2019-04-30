@@ -65,7 +65,8 @@ public class LevelGenerator : MonoBehaviour
 
     void RespawnPlatforms()
     {
-        int randomNum = RandomNumGenerator(0, platformPlacementList.Count);
+
+
         
         for (int i = 0; i < platformPlacementList.Count; i++)
         {
@@ -80,8 +81,6 @@ public class LevelGenerator : MonoBehaviour
                     transform);
 
                 //Add the platform to platform list
-
-                if (i == randomNum) ObjectSpawner.instance.RespawnCoins(Platforms.transform, GameAssets.i.platformObjectsArray[0].radiusForCoins);
                 platformList.Add(Platforms);
             }
             else
@@ -95,24 +94,32 @@ public class LevelGenerator : MonoBehaviour
                     transform);
 
                 //Add the platform to platform list
-
-                if (i == randomNum) ObjectSpawner.instance.RespawnCoins(Platforms.transform, GameAssets.i.platformObjectsArray[1].radiusForCoins);
                 platformList.Add(Platforms);
-            }
-            
 
-            
-          
+            }
+
+            //RespawnCoins
+            int randomNum = RandomNumGenerator(0, platformList.Count);
+            if(platformList[randomNum].tag=="Deadly")
+            {
+                randomNum= RandomNumGenerator(0, platformList.Count);
+            }
+            ObjectSpawner.instance.RespawnCoins(platformList[randomNum].transform, GameAssets.i.platformObjectsArray[0].radiusForCoins);
+            ////////////////////////////////////
+
 
         }
+
+       
     }
 
 
 
  
 
-    private int RandomNumGenerator(int min, int max)
+    private int RandomNumGenerator(int min, int max )
     {
+       
         int random = Random.Range(min, max);
         return random;
     }
