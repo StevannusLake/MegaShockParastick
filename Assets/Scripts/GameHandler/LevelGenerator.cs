@@ -162,7 +162,7 @@ public class LevelGenerator : MonoBehaviour
             }
             else if (LevelHandler.instance.currentDirection == CurrentDirection.RIGHT)
             {
-                float x = transform.parent.position.x + borderCollider.bounds.size.x;
+                float x = transform.position.x + (borderCollider.bounds.size.x-0.01f) *i;
                 float desiredY = transform.parent.position.y;
                 GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(x, desiredY), Quaternion.identity);
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
