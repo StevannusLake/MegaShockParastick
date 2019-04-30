@@ -6,7 +6,7 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
     public int levelGeneratorID = 0;
-     public List<GameObject> platformPlacementList;
+    public List<GameObject> platformPlacementList;
     public List<GameObject> platformList;
     public GameObject topObject;
     public GameObject bottomObject;
@@ -17,7 +17,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void Awake()
     {
-        
+
 
         platformList = new List<GameObject>();
         platformPlacementList = new List<GameObject>();
@@ -44,11 +44,11 @@ public class LevelGenerator : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if(transform.GetChild(i).gameObject.tag=="PlatformChild")
+            if (transform.GetChild(i).gameObject.tag == "PlatformChild")
             {
                 platformPlacementList.Add(transform.GetChild(i).gameObject);
             }
-           
+
         }
     }
     void AddSelfToLevelHandler()
@@ -67,10 +67,10 @@ public class LevelGenerator : MonoBehaviour
     {
 
 
-        
+
         for (int i = 0; i < platformPlacementList.Count; i++)
         {
-            if(i== (int)((platformPlacementList.Count)/2f))
+            if (i == (int)((platformPlacementList.Count) / 2f))
             {
 
                 Renderer renderer = platformPlacementList[i].GetComponent<Renderer>();
@@ -100,9 +100,9 @@ public class LevelGenerator : MonoBehaviour
 
             //RespawnCoins
             int randomNum = RandomNumGenerator(0, platformList.Count);
-            if(platformList[randomNum].tag=="Deadly")
+            if (platformList[randomNum].tag == "Deadly")
             {
-                randomNum= RandomNumGenerator(0, platformList.Count);
+                randomNum = RandomNumGenerator(0, platformList.Count);
             }
             ObjectSpawner.instance.RespawnCoins(platformList[randomNum].transform, GameAssets.i.platformObjectsArray[0].radiusForCoins);
             ////////////////////////////////////
@@ -110,16 +110,16 @@ public class LevelGenerator : MonoBehaviour
 
         }
 
-       
+
     }
 
 
 
- 
 
-    private int RandomNumGenerator(int min, int max )
+
+    private int RandomNumGenerator(int min, int max)
     {
-       
+
         int random = Random.Range(min, max);
         return random;
     }
@@ -137,32 +137,47 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateMapOnTop()
     {
+        int randomNum = 0;
+        if (LevelHandler.instance.currentDirection == CurrentDirection.UP)
+        {
+            randomNum = Random.Range(0, 2);
+        }
+        if (LevelHandler.instance.currentDirection == CurrentDirection.RIGHT)
+        {
+            randomNum = 2;
+        }
+        // 
 
-        //
         for (int i = 1; i < numberOfMapToGenerate + 1; i++)
         {
-            float y = transform.parent.position.y -0.01f;
-            float desiredY = y + borderCollider.bounds.size.y * i;
-            GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[0].levelLayOutPrefab, new Vector3(transform.parent.position.x, desiredY), Quaternion.identity);
-            //Change level generator ID upon creation
-            newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
-            newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[0].direction + ")";
-            SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[0].direction);
+
+            if (LevelHandler.instance.currentDirection == CurrentDirection.UP)
+            {
+                float y = transform.parent.position.y - 0.01f;
+                float desiredY = y + borderCollider.bounds.size.y * i;              
+                GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(transform.parent.position.x, desiredY), Quaternion.identity);
+                newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[randomNum].direction + ")";
+                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[randomNum].direction);
+            }
+            else if (LevelHandler.instance.currentDirection == CurrentDirection.RIGHT)
+            {
+                float x = transform.parent.position.x + borderCollider.bounds.size.x;
+                float desiredY = transform.parent.position.y;
+                GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(x, desiredY), Quaternion.identity);
+                newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[2].direction + ")";
+                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[2].direction);
+            }
+
+
+
         }
-        // Make sure to sort
-
-
     }
 
+ 
 
-
-
-
-
-
-
-
-}
+    }
 
 public class sort : IComparer<GameObject>
 {
