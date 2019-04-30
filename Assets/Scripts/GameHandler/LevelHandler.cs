@@ -11,7 +11,7 @@ public class LevelHandler : MonoBehaviour
     public GameObject finalLayout;
     public float currentActiveLevelGeneratorID = 0;
     public float distanceToRespawnCoin;
-    public float timerForCoinRespawn = 0;
+    [HideInInspector]public float timerForCoinRespawn = 0;
     public int numberOfSectionToHold;
     private float screenX;
     [Header("Distance from wall which player will lose when collide with")]
@@ -32,7 +32,7 @@ public class LevelHandler : MonoBehaviour
     private void Update()
     {
        RemovePastSections();
-      // LoseIfPlayerMoveOutOfScreen();
+       LoseIfPlayerMoveOutOfScreen();
         CheckForCoinRespawn();
          
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class AudioManager 
 {
+    
     public enum Sound
     {
         PlayerUnstick,
@@ -36,9 +37,29 @@ public static class AudioManager
     {
         if(CanPlaySound(sound))
         {
-            GameManager.instance.audioSourcePlayer.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
-            GameManager.instance.audioSourcePlayer.volume = GetAudioClipVolume(sound);
-            GameManager.instance.audioSourcePlayer.PlayOneShot(GetAudioClip(sound));        
+            string soundName = sound.ToString();
+            if(GameManager.instance.soundSourcesCreated.Contains(soundName))
+            {
+                GameObject audioSource = GameManager.instance.audioSourcePlayer.transform.Find(soundName.ToString()).gameObject;
+                AudioSource source = audioSource.GetComponent<AudioSource>();
+                source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
+                source.volume = GetAudioClipVolume(sound);
+                source.PlayOneShot(GetAudioClip(sound));
+            }
+            
+            else if (!GameManager.instance.soundSourcesCreated.Contains(soundName))
+            {
+                GameManager.instance.soundSourcesCreated.Add(soundName);
+                GameObject soundSourceGO = new GameObject(soundName);
+                soundSourceGO.transform.SetParent(GameManager.instance.audioSourcePlayer.transform);
+                soundSourceGO.AddComponent<AudioSource>();
+                AudioSource source = soundSourceGO.GetComponent<AudioSource>();
+                source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
+                source.volume= GetAudioClipVolume(sound);
+                source.PlayOneShot(GetAudioClip(sound));
+            }
+            
+                  
         }
   
     }

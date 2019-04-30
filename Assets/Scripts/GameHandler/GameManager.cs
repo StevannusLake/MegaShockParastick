@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    public List<string> soundSourcesCreated;
     private int coin = 0;
     public List<Skin> skinCollected;
     public int numOfSkinCollected = 0;
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public float currentActiveLevelGeneratorID = 0;
     public LevelHandler levelHandler;
-    public AudioSource audioSourcePlayer;
+    public GameObject audioSourcePlayer;
     public float highScore;
 
     void Awake()
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
             // skinCollected[0] = default skin  // Initialize skin   
         }
         LoadData();
-
+        soundSourcesCreated = new List<string>();
         AudioManager.PlaySound(AudioManager.Sound.InGameBGM);
     }
 
