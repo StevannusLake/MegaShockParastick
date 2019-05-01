@@ -71,6 +71,20 @@ public class ObjectSpawner : MonoBehaviour
        
     }
 
+    public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
+    {
+        int randomNumberOfCoins = Random.Range(3, 10);
+        for (int i = 1; i < 5; i++)
+          {
+            Vector2 position= firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 0.25f * i;
+            Vector2 offsetPosition = position +(new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y)) 
+                - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
+            GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
+        }
+               
+
+    }
+
 
 
     public GameObject GetGameObjectType(ItemType typeObject)
