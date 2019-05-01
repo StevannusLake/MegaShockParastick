@@ -43,7 +43,7 @@ public class LevelHandler : MonoBehaviour
         if (GameManager.instance.playerDistanceTraveled> distanceToRespawnCoin)
         {
             timerForCoinRespawn = 0;
-            ObjectSpawner.instance.canRespawnCoins = true;
+            ObjectSpawner.instance.canRespawnCoinsAround = true;
         }
     }
     void LoseIfPlayerMoveOutOfScreen()

@@ -6,7 +6,8 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectTypes;
     public bool shouldSpawnInStart = false;
-    public bool canRespawnCoins = true;
+    public bool canRespawnCoinsAround = true;
+    public bool canRespawnCoinsMiddle = false;
     float SpawnRateInSeconds = 1.0f; // First time to start the spawning . For test only
     public static ObjectSpawner instance;
     private void Awake()
@@ -56,7 +57,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnCoins(Transform surfacePos , float surfaceRadius)
     {
-        if(canRespawnCoins)
+        if(canRespawnCoinsAround)
         {
             int randomNumberOfCoins = Random.Range(3, 10);
             for (int i = 0; i < randomNumberOfCoins; i++)
@@ -66,28 +67,53 @@ public class ObjectSpawner : MonoBehaviour
                 GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), newPos, Quaternion.identity, surfacePos.parent);
                 
             }
-            canRespawnCoins = false;
+            canRespawnCoinsAround = false;
         }
        
     }
 
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        int randomNumberOfCoins = Random.Range(3, 10);
-        for (int i = 1; i < 5; i++)
-          {
-            Vector2 position= firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 0.25f * i;
-            Vector2 offsetPosition = position +(new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y)) 
-                - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
-            GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
-        }
+        int randomNumberOfCoins = Random.Range(3, 6);
+        int randomNumberForChance = Random.Range(0, 2);
+        if (randomNumberForChance == 0) canRespawnCoinsMiddle = true;
+        if(canRespawnCoinsMiddle)
+        {
+            for (int i = 1; i < randomNumberOfCoins; i++)
+            {
+                Vector2 position = firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / randomNumberOfCoins * i;
+                Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
+                    - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
+                if (checkIfPosEmpty(offsetPosition))
+                {
+                    GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
+                }
                
+                
+            }
+            canRespawnCoinsMiddle = false;
+        }
+
 
     }
 
+  
 
 
-    public GameObject GetGameObjectType(ItemType typeObject)
+public bool checkIfPosEmpty(Vector3 targetPos)
+{
+    GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Coin");
+    foreach (GameObject current in allMovableThings)
+    {
+        if (current.transform.position == targetPos)
+            return false;
+    }
+    return true;
+}
+
+
+
+public GameObject GetGameObjectType(ItemType typeObject)
     {
         foreach (GameAssets.Items itemGameObject in GameAssets.i.itemsArray)
         {
