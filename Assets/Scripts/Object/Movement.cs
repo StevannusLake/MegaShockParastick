@@ -63,6 +63,10 @@ public class Movement : MonoBehaviour
     public static int deadState = 0;
     public float deadVelocity;
     bool isDead;
+    // fix dead update too fast for falling off camera bottom edge
+    float deadTimer = 0.5f;
+    float deadCounter;
+    bool deadFix;
 
     public GameObject Cinemachine;
 
@@ -128,10 +132,11 @@ public class Movement : MonoBehaviour
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
             myRigidBody.gravityScale = 0;
-            if(myCollider.isTrigger == true)
+            if (myCollider.isTrigger == true)
             {
                 myCollider.isTrigger = false;
             }
+            mousePressed = false;
         }
     }
 
@@ -225,10 +230,7 @@ public class Movement : MonoBehaviour
         
         float i = MaxSlingshotForce / resultantVelocity.magnitude;
         float control = i > 1 ? 1 : i;
-        if( i > 1)
-        {
-            resultantVelocity *= control;
-        }
+        resultantVelocity *= control;
 
         //keep the slingshot velocity (reza)
         prevSlingShotVelocity = resultantVelocity.magnitude;
@@ -274,7 +276,7 @@ public class Movement : MonoBehaviour
             if (collision.collider.CompareTag(deadlyTag))
             {
                 AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-
+                
                 // Die and Second Chance Menu pop out
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
@@ -320,7 +322,7 @@ public class Movement : MonoBehaviour
         if (other.CompareTag(deadlyTag))
         {
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-
+            
             // Die and Second Chance Menu pop out
             //UIManager.Instance.CallSecondChanceMenu();
             if (deadState == 0)
@@ -395,10 +397,7 @@ public class Movement : MonoBehaviour
 
         float i = MaxSlingshotForce / launchVelocity.magnitude;
         float control = i > 1 ? 1 : i;
-        if (i > 1)
-        {
-            launchVelocity *= control;
-        }
+        launchVelocity *= control;
 
         return (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
     }
@@ -458,15 +457,29 @@ public class Movement : MonoBehaviour
     {
         Vector2 cameraBottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
 
+        if(deadFix)
+        {
+            if (deadCounter >= deadTimer)
+            {
+                deadCounter = 0;
+                deadFix = false;
+            }
+            else
+            {
+                deadCounter += Time.deltaTime;
+            }
+        }
+
         if(myTransform.position.y <= cameraBottom.y)
         {
-            if(deadState == 0)
+            if (deadState == 0)
             {
                 myRigidBody.velocity = Vector2.zero;
                 deadState = 1;
+                deadFix = true;
                 //Debug.Log("DropDead 0 to 1");
             }
-            else if(deadState == 1)
+            else if(deadState == 1 && !deadFix)
             {
                 deadState = 2;
                 //Debug.Log("DropDead 1 to 2");
@@ -487,3 +500,9 @@ public class Movement : MonoBehaviour
         }
     }
 }
+
+/*
+ * 
+ *
+ * 
+ */
