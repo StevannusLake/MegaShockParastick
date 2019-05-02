@@ -320,7 +320,10 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+        if (collision.collider.CompareTag(surfaceTag))
+        {
+            surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+        }
         if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1)
         {
             surfaceStickCount = 2;
@@ -384,7 +387,7 @@ public class Movement : MonoBehaviour
 
                 if(temp != Vector2.zero)
                 {
-                    float bounceXPos = trajectoryDots[i].transform.position.x + ( (temp.x - trajectoryDots[i].transform.position.x) * 2);
+                    float bounceXPos = trajectoryDots[i].transform.position.x + ( (temp.x - trajectoryDots[i].transform.position.x) * 2.0f);
                     trajectoryDots[i].transform.position = new Vector2(bounceXPos, trajectoryDots[i].transform.position.y);
                 }
 
