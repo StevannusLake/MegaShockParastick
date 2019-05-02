@@ -324,7 +324,7 @@ public class Movement : MonoBehaviour
         {
             surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
         }
-        if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1)
+        if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1 && myMoveStick == MoveState.FLYING)
         {
             surfaceStickCount = 2;
             collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
