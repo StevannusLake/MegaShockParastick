@@ -13,7 +13,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     void Start()
     {
-        skinImage = GetComponent<SpriteRenderer>().sprite;
+        skinImage = GetComponent<Button>().image.sprite;
     }
 
     void Update()
@@ -44,6 +44,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         {
             // Shows Confirmation Menu
             Shop.instance.skinSelecting = GetComponent<Skin>();
+            Debug.Log("Selected");
         }
         else
         {

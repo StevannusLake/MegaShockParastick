@@ -82,11 +82,14 @@ public class GameManager : MonoBehaviour
         }
         PlayerPrefs.SetInt("Coin", coin);
         PlayerPrefs.SetInt("NumOfSkin", numOfSkinCollected);
-        if (PlayerPrefs.HasKey("HighScore"))
+        if(SceneManager.GetActiveScene().name != "Shop" || SceneManager.GetActiveScene().name != "Challenges")
         {
-            if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
+            if (PlayerPrefs.HasKey("HighScore"))
             {
-                PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
+                if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
+                {
+                    PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
+                }
             }
         }
     }

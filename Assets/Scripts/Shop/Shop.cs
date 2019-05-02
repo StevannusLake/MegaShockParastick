@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -8,12 +10,21 @@ public class Shop : MonoBehaviour
     public Skin skinSelecting;
     public enum ShopState { parasite,place,coins};
     public ShopState shopState;
+    public Text coinText;
 
     public static Shop instance;
     void Awake()
     {
         if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "Shop")
+        {
+            coinText.text = ""+PlayerPrefs.GetInt("Coin", 0);
+        }
     }
 
     void Display()

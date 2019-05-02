@@ -988,7 +988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.09}
-  m_AnchoredPosition: {x: 0, y: -4.83}
+  m_AnchoredPosition: {x: 0, y: -4.829956}
   m_SizeDelta: {x: 0, y: 9.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &405475721
@@ -1227,9 +1227,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '0
-
-'
+  m_Text: 0
 --- !u!222 &423138087
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2639,6 +2637,7 @@ GameObject:
   - component: {fileID: 732782368}
   - component: {fileID: 732782367}
   - component: {fileID: 732782366}
+  - component: {fileID: 732782369}
   m_Layer: 5
   m_Name: Skin 1
   m_TagString: Untagged
@@ -2744,6 +2743,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732782364}
   m_CullTransparentMesh: 0
+--- !u!114 &732782369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732782364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  price: 0
+  skinName: 
+  skinImage: {fileID: 0}
 --- !u!1 &737257785
 GameObject:
   m_ObjectHideFlags: 0
@@ -4600,7 +4615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78877e7b31bc418488aa733687f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parasiteBottomObject: {fileID: 0}
+  parasiteBottomObject: {fileID: 649662754}
   placeBottomObject: {fileID: 297455335}
   coinsBottomObject: {fileID: 1385261317}
   challengesBottom: {fileID: 0}
@@ -6388,7 +6403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1893787469
@@ -7018,6 +7033,7 @@ MonoBehaviour:
   skinList: []
   skinSelecting: {fileID: 0}
   shopState: 0
+  coinText: {fileID: 423138086}
 --- !u!114 &2008799188
 MonoBehaviour:
   m_ObjectHideFlags: 0
