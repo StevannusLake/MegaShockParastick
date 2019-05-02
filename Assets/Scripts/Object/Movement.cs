@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour
 
     string surfaceTag = "Surface";
     string deadlyTag = "Deadly";
+    string horizontalWall = "HorizontalWall";
 
     //=======================================================================================================================
     // Trajectory dots
@@ -271,10 +272,9 @@ public class Movement : MonoBehaviour
     {
         if(!MainMenu.activeSelf && deadState == 0)
         {
-            myRigidBody.velocity = Vector2.zero;
-
             if (collision.collider.CompareTag(deadlyTag))
             {
+                myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
                 
                 // Die and Second Chance Menu pop out
@@ -284,14 +284,16 @@ public class Movement : MonoBehaviour
                     deadState = 1;
                 }
             }
-            else
+            else if(collision.collider.CompareTag(surfaceTag))
             {
+                myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
             }
 
             // stick on the surface
             if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0)
             {
+                myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
 
                 surfaceTransform = collision.gameObject.transform;
@@ -306,13 +308,7 @@ public class Movement : MonoBehaviour
                // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
             }
-/*
-            if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 1)
-            {
-                // Die and Second Chance Menu pop out
-                UIManager.Instance.CallSecondChanceMenu();
-            }
- */       }
+       }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -399,9 +395,38 @@ public class Movement : MonoBehaviour
         float control = i > 1 ? 1 : i;
         launchVelocity *= control;
 
-        return (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
+        Vector2 resultVector = (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
+        
+        return resultVector;
     }
 
+    // The WALL ================================================================================================
+    // calculate the position of dots over time when hit wall
+    private Vector2 CalculateDotHitWall(GameObject prevDot, GameObject currentDot)
+    {
+        RaycastHit2D hit;
+
+        Vector2 direction = currentDot.transform.position - prevDot.transform.position;
+        float distance = direction.magnitude;
+
+        hit = Physics2D.Raycast(prevDot.transform.position, direction, distance);
+        Physics2D.queriesStartInColliders = false;
+        Physics2D.queriesHitTriggers = false;
+
+        CircleCollider2D prevDotCollider = prevDot.GetComponent<CircleCollider2D>();
+        CircleCollider2D currentDotCollider = currentDot.GetComponent<CircleCollider2D>();
+
+        Physics2D.IgnoreCollision(prevDotCollider, currentDotCollider);
+
+        // The WALL ================================================================================================
+        if (hit)
+        {
+
+        }
+
+        return Vector2.zero;
+    }
+    
     bool DotHitsSurface(GameObject prevDot, GameObject currentDot)
     {
         RaycastHit2D hit;

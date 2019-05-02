@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 3711519772452594762}
   m_Layer: 0
   m_Name: WallCollider (4)
-  m_TagString: Deadly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -456,7 +456,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3707282221905347233}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1987fd99156efae429cfd30a74e79e48, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 1954578537924078661}
   m_Layer: 0
   m_Name: WallCollider (3)
-  m_TagString: Deadly
+  m_TagString: HorizontalWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,7 +513,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4317760886309355456}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1987fd99156efae429cfd30a74e79e48, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 9913990326179540}
   m_Layer: 0
   m_Name: WallCollider (2)
-  m_TagString: Deadly
+  m_TagString: HorizontalWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,7 +649,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5907309571355951647}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1987fd99156efae429cfd30a74e79e48, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
