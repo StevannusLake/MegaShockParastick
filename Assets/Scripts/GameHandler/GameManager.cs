@@ -74,24 +74,29 @@ public class GameManager : MonoBehaviour
         coin -= n;
     }
 
-    public void SaveData()
-    {
-        for (int i = 0; i < numOfSkinCollected; ++i)
-        {
-            PlayerPrefs.SetString("Skin[" + i + "].name", skinCollected[i].name);
-        }
+    public void SaveCoin()
+    {       
         PlayerPrefs.SetInt("Coin", coin);
-        PlayerPrefs.SetInt("NumOfSkin", numOfSkinCollected);
-        if(SceneManager.GetActiveScene().name != "Shop" || SceneManager.GetActiveScene().name != "Challenges")
+    }
+
+    public void SaveScore()
+    {
+        if (PlayerPrefs.HasKey("HighScore"))
         {
-            if (PlayerPrefs.HasKey("HighScore"))
+            if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
             {
-                if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
-                {
-                    PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
-                }
+                PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
             }
         }
+    }
+
+    public void SaveSkin()
+    {
+        PlayerPrefs.SetInt("NumOfSkin", numOfSkinCollected);
+        //for (int i = 0; i < numOfSkinCollected; ++i)
+        //{
+        //    PlayerPrefs.SetString("Skin[" + i + "].name", skinCollected[i].name);
+        //}
     }
 
     public void LoadData()
@@ -115,7 +120,8 @@ public class GameManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        SaveData();
+        SaveCoin();
+        SaveSkin();
     }
 
 

@@ -10,10 +10,12 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public int price;
     public string skinName;
     public Sprite skinImage;
+    public GameObject confirmationMenu;
 
     void Start()
     {
         skinImage = GetComponent<Button>().image.sprite;
+        confirmationMenu = GameObject.FindWithTag("BuyConfirmationMenu");
     }
 
     void Update()
@@ -43,8 +45,8 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         if(CheckCoinEnough())
         {
             // Shows Confirmation Menu
+            Shop.instance.BuyConfirmationMenu.SetActive(true);
             Shop.instance.skinSelecting = GetComponent<Skin>();
-            Debug.Log("Selected");
         }
         else
         {

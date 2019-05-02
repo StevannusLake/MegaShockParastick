@@ -11,6 +11,7 @@ public class Shop : MonoBehaviour
     public enum ShopState { parasite,place,coins};
     public ShopState shopState;
     public Text coinText;
+    public GameObject BuyConfirmationMenu;
 
     public static Shop instance;
     void Awake()
@@ -23,7 +24,7 @@ public class Shop : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "Shop")
         {
-            coinText.text = ""+PlayerPrefs.GetInt("Coin", 0);
+            coinText.text = ""+GameManager.instance.GetCoin();
         }
     }
 
@@ -39,11 +40,14 @@ public class Shop : MonoBehaviour
         GameManager.instance.DecreaseCoin(skinSelecting.price);
         GameManager.instance.numOfSkinCollected++;
         // close the buy confirmation menu
+        BuyConfirmationMenu.SetActive(false);
+        GameManager.instance.SaveSkin();
     }
 
     //For button OnClick() function
     public void CancelBuy()
     {
         // close the buy confirmation menu
+        BuyConfirmationMenu.SetActive(false);
     }
 }

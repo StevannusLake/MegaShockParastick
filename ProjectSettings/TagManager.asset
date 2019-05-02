@@ -9,6 +9,7 @@ TagManager:
   - PlatformChild
   - Coin
   - HorizontalWall
+  - BuyConfirmationMenu
   layers:
   - Default
   - TransparentFX
