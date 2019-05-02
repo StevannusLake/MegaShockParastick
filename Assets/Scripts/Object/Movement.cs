@@ -68,6 +68,8 @@ public class Movement : MonoBehaviour
     float deadTimer = 0.5f;
     float deadCounter;
     bool deadFix;
+    // cancel indicator
+    public GameObject cancelIndicator;
 
     public GameObject Cinemachine;
 
@@ -156,6 +158,9 @@ public class Movement : MonoBehaviour
 
                // myAnimation.PlayHold();
                 myEmotion.EmoteBeforeFlying();
+
+                cancelIndicator.transform.position = initialInputPosition;
+                cancelIndicator.SetActive(true);
             }
 
             if(mousePressed)
@@ -190,6 +195,8 @@ public class Movement : MonoBehaviour
                 mousePressed = false;
                 spawnDot = false;
                 myEmotion.EmoteIdle();
+
+                cancelIndicator.SetActive(false);
             }
         }
     }
@@ -360,7 +367,15 @@ public class Movement : MonoBehaviour
                     previousDotObject = gameObject;
                 }
 
-                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]))
+                Vector2 temp = CalculateDotHitWall(trajectoryDots[i]);
+
+                if(temp != Vector2.zero)
+                {
+                    float bounceXPos = trajectoryDots[i].transform.position.x + ( (temp.x - trajectoryDots[i].transform.position.x) * 2);
+                    trajectoryDots[i].transform.position = new Vector2(bounceXPos, trajectoryDots[i].transform.position.y);
+                }
+
+        if (!DotHitsSurface(previousDotObject, trajectoryDots[i]))
                 {
                     trajectoryDots[i].SetActive(true);
                 }
@@ -402,26 +417,25 @@ public class Movement : MonoBehaviour
 
     // The WALL ================================================================================================
     // calculate the position of dots over time when hit wall
-    private Vector2 CalculateDotHitWall(GameObject prevDot, GameObject currentDot)
+    private Vector2 CalculateDotHitWall(GameObject currentDot)
     {
         RaycastHit2D hit;
 
-        Vector2 direction = currentDot.transform.position - prevDot.transform.position;
+        Vector2 direction = currentDot.transform.position - myTransform.position;
         float distance = direction.magnitude;
 
-        hit = Physics2D.Raycast(prevDot.transform.position, direction, distance);
+        hit = Physics2D.Raycast(myTransform.position, direction, distance);
         Physics2D.queriesStartInColliders = false;
         Physics2D.queriesHitTriggers = false;
-
-        CircleCollider2D prevDotCollider = prevDot.GetComponent<CircleCollider2D>();
+        
         CircleCollider2D currentDotCollider = currentDot.GetComponent<CircleCollider2D>();
 
-        Physics2D.IgnoreCollision(prevDotCollider, currentDotCollider);
+        Physics2D.IgnoreCollision(myCollider, currentDotCollider);
 
         // The WALL ================================================================================================
-        if (hit)
+        if (hit && hit.collider.gameObject.CompareTag(horizontalWall))
         {
-
+            return hit.point;
         }
 
         return Vector2.zero;
@@ -443,7 +457,7 @@ public class Movement : MonoBehaviour
 
         Physics2D.IgnoreCollision(prevDotCollider, currentDotCollider);
 
-        if (hit)
+        if (hit && !hit.collider.gameObject.CompareTag(horizontalWall))
         {
             return true;
         }
