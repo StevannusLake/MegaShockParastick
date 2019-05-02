@@ -7,7 +7,8 @@ public class Surfaces : MonoBehaviour
     public enum SurfaceTypes {Safe,Dangerous}
     public float rotationSpeed;
     Transform myTransform;
-    CircleCollider2D myCollider;
+    CapsuleCollider2D myCollider;
+    Rigidbody2D myRigidbody;
     static float zRotation;
     private int rotationSpeedRandom;
     public int stickCount = 0;
@@ -20,7 +21,6 @@ public class Surfaces : MonoBehaviour
     {
         rotationSpeedRandom = Random.Range(55, 75);
         myTransform = GetComponent<Transform>();
-        myCollider = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -30,6 +30,8 @@ public class Surfaces : MonoBehaviour
         {
             Rotation();
         }
+        
+        DropAfter();
     }
 
     // rotation
@@ -43,5 +45,26 @@ public class Surfaces : MonoBehaviour
         zRotation += rotationSpeed * Time.deltaTime * rotationSpeedRandom;
         Vector3 rotationVector = new Vector3(0, 0, zRotation);
         myTransform.eulerAngles = rotationVector;
+    }
+
+    void DropAfter()
+    {
+        if(myCollider == null)
+        {
+            myCollider = GetComponent<CapsuleCollider2D>();
+        }
+        if (myRigidbody == null)
+        {
+            myRigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        if(myCollider != null && myRigidbody != null)
+        {
+            if (stickCount >= 2)
+            {
+                myCollider.isTrigger = true;
+                myRigidbody.isKinematic = false;
+            }
+        }
     }
 }

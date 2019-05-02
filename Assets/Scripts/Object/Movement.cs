@@ -318,6 +318,19 @@ public class Movement : MonoBehaviour
        }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+        if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1)
+        {
+            surfaceStickCount = 2;
+            collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
+
+            // myAnimation.PlayIdle();
+            myEmotion.EmoteIdle();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Vector2 cameraBottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
