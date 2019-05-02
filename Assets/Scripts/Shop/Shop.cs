@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     public GameObject[] skinList;
-    public Skin skinSelecting;
+    public GameObject skinSelecting;
     public enum ShopState { parasite,place,coins};
     public ShopState shopState;
     public Text coinText;
-    public GameObject BuyConfirmationMenu;
+    private GameObject mainCamera;
 
     public static Shop instance;
     void Awake()
@@ -20,27 +20,44 @@ public class Shop : MonoBehaviour
         else if (instance != this) Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        mainCamera = GameObject.FindWithTag("MainCamera");
+    }
+
     private void Update()
     {
         if(SceneManager.GetActiveScene().name == "Shop")
         {
             coinText.text = ""+GameManager.instance.GetCoin();
+            CheckIsBought(); // prevent multiple buying
         }
     }
 
-    void Display()
+    void CheckIsBought()
     {
-        // Shows all available skins
+        for (int i = 0; i < GameManager.instance.skinCollected.Count; i++)
+        {
+            for (int j = 0; j < skinList.Length; j++)
+            {
+                if (GameManager.instance.skinCollected[i].name == skinList[j].name)
+                {
+                    skinList[j].GetComponent<Skin>().isBought = true;
+                    break;
+                }
+            }
+        }
     }
 
     //For button OnClick() function
     public void Buy()
     {
-        GameManager.instance.skinCollected.Add(skinSelecting);
-        GameManager.instance.DecreaseCoin(skinSelecting.price);
+        GameManager.instance.skinCollected.Add(skinSelecting.gameObject);
+        GameManager.instance.DecreaseCoin(skinSelecting.GetComponent<Skin>().price);
         GameManager.instance.numOfSkinCollected++;
+        CheckIsBought();
         // close the buy confirmation menu
-        BuyConfirmationMenu.SetActive(false);
+        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
         GameManager.instance.SaveSkin();
     }
 
@@ -48,6 +65,6 @@ public class Shop : MonoBehaviour
     public void CancelBuy()
     {
         // close the buy confirmation menu
-        BuyConfirmationMenu.SetActive(false);
+        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
     }
 }
