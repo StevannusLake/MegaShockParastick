@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DragController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DragController : MonoBehaviour
     public Transform placeBottomObject;
     public Transform coinsBottomObject;
     private Transform bottomObject;
+    public Transform challengesBottom;
 
     // Start is called before the first frame update
     void Start()
@@ -20,18 +22,25 @@ public class DragController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(Shop.instance.shopState == Shop.ShopState.parasite)
+    {   
+        if(SceneManager.GetActiveScene().name == "Shop")
         {
-            bottomObject = parasiteBottomObject;
+            if (Shop.instance.shopState == Shop.ShopState.parasite)
+            {
+                bottomObject = parasiteBottomObject;
+            }
+            else if (Shop.instance.shopState == Shop.ShopState.place)
+            {
+                bottomObject = placeBottomObject;
+            }
+            else if (Shop.instance.shopState == Shop.ShopState.coins)
+            {
+                bottomObject = coinsBottomObject;
+            }            
         }
-        else if(Shop.instance.shopState == Shop.ShopState.place)
+        else if(SceneManager.GetActiveScene().name == "Challenges")
         {
-            bottomObject = placeBottomObject;
-        }
-        else if(Shop.instance.shopState == Shop.ShopState.coins)
-        {
-            bottomObject = coinsBottomObject;
+            bottomObject = challengesBottom;
         }
         if (Input.touchCount > 0)
         {
@@ -40,7 +49,7 @@ public class DragController : MonoBehaviour
                 rawDelta = Input.GetTouch(0).deltaPosition;
                 isDragging = true;
             }
-            if(Input.GetTouch(0).phase == TouchPhase.Ended)
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 isDragging = false;
             }
