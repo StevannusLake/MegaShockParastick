@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour
 
     string surfaceTag = "Surface";
     string deadlyTag = "Deadly";
+    string horizontalWall = "HorizontalWall";
 
     //=======================================================================================================================
     // Trajectory dots
@@ -63,6 +64,10 @@ public class Movement : MonoBehaviour
     public static int deadState = 0;
     public float deadVelocity;
     bool isDead;
+    // fix dead update too fast for falling off camera bottom edge
+    float deadTimer = 0.5f;
+    float deadCounter;
+    bool deadFix;
 
     public GameObject Cinemachine;
 
@@ -128,10 +133,11 @@ public class Movement : MonoBehaviour
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
             myRigidBody.gravityScale = 0;
-            if(myCollider.isTrigger == true)
+            if (myCollider.isTrigger == true)
             {
                 myCollider.isTrigger = false;
             }
+            mousePressed = false;
         }
     }
 
@@ -225,10 +231,7 @@ public class Movement : MonoBehaviour
         
         float i = MaxSlingshotForce / resultantVelocity.magnitude;
         float control = i > 1 ? 1 : i;
-        if( i > 1)
-        {
-            resultantVelocity *= control;
-        }
+        resultantVelocity *= control;
 
         //keep the slingshot velocity (reza)
         prevSlingShotVelocity = resultantVelocity.magnitude;
@@ -269,12 +272,11 @@ public class Movement : MonoBehaviour
     {
         if(!MainMenu.activeSelf && deadState == 0)
         {
-            myRigidBody.velocity = Vector2.zero;
-
             if (collision.collider.CompareTag(deadlyTag))
             {
+                myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-
+                
                 // Die and Second Chance Menu pop out
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
@@ -282,14 +284,16 @@ public class Movement : MonoBehaviour
                     deadState = 1;
                 }
             }
-            else
+            else if(collision.collider.CompareTag(surfaceTag))
             {
+                myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
             }
 
             // stick on the surface
             if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0)
             {
+                myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
 
                 surfaceTransform = collision.gameObject.transform;
@@ -304,13 +308,7 @@ public class Movement : MonoBehaviour
                // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
             }
-/*
-            if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 1)
-            {
-                // Die and Second Chance Menu pop out
-                UIManager.Instance.CallSecondChanceMenu();
-            }
- */       }
+       }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -320,7 +318,7 @@ public class Movement : MonoBehaviour
         if (other.CompareTag(deadlyTag))
         {
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-
+            
             // Die and Second Chance Menu pop out
             //UIManager.Instance.CallSecondChanceMenu();
             if (deadState == 0)
@@ -395,14 +393,40 @@ public class Movement : MonoBehaviour
 
         float i = MaxSlingshotForce / launchVelocity.magnitude;
         float control = i > 1 ? 1 : i;
-        if (i > 1)
-        {
-            launchVelocity *= control;
-        }
+        launchVelocity *= control;
 
-        return (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
+        Vector2 resultVector = (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
+        
+        return resultVector;
     }
 
+    // The WALL ================================================================================================
+    // calculate the position of dots over time when hit wall
+    private Vector2 CalculateDotHitWall(GameObject prevDot, GameObject currentDot)
+    {
+        RaycastHit2D hit;
+
+        Vector2 direction = currentDot.transform.position - prevDot.transform.position;
+        float distance = direction.magnitude;
+
+        hit = Physics2D.Raycast(prevDot.transform.position, direction, distance);
+        Physics2D.queriesStartInColliders = false;
+        Physics2D.queriesHitTriggers = false;
+
+        CircleCollider2D prevDotCollider = prevDot.GetComponent<CircleCollider2D>();
+        CircleCollider2D currentDotCollider = currentDot.GetComponent<CircleCollider2D>();
+
+        Physics2D.IgnoreCollision(prevDotCollider, currentDotCollider);
+
+        // The WALL ================================================================================================
+        if (hit)
+        {
+
+        }
+
+        return Vector2.zero;
+    }
+    
     bool DotHitsSurface(GameObject prevDot, GameObject currentDot)
     {
         RaycastHit2D hit;
@@ -458,15 +482,29 @@ public class Movement : MonoBehaviour
     {
         Vector2 cameraBottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
 
+        if(deadFix)
+        {
+            if (deadCounter >= deadTimer)
+            {
+                deadCounter = 0;
+                deadFix = false;
+            }
+            else
+            {
+                deadCounter += Time.deltaTime;
+            }
+        }
+
         if(myTransform.position.y <= cameraBottom.y)
         {
-            if(deadState == 0)
+            if (deadState == 0)
             {
                 myRigidBody.velocity = Vector2.zero;
                 deadState = 1;
+                deadFix = true;
                 //Debug.Log("DropDead 0 to 1");
             }
-            else if(deadState == 1)
+            else if(deadState == 1 && !deadFix)
             {
                 deadState = 2;
                 //Debug.Log("DropDead 1 to 2");
@@ -487,3 +525,9 @@ public class Movement : MonoBehaviour
         }
     }
 }
+
+/*
+ * 
+ *
+ * 
+ */
