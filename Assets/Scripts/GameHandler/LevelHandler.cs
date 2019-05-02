@@ -10,7 +10,7 @@ public class LevelHandler : MonoBehaviour
     public CurrentDirection currentDirection;
     public GameObject finalLayout;
     public float currentActiveLevelGeneratorID = 0;
-    public float distanceToRespawnCoin;
+    public float distanceToRespawnCoin=5;
     [HideInInspector]public float timerForCoinRespawn = 0;
     public int numberOfSectionToHold;
     private float screenX;

@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] objectTypes;
     public bool shouldSpawnInStart = false;
-    public bool canRespawnCoinsAround = true;
+    public bool canRespawnCoinsAround = false;
     public bool canRespawnCoinsMiddle = false;
     float SpawnRateInSeconds = 1.0f; // First time to start the spawning . For test only
     public static ObjectSpawner instance;

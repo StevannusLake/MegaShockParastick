@@ -2900,7 +2900,7 @@ MonoBehaviour:
   objectTypes:
   - {fileID: 8258687689398798429, guid: 15cbb3e061471134ab289b5693884428, type: 3}
   shouldSpawnInStart: 0
-  canRespawnCoinsAround: 1
+  canRespawnCoinsAround: 0
   canRespawnCoinsMiddle: 0
 --- !u!4 &609315560
 Transform:
