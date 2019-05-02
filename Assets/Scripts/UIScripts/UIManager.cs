@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        GameManager.instance.SaveData();
+        //GameManager.instance.SaveData();
         CheckSecondChanceButton();
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
     }
@@ -57,7 +57,8 @@ public class UIManager : MonoBehaviour
 
         LoseMenu.SetActive(true);
         // Update score
-        GameManager.instance.SaveData();
+        GameManager.instance.SaveCoin();
+        GameManager.instance.SaveScore();
         scoreInGameUI.SetActive(false);
         currentScore.text = "Your Score : " + player.GetComponent<Movement>().playerDistance.ToString("F1") + " mm";
         highScore.text = "" + PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
@@ -102,12 +103,14 @@ public class UIManager : MonoBehaviour
 
     public void CallSecondChanceMenu()
     {
-        GameManager.instance.SaveData();
+        GameManager.instance.SaveCoin();
+        GameManager.instance.SaveScore();
         GameManager.instance.LoadData();
 
         AudioManager.PlaySound(AudioManager.Sound.Continue);
 
         SecondChanceMenu.SetActive(true);
+        coinText2.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
         coinText2.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
     }
 

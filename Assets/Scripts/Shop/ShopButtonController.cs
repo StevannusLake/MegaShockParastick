@@ -8,6 +8,8 @@ public class ShopButtonController : MonoBehaviour
     public GameObject parasiteMenu;
     public GameObject placeMenu;
     public GameObject coinsMenu;
+    public GameObject notEnoughMenu;
+    public GameObject buyConfirmationMenu;
     public Text coin;
 
     private void Update()
@@ -47,5 +49,20 @@ public class ShopButtonController : MonoBehaviour
     public void WatchVideo()
     {
         GameManager.instance.AddCoin(50);
+    }
+
+    public void ShowNotEnough()
+    {
+        notEnoughMenu.SetActive(true);
+    }
+
+    public void CloseNotEnough()
+    {
+        notEnoughMenu.SetActive(false);
+    }
+
+    public void ResetAllData()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

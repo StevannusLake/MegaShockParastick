@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public List<string> soundSourcesCreated;
     private int coin = 0;
-    public List<Skin> skinCollected;
+    public List<GameObject> skinCollected;
     public int numOfSkinCollected = 0;
     public MixingCameraController mixingCameraController;
     public float playerDistanceTraveled;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         if (skinCollected == null)
         {
-            skinCollected = new List<Skin>();
+            skinCollected = new List<GameObject>();
             // skinCollected[0] = default skin  // Initialize skin   
         }
         LoadData();
@@ -74,20 +74,28 @@ public class GameManager : MonoBehaviour
         coin -= n;
     }
 
-    public void SaveData()
-    {
-        for (int i = 0; i < numOfSkinCollected; ++i)
-        {
-            PlayerPrefs.SetString("Skin[" + i + "].name", skinCollected[i].name);
-        }
+    public void SaveCoin()
+    {       
         PlayerPrefs.SetInt("Coin", coin);
-        PlayerPrefs.SetInt("NumOfSkin", numOfSkinCollected);
+    }
+
+    public void SaveScore()
+    {
         if (PlayerPrefs.HasKey("HighScore"))
         {
             if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
             {
                 PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
             }
+        }
+    }
+
+    public void SaveSkin()
+    {
+        PlayerPrefs.SetInt("NumOfSkin", numOfSkinCollected);
+        for (int i = 0; i < numOfSkinCollected; ++i)
+        {
+            PlayerPrefs.SetString("Skin[" + i + "].name", skinCollected[i].name);
         }
     }
 
@@ -100,7 +108,7 @@ public class GameManager : MonoBehaviour
             {
                 if (Shop.instance.skinList[j].name == PlayerPrefs.GetString("Skin[" + i + "].name", ""))
                 {
-                    skinCollected.Add(Shop.instance.skinList[j].GetComponent<Skin>());
+                    skinCollected.Add(Shop.instance.skinList[j]);
                     break;
                 }
             }
@@ -112,7 +120,8 @@ public class GameManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        SaveData();
+        SaveCoin();
+        SaveSkin();
     }
 
 
