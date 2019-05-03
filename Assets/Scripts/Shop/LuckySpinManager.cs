@@ -12,16 +12,25 @@ public class LuckySpinManager : MonoBehaviour
     private float _currentLerpRotationTime;
     public Button TurnButton;
     public GameObject Spinner; 			
-    public Text CoinText; 		
+    public Text spinText;
+    public Text coinText;
+    public Text pointText;
     public int TurnCost = 250;
     public enum RewardType {tenPoints, twoFreeSpins, twentyFivePoints, fiftyPoints, oneThousandPoints, zonk, fiveHundredPoints, fivePoints, oneHundredPoints};
     public RewardType reward;
+
+    private void Start()
+    {
+        spinText.text = "Spin Left : " + GameManager.instance.GetSpin();
+        coinText.text = "Coin : " + GameManager.instance.GetCoin();
+        pointText.text = "Point : " + GameManager.instance.GetPoints();
+    }
 
     public void TurnWheel()
     {
         // Player has enough money to turn the wheel
         if (GameManager.instance.GetSpin() >= 1)
-        {
+        {   
             _currentLerpRotationTime = 0f;
 
             #region //RandomizePrize
@@ -68,42 +77,43 @@ public class LuckySpinManager : MonoBehaviour
             #region //RandomAngle
             if (reward == RewardType.tenPoints)
             {
-                _sectorsAngles = new float[] { 7,20,40,56,70,78 };              
+                randomFinalAngle = Random.Range(1f,39f);
             }
             else if(reward == RewardType.twoFreeSpins)
             {
-                _sectorsAngles = new float[] { 97, 108 };
+                randomFinalAngle = Random.Range(41f, 79f);
             }
             else if(reward == RewardType.twentyFivePoints)
             {
-                _sectorsAngles = new float[] { 138, 146,159,168};
+                randomFinalAngle = Random.Range(81f, 119f);
             }
             else if(reward == RewardType.fiftyPoints)
             {
-                _sectorsAngles = new float[] { 181, 187,193 };
+                randomFinalAngle = Random.Range(121f, 159f);
             }
             else if(reward == RewardType.oneThousandPoints)
             {
-                _sectorsAngles = new float[] { 209 };
+                randomFinalAngle = Random.Range(161f, 199f);
             }
             else if(reward == RewardType.zonk)
             {
-                _sectorsAngles = new float[] { 221, 227 };
+                randomFinalAngle = Random.Range(201f, 239f);
             }
             else if(reward == RewardType.fiveHundredPoints)
             {
-                _sectorsAngles = new float[] { 242 };
+                randomFinalAngle = Random.Range(241f, 279f);
             }
             else if(reward == RewardType.fivePoints)
             {
-                _sectorsAngles = new float[] { 264,282,303,316,328 };
+                randomFinalAngle = Random.Range(281f, 319f);
             }
             else if(reward == RewardType.oneHundredPoints)
             {
-                _sectorsAngles = new float[] {351};
+                randomFinalAngle = Random.Range(321f, 359f);
             }
             #endregion
-            randomFinalAngle = _sectorsAngles[UnityEngine.Random.Range(0, _sectorsAngles.Length)];
+            //_sectorsAngles = new float[] { 351,32 };
+            //randomFinalAngle = _sectorsAngles[UnityEngine.Random.Range(0, _sectorsAngles.Length)];
 
             int fullCircles = 5; // spins number of times before stopping
 
@@ -112,6 +122,7 @@ public class LuckySpinManager : MonoBehaviour
             _isStarted = true;
 
             GameManager.instance.DecreaseSpin(1);
+            spinText.text = "Spin Left : " + GameManager.instance.GetSpin();
         }
     }
 
@@ -177,6 +188,9 @@ public class LuckySpinManager : MonoBehaviour
             _startAngle = _finalAngle % 360;
 
             GiveReward();
+            spinText.text = "Spin Left : " + GameManager.instance.GetSpin();
+            coinText.text = "Coin : " + GameManager.instance.GetCoin();
+            pointText.text = "Point : " + GameManager.instance.GetPoints();
         }
 
         // Calculate current position using linear interpolation
@@ -188,5 +202,16 @@ public class LuckySpinManager : MonoBehaviour
 
         float angle = Mathf.Lerp(_startAngle, _finalAngle, t);
         Spinner.transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+
+    public void BuySpin()
+    {
+        if(GameManager.instance.GetCoin() >= TurnCost)
+        {
+            GameManager.instance.AddSpin(1);
+            GameManager.instance.DecreaseCoin(TurnCost);
+            spinText.text = "Spin Left : " + GameManager.instance.GetSpin();
+            coinText.text = "Coin : " + GameManager.instance.GetCoin();
+        }
     }
 }

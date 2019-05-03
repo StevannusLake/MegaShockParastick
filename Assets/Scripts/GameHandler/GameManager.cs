@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public List<string> soundSourcesCreated;
-    private int coin = 0;
+    public int coin = 0;
     public List<GameObject> skinCollected;
     public int numOfSkinCollected = 0;
     public MixingCameraController mixingCameraController;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject audioSourcePlayer;
     public float highScore;
     public int spinCount;
-    public int points;
+    private int points;
 
     void Awake()
     {
