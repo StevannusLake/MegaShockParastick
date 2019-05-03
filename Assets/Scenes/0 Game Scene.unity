@@ -2241,6 +2241,7 @@ MonoBehaviour:
   coinText2: {fileID: 564673700}
   TutorialScreen: {fileID: 896214596}
   SecondChanceButton: {fileID: 91207462}
+  secondChanceCalled: 0
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2904,6 +2905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLayoutsCreated: []
+  cameraController: {fileID: 2087839693}
   currentDirection: 0
   finalLayout: {fileID: 0}
   currentActiveLevelGeneratorID: 0
@@ -3641,15 +3643,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSourcesCreated: []
+  coin: 0
   skinCollected: []
   numOfSkinCollected: 0
-  mixingCameraController: {fileID: 0}
+  mixingCameraController: {fileID: 2087839693}
   playerDistanceTraveled: 0
   player: {fileID: 1968270231}
   currentActiveLevelGeneratorID: 0
   levelHandler: {fileID: 876681424}
   audioSourcePlayer: {fileID: 1959172055}
   highScore: 0
+  spinCount: 0
 --- !u!4 &1170094495
 Transform:
   m_ObjectHideFlags: 0
@@ -5971,11 +5975,22 @@ PrefabInstance:
         type: 3}
       propertyPath: levelLayoutsArray.Array.data[2].levelLayOutPrefab
       value: 
-      objectReference: {fileID: 3755081788971346667, guid: d03a05ad37a1ef24bb5d4e266e75b96b,
+      objectReference: {fileID: 8050542473745910023, guid: 5c72bcbf8662f574e9754d91dfc0088f,
         type: 3}
     - target: {fileID: 2703892033919399973, guid: 97a9781b656b8cf49a10c29c02bc8f42,
         type: 3}
       propertyPath: levelLayoutsArray.Array.data[2].direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703892033919399973, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsArray.Array.data[3].levelLayOutPrefab
+      value: 
+      objectReference: {fileID: 3755081788971346667, guid: d03a05ad37a1ef24bb5d4e266e75b96b,
+        type: 3}
+    - target: {fileID: 2703892033919399973, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsArray.Array.data[3].direction
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7108,6 +7123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1968270231}
   mixingCamera: {fileID: 2087839695}
+  isInsideZoomArea: 0
 --- !u!114 &2087839694
 MonoBehaviour:
   m_ObjectHideFlags: 0
