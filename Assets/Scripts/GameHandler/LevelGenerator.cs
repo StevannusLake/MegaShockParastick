@@ -212,10 +212,10 @@ public class LevelGenerator : MonoBehaviour
         float y = transform.parent.position.y;
         float desiredY = y + borderCollider.bounds.size.y * i;
         float desiredX = transform.parent.position.x + borderCollider.size.x /3f -0.28f;
-        GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[0].levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+        GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[2].levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
         newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
-        newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[0].direction + ")";
-        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[0].direction);
+        newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[2].direction + ")";
+        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[2].direction);
     }
 
     void  CreateLayoutAtLeft(int randomNum, int i)
