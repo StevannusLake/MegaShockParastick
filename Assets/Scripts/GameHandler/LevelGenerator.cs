@@ -155,11 +155,15 @@ public class LevelGenerator : MonoBehaviour
         int randomNum = 0;
         if (LevelHandler.instance.currentDirection == CurrentDirection.UP)
         {
-            randomNum = Random.Range(0, 2);
+            randomNum = Random.Range(0, 3);
         }
         if (LevelHandler.instance.currentDirection == CurrentDirection.RIGHT)
         {
             randomNum = 2;
+        }
+        if (LevelHandler.instance.currentDirection == CurrentDirection.LEFT)
+        {
+            randomNum = 3;
         }
         // 
 
@@ -173,27 +177,56 @@ public class LevelGenerator : MonoBehaviour
             {
                 CreateLayoutAtRight(randomNum,i);
             }
+            else if (LevelHandler.instance.currentDirection == CurrentDirection.LEFT)
+            {
+                CreateLayoutAtLeft(randomNum, i);
+            }
         }
     }
 
     void CreateLayoutAtTop(int randomNum , int i)
     {
+        /*
         float y = transform.parent.position.y - 0.01f;
         float desiredY = y + borderCollider.bounds.size.y * i;
         GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(transform.parent.position.x, desiredY), Quaternion.identity);
         newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
         newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[randomNum].direction + ")";
-        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[randomNum].direction);
+        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[randomNum].direction);*/
+        GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(transform.parent.position.x, transform.parent.position.y), Quaternion.identity);
+        newLayout.transform.position = new Vector2(newLayout.transform.position.x, (newLayout.transform.position.y + borderCollider.bounds.size.y) * i);
+        newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
+        newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[randomNum].direction + ")";
+        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[randomNum].direction); 
     }
 
     void CreateLayoutAtRight(int randomNum, int i)
     {
+        /*
         float x = transform.position.x + (borderCollider.bounds.size.x - 0.01f) * i;
         float desiredY = transform.parent.position.y;
         GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(x, desiredY), Quaternion.identity);
         newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
         newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[2].direction + ")";
-        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[2].direction);
+        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[2].direction);*/
+        float y = transform.parent.position.y;
+        float desiredY = y + borderCollider.bounds.size.y * i;
+        float desiredX = transform.parent.position.x + borderCollider.size.x /3f -0.28f;
+        GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[0].levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+        newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
+        newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[0].direction + ")";
+        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[0].direction);
+    }
+
+    void  CreateLayoutAtLeft(int randomNum, int i)
+    {
+        float y = transform.parent.position.y;
+        float desiredY = y + borderCollider.bounds.size.y * i;
+        float desiredX = transform.parent.position.x - borderCollider.size.x / 3f + 0.28f;
+        GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[0].levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+        newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
+        newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[0].direction + ")";
+        SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[0].direction);
     }
 
 }

@@ -7,6 +7,7 @@ public class LevelHandler : MonoBehaviour
  [SerializeField] 
     public List<GameObject> levelLayoutsCreated;
     public static LevelHandler instance;
+    public MixingCameraController cameraController;
     public CurrentDirection currentDirection;
     public GameObject finalLayout;
     public float currentActiveLevelGeneratorID = 0;
