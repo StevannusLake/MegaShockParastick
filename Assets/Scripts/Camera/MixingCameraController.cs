@@ -41,7 +41,7 @@ public class MixingCameraController : MonoBehaviour
         for(int i=0; i<mixingCamera.ChildCameras.Length;i++)
         {
             mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize,
-                  mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize + 2.5f, Time.deltaTime * 4f);
+                  previousCameraOrto[i] + 3f, Time.deltaTime * 4f);
                 
 
         }

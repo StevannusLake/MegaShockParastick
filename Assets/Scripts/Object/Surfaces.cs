@@ -32,6 +32,7 @@ public class Surfaces : MonoBehaviour
         }
         
         DropAfter();
+        
     }
 
     // rotation

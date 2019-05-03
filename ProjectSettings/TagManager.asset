@@ -10,6 +10,9 @@ TagManager:
   - Coin
   - HorizontalWall
   - BuyConfirmationMenu
+  - ZoomOut
+  - ZoomIn
+  - EnterGenerator
   layers:
   - Default
   - TransparentFX

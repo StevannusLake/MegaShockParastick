@@ -367,17 +367,44 @@ public class Movement : MonoBehaviour
         }
         if (other.CompareTag("ZoomOut") && deadState == 0)
         {
-            LevelHandler.instance.cameraController.isInsideZoomArea=true;
-            LevelHandler.instance.cameraController.CapturePrevCameraOrt();
+            if(!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
+            {
+                LevelHandler.instance.cameraController.isInsideZoomArea = true;
+                LevelHandler.instance.cameraController.CapturePrevCameraOrt();
+                other.gameObject.GetComponent<ZoomController>().isAlreadyActivated = true;
+
+            }
+            
         }
+        if (other.CompareTag("ZoomIn") && deadState == 0)
+        {
+            if (!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
+            {
+                LevelHandler.instance.cameraController.isInsideZoomArea = false;                
+                other.gameObject.GetComponent<ZoomController>().isAlreadyActivated = true;
+
+            }
+
+        }
+        
 
 
     }
-    private void OnTriggerExit2D(Collider2D other)
+    
+
+    private void OnTriggerStay2D (Collider2D other)
     {
-        if (other.CompareTag("ZoomOut") && deadState == 0)
+        if (other.CompareTag("EnterGenerator"))
         {
-            LevelHandler.instance.cameraController.isInsideZoomArea = false;          
+            if (!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
+            {
+                LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
+                levelGenerator.GenerateMapOnTop();
+                other.GetComponent<ZoomController>().isAlreadyActivated = true;
+            }
+
+
+
         }
     }
 

@@ -8,6 +8,7 @@ public class LevelHandler : MonoBehaviour
     public List<GameObject> levelLayoutsCreated;
     public static LevelHandler instance;
     public MixingCameraController cameraController;
+    public int numberOfMapToGenerate;
     public CurrentDirection currentDirection;
     public GameObject finalLayout;
     public float currentActiveLevelGeneratorID = 0;
@@ -27,6 +28,7 @@ public class LevelHandler : MonoBehaviour
 
     private void Start()
     {
+        
         //
     }
 
@@ -68,7 +70,7 @@ public class LevelHandler : MonoBehaviour
         {
             if(obj.GetComponentInChildren<LevelGenerator>().levelGeneratorID + numberOfSectionToHold < currentActiveLevelGeneratorID)
             {
-                obj.transform.parent.gameObject.SetActive(false);
+                obj.SetActive(false);
             }
         }
     }
@@ -79,6 +81,9 @@ public class LevelHandler : MonoBehaviour
          currentActiveLevelGeneratorID = level.levelGeneratorID;
         currentDirection = direction;
         
+        
+
+
     }
 
    
