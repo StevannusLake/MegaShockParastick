@@ -118,7 +118,15 @@ public class Movement : MonoBehaviour
         }
         else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
         {
-            UIManager.Instance.CallSecondChanceMenu();
+            if (!UIManager.Instance.secondChanceCalled)
+            {
+                UIManager.Instance.CallSecondChanceMenu();
+            }
+            else
+            {
+                UIManager.Instance.CallLoseMenu();
+            }
+
             myEmotion.EmoteIdle();
             isDead = false;
             deadState = 0;

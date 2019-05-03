@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
 
     public Button SecondChanceButton;
 
+    public bool secondChanceCalled = false;
+
     private void Awake()
     {
         if(instance == null)
@@ -42,6 +44,8 @@ public class UIManager : MonoBehaviour
         highScoreInMainMenu.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore",0).ToString("F1")+" mm";
 
         TutorialScreen.SetActive(false);
+
+        secondChanceCalled = PlayerPrefs.GetInt("SecondChanceCalled") == 1 ? true : false;
     }
 
     private void Update()
@@ -64,6 +68,10 @@ public class UIManager : MonoBehaviour
         highScore.text = "" + PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
         coinText.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
         SecondChanceMenu.SetActive(false);
+
+        secondChanceCalled = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
     }
 
     public void CloseLoseMenu()
@@ -76,6 +84,10 @@ public class UIManager : MonoBehaviour
 
         //! Save Temporary Player Distance
         PlayerPrefs.SetFloat("TempScore", 0);
+
+        secondChanceCalled = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
     }
 
     public void CallMainMenu()
@@ -83,6 +95,10 @@ public class UIManager : MonoBehaviour
         MainMenu.SetActive(true);
         LoseMenu.SetActive(false);
         playerMovement.enabled = false;
+
+        secondChanceCalled = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
     }
 
     public void CloseMainMenu()
@@ -112,6 +128,10 @@ public class UIManager : MonoBehaviour
         SecondChanceMenu.SetActive(true);
         coinText2.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
         coinText2.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
+
+        secondChanceCalled = true;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
     }
 
     public void CloseSecondChanceMenu()
@@ -121,6 +141,8 @@ public class UIManager : MonoBehaviour
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
 
             GameManager.instance.DecreaseCoin(25);
+            GameManager.instance.SaveCoin();
+            GameManager.instance.LoadData();
 
             ButtonManager.instance.secondlife = true;
             // Save boolean using PlayerPrefs

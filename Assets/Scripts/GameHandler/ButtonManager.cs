@@ -59,6 +59,12 @@ public class ButtonManager : MonoBehaviour
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TryAgain", tryagain ? 1 : 0);
 
+        PlayerPrefs.SetFloat("TempScore", 0);
+
+        UIManager.Instance.secondChanceCalled = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("SecondChanceCalled", UIManager.Instance.secondChanceCalled ? 1 : 0);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -76,6 +82,10 @@ public class ButtonManager : MonoBehaviour
         tryagain = false;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TryAgain", tryagain ? 1 : 0);
+
+        UIManager.Instance.secondChanceCalled = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("SecondChanceCalled", UIManager.Instance.secondChanceCalled ? 1 : 0);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
