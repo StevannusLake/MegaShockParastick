@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public LevelHandler levelHandler;
     public GameObject audioSourcePlayer;
     public float highScore;
+    public int spinCount;
+    public int points;
 
     void Awake()
     {
@@ -56,8 +58,35 @@ public class GameManager : MonoBehaviour
     }
     #endregion    //Change Scene Region
 
+    public int GetPoints()
+    {
+        return points;
+    }
 
+    public void AddPoints(int n)
+    {
+        points += n;
+    }
 
+    public void DecreasePoints(int n)
+    {
+        points -= n;
+    }
+
+    public int GetSpin()
+    {
+        return spinCount;
+    }
+
+    public void AddSpin(int n)
+    {
+        spinCount += n;
+    }
+
+    public void DecreaseSpin(int n)
+    {
+        spinCount -= n;
+    }
 
     public int GetCoin()
     {
@@ -72,6 +101,16 @@ public class GameManager : MonoBehaviour
     public void DecreaseCoin(int n)
     {
         coin -= n;
+    }
+
+    public void SavePoints()
+    {
+        PlayerPrefs.SetInt("Points", points);
+    }
+
+    public void SaveSpin()
+    {
+        PlayerPrefs.SetInt("Spin", spinCount);
     }
 
     public void SaveCoin()
@@ -114,6 +153,8 @@ public class GameManager : MonoBehaviour
             }
         }
         coin = PlayerPrefs.GetInt("Coin", 0);
+        spinCount = PlayerPrefs.GetInt("Spin", 0);
+        points = PlayerPrefs.GetInt("Points", 0);
         if (!PlayerPrefs.HasKey("HighScore"))
             PlayerPrefs.SetFloat("HighScore", 0f);
     }
@@ -121,6 +162,7 @@ public class GameManager : MonoBehaviour
     void OnApplicationQuit()
     {
         SaveCoin();
+        SaveSpin();
         SaveSkin();
     }
 
