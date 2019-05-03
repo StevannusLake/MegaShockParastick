@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public enum MoveState
 {
@@ -398,9 +399,19 @@ public class Movement : MonoBehaviour
         {
             if (!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
             {
-                LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
-                levelGenerator.GenerateMapOnTop();
-                other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                if(other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID==0)
+                {
+                    LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
+                    levelGenerator.GenerateMapOnTop(false);
+                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                }
+                else if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID != 0 && !other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().isAlreadyMade)
+                { 
+                    
+                    LevelHandler.instance.levelLayoutsCreated.Last<GameObject>().GetComponentInChildren<LevelGenerator>().GenerateMapOnTop(true);
+                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                }
+
             }
 
 
