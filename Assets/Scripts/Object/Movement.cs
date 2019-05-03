@@ -365,6 +365,20 @@ public class Movement : MonoBehaviour
             GameManager.instance.AddCoin(1);
             Destroy(other.gameObject);
         }
+        if (other.CompareTag("ZoomOut") && deadState == 0)
+        {
+            LevelHandler.instance.cameraController.isInsideZoomArea=true;
+            LevelHandler.instance.cameraController.CapturePrevCameraOrt();
+        }
+
+
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("ZoomOut") && deadState == 0)
+        {
+            LevelHandler.instance.cameraController.isInsideZoomArea = false;          
+        }
     }
 
 

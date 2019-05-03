@@ -6,12 +6,16 @@ public class MixingCameraController : MonoBehaviour
 {
     public GameObject Target;
     public CinemachineMixingCamera mixingCamera;
+    public bool isInsideZoomArea = false;
+    private float[] previousCameraOrto;
     
 
     // Start is called before the first frame update
     void Start()
     {  
         mixingCamera = GetComponent<CinemachineMixingCamera>();
+        previousCameraOrto = new float[mixingCamera.ChildCameras.Length];
+        CapturePrevCameraOrt();
     }
 
     // Update is called once per frame
@@ -19,6 +23,8 @@ public class MixingCameraController : MonoBehaviour
     {
       // Debug.Log(Target.GetComponent<Movement>().CalculateCameraZoom());      
         ChangeCameraZoom();
+        if (isInsideZoomArea) EnteredTransitionArea();
+        if (!isInsideZoomArea) ExitedTransitionArea();
     }
     void ChangeCameraZoom()
     {
@@ -26,6 +32,41 @@ public class MixingCameraController : MonoBehaviour
         if(zoom>=0) mixingCamera.m_Weight1 = zoom;
       
 
+    }
+
+    public void EnteredTransitionArea()
+    {
+       
+       
+        for(int i=0; i<mixingCamera.ChildCameras.Length;i++)
+        {
+            mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize,
+                  mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize + 2.5f, Time.deltaTime * 4f);
+                
+
+        }
+    }
+
+    public void CapturePrevCameraOrt()
+    {
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            previousCameraOrto[i]= mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize ;
+
+
+        }
+    }
+    public void ExitedTransitionArea()
+    {
+
+
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize,
+                  previousCameraOrto[i], Time.deltaTime * 4f);
+
+
+        }
     }
 
     public void StopFollowing()
