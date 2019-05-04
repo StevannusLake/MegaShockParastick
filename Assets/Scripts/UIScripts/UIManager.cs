@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
     public Text highScoreInMainMenu;
     public Text coinText;
     public Text continueScore;
+    public GameObject PauseMenu;
+    private float delayTimer = 0f;
+    private bool isPaused = false;
 
     public GameObject TutorialScreen;
 
@@ -53,6 +56,15 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.SaveData();
         CheckSecondChanceButton();
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
+        if(!isPaused && Time.timeScale == 0f)
+        {
+            delayTimer += Time.unscaledDeltaTime;
+            if (delayTimer >= 3f)
+            {
+                Time.timeScale = 1f;
+                delayTimer = 0f;
+            }
+        }
     }
 
     public void CallLoseMenu()
@@ -93,6 +105,7 @@ public class UIManager : MonoBehaviour
     public void CallMainMenu()
     {
         MainMenu.SetActive(true);
+        PauseMenu.SetActive(false);
         LoseMenu.SetActive(false);
         playerMovement.enabled = false;
 
@@ -181,5 +194,20 @@ public class UIManager : MonoBehaviour
     public void CloseTutorial()
     {
         TutorialScreen.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        if (Time.timeScale == 0f)
+        {
+            PauseMenu.SetActive(false);
+            isPaused = false;
+        }
+        else
+        {
+            PauseMenu.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
     }
 }
