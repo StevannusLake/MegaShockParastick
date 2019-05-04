@@ -366,6 +366,11 @@ public class Movement : MonoBehaviour
             GameManager.instance.AddCoin(1);
             Destroy(other.gameObject);
         }
+        if(other.CompareTag("Opal") && deadState == 0)
+        {
+            GameManager.instance.AddPoints(1);
+            Destroy(other.gameObject);
+        }
         if (other.CompareTag("ZoomOut") && deadState == 0)
         {
             if(!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
