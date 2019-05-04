@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject LoseMenu;
     public GameObject MainMenu;
     public Movement playerMovement;
+    public ColliderController playerColliderConroller;
     public GameObject SecondChanceMenu;
     public Text currentScore;
     public Text highScore;
@@ -169,6 +170,7 @@ public class UIManager : MonoBehaviour
         PauseMenu.SetActive(false);
         LoseMenu.SetActive(false);
         playerMovement.enabled = false;
+        playerColliderConroller.enabled = false;
 
         secondChanceCalled = false;
         // Save boolean using PlayerPrefs
@@ -179,6 +181,7 @@ public class UIManager : MonoBehaviour
     {
         MainMenu.SetActive(false);
         playerMovement.enabled = true;
+        playerColliderConroller.enabled = true;
     }
 
     void ReloadScene()

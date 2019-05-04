@@ -29,7 +29,7 @@ public class LevelGenerator : MonoBehaviour
     }
     private void Start()
     {
-        upwardPossibilities = new int[] {0,0,0,1,2};     
+        upwardPossibilities = new int[] {0,1,2};     
         
         AddChildsToList();
         RespawnPlatforms();
