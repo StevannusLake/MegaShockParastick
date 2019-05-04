@@ -121,7 +121,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SaveCoin();
         GameManager.instance.SaveScore();
-        GameManager.instance.LoadData();
+        //GameManager.instance.LoadData();
 
         AudioManager.PlaySound(AudioManager.Sound.Continue);
 
