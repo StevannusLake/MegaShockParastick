@@ -37,6 +37,12 @@ public class ColliderController : MonoBehaviour
             GameManager.instance.AddCoin(1);
             Destroy(other.gameObject);
         }
+
+        if(other.CompareTag("Opal") && Movement.deadState == 0)
+        {
+            GameManager.instance.AddPoints(1);
+            Destroy(other.gameObject);
+        }
     
 
         if (other.CompareTag("ZoomIn") )
