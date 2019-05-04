@@ -17,6 +17,8 @@ TagManager:
   - RightLayout
   - LeftLayout
   - UpLayout
+  - UIManager
+  - Opal
   layers:
   - Default
   - TransparentFX

@@ -2640,6 +2640,7 @@ MonoBehaviour:
   LoseMenu: {fileID: 1210811862}
   MainMenu: {fileID: 1354248950}
   playerMovement: {fileID: 1968270234}
+  playerColliderConroller: {fileID: 1968270239}
   SecondChanceMenu: {fileID: 1700775326}
   currentScore: {fileID: 1461640245}
   highScore: {fileID: 1877559297}
@@ -2679,7 +2680,6 @@ MonoBehaviour:
   secondlife: 0
   tryagain: 0
   TempScore: 0
-  closingLoseMenu: 0
 --- !u!1 &521645248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3709,7 +3709,7 @@ MonoBehaviour:
   currentActiveLevelGeneratorID: 0
   distanceToRespawnCoin: 5
   timerForCoinRespawn: 0
-  numberOfSectionToHold: 6
+  numberOfSectionToHold: 8
   distanceFromWall: 0.8
 --- !u!1 &896214596
 GameObject:
@@ -7998,6 +7998,7 @@ GameObject:
   - component: {fileID: 1968270234}
   - component: {fileID: 1968270238}
   - component: {fileID: 1968270233}
+  - component: {fileID: 1968270239}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8175,6 +8176,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1968270239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968270231}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4500e430a4fcd1744b7f7698967987f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInsideZoomOut: 0
+  overlapColliderCounts: 0
+  overColliderList: []
 --- !u!1 &2057953107
 GameObject:
   m_ObjectHideFlags: 0
@@ -8259,6 +8275,8 @@ MonoBehaviour:
   Target: {fileID: 1968270231}
   mixingCamera: {fileID: 2087839695}
   isInsideZoomArea: 0
+  previousCameraOrto: []
+  amountToZoomOut: 3
 --- !u!114 &2087839694
 MonoBehaviour:
   m_ObjectHideFlags: 0
