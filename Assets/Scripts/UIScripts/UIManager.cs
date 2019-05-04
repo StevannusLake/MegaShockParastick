@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     public GameObject scoreInGameUI;
     public Text highScoreInMainMenu;
     public Text coinText;
-    public Text coinText2;
+    public Text continueScore;
 
     public GameObject TutorialScreen;
 
@@ -124,10 +124,8 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.LoadData();
 
         AudioManager.PlaySound(AudioManager.Sound.Continue);
-
+        continueScore.text = player.GetComponent<Movement>().playerDistance.ToString("F1") + " mm";
         SecondChanceMenu.SetActive(true);
-        coinText2.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
-        coinText2.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
 
         secondChanceCalled = true;
         // Save boolean using PlayerPrefs
