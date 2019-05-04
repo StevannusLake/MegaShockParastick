@@ -15,6 +15,7 @@ public enum MoveState
 public class Movement : MonoBehaviour
 {
     PlayerAnimation myAnimation;
+    GetSideHit getSideHit;
     public PlayerEmotion myEmotion;
     Transform myTransform;
     Rigidbody2D myRigidBody;
@@ -32,9 +33,10 @@ public class Movement : MonoBehaviour
 
     static bool isCancel = false;
     static bool mousePressed;
+    
 
     public Transform initialGroundTransform;
-
+   
     Transform surfaceTransform;
     int surfaceStickCount;
 
@@ -82,7 +84,7 @@ public class Movement : MonoBehaviour
         myTransform = GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CircleCollider2D>();
-
+        getSideHit = GetComponent<GetSideHit>();
         surfaceTransform = initialGroundTransform;
 
         facingVector = (Vector2)myTransform.right;
@@ -350,7 +352,7 @@ public class Movement : MonoBehaviour
         if (other.CompareTag(deadlyTag))
         {
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-            
+
             // Die and Second Chance Menu pop out
             //UIManager.Instance.CallSecondChanceMenu();
             if (deadState == 0)
@@ -358,65 +360,8 @@ public class Movement : MonoBehaviour
                 deadState = 1;
             }
         }
-        if(other.CompareTag("Coin") && deadState == 0)
-        {
-            AudioManager.PlaySound(AudioManager.Sound.CollectCoin);
-            AudioManager.PlaySound(AudioManager.Sound.CollectCoinMain);
-
-            GameManager.instance.AddCoin(1);
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("ZoomOut") && deadState == 0)
-        {
-            if(!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
-            {
-                LevelHandler.instance.cameraController.isInsideZoomArea = true;
-                LevelHandler.instance.cameraController.CapturePrevCameraOrt();
-                other.gameObject.GetComponent<ZoomController>().isAlreadyActivated = true;
-
-            }
-            
-        }
-        if (other.CompareTag("ZoomIn") && deadState == 0)
-        {
-            if (!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
-            {
-                LevelHandler.instance.cameraController.isInsideZoomArea = false;                
-                other.gameObject.GetComponent<ZoomController>().isAlreadyActivated = true;
-
-            }
-
-        }
-        if (other.CompareTag("EnterGenerator"))
-        {
-            if (!other.gameObject.GetComponent<EnterController>().isAlreadyActivated)
-            {
-                if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID == 0)
-                {
-                    LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
-                    levelGenerator.GenerateMapOnTop(false);
-                    other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
-                }
-                else if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID != 0 && !other.gameObject.transform.parent.GetComponentInChildren<EnterController>().isAlreadyActivated)
-                {
-                    EnterController LastLayoutEnter = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<EnterController>();
-                    LevelGenerator LastLayoutGenerator = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<LevelGenerator>();
-                    LastLayoutEnter.isAlreadyActivated = false;
-                    LastLayoutGenerator.GenerateMapOnTop(true);
-                    LastLayoutEnter.isAlreadyActivated = true;
-                    other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
-                }
-
-            }
-
-
-
-        }
-
-
 
     }
-    
 
 
     private void DotsSpawner()

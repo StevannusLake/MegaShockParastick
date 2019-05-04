@@ -13,6 +13,10 @@ TagManager:
   - ZoomOut
   - ZoomIn
   - EnterGenerator
+  - RightMovementOffset
+  - RightLayout
+  - LeftLayout
+  - UpLayout
   layers:
   - Default
   - TransparentFX

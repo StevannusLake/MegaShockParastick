@@ -7,8 +7,9 @@ public class MixingCameraController : MonoBehaviour
     public GameObject Target;
     public CinemachineMixingCamera mixingCamera;
     public bool isInsideZoomArea = false;
-    private float[] previousCameraOrto;
-    
+    public float[] previousCameraOrto;
+    [Header("Amount to zoomout")]
+    public int amountToZoomOut;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,7 @@ public class MixingCameraController : MonoBehaviour
         for(int i=0; i<mixingCamera.ChildCameras.Length;i++)
         {
             mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize,
-                  previousCameraOrto[i] + 3f, Time.deltaTime * 4f);
+                  previousCameraOrto[i] + amountToZoomOut * GameManager.instance.player.GetComponent<ColliderController>().overlapColliderCounts, Time.deltaTime * 4f);
                 
 
         }
