@@ -9,6 +9,7 @@ public class ButtonManager : MonoBehaviour
     public bool secondlife = false;
     public bool tryagain = false;
     public float TempScore;
+    public bool closingLoseMenu = false;
 
     void Awake()
     {
@@ -54,7 +55,7 @@ public class ButtonManager : MonoBehaviour
     }
 
     public void TryAgain()
-    {
+    {   
         tryagain = true;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TryAgain", tryagain ? 1 : 0);

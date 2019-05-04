@@ -13,6 +13,7 @@ TagManager:
   - ZoomOut
   - ZoomIn
   - EnterGenerator
+  - UIManager
   layers:
   - Default
   - TransparentFX
