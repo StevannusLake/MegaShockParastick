@@ -387,29 +387,24 @@ public class Movement : MonoBehaviour
             }
 
         }
-        
-
-
-    }
-    
-
-    private void OnTriggerStay2D (Collider2D other)
-    {
         if (other.CompareTag("EnterGenerator"))
         {
-            if (!other.gameObject.GetComponent<ZoomController>().isAlreadyActivated)
+            if (!other.gameObject.GetComponent<EnterController>().isAlreadyActivated)
             {
-                if(other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID==0)
+                if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID == 0)
                 {
                     LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
                     levelGenerator.GenerateMapOnTop(false);
-                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                    other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 }
-                else if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID != 0 && !other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().isAlreadyMade)
-                { 
-                    
-                    LevelHandler.instance.levelLayoutsCreated.Last<GameObject>().GetComponentInChildren<LevelGenerator>().GenerateMapOnTop(true);
-                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                else if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID != 0 && !other.gameObject.transform.parent.GetComponentInChildren<EnterController>().isAlreadyActivated)
+                {
+                    EnterController LastLayoutEnter = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<EnterController>();
+                    LevelGenerator LastLayoutGenerator = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<LevelGenerator>();
+                    LastLayoutEnter.isAlreadyActivated = false;
+                    LastLayoutGenerator.GenerateMapOnTop(true);
+                    LastLayoutEnter.isAlreadyActivated = true;
+                    other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 }
 
             }
@@ -417,7 +412,11 @@ public class Movement : MonoBehaviour
 
 
         }
+
+
+
     }
+    
 
 
     private void DotsSpawner()

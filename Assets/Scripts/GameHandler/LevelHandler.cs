@@ -8,7 +8,10 @@ public class LevelHandler : MonoBehaviour
     public List<GameObject> levelLayoutsCreated;
     public static LevelHandler instance;
     public MixingCameraController cameraController;
+    [Header("Number of layouts to be created in advance. should be a even number")]
     public int numberOfMapToGenerate;
+    [Header("which layout from the last to collide with to create more maps")]
+    public int whenToGenerateMoreMaps;
     public CurrentDirection currentDirection;
     public GameObject finalLayout;
     public float currentActiveLevelGeneratorID = 0;

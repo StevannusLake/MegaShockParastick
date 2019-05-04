@@ -17,9 +17,14 @@ public class Surfaces : MonoBehaviour
     public bool OnRotation = false;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        rotationSpeedRandom = Random.Range(20, 75);
+    }
     void Start()
     {
-        rotationSpeedRandom = Random.Range(55, 75);
+        
         myTransform = GetComponent<Transform>();
     }
 

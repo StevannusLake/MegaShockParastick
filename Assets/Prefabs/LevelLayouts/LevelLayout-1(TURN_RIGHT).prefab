@@ -146,7 +146,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -7
   m_Sprite: {fileID: 21300000, guid: 06a719e5485bdb54984fc88b14984054, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -341,7 +341,6 @@ GameObject:
   - component: {fileID: 2275922501380204679}
   - component: {fileID: 2275922501380204678}
   - component: {fileID: 4777788872527098345}
-  - component: {fileID: 668689529209231171}
   m_Layer: 0
   m_Name: PipeShape
   m_TagString: EnterGenerator
@@ -405,18 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afcaa009742135458c15b4ac0d6ad28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &668689529209231171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2275922501380204696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a8534f7b07a164a9d1e83c24980e96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   isAlreadyActivated: 0
 --- !u!1 &2497113296641423107
 GameObject:
@@ -470,7 +457,7 @@ MonoBehaviour:
   platformList: []
   topObject: {fileID: 0}
   bottomObject: {fileID: 0}
-  isAlreadyMade: 0
+  borderCollider: {fileID: 0}
   test: 0
   upwardPossibilities: 
 --- !u!1 &2885027396215366326

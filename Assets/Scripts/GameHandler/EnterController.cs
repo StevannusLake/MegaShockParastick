@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class EnterController : MonoBehaviour
 {
+    public bool isAlreadyActivated = false;
 }
