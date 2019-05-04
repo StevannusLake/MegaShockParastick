@@ -7,6 +7,10 @@ public class MixingCameraController : MonoBehaviour
     public GameObject Target;
     public CinemachineMixingCamera mixingCamera;
     public bool isInsideZoomArea = false;
+    public bool isShaked = false;
+   
+    private float shakeDuration=0;
+    private float shakeTimer = 0;
     public float[] previousCameraOrto;
     [Header("Amount to zoomout")]
     public int amountToZoomOut;
@@ -24,8 +28,13 @@ public class MixingCameraController : MonoBehaviour
     {
       // Debug.Log(Target.GetComponent<Movement>().CalculateCameraZoom());      
         ChangeCameraZoom();
+        
         if (isInsideZoomArea) EnteredTransitionArea();
         if (!isInsideZoomArea) ExitedTransitionArea();
+         
+        
+        if (isShaked) StopShake();
+        if (!isShaked) isDraggingShake();
     }
     void ChangeCameraZoom()
     {
@@ -34,6 +43,55 @@ public class MixingCameraController : MonoBehaviour
       
 
     }
+   
+    public void ShakeCamera(float shakeAmplitude, float shakeFrequency, float duration)
+    {
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            noiseChannel.m_AmplitudeGain = shakeAmplitude;
+            noiseChannel.m_FrequencyGain = shakeFrequency;
+        }
+        isShaked = true;
+        shakeDuration = duration;
+    }
+
+    public void isDraggingShake()
+    {
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
+            float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
+            CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            noiseChannel.m_AmplitudeGain = shakeAmplitude;
+            noiseChannel.m_FrequencyGain = shakeFrequency;
+        }
+        
+    }
+
+    public void StopShake()
+    {
+        shakeTimer += Time.deltaTime;
+        if(shakeTimer>=shakeDuration)
+        {
+            for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+            {
+                CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                noiseChannel.m_AmplitudeGain = Mathf.MoveTowards(noiseChannel.m_AmplitudeGain, 0, Time.fixedTime*2f);
+                noiseChannel.m_FrequencyGain = Mathf.MoveTowards(noiseChannel.m_FrequencyGain, 0, Time.fixedTime * 2f);
+
+                if (noiseChannel.m_AmplitudeGain == 0 &&
+                noiseChannel.m_FrequencyGain == 0) isShaked = false;
+                
+            }
+            shakeTimer = 0;
+        }
+
+    }
+    
+    
+   
+
 
     public void EnteredTransitionArea()
     {
@@ -72,8 +130,13 @@ public class MixingCameraController : MonoBehaviour
 
     public void StopFollowing()
     {
-        mixingCamera.gameObject.SetActive(false);
-       
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {          
+            mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Follow = null;
+        }
+        // mixingCamera.gameObject.SetActive(false);
+
     }
+   
    
 }

@@ -841,6 +841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782031377099561503}
   - component: {fileID: 6467242693809181394}
+  - component: {fileID: 6423144105121641189}
   m_Layer: 0
   m_Name: ZoomIn
   m_TagString: ZoomIn
@@ -888,6 +889,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8709927, y: 0.53990173}
   m_EdgeRadius: 0
+--- !u!114 &6423144105121641189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228309872443261460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a8534f7b07a164a9d1e83c24980e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlreadyActivated: 0
 --- !u!1 &8599327234610699068
 GameObject:
   m_ObjectHideFlags: 0

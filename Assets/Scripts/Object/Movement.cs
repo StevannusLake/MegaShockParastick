@@ -27,16 +27,19 @@ public class Movement : MonoBehaviour
     Vector2 slingshotVelocity;
     public float SlingshotForce;
     public float MaxSlingshotForce;
-    public float prevMagnitude;
-    public float prevSlingShotVelocity;
+    private float prevMagnitude;
+    private float prevAmplitude;
+    private float prevFrequency;
+    private float prevSlingShotVelocity;
+    private float shakeTimer = 0;
     public MoveState myMoveStick;
 
     static bool isCancel = false;
     static bool mousePressed;
-    
+
 
     public Transform initialGroundTransform;
-   
+
     Transform surfaceTransform;
     int surfaceStickCount;
 
@@ -88,7 +91,7 @@ public class Movement : MonoBehaviour
         surfaceTransform = initialGroundTransform;
 
         facingVector = (Vector2)myTransform.right;
-        
+
         initialPosition = this.gameObject.transform.position.y;
 
         playerDistance = ButtonManager.instance.TempScore;
@@ -98,7 +101,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
+        if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
         {
             SlingShot();
             DotsSpawner();
@@ -106,20 +109,25 @@ public class Movement : MonoBehaviour
             {
                 myTransform.rotation = Quaternion.Euler(0, 0, 0);
             }
-            if (!spawnDot) DecreaseCameraZoomMagnitude();
+            if (!spawnDot)
+            {
+                DecreaseCameraAmplitudeAndMagnitude();
+                DecreaseCameraZoomMagnitude();
+            }
+
 
             DistanceCounter();
 
             Falling();
         }
-        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 1)
+        else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 1)
         {
             myEmotion.EmoteDeath();
-            Cinemachine.SetActive(false);
+            LevelHandler.instance.cameraController.StopFollowing();
             myCollider.isTrigger = true;
             PlayDead();
         }
-        else if(!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
+        else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
         {
             if (!UIManager.Instance.secondChanceCalled)
             {
@@ -141,7 +149,7 @@ public class Movement : MonoBehaviour
         {
             DropDead();
         }
-        else if(UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf)
+        else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf)
         {
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
@@ -156,7 +164,7 @@ public class Movement : MonoBehaviour
 
     void SlingShot()
     {
-        if(myMoveStick == MoveState.STICK)
+        if (myMoveStick == MoveState.STICK)
         {
             // use mouse to test movement without concerning control
             if (Input.GetMouseButtonDown(0))
@@ -167,14 +175,14 @@ public class Movement : MonoBehaviour
                 isCancel = true;
                 mousePressed = true;
 
-               // myAnimation.PlayHold();
+                // myAnimation.PlayHold();
                 myEmotion.EmoteBeforeFlying();
 
                 cancelIndicator.transform.position = initialInputPosition;
                 cancelIndicator.SetActive(true);
             }
 
-            if(mousePressed)
+            if (mousePressed)
             {
                 CancelSlingShot();
             }
@@ -195,13 +203,13 @@ public class Movement : MonoBehaviour
                 spawnDot = false;
                 isCancel = false;
 
-               // myAnimation.PlayJump();
+                // myAnimation.PlayJump();
                 myEmotion.EmoteFlying();
 
                 AudioManager.PlaySound(AudioManager.Sound.PlayerUnstick);
             }
 
-            if(Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 mousePressed = false;
                 spawnDot = false;
@@ -217,36 +225,36 @@ public class Movement : MonoBehaviour
         Vector2 currentMousePos = Input.mousePosition;
         currentMousePos = Camera.main.ScreenToWorldPoint(currentMousePos);
         Vector2 launchVelocity = currentMousePos - initialInputPosition;
-        
+
         if (launchVelocity.magnitude >= 1.0)
         {
             isCancel = false;
             spawnDot = true;
 
-           // myAnimation.PlayHold();
+            // myAnimation.PlayHold();
             myEmotion.EmoteBeforeFlying();
         }
 
-        if(isCancel == false && launchVelocity.magnitude <= 0.9)
+        if (isCancel == false && launchVelocity.magnitude <= 0.9)
         {
             spawnDot = false;
             isCancel = true;
 
-           // myAnimation.PlayIdle();
+            // myAnimation.PlayIdle();
             myEmotion.EmoteIdle();
         }
     }
 
-    
+
     Vector2 SlingshotVelocityCalculation()
     {
         Vector2 resultantVelocity, displacementVector;
         displacementVector = finalInputPosition - initialInputPosition;
         displacementVector *= -1;
         resultantVelocity = displacementVector;
-        
+
         resultantVelocity *= SlingshotForce;
-        
+
         float i = MaxSlingshotForce / resultantVelocity.magnitude;
         float control = i > 1 ? 1 : i;
         resultantVelocity *= control;
@@ -266,35 +274,99 @@ public class Movement : MonoBehaviour
             prevMagnitude = magnitude;
             return magnitude;
         }
-       else if(!spawnDot)
-        {    
+        else if (!spawnDot)
+        {
             return prevMagnitude;
         }
         return 0;
-      
+
     }
     void DecreaseCameraZoomMagnitude()
     {
-        if (prevMagnitude>=0 && !spawnDot)
+        if (prevMagnitude >= 0 && !spawnDot)
         {
-            prevMagnitude = Mathf.MoveTowards(prevMagnitude, 0, Time.deltaTime * prevSlingShotVelocity *2f);
-           
+            prevMagnitude = Mathf.MoveTowards(prevMagnitude, 0, Time.deltaTime * prevSlingShotVelocity * 2f);
+
         }
     }
 
     #endregion  ///////////////////////////////////
 
 
+
+
+
+
+
+    #region Camera Amplitude And Frequency
+    public float CalculateCameraAmplitude()
+    {
+        if (spawnDot) shakeTimer += Time.deltaTime;
+        if (shakeTimer >= 5)
+        {
+            if (spawnDot)
+            {
+                float amplitude = 0;
+                amplitude = Mathf.MoveTowards(amplitude, 5f, Time.fixedTime * 0.5f);
+                prevAmplitude = amplitude;
+                return amplitude;
+            }
+            else if (!spawnDot)
+            {
+                return prevAmplitude;
+            }
+
+            shakeTimer = 0;
+        }
+        return 0;
+    }
+    public float CalculateCameraFrequency()
+    {
+        if (spawnDot) shakeTimer += Time.deltaTime;
+
+        if (shakeTimer >= 5)
+        {
+            if (spawnDot)
+            {
+                float frequency = 0;
+                frequency = Mathf.MoveTowards(frequency, 5f, Time.fixedTime * 0.5f);
+                prevFrequency = frequency;
+                return frequency;
+            }
+            else if (!spawnDot)
+            {
+                return prevFrequency;
+            }
+            shakeTimer = 0;
+        }
+        return 0;
+
+    }
+    void DecreaseCameraAmplitudeAndMagnitude()
+    {
+
+        if (prevAmplitude >= 0 && prevFrequency >= 0 && !LevelHandler.instance.cameraController.isShaked || !spawnDot)
+        {
+            prevAmplitude = Mathf.MoveTowards(prevAmplitude, 0, Time.deltaTime * 6f);
+            prevFrequency = Mathf.MoveTowards(prevFrequency, 0, Time.deltaTime * 6f);
+        }
+    }
+
+    #endregion
+
+
+
+
     // stop movement once touch something
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!MainMenu.activeSelf && deadState == 0)
+        if (!MainMenu.activeSelf && deadState == 0)
         {
             if (collision.collider.CompareTag(deadlyTag))
             {
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-                
+                LevelHandler.instance.cameraController.ShakeCamera(3, 1.5f, 0.3f);
                 // Die and Second Chance Menu pop out
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
@@ -302,7 +374,7 @@ public class Movement : MonoBehaviour
                     deadState = 1;
                 }
             }
-            else if(collision.collider.CompareTag(surfaceTag))
+            else if (collision.collider.CompareTag(surfaceTag))
             {
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
@@ -314,6 +386,8 @@ public class Movement : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
 
+
+
                 surfaceTransform = collision.gameObject.transform;
                 myTransform.SetParent(surfaceTransform);
                 myRigidBody.velocity = Vector2.zero;
@@ -323,10 +397,10 @@ public class Movement : MonoBehaviour
                 surfaceStickCount = 1;
                 collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
 
-               // myAnimation.PlayIdle();
+                // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
             }
-       }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -366,7 +440,7 @@ public class Movement : MonoBehaviour
 
     private void DotsSpawner()
     {
-        if(spawnDot)
+        if (spawnDot)
         {
             Vector2 myPosition = myTransform.position;
             currentInputPosition = Input.mousePosition;
@@ -375,7 +449,7 @@ public class Movement : MonoBehaviour
             for (int i = 0; i < numDots; i++)
             {
                 // set position based on calculation the position of dots over time
-                Vector2 tempDotPosition = CalculatePosition(dotsPositionOverTime * (i+1)) + myPosition;
+                Vector2 tempDotPosition = CalculatePosition(dotsPositionOverTime * (i + 1)) + myPosition;
                 trajectoryDots[i].transform.position = tempDotPosition;
                 GameObject previousDotObject;
                 if (i - 1 > 0)
@@ -389,19 +463,19 @@ public class Movement : MonoBehaviour
 
                 Vector2 temp = CalculateDotHitWall(trajectoryDots[i]);
 
-                if(temp != Vector2.zero)
+                if (temp != Vector2.zero)
                 {
-                    float bounceXPos = trajectoryDots[i].transform.position.x + ( (temp.x - trajectoryDots[i].transform.position.x) * 2.0f);
+                    float bounceXPos = trajectoryDots[i].transform.position.x + ((temp.x - trajectoryDots[i].transform.position.x) * 2.0f);
                     trajectoryDots[i].transform.position = new Vector2(bounceXPos, trajectoryDots[i].transform.position.y);
                 }
 
-        if (!DotHitsSurface(previousDotObject, trajectoryDots[i]))
+                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]))
                 {
                     trajectoryDots[i].SetActive(true);
                 }
                 else
                 {
-                    for(int j=i; j < numDots; j++)
+                    for (int j = i; j < numDots; j++)
                     {
                         trajectoryDots[j].SetActive(false);
                     }
@@ -423,7 +497,7 @@ public class Movement : MonoBehaviour
     {
         Vector2 gravity = new Vector2(0, Physics2D.gravity.magnitude);
         Vector2 launchVelocity = currentInputPosition - initialInputPosition;
-        
+
         launchVelocity *= SlingshotForce;
 
         float i = MaxSlingshotForce / launchVelocity.magnitude;
@@ -431,7 +505,7 @@ public class Movement : MonoBehaviour
         launchVelocity *= control;
 
         Vector2 resultVector = (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
-        
+
         return resultVector;
     }
 
@@ -447,7 +521,7 @@ public class Movement : MonoBehaviour
         hit = Physics2D.Raycast(myTransform.position, direction, distance);
         Physics2D.queriesStartInColliders = false;
         Physics2D.queriesHitTriggers = false;
-        
+
         CircleCollider2D currentDotCollider = currentDot.GetComponent<CircleCollider2D>();
 
         Physics2D.IgnoreCollision(myCollider, currentDotCollider);
@@ -460,18 +534,18 @@ public class Movement : MonoBehaviour
 
         return Vector2.zero;
     }
-    
+
     bool DotHitsSurface(GameObject prevDot, GameObject currentDot)
     {
         RaycastHit2D hit;
-        
+
         Vector2 direction = currentDot.transform.position - prevDot.transform.position;
         float distance = direction.magnitude;
 
         hit = Physics2D.Raycast(prevDot.transform.position, direction, distance);
         Physics2D.queriesStartInColliders = false;
         Physics2D.queriesHitTriggers = false;
-        
+
         CircleCollider2D prevDotCollider = prevDot.GetComponent<CircleCollider2D>();
         CircleCollider2D currentDotCollider = currentDot.GetComponent<CircleCollider2D>();
 
@@ -481,7 +555,7 @@ public class Movement : MonoBehaviour
         {
             return true;
         }
-        
+
         return false;
     }
 
@@ -503,7 +577,7 @@ public class Movement : MonoBehaviour
     // dead state == 1
     void PlayDead()
     {
-        if(!isDead)
+        if (!isDead)
         {
             isDead = true;
             myRigidBody.velocity = new Vector2(0, deadVelocity);
@@ -516,7 +590,7 @@ public class Movement : MonoBehaviour
     {
         Vector2 cameraBottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
 
-        if(deadFix)
+        if (deadFix)
         {
             if (deadCounter >= deadTimer)
             {
@@ -529,7 +603,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if(myTransform.position.y <= cameraBottom.y)
+        if (myTransform.position.y <= cameraBottom.y)
         {
             if (deadState == 0)
             {
@@ -538,12 +612,12 @@ public class Movement : MonoBehaviour
                 deadFix = true;
                 //Debug.Log("DropDead 0 to 1");
             }
-            else if(deadState == 1 && !deadFix)
+            else if (deadState == 1 && !deadFix)
             {
                 deadState = 2;
                 //Debug.Log("DropDead 1 to 2");
             }
-            else if(deadState == 2)
+            else if (deadState == 2)
             {
                 myRigidBody.velocity = Vector2.zero;
                 //Debug.Log("DropDead 2");
@@ -553,7 +627,7 @@ public class Movement : MonoBehaviour
 
     void Falling()
     {
-        if(myRigidBody.velocity.y != 0)
+        if (myRigidBody.velocity.y != 0)
         {
             myEmotion.EmoteFlying();
         }
