@@ -82,6 +82,8 @@ public class Movement : MonoBehaviour
     //=======================================================================================================================
     TrailRenderer myTrailRenderer;
     //=======================================================================================================================
+    float dotAngle;
+    //=======================================================================================================================
 
     // Start is called before the first frame update
     void Start()
@@ -481,7 +483,7 @@ public class Movement : MonoBehaviour
             {
                 // set position based on calculation the position of dots over time
                 Vector2 tempDotPosition = CalculatePosition(dotsPositionOverTime * (i + 1)) + myPosition;
-                trajectoryDots[i].transform.position = tempDotPosition;
+                // trajectoryDots[i].transform.position = tempDotPosition;
                 GameObject previousDotObject;
                 if (i - 1 > 0)
                 {
@@ -491,6 +493,9 @@ public class Movement : MonoBehaviour
                 {
                     previousDotObject = gameObject;
                 }
+
+                CalculateDotAngle(previousDotObject.transform.position, trajectoryDots[i].transform.position);
+                trajectoryDots[i].transform.SetPositionAndRotation(tempDotPosition, Quaternion.AngleAxis(dotAngle, new Vector3(0.0f, 0.0f, 1.0f)));
 
                 Vector2 temp = CalculateDotHitWall(trajectoryDots[i]);
 
@@ -539,8 +544,13 @@ public class Movement : MonoBehaviour
         }
 
         Vector2 resultVector = (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
-
+        
         return resultVector;
+    }
+
+    void CalculateDotAngle(Vector2 prevDot, Vector2 currentDot)
+    {
+        dotAngle = Mathf.Atan2(currentDot.y - prevDot.y, currentDot.x - prevDot.x) * Mathf.Rad2Deg - 90;
     }
 
     // The WALL ================================================================================================
