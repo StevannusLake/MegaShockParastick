@@ -3529,17 +3529,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLayoutsCreated: []
-  cameraController: {fileID: 2087839693}
-  numberOfMapToGenerate: 5
-  whenToGenerateMoreMaps: 2
-  currentDirection: 0
   finalLayout: {fileID: 0}
-  currentActiveLevelGeneratorID: 0
-  distanceToRespawnCoin: 10
-  timerForCoinRespawn: 0
-  numberOfSectionToHold: 8
+  cameraController: {fileID: 2087839693}
+  numberOfMapToGenerate: 6
+  whenToGenerateMoreMaps: 2
   distanceFromWall: 0.8
+  currentDirection: 0
+  levelDifficulty: 0
+  currentActiveLevelGeneratorID: 0
+  distanceToRespawnCoin: 40
+  timerForCoinRespawn: 0
   distanceTraveledByLayout: 0
+  numberOfSectionToHold: 8
 --- !u!1 &896214596
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,9 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f621581fe3c02049826e6d4d742fd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeType: 0
-  shakeMagnitude: 0.03
-  shakeTime: 0.5
+  cameraController: {fileID: 2087839693}
 --- !u!114 &1170094493
 MonoBehaviour:
   m_ObjectHideFlags: 0

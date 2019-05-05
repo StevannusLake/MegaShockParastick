@@ -56,11 +56,35 @@ public class ObjectSpawner : MonoBehaviour
 
 
 
+    public void CheckForSpawningCoinAround(GameObject layoutCreated,LevelGenerator generator)
+    {
+        Randomize:
+        int randomNum = RandomNumGenerator(0, generator.platformList.Count);
+        if (generator.platformList[randomNum].tag == "Deadly")
+        {
+            goto Randomize;
+        }
+        RespawnCoins(generator.platformList[randomNum].transform, GameAssets.i.platformObjectsArray[0].radiusForCoins);
+        
+    }
+
+    public void CheckForRespawnCoinInMiddle(GameObject layoutCreated, LevelGenerator generator)
+    {
+    RandomizeAgain:
+        int randomNumCoinInMiddle = Random.Range(0, generator.platformList.Count - 1);
+        if (generator.platformList[randomNumCoinInMiddle].tag == "Deadly" || generator.platformList[randomNumCoinInMiddle + 1].tag == "Deadly")
+        {
+            goto RandomizeAgain;
+        }
+        RespawnCoinsInMiddle(generator.platformList[randomNumCoinInMiddle], generator.platformList[randomNumCoinInMiddle + 1]);
+        
+    }
+
     public void RespawnCoins(Transform surfacePos , float surfaceRadius)
     {
         if(canRespawnCoinsAround)
         {
-            int randomNumberOfCoins = Random.Range(3, 10);
+            int randomNumberOfCoins = Random.Range(3, 8);
             for (int i = 0; i < randomNumberOfCoins; i++)
             {
                 float angle = i * Mathf.PI * 2f / randomNumberOfCoins;
@@ -126,5 +150,14 @@ public GameObject GetGameObjectType(ItemType typeObject)
         }
         Debug.LogError("Item" + typeObject + "wasnt found!");
         return null;
+    }
+
+
+
+    private int RandomNumGenerator(int min, int max)
+    {
+
+        int random = Random.Range(min, max);
+        return random;
     }
 }

@@ -379,7 +379,7 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-                LevelHandler.instance.cameraController.ShakeCamera(3, 3f, 0.5f);
+                ScreenEffectManager.instance.ShakeCamera(ShakeVariation.Dying);
                 // Die and Second Chance Menu pop out
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
@@ -395,7 +395,7 @@ public class Movement : MonoBehaviour
             else if (collision.collider.CompareTag(horizontalWall))
             {
                 bounceCounter++;
-                LevelHandler.instance.cameraController.ShakeCamera(1.2f, 1.2f, 0.1f);
+                ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
             }
 
             // stick on the surface

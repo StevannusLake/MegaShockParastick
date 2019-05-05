@@ -20,11 +20,11 @@ public class Surfaces : MonoBehaviour
 
     private void Awake()
     {
-        rotationSpeedRandom = Random.Range(20, 75);
+       
     }
     void Start()
     {
-        
+        rotationSpeedRandom = Random.Range(20, 40);
         myTransform = GetComponent<Transform>();
     }
 
@@ -48,7 +48,7 @@ public class Surfaces : MonoBehaviour
             zRotation = 0;
         }
 
-        zRotation += rotationSpeed * Time.deltaTime * rotationSpeedRandom;
+        zRotation +=   Time.deltaTime * rotationSpeedRandom *0.2f;
         Vector3 rotationVector = new Vector3(0, 0, zRotation);
         myTransform.eulerAngles = rotationVector;
     }

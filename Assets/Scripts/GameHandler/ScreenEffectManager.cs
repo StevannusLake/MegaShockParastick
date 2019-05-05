@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ShakeType { CameraPosition, CameraAnimation }
+public enum ShakeVariation {HittingWall,Dying }
 public class ScreenEffectManager : MonoBehaviour
 {
-    public static ScreenEffectManager instance;
-    public ShakeType shakeType = ShakeType.CameraPosition;
+    public static ScreenEffectManager instance;  
     Vector3 cameraInitialPosition;
-    public float shakeMagnitude = 0.01f, shakeTime = 0.3f;
+    public MixingCameraController cameraController;
 
     private void Awake()
     {
@@ -18,38 +17,27 @@ public class ScreenEffectManager : MonoBehaviour
    
     //Test for screen shake
    
-
-    //  CAMERA SHAKE
-    public void ShakeIt(ShakeType type) //Use to shake camera from other scripts
+   public void ShakeCamera(ShakeVariation variation)
     {
-        switch(shakeType)
+
+        switch(variation)
         {
-            case ShakeType.CameraPosition:
-                cameraInitialPosition = Camera.main.transform.position;
-                InvokeRepeating("StartCameraShaking", 0f, 0.005f);
-                Invoke("StopCameraShaking", shakeTime);
-                break;
-            case ShakeType.CameraAnimation:
-                //
+            case ShakeVariation.HittingWall:
+                {
+                    cameraController.ShakeCamera(1.2f, 1.2f, 0.1f);
+                    break;
+                }
 
-                break;
-        }    
-    }
+            case ShakeVariation.Dying:
+                {
+                    cameraController.ShakeCamera(3, 3f, 0.5f);
+                    break;
+                }
 
-    void StartCameraShaking()
-    {
-        float cameraShakingOffsetX = UnityEngine.Random.value * shakeMagnitude * 2.0f- shakeMagnitude;
-        float cameraShakingOffsetY = UnityEngine.Random.value * shakeMagnitude * 2.0f - shakeMagnitude;
-        Vector3 cameraIntermadiatePosition = Camera.main.transform.position;
-        cameraIntermadiatePosition.x += cameraShakingOffsetX;
-        cameraIntermadiatePosition.y += cameraShakingOffsetY;
-        Camera.main.transform.position = cameraIntermadiatePosition;
+        }
     }
-    void StopCameraShaking()
-    {
-        CancelInvoke("StartCameraShaking");
-        Camera.main.transform.position = cameraInitialPosition;
-    }
+    //  CAMERA SHAKE
+   
 
 
     
