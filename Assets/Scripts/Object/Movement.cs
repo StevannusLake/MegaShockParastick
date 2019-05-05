@@ -37,6 +37,7 @@ public class Movement : MonoBehaviour
     static bool isCancel = false;
     static bool mousePressed;
 
+    int bounceCounter;
 
     public Transform initialGroundTransform;
 
@@ -78,6 +79,9 @@ public class Movement : MonoBehaviour
     public GameObject cancelIndicator;
 
     public GameObject Cinemachine;
+    //=======================================================================================================================
+    TrailRenderer myTrailRenderer;
+    //=======================================================================================================================
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +91,7 @@ public class Movement : MonoBehaviour
         myTransform = GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CircleCollider2D>();
+        myTrailRenderer = GetComponent<TrailRenderer>();
         getSideHit = GetComponent<GetSideHit>();
         surfaceTransform = initialGroundTransform;
 
@@ -151,6 +156,7 @@ public class Movement : MonoBehaviour
         }
         else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf)
         {
+            //reset
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
             myRigidBody.gravityScale = 0;
@@ -159,13 +165,31 @@ public class Movement : MonoBehaviour
                 myCollider.isTrigger = false;
             }
             mousePressed = false;
+
+            if (bounceCounter != 0)
+            {
+                bounceCounter = 0;
+            }
         }
+
+        if(deadState == 0 && bounceCounter >= 3)
+        {
+            deadState = 1;
+        }
+
+        //=======================================================================================================================
+        ConfigureTrail();
     }
 
     void SlingShot()
     {
         if (myMoveStick == MoveState.STICK)
         {
+            if(bounceCounter != 0 && deadState == 0)
+            {
+                bounceCounter = 0;
+            }
+
             // use mouse to test movement without concerning control
             if (Input.GetMouseButtonDown(0))
             {
@@ -379,15 +403,17 @@ public class Movement : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
             }
+            else if (collision.collider.CompareTag(horizontalWall))
+            {
+                bounceCounter++;
+            }
 
             // stick on the surface
             if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0)
             {
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
-
-
-
+                
                 surfaceTransform = collision.gameObject.transform;
                 myTransform.SetParent(surfaceTransform);
                 myRigidBody.velocity = Vector2.zero;
@@ -400,6 +426,11 @@ public class Movement : MonoBehaviour
                 // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
             }
+        }
+        
+        if(collision.collider.name == "Ground" && deadState == 0)
+        {
+            myEmotion.EmoteIdle();
         }
     }
 
@@ -500,9 +531,12 @@ public class Movement : MonoBehaviour
 
         launchVelocity *= SlingshotForce;
 
-        float i = MaxSlingshotForce / launchVelocity.magnitude;
-        float control = i > 1 ? 1 : i;
-        launchVelocity *= control;
+        if (launchVelocity.magnitude != 0)
+        {
+            float i = MaxSlingshotForce / launchVelocity.magnitude;
+            float control = i > 1 ? 1 : i;
+            launchVelocity *= control;
+        }
 
         Vector2 resultVector = (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
 
@@ -558,7 +592,6 @@ public class Movement : MonoBehaviour
 
         return false;
     }
-
 
     public void DistanceCounter()
     {
@@ -630,6 +663,23 @@ public class Movement : MonoBehaviour
         if (myRigidBody.velocity.y != 0)
         {
             myEmotion.EmoteFlying();
+        }
+    }
+
+    void ConfigureTrail()
+    {
+        if(myMoveStick == MoveState.STICK || deadState != 0)
+        {
+            myTrailRenderer.enabled = false;
+        }
+        else if(myMoveStick == MoveState.FLYING && deadState == 0)
+        {
+            myTrailRenderer.enabled = true;
+        }
+
+        if (myTrailRenderer.enabled == false)
+        {
+            myTrailRenderer.Clear();
         }
     }
 }
