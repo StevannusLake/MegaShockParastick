@@ -28,8 +28,6 @@ public class Movement : MonoBehaviour
     public float SlingshotForce;
     public float MaxSlingshotForce;
     private float prevMagnitude;
-    private float prevAmplitude;
-    private float prevFrequency;
     private float prevSlingShotVelocity;
     private float shakeTimer = 0;
     public MoveState myMoveStick;
@@ -117,8 +115,7 @@ public class Movement : MonoBehaviour
                 myTransform.rotation = Quaternion.Euler(0, 0, 0);
             }
             if (!spawnDot)
-            {
-                DecreaseCameraAmplitudeAndMagnitude();
+            {             
                 DecreaseCameraZoomMagnitude();
             }
 
@@ -327,56 +324,46 @@ public class Movement : MonoBehaviour
     #region Camera Amplitude And Frequency
     public float CalculateCameraAmplitude()
     {
-        if (spawnDot) shakeTimer += Time.deltaTime;
-        if (shakeTimer >= 5)
+        if (spawnDot) shakeTimer += Time.fixedDeltaTime;
+        if (shakeTimer >= 15)
         {
             if (spawnDot)
             {
                 float amplitude = 0;
-                amplitude = Mathf.MoveTowards(amplitude, 5f, Time.fixedTime * 0.5f);
-                prevAmplitude = amplitude;
+                amplitude = Mathf.MoveTowards(amplitude, 5f, Time.fixedTime * 0.1f);
                 return amplitude;
             }
             else if (!spawnDot)
             {
-                return prevAmplitude;
+                return 0;
             }
 
-            shakeTimer = 0;
+            
         }
         return 0;
     }
     public float CalculateCameraFrequency()
     {
-        if (spawnDot) shakeTimer += Time.deltaTime;
+        if (spawnDot) shakeTimer += Time.fixedDeltaTime;
 
-        if (shakeTimer >= 5)
+        if (shakeTimer >= 15)
         {
             if (spawnDot)
             {
                 float frequency = 0;
-                frequency = Mathf.MoveTowards(frequency, 5f, Time.fixedTime * 0.5f);
-                prevFrequency = frequency;
+                frequency = Mathf.MoveTowards(frequency, 5f, Time.fixedTime * 0.1f);
                 return frequency;
             }
             else if (!spawnDot)
             {
-                return prevFrequency;
+                return 0;
             }
-            shakeTimer = 0;
+            
         }
         return 0;
 
     }
-    void DecreaseCameraAmplitudeAndMagnitude()
-    {
-
-        if (prevAmplitude >= 0 && prevFrequency >= 0 && !LevelHandler.instance.cameraController.isShaked || !spawnDot)
-        {
-            prevAmplitude = Mathf.MoveTowards(prevAmplitude, 0, Time.deltaTime * 6f);
-            prevFrequency = Mathf.MoveTowards(prevFrequency, 0, Time.deltaTime * 6f);
-        }
-    }
+   
 
     #endregion
 
@@ -392,7 +379,7 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-                LevelHandler.instance.cameraController.ShakeCamera(3, 1.5f, 0.3f);
+                LevelHandler.instance.cameraController.ShakeCamera(3, 3f, 0.5f);
                 // Die and Second Chance Menu pop out
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
@@ -408,6 +395,7 @@ public class Movement : MonoBehaviour
             else if (collision.collider.CompareTag(horizontalWall))
             {
                 bounceCounter++;
+                LevelHandler.instance.cameraController.ShakeCamera(1.2f, 1.2f, 0.1f);
             }
 
             // stick on the surface
@@ -525,6 +513,7 @@ public class Movement : MonoBehaviour
             {
                 Dots.SetActive(false);
             }
+            shakeTimer = 0;
         }
     }
 

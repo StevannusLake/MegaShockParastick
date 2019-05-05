@@ -34,6 +34,11 @@ public class MixingCameraController : MonoBehaviour
          
         
         if (isShaked) StopShake();
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (!isShaked) isDraggingShake();
     }
     void ChangeCameraZoom()
@@ -100,7 +105,7 @@ public class MixingCameraController : MonoBehaviour
         for(int i=0; i<mixingCamera.ChildCameras.Length;i++)
         {
             mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize,
-                  previousCameraOrto[i] + amountToZoomOut * GameManager.instance.player.GetComponent<ColliderController>().overlapColliderCounts, Time.deltaTime * 4f);
+                  previousCameraOrto[i] + amountToZoomOut * GameManager.instance.player.GetComponentInChildren<ZoomRadiusController>().overlapColliderCounts, Time.deltaTime * 4f);
                 
 
         }

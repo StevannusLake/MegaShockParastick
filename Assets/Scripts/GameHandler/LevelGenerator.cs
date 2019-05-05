@@ -25,12 +25,11 @@ public class LevelGenerator : MonoBehaviour
         platformList = new List<GameObject>();
         platformPlacementList = new List<GameObject>();
         borderCollider = transform.parent.Find("PipeShape").GetComponent<BoxCollider2D>();
-
+        
     }
     private void Start()
     {
-        upwardPossibilities = new int[] {0,1,2};     
-        
+        upwardPossibilities = new int[] {0,1,2};    
         AddChildsToList();
         RespawnPlatforms();
         SortAllPlatfromsBasedOnDistance();
@@ -76,7 +75,7 @@ public class LevelGenerator : MonoBehaviour
     {
 
         int randomDangerousPlatform = Random.Range(1, platformPlacementList.Count);
-
+       
         for (int i = 0; i < platformPlacementList.Count; i++)
         {
             if (i == randomDangerousPlatform)
@@ -84,8 +83,9 @@ public class LevelGenerator : MonoBehaviour
 
                 Renderer renderer = platformPlacementList[i].GetComponent<Renderer>();
                 float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
+                float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
                 GameObject Platforms = Instantiate(GameAssets.i.platformObjectsArray[0].surfaceGameObject,
-                    new Vector3(randXOnRenderer, platformPlacementList[i].transform.position.y),
+                    new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.platformObjectsArray[0].surfaceGameObject.transform.rotation,
                     transform);
 
@@ -97,31 +97,32 @@ public class LevelGenerator : MonoBehaviour
 
                 Renderer renderer = platformPlacementList[i].GetComponent<Renderer>();
                 float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
+                float randYOnRenderer= Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
                 GameObject Platforms = Instantiate(GameAssets.i.platformObjectsArray[1].surfaceGameObject,
-                    new Vector3(randXOnRenderer, platformPlacementList[i].transform.position.y),
+                    new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.platformObjectsArray[1].surfaceGameObject.transform.rotation,
-                    transform);
-
-                
+                    transform);              
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
             }
             //RespawnCoins
             RespawnCoinAround();
-            ////////////////////////////////////  
+
         }
         //Respawn Coin in Middle
         RespawnCoinInMiddle();
+        
 
     }
     
     void RespawnCoinAround()
     {
+        Randomize:
         int randomNum = RandomNumGenerator(0, platformList.Count);
         if (platformList[randomNum].tag == "Deadly")
         {
-            randomNum = RandomNumGenerator(0, platformList.Count);
+            goto Randomize;
         }
         ObjectSpawner.instance.RespawnCoins(platformList[randomNum].transform, GameAssets.i.platformObjectsArray[0].radiusForCoins);
     }
@@ -135,7 +136,7 @@ public class LevelGenerator : MonoBehaviour
             goto RandomizeAgain;
         }
         ObjectSpawner.instance.RespawnCoinsInMiddle(platformList[randomNumCoinInMiddle], platformList[randomNumCoinInMiddle + 1]);
-        Debug.Log(randomNumCoinInMiddle);
+       // Debug.Log(randomNumCoinInMiddle);
     }
     
 
@@ -159,13 +160,9 @@ public class LevelGenerator : MonoBehaviour
         bottomObject = platformList.First();
     }
 
-    void SetThisFirst()
-    {
-
-    }
     public void GenerateMapOnTop(bool isFirst)
     {
-
+        
         Debug.Log("Runned");
         if (transform.parent.gameObject.GetComponentInChildren<EnterController>().isAlreadyActivated) return;
         int offsetLayout = 0;
@@ -177,6 +174,7 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 1; i < LevelHandler.instance.numberOfMapToGenerate; i++)
         {
+           
             int number = Random.Range(0, upwardPossibilities.Length);
             int randomNum = upwardPossibilities[number];
             Transform currentParent = LevelHandler.instance.levelLayoutsCreated[i-1+ offsetLayout].gameObject.transform;
@@ -184,6 +182,8 @@ public class LevelGenerator : MonoBehaviour
 
             if (LevelHandler.instance.currentDirection == CurrentDirection.UP)
             {
+                GameManager.instance.levelHandler.AddDistanceByLayout("Up");
+
                 GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(currentParent.position.x, currentParent.position.y), Quaternion.identity);
                 newLayout.transform.position = new Vector2(newLayout.transform.position.x, (newLayout.transform.position.y + currentBoxCollider.bounds.size.y) );
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
@@ -191,10 +191,11 @@ public class LevelGenerator : MonoBehaviour
                 SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[randomNum].direction);             
                 if(i!= (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 GameManager.instance.levelHandler.levelLayoutsCreated.Add(newLayout);
-
+                
             }
             else if (LevelHandler.instance.currentDirection == CurrentDirection.RIGHT)
             {
+                GameManager.instance.levelHandler.AddDistanceByLayout("Right");
                 float y = currentParent.position.y ;
                 float desiredY = y + currentBoxCollider.bounds.size.y ;
                 float desiredX = currentParent.position.x + currentBoxCollider.size.x / 3f - 0.28f;
@@ -204,10 +205,12 @@ public class LevelGenerator : MonoBehaviour
                 SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[randomNum].direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;           
                 GameManager.instance.levelHandler.levelLayoutsCreated.Add(newLayout);
+               
 
             }
             else if (LevelHandler.instance.currentDirection == CurrentDirection.LEFT)
             {
+               GameManager.instance.levelHandler.AddDistanceByLayout("Left");
                 float y = currentParent.position.y;
                 float desiredY = y + currentBoxCollider.bounds.size.y ;
                 float desiredX = currentParent.position.x - currentBoxCollider.size.x / 3f + 0.28f;
@@ -217,9 +220,12 @@ public class LevelGenerator : MonoBehaviour
                 SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.levelLayoutsArray[randomNum].direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 GameManager.instance.levelHandler.levelLayoutsCreated.Add(newLayout);
+                
 
             }
         }
+
+        LevelHandler.instance.CheckForCoinRespawn();
     }
 
     private  int Compare(GameObject _objA, GameObject _objB )

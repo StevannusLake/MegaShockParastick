@@ -21,6 +21,7 @@ public class ObjectSpawner : MonoBehaviour
 
     }
 
+   
 
 
     static void SpawnSpecificObject(GameObject obj,Vector3 customMin,Vector3 customMax)
@@ -68,6 +69,7 @@ public class ObjectSpawner : MonoBehaviour
                 
             }
             canRespawnCoinsAround = false;
+            Debug.Log("FalseHappened");
         }
        
     }

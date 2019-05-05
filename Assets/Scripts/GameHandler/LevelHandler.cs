@@ -22,16 +22,20 @@ public class LevelHandler : MonoBehaviour
     [Header("Distance from wall which player will lose when collide with")]
     public float distanceFromWall;
 
+    public float distanceTraveledByLayout = 0;
+    
+
 
     private void Awake()
     {
         instance = this;
         levelLayoutsCreated = new List<GameObject>();
+        
     }
 
     private void Start()
     {
-        
+       
         //
     }
 
@@ -39,14 +43,14 @@ public class LevelHandler : MonoBehaviour
     {
        RemovePastSections();
       // LoseIfPlayerMoveOutOfScreen();
-        CheckForCoinRespawn();
+        
          
     }
 
-    void CheckForCoinRespawn()
+    public void CheckForCoinRespawn()
     {
-        timerForCoinRespawn += GameManager.instance.playerDistanceTraveled;
-        if (GameManager.instance.playerDistanceTraveled> distanceToRespawnCoin)
+        timerForCoinRespawn += LevelHandler.instance.distanceTraveledByLayout;
+        if (timerForCoinRespawn > distanceToRespawnCoin)
         {
             timerForCoinRespawn = 0;
             ObjectSpawner.instance.canRespawnCoinsAround = true;
@@ -83,13 +87,40 @@ public class LevelHandler : MonoBehaviour
         finalLayout = level.transform.parent.gameObject;
          currentActiveLevelGeneratorID = level.levelGeneratorID;
         currentDirection = direction;
-        
+   
+    }
+
+    public void AddDistanceByLayout(string Layout)
+    {
+        if(Layout=="Up")
+        {
+            distanceTraveledByLayout += 15;
+            
+        }
+        if (Layout == "Right")
+        {
+            distanceTraveledByLayout += 11f;
+            
+        }
+        if (Layout == "Left")
+        {
+            distanceTraveledByLayout += 11f;
+            
+        }
         
 
 
     }
 
-   
+    //
 
-    
+
+    private int RandomNumGenerator(int min, int max)
+    {
+
+        int random = Random.Range(min, max);
+        return random;
+    }
+
+
 }
