@@ -212,12 +212,12 @@ public class UIManager : MonoBehaviour
 
     public void CloseSecondChanceMenu()
     {
-        if (GameManager.instance.GetCoin() >= 25)
+        if (GameManager.instance.GetPoints() >= 4)
         {
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
 
-            GameManager.instance.DecreaseCoin(25);
-            GameManager.instance.SaveCoin();
+            GameManager.instance.DecreasePoints(4);
+            GameManager.instance.SavePoints();
             GameManager.instance.LoadData();
 
             ButtonManager.instance.secondlife = true;
@@ -236,11 +236,11 @@ public class UIManager : MonoBehaviour
 
     public void CheckSecondChanceButton()
     {
-        if(GameManager.instance.GetCoin() >= 25)
+        if(GameManager.instance.GetPoints() >= 4)
         {
             SecondChanceButton.interactable = true;
         }
-        else if (GameManager.instance.GetCoin() < 25)
+        else if (GameManager.instance.GetPoints() < 4)
         {
             SecondChanceButton.interactable = false;
         }
