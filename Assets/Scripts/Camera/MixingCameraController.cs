@@ -12,8 +12,14 @@ public class MixingCameraController : MonoBehaviour
     private float shakeDuration=0;
     private float shakeTimer = 0;
     public float[] previousCameraOrto;
+    public float prevousCameraOffset;
+    public GameObject currentActiveLayout;
     [Header("Amount to zoomout")]
     public int amountToZoomOut;
+
+    public bool shouldGoToLeft = false;
+    public bool shouldGoToRight = false;
+    public bool shouldGoToDefaultOffset = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +40,19 @@ public class MixingCameraController : MonoBehaviour
          
         
         if (isShaked) StopShake();
+
+
+        if (shouldGoToLeft) SlowlyOffsetToLeft();
+        if (shouldGoToRight) SlowlyOffsetToRight();
+        if (shouldGoToDefaultOffset) PositionOnDefaultCameraOffset();
+
         
     }
 
     private void FixedUpdate()
     {
         if (!isShaked) isDraggingShake();
+        
     }
     void ChangeCameraZoom()
     {
@@ -96,7 +109,55 @@ public class MixingCameraController : MonoBehaviour
     
     
    
+    public void SlowlyOffsetToRight()
+    {
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset + 3f,Time.deltaTime);
+            if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition== prevousCameraOffset + 4.5f)
+            {
+                shouldGoToRight = false;
+            }
+        }
+    }
 
+    public void SlowlyOffsetToLeft()
+    {
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset - 3f, Time.deltaTime * 1.6f);
+            if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition == prevousCameraOffset - 4.5f)
+            {
+                shouldGoToLeft = false;
+            }
+        }
+    }
+
+
+    public void PositionOnDefaultCameraOffset()
+    {
+        float defaultOffset = currentActiveLayout.GetComponentInChildren<LevelGenerator>().defaultOffset.position.x;
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition,
+                defaultOffset, Time.deltaTime *1.6f);
+            if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition == defaultOffset)
+            {
+                shouldGoToDefaultOffset = false;
+            }
+        }
+    }
+
+    public void CapturePrevOffset()
+    {
+        prevousCameraOffset = mixingCamera.ChildCameras[0].GetComponent<LockCameraX>().m_XPosition;
+    }
+
+    public void GetCurrentActiveLayout()
+    {
+        currentActiveLayout = LevelHandler.instance.layoutPlayerIsIn;
+    }
 
     public void EnteredTransitionArea()
     {

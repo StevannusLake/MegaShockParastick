@@ -13,7 +13,7 @@ public class LevelGenerator : MonoBehaviour
     public BoxCollider2D borderCollider;
     public Transform pivotAnchor;
     public Transform nextLayoutAnchor;
-
+    public Transform defaultOffset;
     private bool DangerAlreadyMade = false;
     public bool test;
 
@@ -28,7 +28,7 @@ public class LevelGenerator : MonoBehaviour
         borderCollider = transform.parent.Find("PipeShape").GetComponent<BoxCollider2D>();
         pivotAnchor = transform.parent;
         nextLayoutAnchor = transform.parent.Find("NextLayoutAnchor").transform;
-
+        defaultOffset= transform.parent.Find("DefaultOffset").transform;
 
 
     }

@@ -10,6 +10,7 @@ public class LevelHandler : MonoBehaviour
     public List<GameObject> levelLayoutsCreated;
     public static LevelHandler instance;
     public GameObject finalLayout;
+    public GameObject layoutPlayerIsIn;
     public MixingCameraController cameraController;
     [Header("Number of layouts to be created in advance. should be a even number")]
     public int numberOfMapToGenerate;
@@ -62,7 +63,7 @@ public class LevelHandler : MonoBehaviour
             ObjectSpawner.instance.canRespawnCoinsAround = true;
             
         }
-        else Debug.Log("It was less than distance");
+       
 
     }
     void LoseIfPlayerMoveOutOfScreen()

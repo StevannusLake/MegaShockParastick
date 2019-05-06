@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_LookaheadTime: 0.022
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
-  m_XDamping: 8
+  m_XDamping: 3
   m_YDamping: 12
   m_ZDamping: 0
   m_ScreenX: 0.5
@@ -2574,7 +2574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365027979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 0.5869999, z: -10}
+  m_LocalPosition: {x: 0.2, y: 0.5869999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3731,7 +3731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523000484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.641453, y: -81.7013, z: 26.25724}
+  m_LocalPosition: {x: 8.9614525, y: -81.7013, z: 26.25724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 180368713}
@@ -3745,7 +3745,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523000484}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b33b503d2444ec489ebbda526f92260, type: 3}
   m_Name: 
@@ -5232,6 +5232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelLayoutsCreated: []
   finalLayout: {fileID: 0}
+  layoutPlayerIsIn: {fileID: 0}
   cameraController: {fileID: 2087839693}
   numberOfMapToGenerate: 6
   whenToGenerateMoreMaps: 2
@@ -7055,7 +7056,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243725692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.641453, y: -82.2013, z: 26.25724}
+  m_LocalPosition: {x: 8.9614525, y: -82.2013, z: 26.25724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1323597959}
@@ -7069,7 +7070,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243725692}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b33b503d2444ec489ebbda526f92260, type: 3}
   m_Name: 
@@ -7405,7 +7406,7 @@ MonoBehaviour:
   m_LookaheadTime: 0.022
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
-  m_XDamping: 8
+  m_XDamping: 3
   m_YDamping: 12
   m_ZDamping: 1
   m_ScreenX: 0.5
@@ -11207,6 +11208,7 @@ GameObject:
   - component: {fileID: 1968270233}
   - component: {fileID: 1968270239}
   - component: {fileID: 1968270240}
+  - component: {fileID: 1968270241}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11492,6 +11494,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1968270241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968270231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cec62c51316e44e856d616113aa55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1969785247
 GameObject:
   m_ObjectHideFlags: 0
@@ -11933,7 +11947,12 @@ MonoBehaviour:
   isInsideZoomArea: 0
   isShaked: 0
   previousCameraOrto: []
+  prevousCameraOffset: 0
+  currentActiveLayout: {fileID: 0}
   amountToZoomOut: 3
+  shouldGoToLeft: 0
+  shouldGoToRight: 0
+  shouldGoToDefaultOffset: 0
 --- !u!114 &2087839694
 MonoBehaviour:
   m_ObjectHideFlags: 0

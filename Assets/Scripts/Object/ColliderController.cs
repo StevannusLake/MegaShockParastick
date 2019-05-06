@@ -92,22 +92,40 @@ public class ColliderController : MonoBehaviour
                     LastLayoutEnter.isAlreadyActivated = true;
                     other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 }
-
+                
             }
-
+            LevelHandler.instance.layoutPlayerIsIn = other.gameObject.transform.parent.parent.gameObject;
 
 
         }
+
+
         if (other.CompareTag("RightMovementOffset"))
         {
             if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Left)
             {
-                //
+                if(!other.GetComponent<ZoomController>().isAlreadyActivated )
+                {
+                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                    LevelHandler.instance.cameraController.CapturePrevOffset();
+                    LevelHandler.instance.cameraController.shouldGoToRight = true;
+                }
+                
             }
 
         }
+        /////// DefaultOffset
+        if (other.CompareTag("LeftMovementOffset"))
+        {
+            if (!other.GetComponent<ZoomController>().isAlreadyActivated)
+            {
+                other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                LevelHandler.instance.cameraController.CapturePrevOffset();
+                LevelHandler.instance.cameraController.shouldGoToLeft = true;
 
+            }
 
+        }
 
 
 
@@ -117,6 +135,10 @@ public class ColliderController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("ZoomOut")) isInsideZoomOut = true;
+
+
+        //
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -126,6 +148,35 @@ public class ColliderController : MonoBehaviour
 
             isInsideZoomOut = false;
             
+        }
+
+
+
+
+        if (other.CompareTag("RightMovementOffset"))
+        {
+            if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Right)
+            {
+                LevelHandler.instance.cameraController.GetCurrentActiveLayout();
+                LevelHandler.instance.cameraController.shouldGoToDefaultOffset = true;
+                LevelHandler.instance.cameraController.shouldGoToLeft = false;
+                LevelHandler.instance.cameraController.shouldGoToRight = false;
+            }
+          
+
+        }
+        /////// DefaultOffset
+        if (other.CompareTag("LeftMovementOffset"))
+        {
+            if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Left)
+            {
+                LevelHandler.instance.cameraController.GetCurrentActiveLayout();
+                LevelHandler.instance.cameraController.shouldGoToDefaultOffset = true;
+                LevelHandler.instance.cameraController.shouldGoToLeft = false;
+                LevelHandler.instance.cameraController.shouldGoToRight = false;
+            }
+           
+
         }
 
 

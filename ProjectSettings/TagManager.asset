@@ -19,6 +19,7 @@ TagManager:
   - UpLayout
   - UIManager
   - Opal
+  - LeftMovementOffset
   layers:
   - Default
   - TransparentFX
