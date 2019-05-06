@@ -85,11 +85,15 @@ public class LevelHandler : MonoBehaviour
     {
         foreach (GameObject obj in levelLayoutsCreated)
         {
-            if (obj.GetComponentInChildren<LevelGenerator>().levelGeneratorID + numberOfSectionToHold < currentActiveLevelGeneratorID)
+            if(obj)
             {
-                //obj.SetActive(false);
-                Destroy(obj);
+                if (obj.GetComponentInChildren<LevelGenerator>().levelGeneratorID + numberOfSectionToHold < currentActiveLevelGeneratorID)
+                {
+                    //obj.SetActive(false);
+                    Destroy(obj);
+                }
             }
+            
         }
     }
 

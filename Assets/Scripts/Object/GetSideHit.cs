@@ -28,7 +28,9 @@ public class GetSideHit : MonoBehaviour
         {
             hitDirection = HitDirection.Right;
         }
+        
         return hitDirection;
+        
       
     }
 

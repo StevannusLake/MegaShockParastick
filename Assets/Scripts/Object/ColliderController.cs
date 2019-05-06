@@ -102,29 +102,52 @@ public class ColliderController : MonoBehaviour
 
         if (other.CompareTag("RightMovementOffset"))
         {
-            if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Left)
-            {
-                if(!other.GetComponent<ZoomController>().isAlreadyActivated )
+            #region CustomizationForMovingCamera
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+            
+            if (prevousLayoutBeforeThis.tag == "LeftLayout"
+                && other.gameObject.transform.parent.parent.tag=="RightLayout" &&
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated==true) return;
+            if (prevousLayoutBeforeThis.tag == "RightLayout"
+                && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+
+            #endregion
+
+            if (!other.GetComponent<ZoomController>().isAlreadyActivated )
                 {
                     other.GetComponent<ZoomController>().isAlreadyActivated = true;
                     LevelHandler.instance.cameraController.CapturePrevOffset();
                     LevelHandler.instance.cameraController.shouldGoToRight = true;
                 }
                 
-            }
+            
 
         }
         /////// DefaultOffset
         if (other.CompareTag("LeftMovementOffset"))
         {
+            #region CustomizationForMovingCamera
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+
+            if (prevousLayoutBeforeThis.tag == "LeftLayout"
+                && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+            if (prevousLayoutBeforeThis.tag == "RightLayout"
+                && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+
+            #endregion
+
+
             if (!other.GetComponent<ZoomController>().isAlreadyActivated)
-            {
-                other.GetComponent<ZoomController>().isAlreadyActivated = true;
-                LevelHandler.instance.cameraController.CapturePrevOffset();
-                LevelHandler.instance.cameraController.shouldGoToLeft = true;
+                {
+                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                    LevelHandler.instance.cameraController.CapturePrevOffset();
+                    LevelHandler.instance.cameraController.shouldGoToLeft = true;
 
-            }
-
+                }
+      
         }
 
 
@@ -152,9 +175,13 @@ public class ColliderController : MonoBehaviour
 
 
 
-
         if (other.CompareTag("RightMovementOffset"))
         {
+            if (LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID+1].tag == "RightLayout" 
+                && other.gameObject.transform.parent.parent.tag == "LeftLayout") return;
+             if (LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID+1].tag == "LeftLayout" 
+                && other.gameObject.transform.parent.parent.tag == "RightLayout") return;
+
             if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Right)
             {
                 LevelHandler.instance.cameraController.GetCurrentActiveLayout();
@@ -168,13 +195,20 @@ public class ColliderController : MonoBehaviour
         /////// DefaultOffset
         if (other.CompareTag("LeftMovementOffset"))
         {
-            if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Left)
-            {
-                LevelHandler.instance.cameraController.GetCurrentActiveLayout();
-                LevelHandler.instance.cameraController.shouldGoToDefaultOffset = true;
-                LevelHandler.instance.cameraController.shouldGoToLeft = false;
-                LevelHandler.instance.cameraController.shouldGoToRight = false;
-            }
+            if (LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID+1].tag == "RightLayout" 
+                && other.gameObject.transform.parent.parent.tag == "LeftLayout") return;
+            if (LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID + 1].tag == "LeftLayout"
+                && other.gameObject.transform.parent.parent.tag == "RightLayout") return;
+            
+                if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Left)
+                {
+                    LevelHandler.instance.cameraController.GetCurrentActiveLayout();
+                    LevelHandler.instance.cameraController.shouldGoToDefaultOffset = true;
+                    LevelHandler.instance.cameraController.shouldGoToLeft = false;
+                    LevelHandler.instance.cameraController.shouldGoToRight = false;
+                }
+            
+          
            
 
         }
