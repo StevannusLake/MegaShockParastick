@@ -402,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &30153696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2204,6 +2204,44 @@ PrefabInstance:
     - target: {fileID: 933809215109297354, guid: 97a9781b656b8cf49a10c29c02bc8f42,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336322160969738264, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336322160969738264, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.data[0].levelLayOutPrefab
+      value: 
+      objectReference: {fileID: 8050542473745910023, guid: 5c72bcbf8662f574e9754d91dfc0088f,
+        type: 3}
+    - target: {fileID: 3336322160969738264, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.data[1].levelLayOutPrefab
+      value: 
+      objectReference: {fileID: 7312780021004143507, guid: cb660114936b2df4ea4796caf93e0d74,
+        type: 3}
+    - target: {fileID: 3336322160969738264, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.data[0].direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336322160969738264, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.data[1].direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336322160969738264, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.data[2].levelLayOutPrefab
+      value: 
+      objectReference: {fileID: 7974139658797291163, guid: 9fc975ed833e9b14caf4deeaaf314d65,
+        type: 3}
+    - target: {fileID: 3336322160969738264, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.data[2].direction
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

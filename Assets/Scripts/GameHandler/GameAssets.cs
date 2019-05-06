@@ -48,22 +48,81 @@ public class GameAssets : MonoBehaviour
     }
     #endregion
 
-    //Store all level layouts for level generator to create
+    public GameObject GetDesiredPlatform(Surfaces.SurfaceTypes type)
+    {
+        switch(type)
+        {
+            case Surfaces.SurfaceTypes.Safe:
+                return platformObjectsArray[1].surfaceGameObject;
+            case Surfaces.SurfaceTypes.Dangerous:
+                return platformObjectsArray[0].surfaceGameObject;
+            case Surfaces.SurfaceTypes.Moving:
+                return platformObjectsArray[2].surfaceGameObject;
+
+        }
+        return null;
+    }
+
+
     #region LevelLayouts
 
-    public LevelLayouts[] levelLayoutsArray;
+    public LevelLayouts[] levelLayoutsAArray;
+    [Header("NEXT LAYOUT")]
+    public LevelLayouts[] levelLayoutsBArray;
+    [Header("NEXT LAYOUT")]
+    public LevelLayouts[] levelLayoutsCArray;
     [System.Serializable]
     public class LevelLayouts
-    {       
+    {
         public GameObject levelLayOutPrefab;
         public CurrentDirection direction;
     }
+    
+    public LevelLayouts GetDesiredLevelLayout(LevelDifficulty difficulty, CurrentDirection direction)
+    {
+        //return GetCorrectOrRandomDirectionLayout(difficulty, direction);
+        return null;
+ 
+    }
+
+   
+
+    public LevelLayouts GetCorrectOrRandomDirectionLayout(LevelDifficulty difficulty, CurrentDirection direction)
+    {
+       
+        switch(difficulty)
+        {
+            case LevelDifficulty.A:
+                List<LevelLayouts> possibleLayout = new List<LevelLayouts>();
+                foreach (LevelLayouts obj in levelLayoutsAArray)
+                    {
+                        if (obj.direction == direction)
+                        {
+                            possibleLayout.Add(obj);
+                        }
+                    }
+                    int randomNum = Random.Range(0, possibleLayout.Count);
+                    return possibleLayout[randomNum];
+                
+                
+            case LevelDifficulty.B:
+
+                break;
+                
+        }
+        return null;
+    }
+
+
     #endregion
+
+    //Store all level layouts for level generator to create
+
 
 
 
     #region Items
-    
+
     public Items[] itemsArray;
     [System.Serializable]
     public class Items

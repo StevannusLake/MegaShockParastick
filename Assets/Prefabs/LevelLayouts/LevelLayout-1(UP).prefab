@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 8523191109399378272}
   m_Layer: 0
   m_Name: ChildPlatforms (4)
-  m_TagString: PlatformChild
+  m_TagString: PlatformChildWhite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 7700164590766090811}
   m_Layer: 0
   m_Name: ChildPlatforms (1)
-  m_TagString: PlatformChild
+  m_TagString: PlatformChildWhite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 6856750092259135484}
   m_Layer: 0
   m_Name: ChildPlatforms (3)
-  m_TagString: PlatformChild
+  m_TagString: PlatformChildWhite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 6946113461338042769}
   m_Layer: 0
   m_Name: ChildPlatforms
-  m_TagString: PlatformChild
+  m_TagString: PlatformChildWhite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -112,7 +112,7 @@ public class MixingCameraController : MonoBehaviour
 
     public void SlowlyOffsetToRight()
     {
-        Debug.Log(Screen.width);
+        
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {
             float speedOfMoving = Time.deltaTime * 3.5f;

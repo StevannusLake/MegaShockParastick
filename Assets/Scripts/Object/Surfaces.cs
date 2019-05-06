@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Surfaces : MonoBehaviour
 {
-    public enum SurfaceTypes {Safe,Dangerous}
+    public enum SurfaceTypes {Safe,Dangerous,Moving}
     public float rotationSpeed;
     Transform myTransform;
     CapsuleCollider2D myCollider;

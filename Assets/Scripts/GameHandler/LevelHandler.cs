@@ -41,6 +41,7 @@ public class LevelHandler : MonoBehaviour
     {
         instance = this;
         levelLayoutsCreated = new List<GameObject>();
+        levelDifficulty = LevelDifficulty.A;
 
     }
 

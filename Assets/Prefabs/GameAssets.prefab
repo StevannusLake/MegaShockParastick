@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6481930922352385576
+--- !u!1 &8747747151052413395
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 933809215109297354}
-  - component: {fileID: 3336322160969738264}
+  - component: {fileID: 3199740413172151089}
+  - component: {fileID: 1071490777329725411}
   m_Layer: 0
   m_Name: GameAssets
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &933809215109297354
+--- !u!4 &3199740413172151089
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6481930922352385576}
+  m_GameObject: {fileID: 8747747151052413395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.18530835, y: 0.45617756, z: -0.029296875}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3336322160969738264
+--- !u!114 &1071490777329725411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6481930922352385576}
+  m_GameObject: {fileID: 8747747151052413395}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4a6167c4a1d5f342b24923591d13113, type: 3}
@@ -103,16 +103,18 @@ MonoBehaviour:
     surfaceGameObject: {fileID: 5315248456801891616, guid: bd8f9f50ce483b642ab9a03a00a1fda7,
       type: 3}
     radiusForCoins: 0.8
-  levelLayoutsArray:
-  - levelLayOutPrefab: {fileID: 7974139658797291163, guid: 9fc975ed833e9b14caf4deeaaf314d65,
-      type: 3}
-    direction: 0
-  - levelLayOutPrefab: {fileID: 7312780021004143507, guid: cb660114936b2df4ea4796caf93e0d74,
-      type: 3}
-    direction: 1
+  levelLayoutsAArray:
   - levelLayOutPrefab: {fileID: 8050542473745910023, guid: 5c72bcbf8662f574e9754d91dfc0088f,
       type: 3}
     direction: 2
+  - levelLayOutPrefab: {fileID: 7312780021004143507, guid: cb660114936b2df4ea4796caf93e0d74,
+      type: 3}
+    direction: 1
+  - levelLayOutPrefab: {fileID: 7974139658797291163, guid: 9fc975ed833e9b14caf4deeaaf314d65,
+      type: 3}
+    direction: 0
+  levelLayoutsBArray: []
+  levelLayoutsCArray: []
   itemsArray:
   - itemPrefab: {fileID: 4179097162074151845, guid: 81ac7b6d0d9a45c46aced52e332248c8,
       type: 3}
