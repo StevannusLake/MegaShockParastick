@@ -34,7 +34,7 @@ public class MixingCameraController : MonoBehaviour
     void Update()
     {
       // Debug.Log(Target.GetComponent<Movement>().CalculateCameraZoom());      
-        ChangeCameraZoom();
+        
         
         if (isInsideZoomArea) EnteredTransitionArea();
         if (!isInsideZoomArea) ExitedTransitionArea();
@@ -46,8 +46,8 @@ public class MixingCameraController : MonoBehaviour
         if (shouldGoToLeft) SlowlyOffsetToLeft();
         if (shouldGoToRight) SlowlyOffsetToRight();
         if (shouldGoToDefaultOffset) PositionOnDefaultCameraOffset();
+        ChangeCameraZoom();
 
-        
     }
 
     private void FixedUpdate()
@@ -57,7 +57,7 @@ public class MixingCameraController : MonoBehaviour
     }
     void ChangeCameraZoom()
     {
-        float zoom = Target.GetComponent<Movement>().CalculateCameraZoom();
+        float zoom = GameManager.instance.playerMovement.CalculateCameraZoom();
         if(zoom>=0) mixingCamera.m_Weight1 = zoom;
       
 
@@ -117,7 +117,7 @@ public class MixingCameraController : MonoBehaviour
         {
             float speedOfMoving = Time.deltaTime * 3.5f;
             if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 1.5f;
-            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset + 3.5f, speedOfMoving);
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset + 3.45f, speedOfMoving);
             if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition== prevousCameraOffset + 5f)
             {
                 shouldGoToRight = false;
@@ -132,7 +132,7 @@ public class MixingCameraController : MonoBehaviour
         {
             float speedOfMoving = Time.deltaTime * 3.5f;
             if(GameManager.instance.playerMovement.spawnDot)  speedOfMoving = Time.deltaTime * 1.5f;
-            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset - 3.5f, speedOfMoving);
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset - 3.45f, speedOfMoving);
             if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition == prevousCameraOffset - 5f)
             {
                 shouldGoToLeft = false;
