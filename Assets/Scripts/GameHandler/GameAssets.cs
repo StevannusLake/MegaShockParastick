@@ -80,8 +80,8 @@ public class GameAssets : MonoBehaviour
     
     public LevelLayouts GetDesiredLevelLayout(LevelDifficulty difficulty, CurrentDirection direction)
     {
-        //return GetCorrectOrRandomDirectionLayout(difficulty, direction);
-        return null;
+       return GetCorrectOrRandomDirectionLayout(difficulty, direction);
+        
  
     }
 
