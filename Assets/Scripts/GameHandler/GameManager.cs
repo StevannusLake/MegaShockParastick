@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public MixingCameraController mixingCameraController;
     public float playerDistanceTraveled;
     public GameObject player;
+    public Movement playerMovement;
+    public ColliderController playerColliderController;
     public static GameManager instance;
     public float currentActiveLevelGeneratorID = 0;
     public LevelHandler levelHandler;
@@ -36,6 +38,9 @@ public class GameManager : MonoBehaviour
         LoadData();
         soundSourcesCreated = new List<string>();
         AudioManager.PlaySound(AudioManager.Sound.InGameBGM);
+        //Refrences to Player
+        playerMovement = player.GetComponent<Movement>();
+        playerColliderController = player.GetComponent<ColliderController>();
     }
 
 

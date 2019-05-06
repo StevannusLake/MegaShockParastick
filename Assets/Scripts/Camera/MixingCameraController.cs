@@ -115,7 +115,9 @@ public class MixingCameraController : MonoBehaviour
         Debug.Log(Screen.width);
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {
-            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset + 3.5f, Time.deltaTime* 3.5f);
+            float speedOfMoving = Time.deltaTime * 3.5f;
+            if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 1.5f;
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset + 3.5f, speedOfMoving);
             if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition== prevousCameraOffset + 5f)
             {
                 shouldGoToRight = false;
@@ -128,7 +130,9 @@ public class MixingCameraController : MonoBehaviour
         
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {
-            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset - 3.5f, Time.deltaTime * 3.5f);
+            float speedOfMoving = Time.deltaTime * 3.5f;
+            if(GameManager.instance.playerMovement.spawnDot)  speedOfMoving = Time.deltaTime * 1.5f;
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset - 3.5f, speedOfMoving);
             if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition == prevousCameraOffset - 5f)
             {
                 shouldGoToLeft = false;
@@ -143,9 +147,10 @@ public class MixingCameraController : MonoBehaviour
         float defaultOffset = currentActiveLayout.GetComponentInChildren<LevelGenerator>().defaultOffset.position.x;
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {
-            
+            float speedOfMoving = Time.deltaTime * 3.5f;
+            if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 1.5f;
             mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition,
-                defaultOffset, Time.deltaTime * 3.5f);
+                defaultOffset, speedOfMoving);
             if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition == defaultOffset)
             {
                 shouldGoToDefaultOffset = false;
@@ -169,8 +174,10 @@ public class MixingCameraController : MonoBehaviour
        
         for(int i=0; i<mixingCamera.ChildCameras.Length;i++)
         {
+            float speedOfMoving = Time.deltaTime * 4f;
+            if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 1.8f;
             mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize,
-                  previousCameraOrto[i] + amountToZoomOut * GameManager.instance.player.GetComponentInChildren<ZoomRadiusController>().overlapColliderCounts, Time.deltaTime * 4f);
+                  previousCameraOrto[i] + amountToZoomOut * GameManager.instance.player.GetComponentInChildren<ZoomRadiusController>().overlapColliderCounts, speedOfMoving);
                 
 
         }
@@ -191,8 +198,10 @@ public class MixingCameraController : MonoBehaviour
 
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {
+            float speedOfMoving = Time.deltaTime * 4f;
+            if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 1.8f;
             mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize,
-                  previousCameraOrto[i], Time.deltaTime * 4f);
+                  previousCameraOrto[i], speedOfMoving);
 
 
         }

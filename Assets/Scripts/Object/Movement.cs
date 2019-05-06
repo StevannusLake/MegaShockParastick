@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
     public float dotsPositionOverTime;
     Vector2 GRAVITY = new Vector2(0, -45f);
     public GameObject[] trajectoryDots = new GameObject[10];
-    bool spawnDot;
+    public bool spawnDot;
 
     //Calculate Player Distance
     public float playerDistance;
