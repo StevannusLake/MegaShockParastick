@@ -11,7 +11,8 @@ public class LevelGenerator : MonoBehaviour
     public GameObject topObject;
     public GameObject bottomObject;
     public BoxCollider2D borderCollider;
-
+    public Transform pivotAnchor;
+    public Transform nextLayoutAnchor;
 
     private bool DangerAlreadyMade = false;
     public bool test;
@@ -25,7 +26,11 @@ public class LevelGenerator : MonoBehaviour
         platformList = new List<GameObject>();
         platformPlacementList = new List<GameObject>();
         borderCollider = transform.parent.Find("PipeShape").GetComponent<BoxCollider2D>();
-        
+        pivotAnchor = transform.parent;
+        nextLayoutAnchor = transform.parent.Find("NextLayoutAnchor").transform;
+
+
+
     }
     private void Start()
     {
@@ -65,7 +70,7 @@ public class LevelGenerator : MonoBehaviour
     }
     void AddSelfToLevelHandler()
     {
-        GameManager.instance.levelHandler.levelLayoutsCreated.Add(transform.parent.gameObject);
+        GameManager.instance.levelHandler.levelLayoutsCreated.Add(transform.parent.parent.gameObject);
 
     }
     void RemoveSpriteRenderers()
@@ -164,14 +169,21 @@ public class LevelGenerator : MonoBehaviour
             int number = Random.Range(0, upwardPossibilities.Length);
             int randomNum = upwardPossibilities[number];
             Transform currentParent = LevelHandler.instance.levelLayoutsCreated[i-1+ offsetLayout].gameObject.transform;
+            Transform currentAnchor = currentParent.GetComponentInChildren<LevelGenerator>().nextLayoutAnchor;
             BoxCollider2D currentBoxCollider= LevelHandler.instance.levelLayoutsCreated[i -1+ offsetLayout].GetComponentInChildren<LevelGenerator>().borderCollider;
 
             if (LevelHandler.instance.currentDirection == CurrentDirection.UP)
             {
                 
+                float desiredY = currentAnchor.position.y;
+                float desiredX = currentAnchor.position.x;
+                Debug.Log(currentParent);
 
-                GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(currentParent.position.x, currentParent.position.y), Quaternion.identity);
-                newLayout.transform.position = new Vector2(newLayout.transform.position.x, (newLayout.transform.position.y + currentBoxCollider.bounds.size.y) );
+                GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+
+                newLayout.GetComponentInChildren<LevelGenerator>().pivotAnchor.position = new Vector2(desiredX, desiredY);
+
+
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
                 newLayout.GetComponentInChildren<LevelGenerator>().Initialize();
                 newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[randomNum].direction + ")";
@@ -182,11 +194,15 @@ public class LevelGenerator : MonoBehaviour
             }
             else if (LevelHandler.instance.currentDirection == CurrentDirection.RIGHT)
             {
-                
-                float y = currentParent.position.y ;
-                float desiredY = y + currentBoxCollider.bounds.size.y ;
-                float desiredX = currentParent.position.x + currentBoxCollider.size.x / 3f - 0.28f;
+
+               
+                float desiredY = currentAnchor.position.y;
+                float desiredX = currentAnchor.position.x;
+
+
                 GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+
+                newLayout.GetComponentInChildren<LevelGenerator>().pivotAnchor.position = new Vector2(desiredX, desiredY);
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
                 newLayout.GetComponentInChildren<LevelGenerator>().Initialize();
                 newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[randomNum].direction + ")";
@@ -198,11 +214,15 @@ public class LevelGenerator : MonoBehaviour
             }
             else if (LevelHandler.instance.currentDirection == CurrentDirection.LEFT)
             {
-             
-                float y = currentParent.position.y;
-                float desiredY = y + currentBoxCollider.bounds.size.y ;
-                float desiredX = currentParent.position.x - currentBoxCollider.size.x / 3f + 0.28f;
+
+                
+                float desiredY = currentAnchor.position.y;
+                float desiredX = currentAnchor.position.x;
+
+
                 GameObject newLayout = Instantiate(GameAssets.i.levelLayoutsArray[randomNum].levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+
+                newLayout.GetComponentInChildren<LevelGenerator>().pivotAnchor.position = new Vector2(desiredX, desiredY);
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
                 newLayout.GetComponentInChildren<LevelGenerator>().Initialize();
                 newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.levelLayoutsArray[randomNum].direction + ")";

@@ -15,6 +15,7 @@ public enum MoveState
 public class Movement : MonoBehaviour
 {
     PlayerAnimation myAnimation;
+    ZoomRadiusController zoomRadiusController;
     GetSideHit getSideHit;
     public PlayerEmotion myEmotion;
     Transform myTransform;
@@ -94,7 +95,7 @@ public class Movement : MonoBehaviour
         myTrailRenderer = GetComponent<TrailRenderer>();
         getSideHit = GetComponent<GetSideHit>();
         surfaceTransform = initialGroundTransform;
-
+        zoomRadiusController = GetComponentInChildren<ZoomRadiusController>();
         facingVector = (Vector2)myTransform.right;
 
         initialPosition = this.gameObject.transform.position.y;
@@ -613,7 +614,7 @@ public class Movement : MonoBehaviour
         {
             isDead = true;
             myRigidBody.velocity = new Vector2(0, deadVelocity);
-
+            zoomRadiusController.enabled = false;
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
         }
     }
