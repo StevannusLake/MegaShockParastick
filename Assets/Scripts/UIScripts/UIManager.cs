@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviour
     public GameObject[] ContinueUI;
     public GameObject[] LoseUI;
 
+    public GameObject SettingsScreen;
+
     private void Awake()
     {
         if(instance == null)
@@ -58,6 +60,8 @@ public class UIManager : MonoBehaviour
         TutorialScreen.SetActive(false);
 
         secondChanceCalled = PlayerPrefs.GetInt("SecondChanceCalled") == 1 ? true : false;
+
+        SettingsScreen.SetActive(false);
     }
 
     private void Update()
@@ -274,5 +278,15 @@ public class UIManager : MonoBehaviour
             isPaused = true;
             Time.timeScale = 0f;
         }
+    }
+
+    public void OpenSettingsScreen()
+    {
+        SettingsScreen.SetActive(true);
+    }
+
+    public void CloseSettingsScreen()
+    {
+        SettingsScreen.SetActive(false);
     }
 }
