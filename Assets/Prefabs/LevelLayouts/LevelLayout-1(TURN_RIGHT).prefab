@@ -380,6 +380,7 @@ MonoBehaviour:
   borderCollider: {fileID: 0}
   pivotAnchor: {fileID: 0}
   nextLayoutAnchor: {fileID: 0}
+  defaultOffset: {fileID: 0}
   test: 0
   upwardPossibilities: 
 --- !u!1 &2885027396215366326
@@ -1102,7 +1103,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.91704154, y: -0.35347176}
+  m_Offset: {x: -0.044651747, y: -0.35347176}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1113,7 +1114,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.8895, y: 4.9309845}
+  m_Size: {x: 6.8128867, y: 4.9309845}
   m_EdgeRadius: 0
 --- !u!114 &5159758443469640727
 MonoBehaviour:
