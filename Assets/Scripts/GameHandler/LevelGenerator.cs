@@ -108,7 +108,7 @@ public class LevelGenerator : MonoBehaviour
                 Renderer renderer = platformPlacementListWhite[i].GetComponent<Renderer>();
                 float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
                 float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
-                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe),
+                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous),
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe).transform.rotation,
                     transform);
@@ -122,7 +122,7 @@ public class LevelGenerator : MonoBehaviour
                 Renderer renderer = platformPlacementListWhite[i].GetComponent<Renderer>();
                 float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
                 float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
-                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous),
+                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe),
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
                     transform);
