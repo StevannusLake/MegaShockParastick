@@ -136,6 +136,7 @@ public class MixingCameraController : MonoBehaviour
 
     public void PositionOnDefaultCameraOffset()
     {
+       
         float defaultOffset = currentActiveLayout.GetComponentInChildren<LevelGenerator>().defaultOffset.position.x;
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {

@@ -87,7 +87,8 @@ public class LevelHandler : MonoBehaviour
         {
             if (obj.GetComponentInChildren<LevelGenerator>().levelGeneratorID + numberOfSectionToHold < currentActiveLevelGeneratorID)
             {
-                obj.SetActive(false);
+                //obj.SetActive(false);
+                Destroy(obj);
             }
         }
     }

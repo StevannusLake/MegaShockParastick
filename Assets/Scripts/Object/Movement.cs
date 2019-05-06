@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
 {
     PlayerAnimation myAnimation;
     ZoomRadiusController zoomRadiusController;
+    ColliderController colliderController;
     GetSideHit getSideHit;
     public PlayerEmotion myEmotion;
     Transform myTransform;
@@ -93,6 +94,7 @@ public class Movement : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CircleCollider2D>();
         myTrailRenderer = GetComponent<TrailRenderer>();
+        colliderController = GetComponent<ColliderController>();
         getSideHit = GetComponent<GetSideHit>();
         surfaceTransform = initialGroundTransform;
         zoomRadiusController = GetComponentInChildren<ZoomRadiusController>();
@@ -615,6 +617,8 @@ public class Movement : MonoBehaviour
             isDead = true;
             myRigidBody.velocity = new Vector2(0, deadVelocity);
             zoomRadiusController.enabled = false;
+            colliderController.enabled = false;
+            myCollider.enabled = false;
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
         }
     }

@@ -70,6 +70,7 @@ public class Surfaces : MonoBehaviour
             {
                 myCollider.isTrigger = true;
                 myRigidbody.isKinematic = false;
+                Destroy(this.gameObject, 2f);
             }
         }
     }
