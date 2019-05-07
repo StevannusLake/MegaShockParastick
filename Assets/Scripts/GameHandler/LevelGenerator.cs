@@ -208,15 +208,15 @@ public class LevelGenerator : MonoBehaviour
                 float desiredX = currentAnchor.position.x;
                 Debug.Log(currentParent);
 
-                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
 
                 newLayout.GetComponentInChildren<LevelGenerator>().pivotAnchor.position = new Vector2(desiredX, desiredY);
 
 
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
                 newLayout.GetComponentInChildren<LevelGenerator>().Initialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).direction + ")";
-                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).direction);             
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection).direction + ")";
+                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.GetDesiredLevelLayout( randomDirection).direction);             
                 if(i!= (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayout.GetComponentInChildren<LevelGenerator>(), "Up");
 
@@ -229,13 +229,13 @@ public class LevelGenerator : MonoBehaviour
                 float desiredX = currentAnchor.position.x;
 
 
-                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
 
                 newLayout.GetComponentInChildren<LevelGenerator>().pivotAnchor.position = new Vector2(desiredX, desiredY);
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
                 newLayout.GetComponentInChildren<LevelGenerator>().Initialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).direction + ")";
-                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).direction);
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection).direction + ")";
+                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.GetDesiredLevelLayout( randomDirection).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayout.GetComponentInChildren<LevelGenerator>(), "Right");
 
@@ -249,13 +249,13 @@ public class LevelGenerator : MonoBehaviour
                 float desiredX = currentAnchor.position.x;
 
 
-                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
 
                 newLayout.GetComponentInChildren<LevelGenerator>().pivotAnchor.position = new Vector2(desiredX, desiredY);
                 newLayout.GetComponentInChildren<LevelGenerator>().levelGeneratorID = +levelGeneratorID + i;
                 newLayout.GetComponentInChildren<LevelGenerator>().Initialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).direction + ")";
-                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.GetDesiredLevelLayout(LevelHandler.instance.levelDifficulty, randomDirection).direction);
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection).direction + ")";
+                SendLastGeneratedLevel(newLayout.GetComponentInChildren<LevelGenerator>(), GameAssets.i.GetDesiredLevelLayout( randomDirection).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayout.GetComponentInChildren<LevelGenerator>(), "Left");
 

@@ -20,6 +20,9 @@ TagManager:
   - UIManager
   - Opal
   - LeftMovementOffset
+  - PlatformChildWhite
+  - PlatformChildRed
+  - PlatformChildBlue
   layers:
   - Default
   - TransparentFX

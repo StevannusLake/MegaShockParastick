@@ -26,7 +26,9 @@ public class LevelHandler : MonoBehaviour
 
     public float currentActiveLevelGeneratorID = 0;
     public float distanceToRespawnCoin = 5;
-    public float timerForCoinRespawn = 0;
+    public float distanceToRespawnOpal;
+   [HideInInspector] public float timerForCoinRespawn = 0;
+    [HideInInspector] public float timerForOpalRespawn = 0;
     public float distanceTraveledByLayout = 0;
     private float screenX;
     public int numberOfSectionToHold;
@@ -65,6 +67,17 @@ public class LevelHandler : MonoBehaviour
             
         }
        
+
+    }
+
+    public void CheckForOpalRespawn()
+    {
+        if (timerForOpalRespawn > distanceToRespawnOpal)
+        {
+            timerForOpalRespawn = 0;
+            ObjectSpawner.instance.canRespawnOpalMiddle = true;
+            Debug.Log("OpalRespawned");
+        }
 
     }
     void LoseIfPlayerMoveOutOfScreen()
@@ -111,12 +124,14 @@ public class LevelHandler : MonoBehaviour
         if (Layout == "Up")
         {
             distanceTraveledByLayout += 15;
+            timerForOpalRespawn += 15;
             timerForCoinRespawn += 15;
         }
 
         if (Layout == "Right")
         {
             distanceTraveledByLayout += 10f;
+            timerForOpalRespawn += 10f;
             timerForCoinRespawn += 10;
         }
 
@@ -124,6 +139,7 @@ public class LevelHandler : MonoBehaviour
         if (Layout == "Left")
         {
             distanceTraveledByLayout += 11f;
+            timerForOpalRespawn += 11;
             timerForCoinRespawn += 11f;
         }
        
@@ -138,9 +154,14 @@ public class LevelHandler : MonoBehaviour
     {
         AddDistanceByLayout(direction);
         levelLayoutsCreated.Add(layout);
-        ObjectSpawner.instance.CheckForSpawningCoinAround(layout, generator);
-        ObjectSpawner.instance.CheckForRespawnCoinInMiddle(layout, generator);
         CheckForCoinRespawn();
+        CheckForOpalRespawn();
+        ObjectSpawner.instance.CheckForSpawningOpalInMiddle(layout, generator);
+        ObjectSpawner.instance.CheckForRespawnCoinInMiddle(layout, generator);    
+        ObjectSpawner.instance.CheckForSpawningCoinAround(layout, generator);
+        
+        
+       
     }
     //
 

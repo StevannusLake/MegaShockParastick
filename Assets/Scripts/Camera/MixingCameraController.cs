@@ -77,14 +77,14 @@ public class MixingCameraController : MonoBehaviour
 
     public void isDraggingShake()
     {
-        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        /*for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {
             float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
             float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
             CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             noiseChannel.m_AmplitudeGain = shakeAmplitude;
             noiseChannel.m_FrequencyGain = shakeFrequency;
-        }
+        }*/
         
     }
 

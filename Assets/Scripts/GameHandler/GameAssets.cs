@@ -78,21 +78,19 @@ public class GameAssets : MonoBehaviour
         public CurrentDirection direction;
     }
     
-    public LevelLayouts GetDesiredLevelLayout(LevelDifficulty difficulty, CurrentDirection direction)
+    public LevelLayouts GetDesiredLevelLayout( CurrentDirection direction)
     {
-       return GetCorrectOrRandomDirectionLayout(difficulty, direction);
+       return GetCorrectOrRandomDirectionLayout( direction);
         
  
     }
 
    
 
-    public LevelLayouts GetCorrectOrRandomDirectionLayout(LevelDifficulty difficulty, CurrentDirection direction)
+    public LevelLayouts GetCorrectOrRandomDirectionLayout( CurrentDirection direction)
     {
        
-        switch(difficulty)
-        {
-            case LevelDifficulty.A:
+        
                 List<LevelLayouts> possibleLayout = new List<LevelLayouts>();
                 foreach (LevelLayouts obj in levelLayoutsAArray)
                     {
@@ -105,12 +103,8 @@ public class GameAssets : MonoBehaviour
                     return possibleLayout[randomNum];
                 
                 
-            case LevelDifficulty.B:
-
-                break;
-                
-        }
-        return null;
+          
+      
     }
 
 
