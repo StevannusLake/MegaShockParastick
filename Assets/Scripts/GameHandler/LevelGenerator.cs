@@ -91,6 +91,14 @@ public class LevelGenerator : MonoBehaviour
         {
             obj.GetComponent<SpriteRenderer>().enabled = false;
         }
+        foreach (GameObject obj in platformPlacementListRed)
+        {
+            obj.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        foreach (GameObject obj in platformPlacementListBlue)
+        {
+            obj.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     void RespawnPlatforms()
@@ -157,10 +165,32 @@ public class LevelGenerator : MonoBehaviour
 
         #endregion
 
+        #region Blue Platforms
+        if (platformPlacementListBlue.Count > 0)
+        {
+            for (int i = 0; i < platformPlacementListBlue.Count; i++)
+            {
+                Renderer renderer = platformPlacementListBlue[i].GetComponent<Renderer>();
+                float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
+                float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
+                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Moving),
+                    new Vector3(randXOnRenderer, randYOnRenderer),
+                    GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Moving).transform.rotation,
+                    transform);
+                Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListBlue[i].transform;
+                //Add the platform to platform list
+                platformList.Add(Platforms);
+
+            }
+        }
+
+
+        #endregion
+
 
 
     }
-        private int RandomNumGenerator(int min, int max)
+    private int RandomNumGenerator(int min, int max)
     {
 
         int random = Random.Range(min, max);
