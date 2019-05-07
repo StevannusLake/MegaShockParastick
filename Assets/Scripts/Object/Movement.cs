@@ -640,7 +640,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (myTransform.position.y <= cameraBottom.y)
+        if (myTransform.position.y <= cameraBottom.y || myTransform.position.x <= cameraBottom.x)
         {
             if (deadState == 0)
             {
