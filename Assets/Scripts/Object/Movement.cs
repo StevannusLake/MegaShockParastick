@@ -139,7 +139,7 @@ public class Movement : MonoBehaviour
             //! Vibration play when this is an Android Device
             if (Application.platform == RuntimePlatform.Android)
             {
-                VibrateNow();
+                //VibrateNow();
             }
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
