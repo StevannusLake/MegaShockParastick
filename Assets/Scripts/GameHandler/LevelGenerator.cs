@@ -54,22 +54,36 @@ public class LevelGenerator : MonoBehaviour
             if (brownBackgroundParent.transform.GetChild(i).gameObject.layer == 10)
             {
                 backgroundSprites.Add(brownBackgroundParent.transform.GetChild(i).GetComponent<SpriteRenderer>());
+                
             }
  
         }
         
     }
+    public void ChangeBackgroundOrders()
+    {
+        for (int i = 1; i < backgroundSprites.Count; i++)
+        {
+            backgroundSprites[i].sortingOrder = backgroundSprites[i - 1].sortingOrder - 1;
+
+        }
+    }
 
 
     public void Initialize()
     {
-        GetAllBackgrounds();
+        GetAllBackgrounds();     
         AddChildsToList();
         RespawnPlatforms();
         SortAllPlatfromsBasedOnDistance();
         GetTheToppestAndBottomPlatform();
         RemoveSpriteRenderers();
         if (levelGeneratorID == 0) AddSelfToLevelHandler();
+    }
+
+    public void PostInitialize()
+    {
+        ChangeBackgroundOrders();
     }
 
 
@@ -261,7 +275,8 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);            
                 newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;
                 newLayoutGenerator.Initialize();
-                ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, backgroundSprites[0].sortingOrder,i);
+                ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
+                newLayoutGenerator.PostInitialize();
                 newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection).direction + ")";
                 SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout( randomDirection).direction);             
                 if(i!= (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
@@ -282,7 +297,8 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);              
                 newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;
                 newLayoutGenerator.Initialize();
-                ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, backgroundSprites[0].sortingOrder,i);
+                ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
+                newLayoutGenerator.PostInitialize();
                 newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection).direction + ")";
                 SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
@@ -303,7 +319,8 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);          
                 newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;
                 newLayoutGenerator.Initialize();
-                ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, backgroundSprites[0].sortingOrder,i);
+                ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
+                newLayoutGenerator.PostInitialize();
                 newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection).direction + ")";
                 SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
@@ -318,11 +335,10 @@ public class LevelGenerator : MonoBehaviour
     void ChangeNextLayoutBackgroundLayers(List<SpriteRenderer> listOfBackground,int prevLayoutBackgroundLayer,int numberOfMapGenerated)
     {
         Debug.Log("ChangedOrder");
-        for (int i=0;i<listOfBackground.Count;i++)
-        {
-            listOfBackground[i].sortingOrder = prevLayoutBackgroundLayer - (1* numberOfMapGenerated);
+        
+            listOfBackground[0].sortingOrder = prevLayoutBackgroundLayer - (1* numberOfMapGenerated);
             
-        }
+        
     
 
     }

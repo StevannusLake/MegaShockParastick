@@ -269,7 +269,6 @@ Transform:
   - {fileID: 1535939000196158738}
   - {fileID: 6217144551418534542}
   - {fileID: 242088337619600671}
-  - {fileID: 7980279939805354528}
   m_Father: {fileID: 8097666433843296872}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -500,6 +499,7 @@ Transform:
   - {fileID: 2072049359687126053}
   - {fileID: 1535939001066891795}
   - {fileID: 2910156894987367830}
+  - {fileID: 7980279939805354528}
   - {fileID: 7984960127580301985}
   - {fileID: 4756154188672740972}
   - {fileID: 5389933523287689838}
@@ -753,6 +753,7 @@ MonoBehaviour:
   platformPlacementListBlue: []
   platformPlacementListRed: []
   platformList: []
+  backgroundSprites: []
   topObject: {fileID: 0}
   bottomObject: {fileID: 0}
   borderCollider: {fileID: 0}
@@ -1357,7 +1358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8097666433843296872}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3371197861091785814
 BoxCollider2D:
@@ -1485,7 +1486,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8097666433843296872}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5432291497317755346
 BoxCollider2D:
@@ -1633,7 +1634,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8097666433843296872}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7291325451954088289
 GameObject:
@@ -1753,7 +1754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7980279939805354528}
   m_Layer: 0
-  m_Name: BrownBackgrounds
+  m_Name: BrownBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1767,8 +1768,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8037156453817482124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.018507292, y: 18.840443, z: 0}
-  m_LocalScale: {x: 1.850731, y: 1.850731, z: 0}
+  m_LocalPosition: {x: 2.2483, y: 13.154, z: 0.044}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 8130592792162963829}
   - {fileID: 7259135970649031399}
@@ -1778,8 +1779,8 @@ Transform:
   - {fileID: 6971763737896038736}
   - {fileID: 3900762464418856877}
   - {fileID: 5968649333638959033}
-  m_Father: {fileID: 1535939001066891795}
-  m_RootOrder: 4
+  m_Father: {fileID: 8097666433843296872}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8050542473745910023
 GameObject:
@@ -1921,7 +1922,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8097666433843296872}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &516271576582415759
 BoxCollider2D:
@@ -2184,16 +2185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535939001066891795}
     m_Modifications:
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2263,6 +2254,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3566797755477066070, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}

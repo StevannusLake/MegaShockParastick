@@ -80,6 +80,7 @@ public class ColliderController : MonoBehaviour
                 {
                     LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
                     levelGenerator.Initialize();
+                    levelGenerator.PostInitialize();
                     levelGenerator.GenerateMapOnTop(false);
                     other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 }
