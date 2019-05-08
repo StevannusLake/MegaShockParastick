@@ -135,12 +135,8 @@ public class Movement : MonoBehaviour
             LevelHandler.instance.cameraController.StopFollowing();
             myCollider.isTrigger = true;
             PlayDead();
-
-            //! Vibration play when this is an Android Device
-            if (Application.platform == RuntimePlatform.Android)
-            {
-                //VibrateNow();
-            }
+            
+            VibrateNow();
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
         {
@@ -687,13 +683,7 @@ public class Movement : MonoBehaviour
 
     void VibrateNow()
     {
-        //! Vibrator
-        Vibrator vibrate = new Vibrator();
-
-        if (vibrate.hasVibrator())
-        {
-            vibrate.vibrate(500);
-        }
+        Vibrator.Vibrate(500);
     }
 
     void Falling()

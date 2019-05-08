@@ -4,47 +4,59 @@ using UnityEngine;
 
 public class Vibrator : MonoBehaviour
 {
-    public AndroidJavaClass unityPlayer;
-    public AndroidJavaObject currentActivity;
-    public AndroidJavaObject sysService;
+#if UNITY_ANDROID && !UNITY_EDITOR
+    public static AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+    public static AndroidJavaObject currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+    public static AndroidJavaObject vibrator = currentActivity.Call<AndroidJavaObject>("getSystemService", "vibrator");
+#else
+    public static AndroidJavaClass unityPlayer;
+    public static AndroidJavaObject currentActivity;
+    public static AndroidJavaObject vibrator;
+#endif
 
-    public void Vibrate()
+    public static void Vibrate()
     {
-        unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-        sysService = currentActivity.Call<AndroidJavaObject>("getSystemService", "vibrator");
-    }
-    
-    public void VibrateOnly()
-    {
-        sysService.Call("vibrate");
-    }
-    
-    public void vibrate()
-    {
-        sysService.Call("vibrate");
+        if (isAndroid())
+            vibrator.Call("vibrate");
+        else
+            Handheld.Vibrate();
     }
 
 
-    public void vibrate(long milliseconds)
+    public static void Vibrate(long milliseconds)
     {
-        sysService.Call("vibrate", milliseconds);
+        if (isAndroid())
+            vibrator.Call("vibrate", milliseconds);
+        else
+            Handheld.Vibrate();
     }
 
-    public void vibrate(long[] pattern, int repeat)
+    public static void Vibrate(long[] pattern, int repeat)
     {
-        sysService.Call("vibrate", pattern, repeat);
+        if (isAndroid())
+            vibrator.Call("vibrate", pattern, repeat);
+        else
+            Handheld.Vibrate();
     }
 
-
-    public void cancel()
+    public static bool HasVibrator()
     {
-        sysService.Call("cancel");
+        return isAndroid();
     }
 
-    public bool hasVibrator()
+    public static void Cancel()
     {
-        return sysService.Call<bool>("hasVibrator");
+        if (isAndroid())
+            vibrator.Call("cancel");
+    }
+
+    private static bool isAndroid()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+	return true;
+#else
+        return false;
+#endif
     }
 
     #region Call Vibration Function
