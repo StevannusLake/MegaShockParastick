@@ -626,6 +626,7 @@ public class Movement : MonoBehaviour
     void DropDead()
     {
         Vector2 cameraBottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 cameraTop = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
 
         if (deadFix)
         {
@@ -640,7 +641,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (myTransform.position.y <= cameraBottom.y || myTransform.position.x <= cameraBottom.x)
+        if (myTransform.position.y <= cameraBottom.y || myTransform.position.x <= cameraBottom.x || myTransform.position.y >= cameraTop.y || myTransform.position.x >= cameraTop.x)
         {
             if (deadState == 0)
             {
