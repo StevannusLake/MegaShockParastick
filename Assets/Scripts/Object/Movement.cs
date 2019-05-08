@@ -120,7 +120,7 @@ public class Movement : MonoBehaviour
                 myTransform.rotation = Quaternion.Euler(0, 0, 0);
             }
             if (!spawnDot)
-            {             
+            {
                 DecreaseCameraZoomMagnitude();
             }
 
@@ -135,6 +135,12 @@ public class Movement : MonoBehaviour
             LevelHandler.instance.cameraController.StopFollowing();
             myCollider.isTrigger = true;
             PlayDead();
+
+            //! Vibration play when this is an Android Device
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                VibrateNow();
+            }
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
         {
@@ -673,6 +679,20 @@ public class Movement : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 //Debug.Log("DropDead 2");
             }
+
+            
+            
+        }
+    }
+
+    void VibrateNow()
+    {
+        //! Vibrator
+        Vibrator vibrate = new Vibrator();
+
+        if (vibrate.hasVibrator())
+        {
+            vibrate.vibrate(500);
         }
     }
 
