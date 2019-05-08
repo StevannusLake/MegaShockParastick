@@ -6889,7 +6889,7 @@ MonoBehaviour:
   mixingCameraController: {fileID: 2087839693}
   playerDistanceTraveled: 0
   player: {fileID: 1968270231}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 1968270234}
   playerColliderController: {fileID: 0}
   currentActiveLevelGeneratorID: 0
   levelHandler: {fileID: 876681424}
@@ -10422,7 +10422,7 @@ PrefabInstance:
     - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -13016,7 +13016,7 @@ PrefabInstance:
     - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
