@@ -87,6 +87,8 @@ public class Movement : MonoBehaviour
     float dotCounterIncrement;
     //=======================================================================================================================
 
+    public bool playerJustDied = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,6 +108,8 @@ public class Movement : MonoBehaviour
 
         playerDistance = ButtonManager.instance.TempScore;
         distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";
+
+        playerJustDied = true;
     }
 
     // Update is called once per frame
@@ -135,8 +139,14 @@ public class Movement : MonoBehaviour
             LevelHandler.instance.cameraController.StopFollowing();
             myCollider.isTrigger = true;
             PlayDead();
-            
-            VibrateNow();
+
+            if (!playerJustDied)
+            {
+                VibrateNow();
+                //Invoke("CancelVibration", 0.2f);
+
+                playerJustDied = true;
+            }
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
         {
@@ -181,6 +191,8 @@ public class Movement : MonoBehaviour
         if(deadState == 0 && bounceCounter >= 3)
         {
             deadState = 1;
+
+            playerJustDied = false;
         }
 
         //=======================================================================================================================
@@ -392,6 +404,8 @@ public class Movement : MonoBehaviour
                 if (deadState == 0)
                 {
                     deadState = 1;
+
+                    playerJustDied = false;
                 }
             }
             else if (collision.collider.CompareTag(surfaceTag))
@@ -460,6 +474,8 @@ public class Movement : MonoBehaviour
             if (deadState == 0)
             {
                 deadState = 1;
+
+                playerJustDied = false;
             }
         }
 
@@ -664,6 +680,8 @@ public class Movement : MonoBehaviour
                 deadState = 1;
                 deadFix = true;
                 //Debug.Log("DropDead 0 to 1");
+
+                playerJustDied = false;
             }
             else if (deadState == 1 && !deadFix)
             {
@@ -683,7 +701,12 @@ public class Movement : MonoBehaviour
 
     void VibrateNow()
     {
-        Vibrator.Vibrate(500);
+        Vibrator.Vibrate(200);
+    }
+
+    void CancelVibration()
+    {
+        Vibrator.Cancel();
     }
 
     void Falling()
