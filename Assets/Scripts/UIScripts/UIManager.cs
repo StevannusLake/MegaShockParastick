@@ -41,6 +41,9 @@ public class UIManager : MonoBehaviour
 
     public GameObject SettingsScreen;
 
+    public GameObject FirstInitialPlatform;
+    public GameObject SecondLifeInitialPlatform;
+
     private void Awake()
     {
         if(instance == null)
@@ -128,6 +131,31 @@ public class UIManager : MonoBehaviour
             {
                 LoseUI[0].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
                 callLoseMenu = false;
+            }
+        }
+
+        if (secondChanceCalled)
+        {
+            if (FirstInitialPlatform != null)
+            {
+                FirstInitialPlatform.SetActive(false);
+            }
+
+            if (SecondLifeInitialPlatform != null)
+            {
+                SecondLifeInitialPlatform.SetActive(true);
+            }
+        }
+        else
+        {
+            if (FirstInitialPlatform != null)
+            {
+                FirstInitialPlatform.SetActive(true);
+            }
+
+            if (SecondLifeInitialPlatform != null)
+            {
+                SecondLifeInitialPlatform.SetActive(false);
             }
         }
     }

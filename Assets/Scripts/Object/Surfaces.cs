@@ -22,9 +22,10 @@ public class Surfaces : MonoBehaviour
     CircleCollider2D playerCollider;
     
     public bool alreadyRespawnedCoin = false;
-       
 
     public bool OnRotation = false;
+
+    private Animator anim;
 
     // Start is called before the first frame update
 
@@ -40,7 +41,8 @@ public class Surfaces : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerCollider = player.GetComponent<CircleCollider2D>();
-       
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -100,6 +102,10 @@ public class Surfaces : MonoBehaviour
                 Physics2D.IgnoreCollision(myCollider,playerCollider);
                // myCollider.isTrigger = true;
                 myRigidbody.isKinematic = false;
+                
+
+                anim.SetBool("Die", true);
+
                 Destroy(this.gameObject, 2f);
             }
         }
