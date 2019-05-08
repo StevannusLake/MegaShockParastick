@@ -95,22 +95,67 @@ public class LevelGenerator : MonoBehaviour
 
     void AddChildsToList()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        Transform difficultyBasedTransform = DifficultyBasedLayoutChildTransform(LevelHandler.instance.levelDifficulty);
+        difficultyBasedTransform.gameObject.SetActive(true);
+        for (int i = 0; i < difficultyBasedTransform.childCount; i++)
         {
-            if (transform.GetChild(i).gameObject.tag == "PlatformChildWhite")
+            if (difficultyBasedTransform.GetChild(i).gameObject.tag == "PlatformChildWhite")
             {
-                platformPlacementListWhite.Add(transform.GetChild(i).gameObject);
+                platformPlacementListWhite.Add(difficultyBasedTransform.GetChild(i).gameObject);
             }
-            if (transform.GetChild(i).gameObject.tag == "PlatformChildRed")
+            if (difficultyBasedTransform.GetChild(i).gameObject.tag == "PlatformChildRed")
             {
-                platformPlacementListRed.Add(transform.GetChild(i).gameObject);
+                platformPlacementListRed.Add(difficultyBasedTransform.GetChild(i).gameObject);
             }
-             if (transform.GetChild(i).gameObject.tag == "PlatformChildBlue")
+             if (difficultyBasedTransform.GetChild(i).gameObject.tag == "PlatformChildBlue")
             {
-                platformPlacementListBlue.Add(transform.GetChild(i).gameObject);
+                platformPlacementListBlue.Add(difficultyBasedTransform.GetChild(i).gameObject);
             }
 
         }
+    }
+
+    Transform DifficultyBasedLayoutChildTransform(LevelDifficulty levelDifficulty)
+    {
+        List<Transform> possibleTransforms = new List<Transform>();
+        int randomLayoutChooser;
+
+        switch (levelDifficulty)
+        {
+             
+            case LevelDifficulty.A:
+                
+                for (int i=0; i<transform.childCount;i++)
+                {
+                    if (transform.GetChild(i).name.Contains("A")) possibleTransforms.Add(transform.GetChild(i).transform);
+
+                }
+                randomLayoutChooser = Random.Range(0, possibleTransforms.Count);
+                return possibleTransforms[randomLayoutChooser];
+            case LevelDifficulty.B:
+                
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (transform.GetChild(i).name.Contains("B")) possibleTransforms.Add(transform.GetChild(i).transform);
+
+                }
+                 randomLayoutChooser = Random.Range(0, possibleTransforms.Count);
+                return possibleTransforms[randomLayoutChooser];
+
+            case LevelDifficulty.C:
+
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (transform.GetChild(i).name.Contains("C")) possibleTransforms.Add(transform.GetChild(i).transform);
+
+                }
+                randomLayoutChooser = Random.Range(0, possibleTransforms.Count);
+                return possibleTransforms[randomLayoutChooser];
+
+
+
+        }
+        return null;
     }
     void AddSelfToLevelHandler()
     {
