@@ -27,7 +27,7 @@ public class LevelHandler : MonoBehaviour
     public float currentActiveLevelGeneratorID = 0;
     public float distanceToRespawnCoin = 5;
     public float distanceToRespawnOpal;
-   [HideInInspector] public float timerForCoinRespawn = 0;
+    [HideInInspector] public float timerForCoinRespawn = 0;
     [HideInInspector] public float timerForOpalRespawn = 0;
     public float distanceTraveledByLayout = 0;
     private float screenX;
@@ -55,8 +55,19 @@ public class LevelHandler : MonoBehaviour
     private void Update()
     {
         RemovePastSections();
+        CheckForDifficulty();
     }
 
+    void CheckForDifficulty()
+    {
+        if (distanceTraveledByLayout > 100) SetLevelDifficulty(LevelDifficulty.B);
+        if (distanceTraveledByLayout > 500) SetLevelDifficulty(LevelDifficulty.C);
+    }
+
+    public void SetLevelDifficulty(LevelDifficulty difficulty)
+    {
+        levelDifficulty = difficulty;
+    }
     public void CheckForCoinRespawn()
     {
        
