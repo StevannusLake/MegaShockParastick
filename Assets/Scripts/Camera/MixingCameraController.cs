@@ -70,6 +70,7 @@ public class MixingCameraController : MonoBehaviour
             CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             noiseChannel.m_AmplitudeGain = shakeAmplitude;
             noiseChannel.m_FrequencyGain = shakeFrequency;
+            
         }
         isShaked = true;
         shakeDuration = duration;
