@@ -83,6 +83,8 @@ public class Movement : MonoBehaviour
     TrailRenderer myTrailRenderer;
     //=======================================================================================================================
     float dotAngle;
+
+    float dotCounterIncrement;
     //=======================================================================================================================
 
     // Start is called before the first frame update
@@ -470,10 +472,17 @@ public class Movement : MonoBehaviour
             currentInputPosition = Input.mousePosition;
             currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
 
+            dotCounterIncrement += Time.deltaTime * 0.5f;
+
             for (int i = 0; i < numDots; i++)
             {
+                if(dotCounterIncrement > 1)
+                {
+                    dotCounterIncrement = 0;
+                }
+
                 // set position based on calculation the position of dots over time
-                Vector2 tempDotPosition = CalculatePosition(dotsPositionOverTime * (i + 1)) + myPosition;
+                Vector2 tempDotPosition = CalculatePosition(dotCounterIncrement * dotsPositionOverTime * (i + 1)) + myPosition;
                 // trajectoryDots[i].transform.position = tempDotPosition;
                 GameObject previousDotObject;
                 if (i - 1 > 0)
@@ -486,14 +495,16 @@ public class Movement : MonoBehaviour
                 }
 
                 CalculateDotAngle(previousDotObject.transform.position, trajectoryDots[i].transform.position);
+                
                 trajectoryDots[i].transform.SetPositionAndRotation(tempDotPosition, Quaternion.AngleAxis(dotAngle, new Vector3(0.0f, 0.0f, 1.0f)));
-
+                
                 Vector2 temp = CalculateDotHitWall(trajectoryDots[i]);
 
                 if (temp != Vector2.zero)
                 {
-                    float bounceXPos = trajectoryDots[i].transform.position.x + ((temp.x - trajectoryDots[i].transform.position.x) * 2.0f);
+                    float bounceXPos = trajectoryDots[i].transform.position.x + ((temp.x - trajectoryDots[i].transform.position.x) * 2.0f); 
                     trajectoryDots[i].transform.position = new Vector2(bounceXPos, trajectoryDots[i].transform.position.y);
+
                 }
 
                 if (!DotHitsSurface(previousDotObject, trajectoryDots[i]))
@@ -517,6 +528,8 @@ public class Movement : MonoBehaviour
                 Dots.SetActive(false);
             }
             shakeTimer = 0;
+
+            dotCounterIncrement = 0;
         }
     }
 
@@ -544,7 +557,7 @@ public class Movement : MonoBehaviour
     {
         dotAngle = Mathf.Atan2(currentDot.y - prevDot.y, currentDot.x - prevDot.x) * Mathf.Rad2Deg - 90;
     }
-
+    
     // The WALL ================================================================================================
     // calculate the position of dots over time when hit wall
     private Vector2 CalculateDotHitWall(GameObject currentDot)
@@ -570,7 +583,7 @@ public class Movement : MonoBehaviour
 
         return Vector2.zero;
     }
-
+    
     bool DotHitsSurface(GameObject prevDot, GameObject currentDot)
     {
         RaycastHit2D hit;

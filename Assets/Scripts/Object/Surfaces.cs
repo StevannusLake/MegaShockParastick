@@ -18,7 +18,9 @@ public class Surfaces : MonoBehaviour
     private Transform[] pingpongObjects;
     public Transform platformPlacementTransform;
 
-
+    GameObject player;
+    CircleCollider2D playerCollider;
+    
     public bool alreadyRespawnedCoin = false;
        
 
@@ -35,8 +37,10 @@ public class Surfaces : MonoBehaviour
         rotationSpeedRandom = Random.Range(20, 40);
         myTransform = GetComponent<Transform>();
         if (thisType == SurfaceTypes.Moving) FindPingPongObjects();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerCollider = player.GetComponent<CircleCollider2D>();
        
-        
     }
 
     // Update is called once per frame
@@ -93,7 +97,8 @@ public class Surfaces : MonoBehaviour
         {
             if (stickCount >= 2)
             {
-                myCollider.isTrigger = true;
+                Physics2D.IgnoreCollision(myCollider,playerCollider);
+               // myCollider.isTrigger = true;
                 myRigidbody.isKinematic = false;
                 Destroy(this.gameObject, 2f);
             }

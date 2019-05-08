@@ -94,8 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb5462b66cce694784db983c45e48b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisType: 0
   rotationSpeed: 0.2
+  pingpongSpeed: 0
   stickCount: 0
+  platformPlacementTransform: {fileID: 0}
+  playerCollider: {fileID: 0}
+  alreadyRespawnedCoin: 0
   OnRotation: 1
 --- !u!70 &4105004474322400533
 CapsuleCollider2D:
