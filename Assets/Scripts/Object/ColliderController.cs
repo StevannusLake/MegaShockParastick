@@ -182,7 +182,7 @@ public class ColliderController : MonoBehaviour
              if (LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID+1].tag == "LeftLayout" 
                 && other.gameObject.transform.parent.parent.tag == "RightLayout") return;
 
-            if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Right)
+            if (this.transform.position.x- other.transform.position.x >0 )
             {
                 LevelHandler.instance.cameraController.GetCurrentActiveLayout();
                 LevelHandler.instance.cameraController.shouldGoToDefaultOffset = true;
@@ -200,7 +200,8 @@ public class ColliderController : MonoBehaviour
             if (LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID + 1].tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout") return;
             
-                if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Left)
+               // if (getSideHit.ReturnDirection(this.gameObject, other.gameObject) == HitDirection.Left)
+               if(this.transform.position.x-other.transform.position.x <0)
                 {
                     LevelHandler.instance.cameraController.GetCurrentActiveLayout();
                     LevelHandler.instance.cameraController.shouldGoToDefaultOffset = true;
