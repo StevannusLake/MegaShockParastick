@@ -12493,7 +12493,7 @@ MonoBehaviour:
   previousCameraOrto: []
   prevousCameraOffset: 0
   currentActiveLayout: {fileID: 0}
-  amountToZoomOut: 3
+  amountToZoomOut: 4
   shouldGoToLeft: 0
   shouldGoToRight: 0
   shouldGoToDefaultOffset: 0

@@ -33,9 +33,13 @@ public class Surfaces : MonoBehaviour
     {
        
     }
+    private void OnEnable()
+    {
+        rotationSpeedRandom = Random.Range(60, 100);
+    }
     void Start()
     {
-        rotationSpeedRandom = Random.Range(20, 40);
+       
         myTransform = GetComponent<Transform>();
         if (thisType == SurfaceTypes.Moving) FindPingPongObjects();
 
@@ -79,7 +83,7 @@ public class Surfaces : MonoBehaviour
             zRotation = 0;
         }
 
-        transform.Rotate(Vector3.forward);
+        transform.Rotate(Vector3.forward* rotationSpeedRandom*Time.deltaTime);
 
       
     }
