@@ -9,6 +9,8 @@ public class LevelGenerator : MonoBehaviour
     public List<GameObject> platformPlacementListWhite;
     public List<GameObject> platformPlacementListBlue;
     public List<GameObject> platformPlacementListRed;
+    public List<GameObject> platformPlacementListGreen;
+    public List<GameObject> platformPlacementListRedMoving;
     public List<GameObject> platformList;
     public List<SpriteRenderer> backgroundSprites;
     public GameObject topObject;
@@ -111,6 +113,15 @@ public class LevelGenerator : MonoBehaviour
             {
                 platformPlacementListBlue.Add(difficultyBasedTransform.GetChild(i).gameObject);
             }
+            if (difficultyBasedTransform.GetChild(i).gameObject.tag == "PlatformChildSilver")
+            {
+                platformPlacementListGreen.Add(difficultyBasedTransform.GetChild(i).gameObject);
+            }
+            if (difficultyBasedTransform.GetChild(i).gameObject.tag == "PlatformChildRedMoving")
+            {
+                platformPlacementListRedMoving.Add(difficultyBasedTransform.GetChild(i).gameObject);
+            }
+
 
         }
     }
@@ -176,12 +187,21 @@ public class LevelGenerator : MonoBehaviour
         {
             obj.GetComponent<SpriteRenderer>().enabled = false;
         }
+        foreach (GameObject obj in platformPlacementListRedMoving)
+        {
+            obj.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        foreach (GameObject obj in platformPlacementListGreen)
+        {
+            obj.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     void RespawnPlatforms()
     {
 
         // White Platforms
+        //Respawn one dangerous randomly
         #region White Platforms
         int randomDangerousPlatform = Random.Range(1, platformPlacementListWhite.Count);
 
@@ -190,9 +210,9 @@ public class LevelGenerator : MonoBehaviour
             if (i == randomDangerousPlatform)
             {
 
-                Renderer renderer = platformPlacementListWhite[i].GetComponent<Renderer>();
-                float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
-                float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
+                BoxCollider2D collider = platformPlacementListWhite[i].GetComponent<BoxCollider2D>();
+                float randXOnRenderer = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+                float randYOnRenderer = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
                 GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous),
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe).transform.rotation,
@@ -204,9 +224,9 @@ public class LevelGenerator : MonoBehaviour
             else
             {
 
-                Renderer renderer = platformPlacementListWhite[i].GetComponent<Renderer>();
-                float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
-                float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
+                BoxCollider2D collider = platformPlacementListWhite[i].GetComponent<BoxCollider2D>();
+                float randXOnRenderer = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+                float randYOnRenderer = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
                 GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe),
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
@@ -218,16 +238,17 @@ public class LevelGenerator : MonoBehaviour
 
 
         }
-        #endregion
+        #endregion 
 
+        //Respawn Only Dangerous
         #region Red Platforms
         if (platformPlacementListRed.Count > 0)
         {
             for (int i = 0; i < platformPlacementListRed.Count; i++)
             {
-                Renderer renderer = platformPlacementListRed[i].GetComponent<Renderer>();
-                float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
-                float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
+                BoxCollider2D collider = platformPlacementListRed[i].GetComponent<BoxCollider2D>();
+                float randXOnRenderer = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+                float randYOnRenderer = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
                 GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous),
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
@@ -240,16 +261,17 @@ public class LevelGenerator : MonoBehaviour
         }
 
 
-        #endregion
+        #endregion //Respawn Dangerous Only
 
+        //Respawn moving platform
         #region Blue Platforms
         if (platformPlacementListBlue.Count > 0)
         {
             for (int i = 0; i < platformPlacementListBlue.Count; i++)
             {
-                Renderer renderer = platformPlacementListBlue[i].GetComponent<Renderer>();
-                float randXOnRenderer = Random.Range(renderer.bounds.min.x, renderer.bounds.max.x);
-                float randYOnRenderer = Random.Range(renderer.bounds.min.y, renderer.bounds.max.y);
+                BoxCollider2D collider = platformPlacementListBlue[i].GetComponent<BoxCollider2D>();
+                float randXOnRenderer = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+                float randYOnRenderer = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
                 GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Moving),
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Moving).transform.rotation,
@@ -264,7 +286,49 @@ public class LevelGenerator : MonoBehaviour
 
         #endregion
 
+        //Respawn Only Safe
+        #region Silver Platforms
+        if (platformPlacementListGreen.Count > 0)
+        {
+            for (int i = 0; i < platformPlacementListGreen.Count; i++)
+            {
+                BoxCollider2D collider = platformPlacementListGreen[i].GetComponent<BoxCollider2D>();
+                float randXOnRenderer = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+                float randYOnRenderer = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
+                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe),
+                    new Vector3(randXOnRenderer, randYOnRenderer),
+                    GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe).transform.rotation,
+                    transform);            
+                //Add the platform to platform list
+                platformList.Add(Platforms);
 
+            }
+        }
+
+
+        #endregion
+
+        //Respawn Dangerous which they move
+        #region RedMoving Platforms
+        if (platformPlacementListRedMoving.Count > 0)
+        {
+            for (int i = 0; i < platformPlacementListRedMoving.Count; i++)
+            {
+                BoxCollider2D collider = platformPlacementListRedMoving[i].GetComponent<BoxCollider2D>();
+                float randXOnRenderer = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
+                float randYOnRenderer = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
+                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous),
+                    new Vector3(randXOnRenderer, randYOnRenderer),
+                    GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
+                    transform);
+                Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListBlue[i].transform;
+                //Add the platform to platform list
+                platformList.Add(Platforms);
+
+            }
+
+        }
+        #endregion
 
     }
     private int RandomNumGenerator(int min, int max)

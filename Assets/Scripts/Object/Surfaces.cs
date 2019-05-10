@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Surfaces : MonoBehaviour
 {
     public enum SurfaceTypes {Safe,Dangerous,Moving}
+    private enum PingPongDirection {Forward,Back }
+    private PingPongDirection pingpongDirection = PingPongDirection.Forward;
     public SurfaceTypes thisType;
     public float rotationSpeed;
     public float pingpongSpeed;
@@ -14,6 +17,8 @@ public class Surfaces : MonoBehaviour
     static float zRotation;
     private int rotationSpeedRandom;
     public int stickCount = 0;
+    private bool reachedDestination = false;
+    private Transform destination;
     string nSurfaceTag = "NSurface";
     private Transform[] pingpongObjects;
     public Transform platformPlacementTransform;
@@ -63,16 +68,67 @@ public class Surfaces : MonoBehaviour
 
     void FindPingPongObjects()
     {
-        pingpongObjects = new Transform[2];
+        pingpongObjects = new Transform[3];
         pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
         pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
+        pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
+        destination = pingpongObjects[1];
 
     }
 
     void MoveBetweenPingPongs()
     {
-        float pingPong = Mathf.PingPong(Time.time * pingpongSpeed, 1);
-        transform.position = Vector3.Lerp(pingpongObjects[0].position, pingpongObjects[1].position, pingPong);
+        if(transform.position!=destination.position)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime*2f);
+            
+
+        }
+        if (transform.position == destination.position)
+        {
+            if(System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.Last()))
+            {
+                pingpongDirection = PingPongDirection.Back;
+                destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+            }
+            else if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.First()))
+            {
+                pingpongDirection = PingPongDirection.Forward;
+                
+                destination = pingpongObjects[DestinationCurrentIndex(destination) +1];
+            }
+            else 
+            {
+                if(pingpongDirection == PingPongDirection.Forward)
+                {
+                    destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                }
+                else if (pingpongDirection == PingPongDirection.Back)
+                {
+                    destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+                }
+            }
+        } 
+      //  float pingPong = Mathf.PingPong(Time.time * pingpongSpeed, 1);
+
+    }
+
+    int DestinationCurrentIndex(Transform destination)
+
+    {
+        foreach(Transform transform in pingpongObjects)
+        {
+            if (transform == destination)
+            {
+                return System.Array.IndexOf(pingpongObjects, transform);
+
+            }
+
+            
+           
+           
+        }
+        return 0;
     }
 
     // rotation

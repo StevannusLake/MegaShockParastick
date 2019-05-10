@@ -23,6 +23,9 @@ TagManager:
   - PlatformChildWhite
   - PlatformChildRed
   - PlatformChildBlue
+  - PlatformChildSilver
+  - PlatformChildRedMoving
+  - PlatformChildGreen
   layers:
   - Default
   - TransparentFX
