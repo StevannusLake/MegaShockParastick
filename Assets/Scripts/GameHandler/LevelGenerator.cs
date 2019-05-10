@@ -163,8 +163,34 @@ public class LevelGenerator : MonoBehaviour
                 randomLayoutChooser = Random.Range(0, possibleTransforms.Count);
                 return possibleTransforms[randomLayoutChooser];
 
+            case LevelDifficulty.D:
 
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (transform.GetChild(i).name.Contains("D")) possibleTransforms.Add(transform.GetChild(i).transform);
 
+                }
+                randomLayoutChooser = Random.Range(0, possibleTransforms.Count);
+                return possibleTransforms[randomLayoutChooser];
+
+            case LevelDifficulty.E:
+
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (transform.GetChild(i).name.Contains("E")) possibleTransforms.Add(transform.GetChild(i).transform);
+
+                }
+                randomLayoutChooser = Random.Range(0, possibleTransforms.Count);
+                return possibleTransforms[randomLayoutChooser];
+            case LevelDifficulty.F:
+
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (transform.GetChild(i).name.Contains("F")) possibleTransforms.Add(transform.GetChild(i).transform);
+
+                }
+                randomLayoutChooser = Random.Range(0, possibleTransforms.Count);
+                return possibleTransforms[randomLayoutChooser];
         }
         return null;
     }

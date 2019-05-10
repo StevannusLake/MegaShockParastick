@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 public enum CurrentDirection {UP,RIGHT,LEFT}
-public enum LevelDifficulty {A,B,C}
+public enum LevelDifficulty {A,B,C,D,E,F}
 public class LevelHandler : MonoBehaviour
 {
     [SerializeField]
