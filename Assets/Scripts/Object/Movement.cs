@@ -93,6 +93,8 @@ public class Movement : MonoBehaviour
     public bool playerJustDied = false;
     public LayerMask lm;
 
+    public GameObject PauseScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -228,7 +230,7 @@ public class Movement : MonoBehaviour
             }
 
             // use mouse to test movement without concerning control
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !PauseScreen.activeInHierarchy)
             {
                 initialInputPosition = (Vector2)Input.mousePosition;
                 initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
