@@ -148,7 +148,7 @@ public class MixingCameraController : MonoBehaviour
         float defaultOffset = currentActiveLayout.GetComponentInChildren<LevelGenerator>().defaultOffset.position.x;
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
         {
-            float speedOfMoving = Time.deltaTime * 3.5f;
+            float speedOfMoving = Time.deltaTime * 4.5f;
             if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 1.5f;
             mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition,
                 defaultOffset, speedOfMoving);

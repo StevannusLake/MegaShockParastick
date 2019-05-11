@@ -104,15 +104,25 @@ public class ColliderController : MonoBehaviour
         if (other.CompareTag("RightMovementOffset"))
         {
             #region CustomizationForMovingCamera
-            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
-            
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+
             if (prevousLayoutBeforeThis.tag == "LeftLayout"
-                && other.gameObject.transform.parent.parent.tag=="RightLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated==true) return;
+                && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
+            {
+                Debug.Log("Return Happend");
+                return;
+               
+            }
+           
             if (prevousLayoutBeforeThis.tag == "RightLayout"
                 && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
+            {
+                Debug.Log("Return Happend");
+                return;
 
+            }
             #endregion
 
             if (!other.GetComponent<ZoomController>().isAlreadyActivated )
@@ -129,14 +139,14 @@ public class ColliderController : MonoBehaviour
         if (other.CompareTag("LeftMovementOffset"))
         {
             #region CustomizationForMovingCamera
-            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
 
             if (prevousLayoutBeforeThis.tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
             if (prevousLayoutBeforeThis.tag == "RightLayout"
                 && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
 
             #endregion
 

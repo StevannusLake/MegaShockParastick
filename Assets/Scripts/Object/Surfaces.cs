@@ -68,7 +68,7 @@ public class Surfaces : MonoBehaviour
 
     void FindPingPongObjects()
     {
-        pingpongObjects = new Transform[3];
+        pingpongObjects = new Transform[platformPlacementTransform.childCount];
         pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
         pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
         pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
@@ -80,7 +80,7 @@ public class Surfaces : MonoBehaviour
     {
         if(transform.position!=destination.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime*2f);
+            transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime*1.2f);
             
 
         }
