@@ -57,7 +57,7 @@ public class ObjectSpawner : MonoBehaviour
 
 
 
-    public void CheckForSpawningCoinAround(GameObject layoutCreated,LevelGenerator generator)
+    public void CheckForSpawningCoinAround(GameObject layoutCreated,LevelGenerator generator )
     {
         Randomize:
         int randomNum = RandomNumGenerator(0, generator.platformList.Count);
@@ -65,7 +65,7 @@ public class ObjectSpawner : MonoBehaviour
         {
             goto Randomize;
         }
-        RespawnCoins(generator.platformList[randomNum], GameAssets.i.platformObjectsArray[0].radiusForCoins);
+        RespawnCoins(generator.platformList[randomNum], GameAssets.i.thisPlatformType(generator.platformList[randomNum].gameObject).radiusForCoins);
         
     }
 
@@ -111,7 +111,7 @@ public class ObjectSpawner : MonoBehaviour
                 
             }
             surface.alreadyRespawnedCoin = true;
-            surface.rotationSpeedRandom += (randomNumberOfCoins * 3f);
+            surface.rotationSpeedRandom += (randomNumberOfCoins * 15f);
             canRespawnCoinsAround = false;
 
             
@@ -124,7 +124,12 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
         RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
-        if (hit.transform.tag == "Deadly") return;
+        if (hit.collider.tag == "Deadly")
+        {
+            Debug.Log("HittedDeadluy");
+            return;
+        }
+
 
 
         Surfaces surface1 = firstObject.GetComponent<Surfaces>();
@@ -139,9 +144,10 @@ public class ObjectSpawner : MonoBehaviour
                 Vector2 position = firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / 2;
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
-                if (checkIfPosEmpty(offsetPosition))
+                GameObject go = Instantiate(GetGameObjectType(ItemType.Opal), offsetPosition, Quaternion.identity, firstObject.transform.parent);
+                if (!checkIfPosEmpty(go))
                 {
-                    GameObject go = Instantiate(GetGameObjectType(ItemType.Opal), offsetPosition, Quaternion.identity, firstObject.transform.parent);
+                    go.SetActive(false);
                 }
                
 
@@ -159,11 +165,16 @@ public class ObjectSpawner : MonoBehaviour
     {
 
         RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
-        if (hit.transform.tag == "Deadly") return;
+        if (hit.collider.tag == "Deadly")
+        {
+            Debug.Log("HittedDeadluy");
+            return;
+        }
+      
 
 
 
-            Surfaces surface1 = firstObject.GetComponent<Surfaces>();
+         Surfaces surface1 = firstObject.GetComponent<Surfaces>();
         Surfaces surface2 = secondObject.GetComponent<Surfaces>();
         if (surface1.alreadyRespawnedCoin || surface1.alreadyRespawnedCoin) return;
         int randomNumberOfCoins = Random.Range(3, 6);
@@ -178,6 +189,7 @@ public class ObjectSpawner : MonoBehaviour
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
                  GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
+                if (!checkIfPosEmpty(go)) go.SetActive(false);
                 
                
                 
@@ -194,16 +206,19 @@ public class ObjectSpawner : MonoBehaviour
   
 
 
-public bool checkIfPosEmpty(Vector3 targetPos)
+public bool checkIfPosEmpty(GameObject targetPos)
 {
     GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Coin");
-    foreach (GameObject current in allMovableThings)
-    {
-        if (current.transform.position == targetPos)
-            return false;
+        foreach (GameObject current in allMovableThings)
+        {
+            if (current.GetComponent<Collider2D>().IsTouching(targetPos.GetComponent<Collider2D>()))
+            {
+                return false;
+            }
+           
+        }
+        return true;
     }
-    return true;
-}
 
 
 

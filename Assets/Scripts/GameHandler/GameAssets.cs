@@ -63,6 +63,25 @@ public class GameAssets : MonoBehaviour
         return null;
     }
 
+    public PlatformObjects thisPlatformType(GameObject platform)
+    {
+        
+        
+            foreach (PlatformObjects platformObject in platformObjectsArray)
+            {
+            if (platformObject.surfaceGameObject.tag==platform.tag)return platformObject;
+            else Debug.Log("nOTmATched");
+
+            }
+
+        
+
+        return null;
+        
+       
+       // return null;
+    }
+
 
     #region LevelLayouts
 

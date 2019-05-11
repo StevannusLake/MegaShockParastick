@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8747747151052413395
+--- !u!1 &8733332582425121922
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3199740413172151089}
-  - component: {fileID: 1071490777329725411}
+  - component: {fileID: 3184881571336765024}
+  - component: {fileID: 1048082205487211186}
   m_Layer: 0
   m_Name: GameAssets
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3199740413172151089
+--- !u!4 &3184881571336765024
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8747747151052413395}
+  m_GameObject: {fileID: 8733332582425121922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.18530835, y: 0.45617756, z: -0.029296875}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1071490777329725411
+--- !u!114 &1048082205487211186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8747747151052413395}
+  m_GameObject: {fileID: 8733332582425121922}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4a6167c4a1d5f342b24923591d13113, type: 3}
@@ -102,6 +102,10 @@ MonoBehaviour:
   - types: 0
     surfaceGameObject: {fileID: 5315248456801891616, guid: bd8f9f50ce483b642ab9a03a00a1fda7,
       type: 3}
+    radiusForCoins: 0.41
+  - types: 2
+    surfaceGameObject: {fileID: 5872609325806167603, guid: 41f667e60c69f5947a6c3f9d3efa7494,
+      type: 3}
     radiusForCoins: 0.8
   levelLayoutsAArray:
   - levelLayOutPrefab: {fileID: 8050542473745910023, guid: 5c72bcbf8662f574e9754d91dfc0088f,
@@ -119,3 +123,6 @@ MonoBehaviour:
   - itemPrefab: {fileID: 4179097162074151845, guid: 81ac7b6d0d9a45c46aced52e332248c8,
       type: 3}
     type: 0
+  - itemPrefab: {fileID: 4545764483470404117, guid: ffff0724c795a934e8a2115bba27aa93,
+      type: 3}
+    type: 1
