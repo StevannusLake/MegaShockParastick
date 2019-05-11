@@ -311,10 +311,12 @@ public class UIManager : MonoBehaviour
     public void OpenSettingsScreen()
     {
         SettingsScreen.SetActive(true);
+        MainMenu.SetActive(false);
     }
 
     public void CloseSettingsScreen()
     {
         SettingsScreen.SetActive(false);
+        MainMenu.SetActive(true);
     }
 }
