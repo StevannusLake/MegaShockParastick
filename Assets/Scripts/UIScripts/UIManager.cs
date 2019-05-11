@@ -44,6 +44,10 @@ public class UIManager : MonoBehaviour
     public GameObject FirstInitialPlatform;
     public GameObject SecondLifeInitialPlatform;
 
+    public GameObject SecondChanceUI;
+    public GameObject GreenLight;
+    public GameObject RedLight;
+
     private void Awake()
     {
         if(instance == null)
@@ -158,6 +162,8 @@ public class UIManager : MonoBehaviour
                 SecondLifeInitialPlatform.SetActive(false);
             }
         }
+
+        LightIndicatorCheck();
     }
 
     public void CallLoseMenu()
@@ -318,5 +324,19 @@ public class UIManager : MonoBehaviour
     {
         SettingsScreen.SetActive(false);
         MainMenu.SetActive(true);
+    }
+
+    public void LightIndicatorCheck()
+    {
+        if(Movement.deadState == 0 && !PauseMenu.activeSelf && !SecondChanceUI.activeSelf && !LoseMenu.activeSelf && !MainMenu.activeSelf)
+        {
+            GreenLight.SetActive(true);
+            RedLight.SetActive(false);
+        }
+        else
+        {
+            GreenLight.SetActive(false);
+            RedLight.SetActive(true);
+        }
     }
 }
