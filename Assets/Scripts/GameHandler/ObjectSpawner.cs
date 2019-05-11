@@ -78,6 +78,7 @@ public class ObjectSpawner : MonoBehaviour
         {
             goto RandomizeAgain;
         }
+       
 
         RespawnOpalInMiddle(generator.platformList[randomNumCoinInMiddle], generator.platformList[randomNumCoinInMiddle + 1]);
     }
@@ -110,7 +111,9 @@ public class ObjectSpawner : MonoBehaviour
                 
             }
             surface.alreadyRespawnedCoin = true;
+            surface.rotationSpeedRandom += (randomNumberOfCoins * 3f);
             canRespawnCoinsAround = false;
+
             
 
 
@@ -120,6 +123,10 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
+        RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
+        if (hit.transform.tag == "Deadly") return;
+
+
         Surfaces surface1 = firstObject.GetComponent<Surfaces>();
         Surfaces surface2 = secondObject.GetComponent<Surfaces>();
         
@@ -150,7 +157,13 @@ public class ObjectSpawner : MonoBehaviour
     }
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        Surfaces surface1 = firstObject.GetComponent<Surfaces>();
+
+        RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
+        if (hit.transform.tag == "Deadly") return;
+
+
+
+            Surfaces surface1 = firstObject.GetComponent<Surfaces>();
         Surfaces surface2 = secondObject.GetComponent<Surfaces>();
         if (surface1.alreadyRespawnedCoin || surface1.alreadyRespawnedCoin) return;
         int randomNumberOfCoins = Random.Range(3, 6);
@@ -161,6 +174,7 @@ public class ObjectSpawner : MonoBehaviour
             for (int i = 1; i < randomNumberOfCoins; i++)
             {
                 Vector2 position = firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / randomNumberOfCoins * i;
+                if(i==1) position= firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / 2;
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
                 if (checkIfPosEmpty(offsetPosition))

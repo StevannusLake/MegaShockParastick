@@ -469,7 +469,7 @@ public class LevelGenerator : MonoBehaviour
 
     void ChangeNextLayoutBackgroundLayers(List<SpriteRenderer> listOfBackground,int prevLayoutBackgroundLayer,int numberOfMapGenerated)
     {
-        Debug.Log("ChangedOrder");
+        
         
             listOfBackground[0].sortingOrder = prevLayoutBackgroundLayer - (1* numberOfMapGenerated);
             

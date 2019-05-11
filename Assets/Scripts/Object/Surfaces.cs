@@ -15,7 +15,7 @@ public class Surfaces : MonoBehaviour
     CapsuleCollider2D myCollider;
     Rigidbody2D myRigidbody;
     static float zRotation;
-    private int rotationSpeedRandom;
+    public float rotationSpeedRandom;
     public int stickCount = 0;
     private bool reachedDestination = false;
     private Transform destination;
