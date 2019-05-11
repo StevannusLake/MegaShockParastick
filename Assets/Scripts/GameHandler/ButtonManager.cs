@@ -88,6 +88,8 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("SecondChanceCalled", UIManager.Instance.secondChanceCalled ? 1 : 0);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+
     }
 
     void CheckMainMenu()

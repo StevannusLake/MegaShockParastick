@@ -10,6 +10,9 @@ public class ColliderController : MonoBehaviour
     private GetSideHit getSideHit;
     
     public PhysicsMaterial2D bounceMaterial;
+
+    public static int tempCollectedCoin = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,9 @@ public class ColliderController : MonoBehaviour
 
             GameManager.instance.AddCoin(1);
             Destroy(other.gameObject);
+
+            //! For Coin Multiplier
+            tempCollectedCoin += 2;
         }
 
         if (other.CompareTag("Opal") && Movement.deadState == 0)

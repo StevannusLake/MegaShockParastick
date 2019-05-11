@@ -4353,6 +4353,7 @@ MonoBehaviour:
   GreenLight: {fileID: 1416376362}
   RedLight: {fileID: 783462165}
   CoinMultiplyPanel: {fileID: 2012518296}
+  DoubleCoinText: {fileID: 917938256}
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -49,6 +49,7 @@ public class UIManager : MonoBehaviour
     public GameObject RedLight;
 
     public GameObject CoinMultiplyPanel;
+    public Text DoubleCoinText;
 
     private void Awake()
     {
@@ -163,6 +164,8 @@ public class UIManager : MonoBehaviour
         }
 
         LightIndicatorCheck();
+
+        DoubleCoinText.text = ColliderController.tempCollectedCoin.ToString();
     }
 
     public void CallLoseMenu()
@@ -310,7 +313,6 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         PauseMenu.SetActive(true);
-
         Invoke("TimeScale0", 0.7f);
     }
 
@@ -350,10 +352,18 @@ public class UIManager : MonoBehaviour
     {
         //! Play Ad Video
 
+        GameManager.instance.AddCoin(ColliderController.tempCollectedCoin);
+        GameManager.instance.SaveCoin();
+        GameManager.instance.GetCoin();
+        CoinMultiplyPanel.SetActive(false);
+
+        ColliderController.tempCollectedCoin = 0;
     }
 
     public void CloseCoinMultiplyPanel()
     {
         CoinMultiplyPanel.SetActive(false);
+
+        ColliderController.tempCollectedCoin = 0;
     }
 }
