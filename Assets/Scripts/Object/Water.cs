@@ -31,6 +31,7 @@ public class Water : MonoBehaviour
 
     void LiquidMove()
     {
-        myTransform.position += Vector3.up * waterMovingSpeed * Time.deltaTime; 
+        myTransform.position += Vector3.up * waterMovingSpeed * Time.deltaTime;
+        myTransform.position = new Vector3(GameManager.instance.player.transform.position.x, transform.position.y, 0f);
     }
 }
