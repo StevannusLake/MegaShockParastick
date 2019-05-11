@@ -174,13 +174,11 @@ public class ObjectSpawner : MonoBehaviour
             for (int i = 1; i < randomNumberOfCoins; i++)
             {
                 Vector2 position = firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / randomNumberOfCoins * i;
-                if(i==1) position= firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / 2;
+                
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
-                if (checkIfPosEmpty(offsetPosition))
-                {
-                    GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
-                }
+                 GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
+                
                
                 
             }
