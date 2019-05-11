@@ -40,7 +40,7 @@ public class Surfaces : MonoBehaviour
     }
     private void OnEnable()
     {
-        rotationSpeedRandom = Random.Range(60, 100);
+        rotationSpeedRandom = Random.Range(90, 150);
     }
     void Start()
     {
