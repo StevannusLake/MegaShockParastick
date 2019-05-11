@@ -895,6 +895,7 @@ MonoBehaviour:
   thisType: 0
   rotationSpeed: 0
   pingpongSpeed: 0
+  rotationSpeedRandom: 0
   stickCount: 1
   platformPlacementTransform: {fileID: 0}
   alreadyRespawnedCoin: 0
@@ -4091,6 +4092,7 @@ MonoBehaviour:
   thisType: 0
   rotationSpeed: 0
   pingpongSpeed: 0
+  rotationSpeedRandom: 0
   stickCount: 1
   platformPlacementTransform: {fileID: 0}
   alreadyRespawnedCoin: 0
@@ -4354,6 +4356,8 @@ MonoBehaviour:
   RedLight: {fileID: 783462165}
   CoinMultiplyPanel: {fileID: 2012518296}
   DoubleCoinText: {fileID: 917938256}
+  ContinueFill: {fileID: 1866819971}
+  continueFillDuration: 10
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0

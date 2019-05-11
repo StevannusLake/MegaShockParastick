@@ -51,6 +51,10 @@ public class UIManager : MonoBehaviour
     public GameObject CoinMultiplyPanel;
     public Text DoubleCoinText;
 
+    public GameObject ContinueFill;
+    public float continueFillDuration;
+    private float continueFillTimer;
+
     private void Awake()
     {
         if(instance == null)
@@ -77,7 +81,7 @@ public class UIManager : MonoBehaviour
 
         CoinMultiplyPanel.SetActive(false);
 
-
+        continueFillTimer = continueFillDuration;
     }
 
     private void Update()
@@ -85,6 +89,24 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.SaveData();
         CheckSecondChanceButton();
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
+
+        if(ContinueFill.activeInHierarchy)
+        {
+            continueFillTimer -= Time.deltaTime;
+            ContinueFill.GetComponent<Image>().fillAmount = continueFillTimer / continueFillDuration;
+        }
+        else
+        {
+            if(continueFillTimer != continueFillDuration)
+            {
+                continueFillTimer = continueFillDuration;
+            }
+        }
+
+        if(continueFillTimer <= 0f)
+        {
+            closingSecondChanceMenu = true;
+        }
 
         if (callSecondChanceMenu)
         {
