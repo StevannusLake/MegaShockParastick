@@ -151,7 +151,11 @@ public class ColliderController : MonoBehaviour
       
         }
 
-
+        if (other.CompareTag("Super"))
+        {
+            GetComponent<Movement>().isSuper = true;
+            Destroy(other.gameObject);
+        }
     }
 
    
