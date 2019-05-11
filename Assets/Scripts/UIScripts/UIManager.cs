@@ -22,8 +22,8 @@ public class UIManager : MonoBehaviour
     public Text coinText;
     public Text continueScore;
     public GameObject PauseMenu;
-    private float delayTimer = 0f;
-    private bool isPaused = false;
+    //private float delayTimer = 0f;
+    //private bool isPaused = false;
 
     public GameObject TutorialScreen;
 
@@ -48,6 +48,8 @@ public class UIManager : MonoBehaviour
     public GameObject GreenLight;
     public GameObject RedLight;
 
+    public GameObject CoinMultiplyPanel;
+
     private void Awake()
     {
         if(instance == null)
@@ -69,6 +71,12 @@ public class UIManager : MonoBehaviour
         secondChanceCalled = PlayerPrefs.GetInt("SecondChanceCalled") == 1 ? true : false;
 
         SettingsScreen.SetActive(false);
+
+        PauseMenu.SetActive(false);
+
+        CoinMultiplyPanel.SetActive(false);
+
+
     }
 
     private void Update()
@@ -76,15 +84,6 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.SaveData();
         CheckSecondChanceButton();
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
-        if(!isPaused && Time.timeScale == 0f)
-        {
-            delayTimer += Time.unscaledDeltaTime;
-            if (delayTimer >= 3f)
-            {
-                Time.timeScale = 1f;
-                delayTimer = 0f;
-            }
-        }
 
         if (callSecondChanceMenu)
         {
@@ -184,6 +183,8 @@ public class UIManager : MonoBehaviour
         secondChanceCalled = false;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
+
+        CoinMultiplyPanel.SetActive(true);
     }
 
     public void CloseLoseMenu()
@@ -204,6 +205,8 @@ public class UIManager : MonoBehaviour
 
     public void CallMainMenu()
     {
+        Time.timeScale = 1f;
+
         MainMenu.SetActive(true);
         PauseMenu.SetActive(false);
         LoseMenu.SetActive(false);
@@ -299,19 +302,22 @@ public class UIManager : MonoBehaviour
         TutorialScreen.SetActive(false);
     }
 
+    void TimeScale0()
+    {
+        Time.timeScale = 0f;
+    }
+
     public void PauseGame()
     {
-        if (Time.timeScale == 0f)
-        {
-            PauseMenu.SetActive(false);
-            isPaused = false;
-        }
-        else
-        {
-            PauseMenu.SetActive(true);
-            isPaused = true;
-            Time.timeScale = 0f;
-        }
+        PauseMenu.SetActive(true);
+
+        Invoke("TimeScale0", 0.7f);
+    }
+
+    public void ResumeGame()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void OpenSettingsScreen()
@@ -338,5 +344,16 @@ public class UIManager : MonoBehaviour
             GreenLight.SetActive(false);
             RedLight.SetActive(true);
         }
+    }
+
+    public void GetDoubleCoin()
+    {
+        //! Play Ad Video
+
+    }
+
+    public void CloseCoinMultiplyPanel()
+    {
+        CoinMultiplyPanel.SetActive(false);
     }
 }
