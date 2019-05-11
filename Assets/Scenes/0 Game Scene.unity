@@ -11692,6 +11692,9 @@ MonoBehaviour:
   cancelIndicator: {fileID: 1747142759}
   Cinemachine: {fileID: 2087839692}
   playerJustDied: 0
+  lm:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!50 &1968270235
 Rigidbody2D:
   serializedVersion: 4

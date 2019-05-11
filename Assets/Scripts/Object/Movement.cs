@@ -88,6 +88,7 @@ public class Movement : MonoBehaviour
     //=======================================================================================================================
 
     public bool playerJustDied = false;
+    public LayerMask lm;
 
     // Start is called before the first frame update
     void Start()
@@ -636,14 +637,16 @@ public class Movement : MonoBehaviour
         Vector2 direction = currentDot.transform.position - myTransform.position;
         float distance = direction.magnitude;
 
-        hit = Physics2D.Raycast(myTransform.position, direction, distance);
+        // layer mask 12 == wall
+        hit = Physics2D.Raycast(myTransform.position, direction, distance, lm.value);
+        
         Physics2D.queriesStartInColliders = false;
         Physics2D.queriesHitTriggers = false;
 
         CircleCollider2D currentDotCollider = currentDot.GetComponent<CircleCollider2D>();
 
         Physics2D.IgnoreCollision(myCollider, currentDotCollider);
-
+        
         // The WALL ================================================================================================
         if (hit && hit.collider.gameObject.CompareTag(horizontalWall))
         {
