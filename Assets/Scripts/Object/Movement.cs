@@ -80,6 +80,8 @@ public class Movement : MonoBehaviour
     bool deadFix;
     // cancel indicator
     public GameObject cancelIndicator;
+    // cancel slingshot state
+    int cancelSlingshotState = 0;
 
     public GameObject Cinemachine;
     //=======================================================================================================================
@@ -92,6 +94,7 @@ public class Movement : MonoBehaviour
 
     public bool playerJustDied = false;
     public LayerMask lm;
+    int doubleSlingshot = 0;
 
     public GameObject PauseScreen;
 
@@ -174,6 +177,7 @@ public class Movement : MonoBehaviour
             myEmotion.EmoteIdle();
             isDead = false;
             deadState = 0;
+            cancelSlingshotState = 0;
             myCollider.isTrigger = true;
             Cinemachine.SetActive(true);
         }
@@ -224,6 +228,11 @@ public class Movement : MonoBehaviour
     {
         if (myMoveStick == MoveState.STICK)
         {
+            if(Time.timeScale != 1)
+            {
+                Time.timeScale = 1;
+            }
+
             if(bounceCounter != 0 && deadState == 0)
             {
                 bounceCounter = 0;
@@ -235,7 +244,7 @@ public class Movement : MonoBehaviour
                 initialInputPosition = (Vector2)Input.mousePosition;
                 initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
                 spawnDot = true;
-                isCancel = true;
+                //isCancel = true;
                 mousePressed = true;
 
                 // myAnimation.PlayHold();
@@ -281,7 +290,7 @@ public class Movement : MonoBehaviour
                 cancelIndicator.SetActive(false);
             }
         }
-        else if (myMoveStick == MoveState.FLYING)
+        else if (myMoveStick == MoveState.FLYING && doubleSlingshot == 1)
         {
             // use mouse to test movement without concerning control
             if (Input.GetMouseButtonDown(0))
@@ -289,7 +298,7 @@ public class Movement : MonoBehaviour
                 initialInputPosition = (Vector2)Input.mousePosition;
                 initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
                 spawnDot = true;
-                isCancel = true;
+                //isCancel = true;
                 mousePressed = true;
                 
                 cancelIndicator.transform.position = initialInputPosition;
@@ -316,7 +325,8 @@ public class Movement : MonoBehaviour
                 myRigidBody.gravityScale = 1;
                 spawnDot = false;
                 isCancel = false;
-                
+
+                doubleSlingshot = 0;
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -341,17 +351,25 @@ public class Movement : MonoBehaviour
             isCancel = false;
             spawnDot = true;
 
+            cancelSlingshotState = 1;
+
             // myAnimation.PlayHold();
             myEmotion.EmoteBeforeFlying();
         }
 
-        if (isCancel == false && launchVelocity.magnitude <= 0.9)
+        if (isCancel == false && launchVelocity.magnitude <= 0.9 && cancelSlingshotState != 0)
         {
             spawnDot = false;
             isCancel = true;
 
+            cancelSlingshotState = 0;
+
             // myAnimation.PlayIdle();
             myEmotion.EmoteIdle();
+        }
+        else if(isCancel == false && launchVelocity.magnitude <= 0.9 && cancelSlingshotState == 0)
+        {
+            isCancel = false;
         }
     }
 
@@ -488,11 +506,18 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+
+                doubleSlingshot = 0;
             }
             else if (collision.collider.CompareTag(horizontalWall))
             {
                 bounceCounter++;
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
+            }
+
+            if (collision.collider.gameObject.name == "FirstInitialPlatform")
+            {
+                myEmotion.EmoteIdle();
             }
 
             // stick on the surface
@@ -546,6 +571,8 @@ public class Movement : MonoBehaviour
         if (collision.collider.CompareTag(surfaceTag))
         {
             surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+
+            doubleSlingshot = 1;
         }
         if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1 && myMoveStick == MoveState.FLYING)
         {
