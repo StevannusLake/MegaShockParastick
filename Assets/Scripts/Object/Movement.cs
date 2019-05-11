@@ -117,6 +117,10 @@ public class Movement : MonoBehaviour
     {
         if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
         {
+            if (myCollider.isTrigger)
+            {
+                myCollider.isTrigger = false;
+            }
             SlingShot();
             DotsSpawner();
             if (myMoveStick == MoveState.FLYING)
@@ -162,7 +166,7 @@ public class Movement : MonoBehaviour
             myEmotion.EmoteIdle();
             isDead = false;
             deadState = 0;
-            myCollider.isTrigger = false;
+            myCollider.isTrigger = true;
             Cinemachine.SetActive(true);
         }
 
@@ -258,6 +262,53 @@ public class Movement : MonoBehaviour
                 myEmotion.EmoteIdle();
 
                 cancelIndicator.SetActive(false);
+            }
+        }
+        else if (myMoveStick == MoveState.FLYING)
+        {
+            // use mouse to test movement without concerning control
+            if (Input.GetMouseButtonDown(0))
+            {
+                initialInputPosition = (Vector2)Input.mousePosition;
+                initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
+                spawnDot = true;
+                isCancel = true;
+                mousePressed = true;
+                
+                cancelIndicator.transform.position = initialInputPosition;
+                cancelIndicator.SetActive(true);
+
+                Time.timeScale = 0.4f;
+            }
+
+            if (mousePressed)
+            {
+                CancelSlingShot();
+            }
+
+            if (Input.GetMouseButtonUp(0) && !isCancel)
+            {
+                finalInputPosition = (Vector2)Input.mousePosition;
+                finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
+                slingshotVelocity = SlingshotVelocityCalculation();
+
+                myRigidBody.velocity = slingshotVelocity;
+                
+                // reset gravity
+                myTransform.SetParent(null);
+                myRigidBody.gravityScale = 1;
+                spawnDot = false;
+                isCancel = false;
+                
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                mousePressed = false;
+                spawnDot = false;
+
+                cancelIndicator.SetActive(false);
+                Time.timeScale = 1.0f;
             }
         }
     }
@@ -490,7 +541,7 @@ public class Movement : MonoBehaviour
             currentInputPosition = Input.mousePosition;
             currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
 
-            dotCounterIncrement += Time.deltaTime * 0.5f;
+            dotCounterIncrement += Time.unscaledDeltaTime * 0.5f;
 
             for (int i = 0; i < numDots; i++)
             {
