@@ -520,6 +520,7 @@ public class Movement : MonoBehaviour
         }
     }
 
+    // use stay to check collision after super finished
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.collider.CompareTag(deadlyTag) && !isSuper)
