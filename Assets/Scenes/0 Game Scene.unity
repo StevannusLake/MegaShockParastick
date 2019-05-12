@@ -5882,7 +5882,7 @@ MonoBehaviour:
   finalLayout: {fileID: 0}
   layoutPlayerIsIn: {fileID: 0}
   cameraController: {fileID: 2087839693}
-  numberOfMapToGenerate: 6
+  numberOfMapToGenerate: 5
   whenToGenerateMoreMaps: 2
   distanceFromWall: 0.8
   currentDirection: 0
