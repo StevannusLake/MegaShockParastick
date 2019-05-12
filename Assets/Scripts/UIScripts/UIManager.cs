@@ -55,6 +55,8 @@ public class UIManager : MonoBehaviour
     public float continueFillDuration;
     private float continueFillTimer;
 
+    public GameObject QuitPrompt;
+
     private void Awake()
     {
         if(instance == null)
@@ -188,6 +190,16 @@ public class UIManager : MonoBehaviour
         LightIndicatorCheck();
 
         DoubleCoinText.text = ColliderController.tempCollectedCoin.ToString();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitPrompt.SetActive(true);
+        }
+    }
+
+    public void ClosePrompt()
+    {
+        QuitPrompt.SetActive(false);
     }
 
     public void CallLoseMenu()
