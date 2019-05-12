@@ -113,7 +113,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 platformPlacementListBlue.Add(difficultyBasedTransform.GetChild(i).gameObject);
             }
-            if (difficultyBasedTransform.GetChild(i).gameObject.tag == "PlatformChildSilver")
+            if (difficultyBasedTransform.GetChild(i).gameObject.tag == "PlatformChildGreen")
             {
                 platformPlacementListGreen.Add(difficultyBasedTransform.GetChild(i).gameObject);
             }

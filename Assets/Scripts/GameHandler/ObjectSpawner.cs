@@ -109,6 +109,7 @@ public class ObjectSpawner : MonoBehaviour
                 Vector3 newPos = new Vector2(surfacePos.transform.position.x + Mathf.Cos(angle) * surfaceRadius, surfacePos.transform.position.y + Mathf.Sin(angle) * surfaceRadius);
                 GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), newPos, Quaternion.identity, surfacePos.transform.parent);
                 
+                
             }
             surface.alreadyRespawnedCoin = true;
             surface.rotationSpeedRandom += (randomNumberOfCoins * 15f);

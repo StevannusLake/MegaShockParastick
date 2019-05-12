@@ -43,7 +43,7 @@ public class LevelHandler : MonoBehaviour
     {
         instance = this;
         levelLayoutsCreated = new List<GameObject>();
-        levelDifficulty = LevelDifficulty.A;
+       // levelDifficulty = LevelDifficulty.A;
 
     }
 
@@ -55,7 +55,7 @@ public class LevelHandler : MonoBehaviour
     private void Update()
     {
         RemovePastSections();
-        CheckForDifficulty();
+        //CheckForDifficulty();
     }
 
     void CheckForDifficulty()

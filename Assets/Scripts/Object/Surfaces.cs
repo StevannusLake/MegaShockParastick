@@ -27,7 +27,7 @@ public class Surfaces : MonoBehaviour
     CircleCollider2D playerCollider;
     
     public bool alreadyRespawnedCoin = false;
-
+    private bool foundDestination = false;
     public bool OnRotation = false;
 
     private Animator anim;
@@ -54,6 +54,8 @@ public class Surfaces : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -63,16 +65,30 @@ public class Surfaces : MonoBehaviour
         }
         
         DropAfter();
-        if (thisType == SurfaceTypes.Moving) MoveBetweenPingPongs();
+        if (thisType == SurfaceTypes.Moving && foundDestination) MoveBetweenPingPongs();
     }
 
     void FindPingPongObjects()
     {
         pingpongObjects = new Transform[platformPlacementTransform.childCount];
-        pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
-        pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
-        pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
-        destination = pingpongObjects[1];
+        if(platformPlacementTransform.childCount==2)
+        {
+            pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
+            pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
+            destination = pingpongObjects[1];
+            foundDestination = true;
+        }
+        if (platformPlacementTransform.childCount == 3)
+        {
+            pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
+            pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
+            pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
+            destination = pingpongObjects[1];
+            foundDestination = true;
+        }
+        
+       
+        
 
     }
 
