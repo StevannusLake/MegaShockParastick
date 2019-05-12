@@ -64,9 +64,6 @@ public class Movement : MonoBehaviour
 
     public GameObject MainMenu;
     public GameObject SecondChanceMenu;
-    public bool isSuper = false;
-    public float superDuration = 4f;
-    private float superTimer = 0f;
 
     /// <summary>
     /// 0 : alive, 1 : dead animation, 2 : die and call menu
@@ -209,16 +206,6 @@ public class Movement : MonoBehaviour
             deadState = 1;
 
             playerJustDied = false;
-        }
-
-        if(isSuper)
-        {
-            superTimer += Time.deltaTime;
-            if(superTimer >= superDuration)
-            {
-                isSuper = false;
-                superTimer = 0f;
-            }
         }
         //=======================================================================================================================
         ConfigureTrail();
@@ -482,24 +469,16 @@ public class Movement : MonoBehaviour
         {
             if (collision.collider.CompareTag(deadlyTag))
             {
-                if(!isSuper)
+                myRigidBody.velocity = Vector2.zero;
+                AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
+                ScreenEffectManager.instance.ShakeCamera(ShakeVariation.Dying);
+                // Die and Second Chance Menu pop out
+                //UIManager.Instance.CallSecondChanceMenu();
+                if (deadState == 0)
                 {
-                    myRigidBody.velocity = Vector2.zero;
-                    AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-                    ScreenEffectManager.instance.ShakeCamera(ShakeVariation.Dying);
-                    // Die and Second Chance Menu pop out
-                    //UIManager.Instance.CallSecondChanceMenu();
-                    if (deadState == 0)
-                    {
-                        deadState = 1;
-
-                        playerJustDied = false;
-                    }
-                }
-                else
-                {
-                    myRigidBody.velocity = Vector2.zero;
-                    surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+                    deadState = 1;
+               
+                    playerJustDied = false;
                 }
             }
             else if (collision.collider.CompareTag(surfaceTag))
@@ -521,8 +500,7 @@ public class Movement : MonoBehaviour
             }
 
             // stick on the surface
-            if ((collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0) 
-                || (collision.collider.CompareTag(deadlyTag) && isSuper && myMoveStick == MoveState.FLYING && surfaceStickCount == 0))
+            if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0) 
             {
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
@@ -548,23 +526,23 @@ public class Movement : MonoBehaviour
     }
 
     // use stay to check collision after super finished
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if(collision.collider.CompareTag(deadlyTag) && !isSuper)
-        {
-            myRigidBody.velocity = Vector2.zero;
-            AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-            ScreenEffectManager.instance.ShakeCamera(ShakeVariation.Dying);
-            // Die and Second Chance Menu pop out
-            //UIManager.Instance.CallSecondChanceMenu();
-            if (deadState == 0)
-            {
-                deadState = 1;
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if(collision.collider.CompareTag(deadlyTag) && !isSuper)
+    //    {
+    //        myRigidBody.velocity = Vector2.zero;
+    //        AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
+    //        ScreenEffectManager.instance.ShakeCamera(ShakeVariation.Dying);
+    //        // Die and Second Chance Menu pop out
+    //        //UIManager.Instance.CallSecondChanceMenu();
+    //        if (deadState == 0)
+    //        {
+    //            deadState = 1;
 
-                playerJustDied = false;
-            }
-        }
-    }
+    //            playerJustDied = false;
+    //        }
+    //    }
+    //}
 
     private void OnCollisionExit2D(Collision2D collision)
     {

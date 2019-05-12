@@ -158,19 +158,13 @@ public class ColliderController : MonoBehaviour
 
 
             if (!other.GetComponent<ZoomController>().isAlreadyActivated)
-                {
-                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
-                    LevelHandler.instance.cameraController.CapturePrevOffset();
-                    LevelHandler.instance.cameraController.shouldGoToLeft = true;
+            {
+                other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                LevelHandler.instance.cameraController.CapturePrevOffset();
+                LevelHandler.instance.cameraController.shouldGoToLeft = true;
 
-                }
-      
-        }
+            }
 
-        if (other.CompareTag("Super"))
-        {
-            GetComponent<Movement>().isSuper = true;
-            Destroy(other.gameObject);
         }
     }
 
