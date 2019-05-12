@@ -59,11 +59,15 @@ public class ObjectSpawner : MonoBehaviour
 
     public void CheckForSpawningCoinAround(GameObject layoutCreated,LevelGenerator generator )
     {
-        Randomize:
+        int randomized = 0;
+    Randomize:
+        randomized += 1;
         int randomNum = RandomNumGenerator(0, generator.platformList.Count);
         if (generator.platformList[randomNum].tag == "Deadly")
         {
-            goto Randomize;
+            if(randomized<4) goto Randomize;
+
+
         }
         RespawnCoins(generator.platformList[randomNum], GameAssets.i.thisPlatformType(generator.platformList[randomNum].gameObject).radiusForCoins);
         
@@ -71,12 +75,13 @@ public class ObjectSpawner : MonoBehaviour
 
     public void CheckForSpawningOpalInMiddle(GameObject layoutCreated, LevelGenerator generator)
     {
-       
+        int randomized = 0;
+
     RandomizeAgain:
         int randomNumCoinInMiddle = Random.Range(0, generator.platformList.Count - 1);
         if (generator.platformList[randomNumCoinInMiddle].tag == "Deadly" || generator.platformList[randomNumCoinInMiddle + 1].tag == "Deadly")
         {
-            goto RandomizeAgain;
+            if (randomized < 4) goto RandomizeAgain;
         }
        
 
@@ -85,11 +90,12 @@ public class ObjectSpawner : MonoBehaviour
 
     public void CheckForRespawnCoinInMiddle(GameObject layoutCreated, LevelGenerator generator)
     {
+        int randomized = 0;
     RandomizeAgain:
         int randomNumCoinInMiddle = Random.Range(0, generator.platformList.Count - 1);
         if (generator.platformList[randomNumCoinInMiddle].tag == "Deadly" || generator.platformList[randomNumCoinInMiddle + 1].tag == "Deadly")
         {
-            goto RandomizeAgain;
+            if (randomized < 4) goto RandomizeAgain;
         }
         
         RespawnCoinsInMiddle(generator.platformList[randomNumCoinInMiddle], generator.platformList[randomNumCoinInMiddle + 1]);
@@ -99,16 +105,19 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoins(GameObject surfacePos , float surfaceRadius)
     {
         Surfaces surface = surfacePos.GetComponent<Surfaces>();
+       
         if (surface.alreadyRespawnedCoin) return;
         if(canRespawnCoinsAround)
         {
+            GameObject mainParent = Instantiate(new GameObject("SurfaceParent"), surfacePos.transform.position, surfacePos.transform.rotation);
+            surfacePos.transform.SetParent(mainParent.transform);
             int randomNumberOfCoins = Random.Range(3, 8);
             for (int i = 0; i < randomNumberOfCoins; i++)
             {
                 float angle = i * Mathf.PI * 2f / randomNumberOfCoins;
                 Vector3 newPos = new Vector2(surfacePos.transform.position.x + Mathf.Cos(angle) * surfaceRadius, surfacePos.transform.position.y + Mathf.Sin(angle) * surfaceRadius);
                 GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), newPos, Quaternion.identity, surfacePos.transform.parent);
-                
+               
                 
             }
             surface.alreadyRespawnedCoin = true;

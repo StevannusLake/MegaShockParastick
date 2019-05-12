@@ -110,7 +110,7 @@ public class ColliderController : MonoBehaviour
         if (other.CompareTag("RightMovementOffset"))
         {
             #region CustomizationForMovingCamera
-            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[LevelHandler.instance.layoutPlayerIsIn.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
 
             if (prevousLayoutBeforeThis.tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
@@ -145,7 +145,7 @@ public class ColliderController : MonoBehaviour
         if (other.CompareTag("LeftMovementOffset"))
         {
             #region CustomizationForMovingCamera
-            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[LevelHandler.instance.layoutPlayerIsIn.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
 
             if (prevousLayoutBeforeThis.tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout" &&

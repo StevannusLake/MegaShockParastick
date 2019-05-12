@@ -94,37 +94,77 @@ public class Surfaces : MonoBehaviour
 
     void MoveBetweenPingPongs()
     {
-        if(transform.position!=destination.position)
+        if(alreadyRespawnedCoin)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime*1.2f);
-            
+            if (transform.parent.position != destination.position)
+            {
+                if (alreadyRespawnedCoin) transform.parent.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime * 1.2f);
 
-        }
-        if (transform.position == destination.position)
-        {
-            if(System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.Last()))
-            {
-                pingpongDirection = PingPongDirection.Back;
-                destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+
             }
-            else if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.First()))
+            if (transform.parent.position == destination.position)
             {
-                pingpongDirection = PingPongDirection.Forward;
-                
-                destination = pingpongObjects[DestinationCurrentIndex(destination) +1];
-            }
-            else 
-            {
-                if(pingpongDirection == PingPongDirection.Forward)
+                if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.Last()))
                 {
-                    destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
-                }
-                else if (pingpongDirection == PingPongDirection.Back)
-                {
+                    pingpongDirection = PingPongDirection.Back;
                     destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
                 }
+                else if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.First()))
+                {
+                    pingpongDirection = PingPongDirection.Forward;
+
+                    destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                }
+                else
+                {
+                    if (pingpongDirection == PingPongDirection.Forward)
+                    {
+                        destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                    }
+                    else if (pingpongDirection == PingPongDirection.Back)
+                    {
+                        destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+                    }
+                }
             }
-        } 
+
+        }
+        else if(!alreadyRespawnedCoin)
+        {
+
+            if (transform.position != destination.position)
+            {
+                if (alreadyRespawnedCoin) transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime * 1.2f);
+
+
+            }
+            if (transform.position == destination.position)
+            {
+                if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.Last()))
+                {
+                    pingpongDirection = PingPongDirection.Back;
+                    destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+                }
+                else if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.First()))
+                {
+                    pingpongDirection = PingPongDirection.Forward;
+
+                    destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                }
+                else
+                {
+                    if (pingpongDirection == PingPongDirection.Forward)
+                    {
+                        destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                    }
+                    else if (pingpongDirection == PingPongDirection.Back)
+                    {
+                        destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+                    }
+                }
+            }
+        }
+       
       //  float pingPong = Mathf.PingPong(Time.time * pingpongSpeed, 1);
 
     }
