@@ -53,7 +53,7 @@ public class DailyRewards : MonoBehaviour
             TimeSpan difference = currentDate.Subtract(oldDate);
             print("Difference: " + difference);
 
-            if (difference.Days == 1)
+            if (difference.Days >= 1)
             {   
                 if(numOfDay == 7)
                 {
