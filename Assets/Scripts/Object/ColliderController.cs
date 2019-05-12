@@ -13,6 +13,9 @@ public class ColliderController : MonoBehaviour
 
     public static int tempCollectedCoin = 0;
 
+    //=======================================================================================================================
+    //=======================================================================================================================
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +36,15 @@ public class ColliderController : MonoBehaviour
 
         if (other.CompareTag("Coin") && Movement.deadState == 0)
         {
-            AudioManager.PlaySound(AudioManager.Sound.CollectCoin);
-            AudioManager.PlaySound(AudioManager.Sound.CollectCoinMain);
+            // move to coin effect
+           // AudioManager.PlaySound(AudioManager.Sound.CollectCoin);
+           // AudioManager.PlaySound(AudioManager.Sound.CollectCoinMain);
 
-            GameManager.instance.AddCoin(1);
-            Destroy(other.gameObject);
+            //GameManager.instance.AddCoin(1);
+            //=======================================================================================================================
+            
+            //=======================================================================================================================
+           // Destroy(other.gameObject);
 
             //! For Coin Multiplier
             tempCollectedCoin += 2;
@@ -45,8 +52,12 @@ public class ColliderController : MonoBehaviour
 
         if (other.CompareTag("Opal") && Movement.deadState == 0)
         {
-            GameManager.instance.AddPoints(1);
-            Destroy(other.gameObject);
+            //=======================================================================================================================
+            
+            //=======================================================================================================================
+            // move to opal effect
+            //GameManager.instance.AddPoints(1);
+           // Destroy(other.gameObject);
         }
 
 

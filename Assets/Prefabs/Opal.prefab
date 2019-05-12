@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3802100250394408103}
   - component: {fileID: 211566117658755261}
   - component: {fileID: 1840370811808985332}
+  - component: {fileID: 5066004693543362063}
   m_Layer: 0
   m_Name: Opal
   m_TagString: Opal
@@ -116,3 +117,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5066004693543362063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545764483470404117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6255eec7961b2499bad495f907f6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
