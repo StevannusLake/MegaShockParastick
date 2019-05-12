@@ -109,60 +109,62 @@ public class UIManager : MonoBehaviour
 
         if(continueFillTimer <= 0f)
         {
-            closingSecondChanceMenu = true;
+            //closingSecondChanceMenu = true;
+
+            CallLoseMenu();
         }
 
-        if (callSecondChanceMenu)
-        {
-            for (int i = 0; i < ContinueUI.Length; i++)
-            {
-                ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, new Vector3(Screen.width/2f,Screen.height/2f,0f), 4f * Time.deltaTime);
-            }
-            if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 10f)
-            {
-                for (int i = 0; i < ContinueUI.Length; i++)
-                {
-                    ContinueUI[i].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
-                }
-                callSecondChanceMenu = false;
-            }
-        }
+        //if (callSecondChanceMenu)
+        //{
+        //    for (int i = 0; i < ContinueUI.Length; i++)
+        //    {
+        //        ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, new Vector3(Screen.width/2f,Screen.height/2f,0f), 4f * Time.deltaTime);
+        //    }
+        //    if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 10f)
+        //    {
+        //        for (int i = 0; i < ContinueUI.Length; i++)
+        //        {
+        //            ContinueUI[i].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        //        }
+        //        callSecondChanceMenu = false;
+        //    }
+        //}
 
-        if (closingSecondChanceMenu)
-        {
-            for (int i = 0; i < ContinueUI.Length; i++)
-            {
-                ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, ContinueUI[i].GetComponent<UITransition>().startPos, 4f * Time.deltaTime);
-            }
-            if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, ContinueUI[0].GetComponent<UITransition>().startPos) < 13f)
-            {
-                for (int i = 0; i < ContinueUI.Length; i++)
-                {
-                    ContinueUI[i].GetComponent<RectTransform>().position = ContinueUI[i].GetComponent<UITransition>().startPos;
-                }
-                closingSecondChanceMenu = false;
-                if (ButtonManager.instance.secondlife == true)
-                {
-                    SecondChanceMenu.SetActive(false);
-                    ReloadScene();
-                }
-                else
-                {
-                    SecondChanceMenu.SetActive(false);
-                    callLoseMenu = true;
-                }
-            }
-        }
+        //if (closingSecondChanceMenu)
+        //{
+        //    for (int i = 0; i < ContinueUI.Length; i++)
+        //    {
+        //        ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, ContinueUI[i].GetComponent<UITransition>().startPos, 4f * Time.deltaTime);
+        //    }
+        //    if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, ContinueUI[0].GetComponent<UITransition>().startPos) < 13f)
+        //    {
+        //        for (int i = 0; i < ContinueUI.Length; i++)
+        //        {
+        //            ContinueUI[i].GetComponent<RectTransform>().position = ContinueUI[i].GetComponent<UITransition>().startPos;
+        //        }
+        //        closingSecondChanceMenu = false;
+        //        if (ButtonManager.instance.secondlife == true)
+        //        {
+        //            SecondChanceMenu.SetActive(false);
+        //            ReloadScene();
+        //        }
+        //        else
+        //        {
+        //            SecondChanceMenu.SetActive(false);
+        //            callLoseMenu = true;
+        //        }
+        //    }
+        //}
 
-        if(callLoseMenu)
-        {
-            LoseUI[0].GetComponent<RectTransform>().position = Vector3.Lerp(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), 4f * Time.deltaTime);
-            if(Vector3.Distance(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 8f)
-            {
-                LoseUI[0].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
-                callLoseMenu = false;
-            }
-        }
+        //if(callLoseMenu)
+        //{
+        //    LoseUI[0].GetComponent<RectTransform>().position = Vector3.Lerp(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), 4f * Time.deltaTime);
+        //    if(Vector3.Distance(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 8f)
+        //    {
+        //        LoseUI[0].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        //        callLoseMenu = false;
+        //    }
+        //}
 
         if (secondChanceCalled)
         {
@@ -210,13 +212,13 @@ public class UIManager : MonoBehaviour
 
         AudioManager.PlaySound(AudioManager.Sound.Lose);
         closingSecondChanceMenu = true;
-        callSecondChanceMenu = false;
+        //callSecondChanceMenu = false;
         LoseMenu.SetActive(true);
         // Update score
         GameManager.instance.SaveCoin();
         GameManager.instance.SaveScore();
         scoreInGameUI.SetActive(false);
-        currentScore.text = "Your Score : " + player.GetComponent<Movement>().playerDistance.ToString("F1") + " mm";
+        currentScore.text = player.GetComponent<Movement>().playerDistance.ToString("F1") + " mm";
         highScore.text = "" + PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
         coinText.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
         //SecondChanceMenu.SetActive(false);
@@ -280,7 +282,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SaveCoin();
         GameManager.instance.SaveScore();
-        callSecondChanceMenu = true;
+        //callSecondChanceMenu = true;
         //GameManager.instance.LoadData();
 
         AudioManager.PlaySound(AudioManager.Sound.Continue);
