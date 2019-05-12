@@ -98,7 +98,7 @@ public class Surfaces : MonoBehaviour
         {
             if (transform.parent.position != destination.position)
             {
-                if (alreadyRespawnedCoin) transform.parent.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime * 1.2f);
+                 transform.parent.position = Vector3.MoveTowards(transform.parent.position, destination.position, Time.deltaTime * 1.2f);
 
 
             }
@@ -129,12 +129,12 @@ public class Surfaces : MonoBehaviour
             }
 
         }
-        else if(!alreadyRespawnedCoin)
+         if(!alreadyRespawnedCoin)
         {
 
             if (transform.position != destination.position)
             {
-                if (alreadyRespawnedCoin) transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime * 1.2f);
+                 transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime * 1.2f);
 
 
             }

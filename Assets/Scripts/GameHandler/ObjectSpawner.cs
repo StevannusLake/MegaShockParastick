@@ -78,6 +78,7 @@ public class ObjectSpawner : MonoBehaviour
         int randomized = 0;
 
     RandomizeAgain:
+        randomized += 1;
         int randomNumCoinInMiddle = Random.Range(0, generator.platformList.Count - 1);
         if (generator.platformList[randomNumCoinInMiddle].tag == "Deadly" || generator.platformList[randomNumCoinInMiddle + 1].tag == "Deadly")
         {
@@ -92,6 +93,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         int randomized = 0;
     RandomizeAgain:
+        randomized += 1;
         int randomNumCoinInMiddle = Random.Range(0, generator.platformList.Count - 1);
         if (generator.platformList[randomNumCoinInMiddle].tag == "Deadly" || generator.platformList[randomNumCoinInMiddle + 1].tag == "Deadly")
         {
@@ -155,15 +157,12 @@ public class ObjectSpawner : MonoBehaviour
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
                 GameObject go = Instantiate(GetGameObjectType(ItemType.Opal), offsetPosition, Quaternion.identity, firstObject.transform.parent);
-                if (!checkIfPosEmpty(go))
-                {
-                    go.SetActive(false);
-                }
-               
+                RemoveObjectIfItsThere(go, "Coin");
+
+
 
             }
-            surface1.alreadyRespawnedCoin = true;
-            surface2.alreadyRespawnedCoin = true;
+            
             canRespawnOpalMiddle = false;
         }
         
@@ -199,13 +198,12 @@ public class ObjectSpawner : MonoBehaviour
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
                  GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
-                if (!checkIfPosEmpty(go)) go.SetActive(false);
-                
-               
-                
+                RemoveObjectIfItsThere(go, "Coin");
+
+
+
             }
-            surface1.alreadyRespawnedCoin = true;
-            surface2.alreadyRespawnedCoin = true;
+           
             canRespawnCoinsMiddle = false;
             
         }
@@ -216,18 +214,18 @@ public class ObjectSpawner : MonoBehaviour
   
 
 
-public bool checkIfPosEmpty(GameObject targetPos)
+public void RemoveObjectIfItsThere(GameObject objectToHold, string objectToRemove)
 {
-    GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Coin");
+    GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag(objectToRemove);
         foreach (GameObject current in allMovableThings)
         {
-            if (current.GetComponent<Collider2D>().IsTouching(targetPos.GetComponent<Collider2D>()))
+            if (current.GetComponent<Collider2D>().IsTouching(objectToHold.GetComponent<Collider2D>()))
             {
-                return false;
+                current.SetActive(false);
             }
            
         }
-        return true;
+       
     }
 
 

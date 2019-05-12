@@ -6074,7 +6074,7 @@ MonoBehaviour:
   whenToGenerateMoreMaps: 2
   distanceFromWall: 0.8
   currentDirection: 0
-  levelDifficulty: 0
+  levelDifficulty: 2
   currentActiveLevelGeneratorID: 0
   distanceToRespawnCoin: 25
   distanceToRespawnOpal: 120
