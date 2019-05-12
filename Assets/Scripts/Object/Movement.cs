@@ -95,6 +95,10 @@ public class Movement : MonoBehaviour
 
     public GameObject PauseScreen;
 
+    //=======================================================================================================================
+    public SmokeEffect mySmokeEffect;
+    //=======================================================================================================================
+
     // Start is called before the first frame update
     void Start()
     {
@@ -147,6 +151,12 @@ public class Movement : MonoBehaviour
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 1)
         {
+            if (Time.timeScale != 1)
+            {
+                Time.timeScale = 1;
+            }
+            // disable dot
+            spawnDot = false;
             myEmotion.EmoteDeath();
             LevelHandler.instance.cameraController.StopFollowing();
             myCollider.isTrigger = true;
@@ -198,6 +208,11 @@ public class Movement : MonoBehaviour
             if (bounceCounter != 0)
             {
                 bounceCounter = 0;
+            }
+
+            if (Time.timeScale != 1)
+            {
+                Time.timeScale = 1;
             }
         }
 
@@ -514,6 +529,16 @@ public class Movement : MonoBehaviour
                 surfaceStickCount = 1;
                 collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
 
+                // get info to spawn relative smoke effect
+                Surfaces currentSurface = collision.collider.gameObject.GetComponent<Surfaces>();
+                if(currentSurface.thisType == Surfaces.SurfaceTypes.Safe)
+                {
+                    float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
+                    angle *= Mathf.Rad2Deg;
+                    angle += 90;
+                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle);
+                }
+
                 // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
             }
@@ -625,7 +650,26 @@ public class Movement : MonoBehaviour
 
                 }
 
-                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]))
+                // second check
+                Vector2 temp2 = CalculateDotHitWall(trajectoryDots[i]);
+
+                if (temp2 != Vector2.zero)
+                {
+                    float bounceXPos2 = trajectoryDots[i].transform.position.x + ((temp2.x - trajectoryDots[i].transform.position.x) * 2.0f);
+                    trajectoryDots[i].transform.position = new Vector2(bounceXPos2, trajectoryDots[i].transform.position.y);
+
+                }
+
+                // third check
+                // second check
+                Vector2 temp3 = CalculateDotHitWall(trajectoryDots[i]);
+                bool wallDie = false;
+                if (temp3 != Vector2.zero)
+                {
+                    wallDie = true;
+                }
+
+                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) && !wallDie)
                 {
                     trajectoryDots[i].SetActive(true);
                 }
@@ -785,7 +829,7 @@ public class Movement : MonoBehaviour
 
                 playerJustDied = false;
             }
-            else if (deadState == 1 && !deadFix)
+            else if (deadState == 1 && !deadFix && myTransform.position.y <= cameraBottom.y)
             {
                 deadState = 2;
                 //Debug.Log("DropDead 1 to 2");
