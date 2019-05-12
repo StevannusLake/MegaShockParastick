@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        highScoreInMainMenu.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore",0).ToString("F1")+" mm";
+        highScoreInMainMenu.text = PlayerPrefs.GetFloat("HighScore",0).ToString("F1")+" mm";
 
         TutorialScreen.SetActive(false);
 
@@ -84,6 +84,8 @@ public class UIManager : MonoBehaviour
         CoinMultiplyPanel.SetActive(false);
 
         continueFillTimer = continueFillDuration;
+
+        QuitPrompt.SetActive(false);
     }
 
     private void Update()
@@ -204,6 +206,8 @@ public class UIManager : MonoBehaviour
 
     public void CallLoseMenu()
     {
+        SecondChanceMenu.SetActive(false);
+
         AudioManager.PlaySound(AudioManager.Sound.Lose);
         closingSecondChanceMenu = true;
         callSecondChanceMenu = false;
