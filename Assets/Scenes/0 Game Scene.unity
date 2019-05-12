@@ -11475,6 +11475,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1842531690}
     m_Modifications:
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11534,16 +11544,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3566797755477066070, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -14367,6 +14367,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1842531690}
     m_Modifications:
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14421,16 +14431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3566797755477066070, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
