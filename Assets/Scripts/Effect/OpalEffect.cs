@@ -14,7 +14,7 @@ public class OpalEffect : MonoBehaviour
     void Start()
     {
         myAnimator = GetComponent<Animator>();
-        UIOpal = GameObject.FindGameObjectWithTag("GetOpal").GetComponent<Animator>();
+        UIOpal = GameObject.FindGameObjectWithTag("UIOpal").GetComponent<Animator>();
     }
 
     // Update is called once per frame

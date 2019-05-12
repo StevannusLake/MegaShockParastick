@@ -28,6 +28,7 @@ TagManager:
   - PlatformChildGreen
   - Super
   - UICoin
+  - UIOpal
   layers:
   - Default
   - TransparentFX
