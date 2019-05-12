@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 211566117658755261}
   - component: {fileID: 1840370811808985332}
   - component: {fileID: 5066004693543362063}
+  - component: {fileID: 4165270971732812080}
+  - component: {fileID: 2881680187245212094}
   m_Layer: 0
   m_Name: Opal
   m_TagString: Opal
@@ -129,3 +131,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6255eec7961b2499bad495f907f6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4165270971732812080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545764483470404117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285845008c4db3e47b5956a25dc2e0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliders: []
+--- !u!50 &2881680187245212094
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545764483470404117}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

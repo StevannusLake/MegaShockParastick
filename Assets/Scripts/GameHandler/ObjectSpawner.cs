@@ -61,15 +61,17 @@ public class ObjectSpawner : MonoBehaviour
     {
         int randomized = 0;
     Randomize:
-        randomized += 1;
-        int randomNum = RandomNumGenerator(0, generator.platformList.Count);
-        if (generator.platformList[randomNum].tag == "Deadly")
+       
+      
+        if (generator.platformList[randomized].tag == "Deadly")
         {
-            if(randomized<4) goto Randomize;
+            randomized += 1;
+            if (randomized<generator.platformList.Count-1) goto Randomize;
+            else return;
 
 
         }
-        RespawnCoins(generator.platformList[randomNum], GameAssets.i.thisPlatformType(generator.platformList[randomNum].gameObject).radiusForCoins);
+        RespawnCoins(generator.platformList[randomized], GameAssets.i.thisPlatformType(generator.platformList[randomized].gameObject).radiusForCoins);
         
     }
 
@@ -78,29 +80,34 @@ public class ObjectSpawner : MonoBehaviour
         int randomized = 0;
 
     RandomizeAgain:
-        randomized += 1;
-        int randomNumCoinInMiddle = Random.Range(0, generator.platformList.Count - 1);
-        if (generator.platformList[randomNumCoinInMiddle].tag == "Deadly" || generator.platformList[randomNumCoinInMiddle + 1].tag == "Deadly")
+       
+        
+        if (generator.platformList[randomized].tag == "Deadly" || generator.platformList[randomized + 1].tag == "Deadly")
         {
-            if (randomized < 4) goto RandomizeAgain;
+            randomized += 1;
+            if (randomized < generator.platformList.Count - 1) goto RandomizeAgain;
+            else return;
+
         }
        
 
-        RespawnOpalInMiddle(generator.platformList[randomNumCoinInMiddle], generator.platformList[randomNumCoinInMiddle + 1]);
+        RespawnOpalInMiddle(generator.platformList[randomized], generator.platformList[randomized + 1]);
     }
 
     public void CheckForRespawnCoinInMiddle(GameObject layoutCreated, LevelGenerator generator)
     {
         int randomized = 0;
     RandomizeAgain:
-        randomized += 1;
-        int randomNumCoinInMiddle = Random.Range(0, generator.platformList.Count - 1);
-        if (generator.platformList[randomNumCoinInMiddle].tag == "Deadly" || generator.platformList[randomNumCoinInMiddle + 1].tag == "Deadly")
+       
+       
+        if (generator.platformList[randomized].tag == "Deadly" || generator.platformList[randomized + 1].tag == "Deadly")
         {
-            if (randomized < 4) goto RandomizeAgain;
+            randomized += 1;
+            if (randomized < generator.platformList.Count - 1) goto RandomizeAgain;
+            else return;
         }
         
-        RespawnCoinsInMiddle(generator.platformList[randomNumCoinInMiddle], generator.platformList[randomNumCoinInMiddle + 1]);
+        RespawnCoinsInMiddle(generator.platformList[randomized], generator.platformList[randomized + 1]);
         
     }
 
@@ -119,8 +126,8 @@ public class ObjectSpawner : MonoBehaviour
                 float angle = i * Mathf.PI * 2f / randomNumberOfCoins;
                 Vector3 newPos = new Vector2(surfacePos.transform.position.x + Mathf.Cos(angle) * surfaceRadius, surfacePos.transform.position.y + Mathf.Sin(angle) * surfaceRadius);
                 GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), newPos, Quaternion.identity, surfacePos.transform.parent);
-               
-                
+                go.GetComponent<ObjectOverlap>().priority = 0;
+
             }
             surface.alreadyRespawnedCoin = true;
             surface.rotationSpeedRandom += (randomNumberOfCoins * 15f);
@@ -136,13 +143,14 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
         RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
-        if (hit.collider.tag == "Deadly")
+        if (hit.collider.gameObject.tag == "Deadly" || hit.collider.gameObject.tag == "HorizontalWall")
         {
             Debug.Log("HittedDeadluy");
+            
             return;
         }
 
-
+        
 
         Surfaces surface1 = firstObject.GetComponent<Surfaces>();
         Surfaces surface2 = secondObject.GetComponent<Surfaces>();
@@ -157,7 +165,7 @@ public class ObjectSpawner : MonoBehaviour
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
                 GameObject go = Instantiate(GetGameObjectType(ItemType.Opal), offsetPosition, Quaternion.identity, firstObject.transform.parent);
-                RemoveObjectIfItsThere(go, "Coin");
+                go.GetComponent<ObjectOverlap>().priority = 2;
 
 
 
@@ -170,13 +178,14 @@ public class ObjectSpawner : MonoBehaviour
           
         
     }
+   
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
 
         RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
-        if (hit.collider.tag == "Deadly")
+        if (hit.collider.tag == "Deadly"|| hit.collider.tag == "HorizontalWall")
         {
-            Debug.Log("HittedDeadluy");
+            Debug.Log("HittedObstacles");
             return;
         }
       
@@ -198,7 +207,7 @@ public class ObjectSpawner : MonoBehaviour
                 Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
                     - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
                  GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
-                RemoveObjectIfItsThere(go, "Coin");
+                go.GetComponent<ObjectOverlap>().priority = 1;
 
 
 
@@ -214,19 +223,6 @@ public class ObjectSpawner : MonoBehaviour
   
 
 
-public void RemoveObjectIfItsThere(GameObject objectToHold, string objectToRemove)
-{
-    GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag(objectToRemove);
-        foreach (GameObject current in allMovableThings)
-        {
-            if (current.GetComponent<Collider2D>().IsTouching(objectToHold.GetComponent<Collider2D>()))
-            {
-                current.SetActive(false);
-            }
-           
-        }
-       
-    }
 
 
 

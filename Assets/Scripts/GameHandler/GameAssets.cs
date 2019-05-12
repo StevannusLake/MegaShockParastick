@@ -70,7 +70,7 @@ public class GameAssets : MonoBehaviour
             foreach (PlatformObjects platformObject in platformObjectsArray)
             {
             if (platformObject.surfaceGameObject.tag==platform.tag)return platformObject;
-            else Debug.Log("nOTmATched");
+            
 
             }
 

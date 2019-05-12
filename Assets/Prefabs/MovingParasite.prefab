@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5872609325806167603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.56, y: -0.21, z: 0.079078354}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   thisType: 2
   rotationSpeed: 0.2
   pingpongSpeed: 2
+  rotationSpeedRandom: 0
   stickCount: 0
   platformPlacementTransform: {fileID: 0}
   alreadyRespawnedCoin: 0
