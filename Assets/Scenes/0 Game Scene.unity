@@ -12783,7 +12783,7 @@ MonoBehaviour:
   initialPosition: 0
   MainMenu: {fileID: 1354248950}
   SecondChanceMenu: {fileID: 1700775326}
-  isSuper: 0
+  isSuper: 1
   superDuration: 4
   deadVelocity: 10
   cancelIndicator: {fileID: 1747142759}
