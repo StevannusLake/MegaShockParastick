@@ -15,12 +15,13 @@ public class MissionManager : MonoBehaviour
 
     void Start()
     {   
-        if(PlayerPrefs.GetInt("Mission1") == 0)
+        if(!PlayerPrefs.HasKey("Mission1"))
         {
-            for (int i = 0; i < 5; i++)
-            {
-                missionListId.Add((i*10)+1);
-            }
+            missionListId[0] = 1;
+            missionListId[1] = 11;
+            missionListId[2] = 24;
+            missionListId[3] = 37;
+            missionListId[4] = 41;
         }
         else
         {
