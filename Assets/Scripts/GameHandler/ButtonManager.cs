@@ -64,7 +64,8 @@ public class ButtonManager : MonoBehaviour
         UIManager.Instance.secondChanceCalled = false;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondChanceCalled", UIManager.Instance.secondChanceCalled ? 1 : 0);
-
+        GameObject dataHolder = GameObject.Find("PostRestartDataHolder");
+        Destroy(dataHolder);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

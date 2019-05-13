@@ -313,7 +313,7 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetFloat("TempScore", ButtonManager.instance.TempScore);
 
             SecondChanceMenu.SetActive(false);
-
+            Movement.deadState = 0;
             ReloadScene();
        // }
     }

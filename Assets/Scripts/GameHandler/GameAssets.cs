@@ -16,7 +16,7 @@ public class GameAssets : MonoBehaviour
     }
 
 
-
+    public GameObject postRestartDataHolder;
 
     //Store all audio clips for audiomanager to use . Can be used for Effects, Prefabs and other stuff
     #region AudioClips

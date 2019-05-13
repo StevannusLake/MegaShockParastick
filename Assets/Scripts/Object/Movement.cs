@@ -205,7 +205,7 @@ public class Movement : MonoBehaviour
         {
             DropDead();
         }
-        else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf)
+        else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf || PostRestartDataHolder.instance.secondLifeUsed)
         {
             //reset
             deadState = 0;
@@ -570,7 +570,11 @@ public class Movement : MonoBehaviour
             }
         }
         
-        if(collision.collider.name == "Ground" && deadState == 0)
+        if(collision.collider.name == "FirstInitialPlatform" && deadState == 0)
+        {
+            myEmotion.EmoteIdle();
+        }
+        if (collision.collider.name == "SecondLifeInitialPlatform" && deadState == 0)
         {
             myEmotion.EmoteIdle();
         }

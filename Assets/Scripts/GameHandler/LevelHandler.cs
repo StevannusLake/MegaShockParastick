@@ -43,18 +43,34 @@ public class LevelHandler : MonoBehaviour
     {
         instance = this;
         levelLayoutsCreated = new List<GameObject>();
-        if (PostRestartDataHolder.instance.secondLifeUsed) GetSecondLifeData();
+        GameObject dataHolder = GameObject.Find("PostRestartDataHolder");
+        if (!dataHolder)
+        {
+            GameObject newDataHolder = Instantiate(GameAssets.i.postRestartDataHolder);
+            newDataHolder.name = "PostRestartDataHolder";
+        }
+        
+
+        if (PostRestartDataHolder.instance.secondLifeUsed)
+        {
+            GetSecondLifeData();
+        }
+        
 
     }
 
     void GetSecondLifeData()
     {
         levelDifficulty = PostRestartDataHolder.instance.savedDifficulty;
-        //distanceTraveledByLayout = PostRestartDataHolder.instance.savedDistanceTraveledByLayout;
+        distanceTraveledByLayout = PostRestartDataHolder.instance.savedDistanceTraveledByLayout;
     }
 
     private void Start()
     {
+        if (PostRestartDataHolder.instance.secondLifeUsed)
+        {
+            Movement.deadState = 0;
+        }
 
     }
 

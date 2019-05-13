@@ -150,7 +150,7 @@ public static void Play3DSound(Sound sound,AudioSource selfAudio)
         Debug.LogError("Sound" + sound + "wasnt found!");
         return null;
     }
-    private static float GetAudioClipMinPitch(Sound sound)
+    public static float GetAudioClipMinPitch(Sound sound)
     {
         foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
         {
@@ -162,7 +162,7 @@ public static void Play3DSound(Sound sound,AudioSource selfAudio)
         Debug.LogError("Sound" + sound + "wasnt found!");
         return 0;
     }
-    private static float GetAudioClipMaxPitch(Sound sound)
+    public static float GetAudioClipMaxPitch(Sound sound)
     {
         foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
         {
@@ -174,7 +174,7 @@ public static void Play3DSound(Sound sound,AudioSource selfAudio)
         Debug.LogError("Sound" + sound + "wasnt found!");
         return 0;
     }
-    private static float GetAudioClipVolume(Sound sound)
+    public static float GetAudioClipVolume(Sound sound)
     {
         foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
         {

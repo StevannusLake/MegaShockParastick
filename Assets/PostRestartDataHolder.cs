@@ -30,11 +30,13 @@ public class PostRestartDataHolder : MonoBehaviour
     {
         
         secondLifeUsed = true;
-        Object.DontDestroyOnLoad(this.gameObject);
+        
 
         //
         savedDifficulty = LevelHandler.instance.levelDifficulty;
         savedDistanceTraveledByLayout = LevelHandler.instance.distanceTraveledByLayout;
-      
+
+        Object.DontDestroyOnLoad(this.gameObject);
+
     }
 }
