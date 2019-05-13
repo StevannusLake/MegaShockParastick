@@ -58,13 +58,43 @@ public static class AudioManager
                 source.volume= GetAudioClipVolume(sound);
                 source.PlayOneShot(GetAudioClip(sound));
             }
+           
             
                   
         }
   
     }
-    //pass in gameobject audio source so it play the sound in regard of position and all audio source setting of the particular gameobject.
-    public static void Play3DSound(Sound sound,AudioSource selfAudio)
+
+    public static void PlaySoundCustom(Sound sound, float volume, float pitch)
+    {
+        string soundName = sound.ToString();
+        if (GameManager.instance.soundSourcesCreated.Contains(soundName))
+        {
+            GameObject audioSource = GameManager.instance.audioSourcePlayer.transform.Find(soundName.ToString()).gameObject;
+            AudioSource source = audioSource.GetComponent<AudioSource>();
+            source.pitch = pitch;
+            source.volume = volume;
+            source.PlayOneShot(GetAudioClip(sound));
+        }
+
+        else if (!GameManager.instance.soundSourcesCreated.Contains(soundName))
+        {
+            GameManager.instance.soundSourcesCreated.Add(soundName);
+            GameObject soundSourceGO = new GameObject(soundName);
+            soundSourceGO.transform.SetParent(GameManager.instance.audioSourcePlayer.transform);
+            soundSourceGO.AddComponent<AudioSource>();
+            AudioSource source = soundSourceGO.GetComponent<AudioSource>();
+            source.pitch = pitch;
+            source.volume = volume;
+            source.PlayOneShot(GetAudioClip(sound));
+        }
+
+
+
+    }
+
+//pass in gameobject audio source so it play the sound in regard of position and all audio source setting of the particular gameobject.
+public static void Play3DSound(Sound sound,AudioSource selfAudio)
     {
         if (CanPlaySound(sound))
         {

@@ -68,7 +68,8 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// 0 : alive, 1 : dead animation, 2 : die and call menu
     /// </summary>
-    public static int deadState = 0;
+    [SerializeField]public static int deadState = 0;
+    
     public float deadVelocity;
     bool isDead;
     // fix dead update too fast for falling off camera bottom edge
@@ -123,6 +124,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(deadState);
         if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
         {
             if (myCollider.isTrigger)

@@ -296,14 +296,14 @@ public class UIManager : MonoBehaviour
 
     public void CloseSecondChanceMenu()
     {
-        if (GameManager.instance.GetPoints() >= 4)
-        {
+       // if (GameManager.instance.GetPoints() >= 4)
+        //{
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
-
+            
             GameManager.instance.DecreasePoints(4);
             GameManager.instance.SavePoints();
             GameManager.instance.LoadData();
-
+            PostRestartDataHolder.instance.UseSecondLife();
             ButtonManager.instance.secondlife = true;
             // Save boolean using PlayerPrefs
             PlayerPrefs.SetInt("SecondLife", ButtonManager.instance.secondlife ? 1 : 0);
@@ -315,7 +315,7 @@ public class UIManager : MonoBehaviour
             SecondChanceMenu.SetActive(false);
 
             ReloadScene();
-        }
+       // }
     }
 
     public void CheckSecondChanceButton()
