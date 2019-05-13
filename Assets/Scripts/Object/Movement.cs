@@ -91,7 +91,17 @@ public class Movement : MonoBehaviour
 
     public bool playerJustDied = false;
     public LayerMask lm;
-    int doubleSlingshot = 0;
+
+    //=======================================================================================================================
+    /// <summary>
+    /// 0 = cannot, 1 = can, 2 = recover
+    /// </summary>
+    public int doubleSlingshot = 0;
+    const int MAXSLINGSHOT = 9;
+    const int DECREMENTSLINGSHOT = 3;
+    const int INCREMENTSLINGSHOT = 1;
+    int doubleSlingshotCounter = MAXSLINGSHOT;
+    //=======================================================================================================================
 
     public GameObject PauseScreen;
 
@@ -228,6 +238,15 @@ public class Movement : MonoBehaviour
 
     void SlingShot()
     {
+        if(doubleSlingshotCounter <= 0)
+        {
+            doubleSlingshot = 2;
+        }
+        else if(doubleSlingshotCounter >= MAXSLINGSHOT)
+        {
+            doubleSlingshot = 1;
+        }
+
         if (myMoveStick == MoveState.STICK)
         {
             if(Time.timeScale != 1)
@@ -328,7 +347,8 @@ public class Movement : MonoBehaviour
                 spawnDot = false;
                 isCancel = false;
 
-                doubleSlingshot = 0;
+                //doubleSlingshot = 0;
+                doubleSlingshotCounter -= DECREMENTSLINGSHOT;
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -501,11 +521,15 @@ public class Movement : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
 
-                doubleSlingshot = 0;
+                //doubleSlingshot = 0;
             }
             else if (collision.collider.CompareTag(horizontalWall))
             {
                 bounceCounter++;
+                if(doubleSlingshot == 2)
+                {
+                    doubleSlingshotCounter += INCREMENTSLINGSHOT;
+                }
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
             }
 
