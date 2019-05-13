@@ -42,20 +42,20 @@ public class SmokeEffect : MonoBehaviour
         }
     }
 
+    //1 = normal, 2 = moving
     /// <summary>
-    /// 1 = normal, 2 = moving
+    /// MovingPlatform
     /// </summary>
     /// <param name="spawnPosition"></param>
     /// <param name=""></param>
-    public void SpawnSmoke(Vector2 spawnPosition, int smokeState, float angle)
+    public void SpawnSmoke(Vector2 spawnPosition, int smokeState, float angle, string stateName)
     {
         counter = 0;
-        mySR.enabled = false;
-        myAnimator.SetInteger("state", 0);
         myTransform.position = spawnPosition;
         myTransform.rotation = Quaternion.Euler(0,0, angle);
         mySR.enabled = true;
-        myAnimator.SetInteger("state", smokeState);
+       // myAnimator.SetInteger("state", smokeState);
+        myAnimator.Play(stateName,0, 0 );
     }
     
 }

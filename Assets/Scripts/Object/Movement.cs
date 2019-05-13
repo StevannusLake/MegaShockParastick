@@ -576,7 +576,7 @@ public class Movement : MonoBehaviour
                     float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
-                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle);
+                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle, "MovingPlatform");
                 }
 
                 // myAnimation.PlayIdle();
@@ -632,7 +632,7 @@ public class Movement : MonoBehaviour
                 float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
-                mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle);
+                mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle, "MovingPlatform");
             }
             // ===================================================================================================================================
         }
