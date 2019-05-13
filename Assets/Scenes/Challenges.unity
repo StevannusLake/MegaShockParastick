@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 441779976}
   - component: {fileID: 441779975}
   m_Layer: 5
-  m_Name: MissionButtonExample (1)
+  m_Name: MissionTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 480537144}
   - component: {fileID: 480537143}
   m_Layer: 5
-  m_Name: MissionButtonExample
+  m_Name: MissionTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 844123284}
   - component: {fileID: 844123283}
   m_Layer: 5
-  m_Name: MissionButtonExample (4)
+  m_Name: MissionTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 847421391}
   - component: {fileID: 847421390}
   m_Layer: 5
-  m_Name: MissionButtonExample (2)
+  m_Name: MissionTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2081,7 +2081,7 @@ GameObject:
   - component: {fileID: 1305924662}
   - component: {fileID: 1305924661}
   m_Layer: 5
-  m_Name: MissionButtonExample (3)
+  m_Name: MissionTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2236,6 +2236,7 @@ GameObject:
   - component: {fileID: 1717144175}
   - component: {fileID: 1717144178}
   - component: {fileID: 1717144179}
+  - component: {fileID: 1717144180}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2353,6 +2354,25 @@ MonoBehaviour:
   audioSourcePlayer: {fileID: 0}
   highScore: 0
   spinCount: 0
+--- !u!114 &1717144180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717144174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e9173f36c47524dad2d85b09d4edc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionListId: 0000000000000000000000000000000000000000
+  MissionTabs:
+  - {fileID: 749707137}
+  - {fileID: 1102393165}
+  - {fileID: 1938418917}
+  - {fileID: 879651936}
+  - {fileID: 1850287617}
 --- !u!1 &1746743933
 GameObject:
   m_ObjectHideFlags: 0
