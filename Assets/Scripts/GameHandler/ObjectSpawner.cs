@@ -142,7 +142,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
+        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position));
         if (hit.collider.gameObject.tag == "Deadly" || hit.collider.gameObject.tag == "HorizontalWall")
         {
             Debug.Log("HittedDeadluy");
@@ -182,7 +182,7 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(firstObject.transform.position, (secondObject.transform.position - firstObject.transform.position));
+        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position,0.2f, (secondObject.transform.position - firstObject.transform.position));
         if (hit.collider.tag == "Deadly"|| hit.collider.tag == "HorizontalWall")
         {
             Debug.Log("HittedObstacles");

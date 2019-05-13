@@ -525,6 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1724601644000522244}
   - component: {fileID: 1222144254501990733}
+  - component: {fileID: 4301181129376213297}
   m_Layer: 12
   m_Name: WallCollider (3)
   m_TagString: HorizontalWall
@@ -572,6 +573,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.334711, y: 21.636345}
   m_EdgeRadius: 0
+--- !u!50 &4301181129376213297
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3476259720224465608}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3493286621941567626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6414870150783597838}
   - component: {fileID: 862118077314354140}
+  - component: {fileID: 7459958924149361700}
   m_Layer: 12
   m_Name: WallCollider (2)
   m_TagString: HorizontalWall
@@ -1092,6 +1115,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.823195, y: 21.565458}
   m_EdgeRadius: 0
+--- !u!50 &7459958924149361700
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498441012327669527}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6927816366031706644
 GameObject:
   m_ObjectHideFlags: 0
