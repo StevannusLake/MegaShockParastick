@@ -95,13 +95,13 @@ public class Movement : MonoBehaviour
 
     //=======================================================================================================================
     /// <summary>
-    /// 0 = cannot, 1 = can, 2 = recover
+    /// 0 = can, 1 = slingshot once ald, 2 = recover/ cannot
     /// </summary>
     public int doubleSlingshot = 0;
     const int MAXSLINGSHOT = 9;
     const int DECREMENTSLINGSHOT = 3;
     const int INCREMENTSLINGSHOT = 1;
-    int doubleSlingshotCounter = MAXSLINGSHOT;
+    public int doubleSlingshotCounter = MAXSLINGSHOT;
     //=======================================================================================================================
 
     public GameObject PauseScreen;
@@ -193,6 +193,8 @@ public class Movement : MonoBehaviour
                 UIManager.Instance.CallLoseMenu();
             }
 
+            doubleSlingshotCounter = MAXSLINGSHOT;
+            doubleSlingshot = 0;
             myEmotion.EmoteIdle();
             isDead = false;
             deadState = 0;
@@ -246,7 +248,7 @@ public class Movement : MonoBehaviour
         }
         else if(doubleSlingshotCounter >= MAXSLINGSHOT)
         {
-            doubleSlingshot = 1;
+            doubleSlingshot = 0;
         }
 
         if (myMoveStick == MoveState.STICK)
@@ -313,7 +315,7 @@ public class Movement : MonoBehaviour
                 cancelIndicator.SetActive(false);
             }
         }
-        else if (myMoveStick == MoveState.FLYING && doubleSlingshot == 1)
+        else if (myMoveStick == MoveState.FLYING && doubleSlingshot == 0)
         {
             // use mouse to test movement without concerning control
             if (Input.GetMouseButtonDown(0))
@@ -349,7 +351,8 @@ public class Movement : MonoBehaviour
                 spawnDot = false;
                 isCancel = false;
 
-                //doubleSlingshot = 0;
+                // slingshot once
+                doubleSlingshot = 1;
                 doubleSlingshotCounter -= DECREMENTSLINGSHOT;
             }
 
@@ -523,7 +526,11 @@ public class Movement : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
 
-                //doubleSlingshot = 0;
+                // reset slingshot after once double slingshot if not in recover
+                if(doubleSlingshot != 2)
+                {
+                    doubleSlingshot = 0;
+                }
             }
             else if (collision.collider.CompareTag(horizontalWall))
             {
@@ -605,7 +612,10 @@ public class Movement : MonoBehaviour
         {
             surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
 
-            doubleSlingshot = 1;
+            if(doubleSlingshot != 2)
+            {
+                doubleSlingshot = 0;
+            }
         }
         if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1 && myMoveStick == MoveState.FLYING)
         {
@@ -670,8 +680,8 @@ public class Movement : MonoBehaviour
                 CalculateDotAngle(previousDotObject.transform.position, trajectoryDots[i].transform.position);
                 
                 trajectoryDots[i].transform.SetPositionAndRotation(tempDotPosition, Quaternion.AngleAxis(dotAngle, new Vector3(0.0f, 0.0f, 1.0f)));
-                
-                Vector2 temp = CalculateDotHitWall(trajectoryDots[i]);
+               /* 
+                Vector2 temp = CalculateDotHitWall(previousDotObject, trajectoryDots[i]);
 
                 if (temp != Vector2.zero)
                 {
@@ -681,7 +691,7 @@ public class Movement : MonoBehaviour
                 }
 
                 // second check
-                Vector2 temp2 = CalculateDotHitWall(trajectoryDots[i]);
+                Vector2 temp2 = CalculateDotHitWall(previousDotObject, trajectoryDots[i]);
 
                 if (temp2 != Vector2.zero)
                 {
@@ -692,14 +702,14 @@ public class Movement : MonoBehaviour
 
                 // third check
                 // second check
-                Vector2 temp3 = CalculateDotHitWall(trajectoryDots[i]);
+                Vector2 temp3 = CalculateDotHitWall(previousDotObject, trajectoryDots[i]);
                 bool wallDie = false;
                 if (temp3 != Vector2.zero)
                 {
                     wallDie = true;
                 }
-
-                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) && !wallDie)
+                */
+                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
                 {
                     trajectoryDots[i].SetActive(true);
                 }
@@ -752,32 +762,40 @@ public class Movement : MonoBehaviour
     
     // The WALL ================================================================================================
     // calculate the position of dots over time when hit wall
-    private Vector2 CalculateDotHitWall(GameObject currentDot)
+    private Vector2 CalculateDotHitWall(GameObject prevDot, GameObject currentDot)
     {
         RaycastHit2D hit;
+        RaycastHit2D wphit;
 
-        Vector2 direction = currentDot.transform.position - myTransform.position;
+        Vector2 direction = currentDot.transform.position - prevDot.transform.position;
         float distance = direction.magnitude;
 
+
+        Vector2 direction2 = currentDot.transform.position - myTransform.position;
+        float distance2 = direction2.magnitude;
+
         // layer mask 12 == wall
-        hit = Physics2D.Raycast(myTransform.position, direction, distance, lm.value);
-        
+        hit = Physics2D.Raycast(prevDot.transform.position, direction, distance, lm.value);
+        wphit = Physics2D.Raycast(myTransform.position, direction2, distance2, lm.value);
+
         Physics2D.queriesStartInColliders = false;
         Physics2D.queriesHitTriggers = false;
 
+        CircleCollider2D prevDotCollider = prevDot.GetComponent<CircleCollider2D>();
         CircleCollider2D currentDotCollider = currentDot.GetComponent<CircleCollider2D>();
 
         Physics2D.IgnoreCollision(myCollider, currentDotCollider);
-        
+        Physics2D.IgnoreCollision(prevDotCollider, currentDotCollider);
+
         // The WALL ================================================================================================
-        if (hit && hit.collider.gameObject.CompareTag(horizontalWall))
+        if (hit && hit.collider.gameObject.CompareTag(horizontalWall) && wphit.collider.gameObject.CompareTag(horizontalWall))
         {
             return hit.point;
         }
 
         return Vector2.zero;
     }
-    
+
     bool DotHitsSurface(GameObject prevDot, GameObject currentDot)
     {
         RaycastHit2D hit;
@@ -794,7 +812,9 @@ public class Movement : MonoBehaviour
 
         Physics2D.IgnoreCollision(prevDotCollider, currentDotCollider);
 
-        if (hit && !hit.collider.gameObject.CompareTag(horizontalWall))
+        // hit wall and disappear
+        // no bounce for trajectory dot, mainly because corner cannot be identified and raycast checking issues
+        if (hit)// && !hit.collider.gameObject.CompareTag(horizontalWall))
         {
             return true;
         }
