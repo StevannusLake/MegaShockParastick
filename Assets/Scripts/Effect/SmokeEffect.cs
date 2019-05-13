@@ -8,7 +8,7 @@ public class SmokeEffect : MonoBehaviour
     Transform myTransform;
     SpriteRenderer mySR;
 
-    float counter, duration = 0.5f;
+    float counter, duration = 0.42f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,9 @@ public class SmokeEffect : MonoBehaviour
     /// <param name=""></param>
     public void SpawnSmoke(Vector2 spawnPosition, int smokeState, float angle)
     {
+        counter = 0;
+        mySR.enabled = false;
+        myAnimator.SetInteger("state", 0);
         myTransform.position = spawnPosition;
         myTransform.rotation = Quaternion.Euler(0,0, angle);
         mySR.enabled = true;

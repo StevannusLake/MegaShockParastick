@@ -108,6 +108,7 @@ public class Movement : MonoBehaviour
 
     //=======================================================================================================================
     public SmokeEffect mySmokeEffect;
+    public SpriteRenderer danger;
     //=======================================================================================================================
 
     // Start is called before the first frame update
@@ -228,6 +229,11 @@ public class Movement : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
+        }
+
+        if(deadState == 0)
+        {
+            danger.enabled = false;
         }
 
         if(deadState == 0 && bounceCounter >= 3)
@@ -516,6 +522,7 @@ public class Movement : MonoBehaviour
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
                 {
+                    danger.enabled = true;
                     deadState = 1;
                
                     playerJustDied = false;
@@ -616,6 +623,18 @@ public class Movement : MonoBehaviour
             {
                 doubleSlingshot = 0;
             }
+
+            // ===================================================================================================================================
+            // get info to spawn relative smoke effect
+            Surfaces currentSurface = collision.collider.gameObject.GetComponent<Surfaces>();
+            if (currentSurface.thisType == Surfaces.SurfaceTypes.Safe)
+            {
+                float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
+                angle *= Mathf.Rad2Deg;
+                angle -= 90;
+                mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle);
+            }
+            // ===================================================================================================================================
         }
         if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1 && myMoveStick == MoveState.FLYING)
         {
