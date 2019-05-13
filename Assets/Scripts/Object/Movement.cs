@@ -92,9 +92,23 @@ public class Movement : MonoBehaviour
 
     public bool playerJustDied = false;
     public LayerMask lm;
-    int doubleSlingshot = 0;
+
+    //=======================================================================================================================
+    /// <summary>
+    /// 0 = cannot, 1 = can, 2 = recover
+    /// </summary>
+    public int doubleSlingshot = 0;
+    const int MAXSLINGSHOT = 9;
+    const int DECREMENTSLINGSHOT = 3;
+    const int INCREMENTSLINGSHOT = 1;
+    int doubleSlingshotCounter = MAXSLINGSHOT;
+    //=======================================================================================================================
 
     public GameObject PauseScreen;
+
+    //=======================================================================================================================
+    public SmokeEffect mySmokeEffect;
+    //=======================================================================================================================
 
     // Start is called before the first frame update
     void Start()
@@ -149,6 +163,12 @@ public class Movement : MonoBehaviour
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 1)
         {
+            if (Time.timeScale != 1)
+            {
+                Time.timeScale = 1;
+            }
+            // disable dot
+            spawnDot = false;
             myEmotion.EmoteDeath();
             LevelHandler.instance.cameraController.StopFollowing();
             myCollider.isTrigger = true;
@@ -201,6 +221,11 @@ public class Movement : MonoBehaviour
             {
                 bounceCounter = 0;
             }
+
+            if (Time.timeScale != 1)
+            {
+                Time.timeScale = 1;
+            }
         }
 
         if(deadState == 0 && bounceCounter >= 3)
@@ -215,6 +240,15 @@ public class Movement : MonoBehaviour
 
     void SlingShot()
     {
+        if(doubleSlingshotCounter <= 0)
+        {
+            doubleSlingshot = 2;
+        }
+        else if(doubleSlingshotCounter >= MAXSLINGSHOT)
+        {
+            doubleSlingshot = 1;
+        }
+
         if (myMoveStick == MoveState.STICK)
         {
             if(Time.timeScale != 1)
@@ -315,7 +349,8 @@ public class Movement : MonoBehaviour
                 spawnDot = false;
                 isCancel = false;
 
-                doubleSlingshot = 0;
+                //doubleSlingshot = 0;
+                doubleSlingshotCounter -= DECREMENTSLINGSHOT;
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -488,11 +523,15 @@ public class Movement : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
 
-                doubleSlingshot = 0;
+                //doubleSlingshot = 0;
             }
             else if (collision.collider.CompareTag(horizontalWall))
             {
                 bounceCounter++;
+                if(doubleSlingshot == 2)
+                {
+                    doubleSlingshotCounter += INCREMENTSLINGSHOT;
+                }
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
             }
 
@@ -515,6 +554,16 @@ public class Movement : MonoBehaviour
                 myMoveStick = MoveState.STICK;
                 surfaceStickCount = 1;
                 collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
+
+                // get info to spawn relative smoke effect
+                Surfaces currentSurface = collision.collider.gameObject.GetComponent<Surfaces>();
+                if(currentSurface.thisType == Surfaces.SurfaceTypes.Safe)
+                {
+                    float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
+                    angle *= Mathf.Rad2Deg;
+                    angle += 90;
+                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle);
+                }
 
                 // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
@@ -627,7 +676,26 @@ public class Movement : MonoBehaviour
 
                 }
 
-                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]))
+                // second check
+                Vector2 temp2 = CalculateDotHitWall(trajectoryDots[i]);
+
+                if (temp2 != Vector2.zero)
+                {
+                    float bounceXPos2 = trajectoryDots[i].transform.position.x + ((temp2.x - trajectoryDots[i].transform.position.x) * 2.0f);
+                    trajectoryDots[i].transform.position = new Vector2(bounceXPos2, trajectoryDots[i].transform.position.y);
+
+                }
+
+                // third check
+                // second check
+                Vector2 temp3 = CalculateDotHitWall(trajectoryDots[i]);
+                bool wallDie = false;
+                if (temp3 != Vector2.zero)
+                {
+                    wallDie = true;
+                }
+
+                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) && !wallDie)
                 {
                     trajectoryDots[i].SetActive(true);
                 }
@@ -787,7 +855,7 @@ public class Movement : MonoBehaviour
 
                 playerJustDied = false;
             }
-            else if (deadState == 1 && !deadFix)
+            else if (deadState == 1 && !deadFix && myTransform.position.y <= cameraBottom.y)
             {
                 deadState = 2;
                 //Debug.Log("DropDead 1 to 2");
