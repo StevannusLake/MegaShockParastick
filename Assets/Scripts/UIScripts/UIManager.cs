@@ -370,6 +370,7 @@ public class UIManager : MonoBehaviour
             GameManager.instance.SavePoints();
             GameManager.instance.LoadData();
             PostRestartDataHolder.instance.UseSecondLife();
+
             ButtonManager.instance.secondlife = true;
             // Save boolean using PlayerPrefs
             PlayerPrefs.SetInt("SecondLife", ButtonManager.instance.secondlife ? 1 : 0);

@@ -1657,7 +1657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 6
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &180368712
 GameObject:
@@ -2654,6 +2653,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 508106769}
+        m_MethodName: ButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &256180570
@@ -3268,7 +3278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 5
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &343994896
 GameObject:
@@ -4868,7 +4877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 2
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &523000484
 GameObject:
@@ -8253,7 +8261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 0
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &1149006333
 GameObject:
@@ -8764,7 +8771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 1
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &1243725692
 GameObject:
@@ -10448,7 +10454,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 7
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &1439524296
 GameObject:
@@ -11422,7 +11427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 9
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &1561800276
 GameObject:
@@ -11682,7 +11686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 4
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &1661204013
 GameObject:
@@ -12330,7 +12333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 3
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &1728409039
 GameObject:
@@ -12712,7 +12714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 8
-  onSprite: 0
   mySR: {fileID: 0}
 --- !u!1 &1777846529
 GameObject:
@@ -14644,7 +14645,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968270231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

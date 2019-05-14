@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
         //Refrences to Player
         playerMovement = player.GetComponent<Movement>();
         playerColliderController = player.GetComponent<ColliderController>();
+        
+        //! Random Start Position Of Player
+        float randXPos = Random.Range(-1.72f, 2.04f);
+        player.transform.position = new Vector3(randXPos, player.transform.position.y, 0f);
     }
 
 
