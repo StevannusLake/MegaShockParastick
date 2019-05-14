@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public MixingCameraController mixingCameraController;
     public float playerDistanceTraveled;
     public int coinCollectedInAGame = 0;
+    public int bounceCounterInAGame = 0;
+    public int stickCounterInAGame = 0;
     public GameObject player;
     public Movement playerMovement;
     public ColliderController playerColliderController;

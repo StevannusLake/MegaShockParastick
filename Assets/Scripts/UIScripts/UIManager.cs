@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public Movement playerMovement;
     public ColliderController playerColliderConroller;
     public GameObject SecondChanceMenu;
+    public GameObject ChallengesMenu;
     public Text currentScore;
     public Text highScore;
     public GameObject player;
@@ -286,6 +287,9 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
 
         CoinMultiplyPanel.SetActive(true);
+
+        //Check mission
+        MissionManager.instance.CheckMissionEnd(MissionManager.instance.missions);
     }
 
     public void CloseLoseMenu()

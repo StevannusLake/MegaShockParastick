@@ -117,7 +117,8 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.coinCollectedInAGame = 0; // reset
+        GameManager.instance.coinCollectedInAGame = 0; // reset for missions
+        GameManager.instance.bounceCounterInAGame = 0; // reset for missions
         //myAnimation = GetComponent<PlayerAnimation>();
         myMoveStick = MoveState.STICK;
         myTransform = GetComponent<Transform>();
@@ -552,7 +553,8 @@ public class Movement : MonoBehaviour
             else if (collision.collider.CompareTag(horizontalWall))
             {
                 bounceCounter++;
-                if(doubleSlingshot == 2)
+                GameManager.instance.bounceCounterInAGame++;
+                if (doubleSlingshot == 2)
                 {
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
                 }
@@ -581,7 +583,8 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
-                
+
+                GameManager.instance.stickCounterInAGame++;
                 surfaceTransform = collision.gameObject.transform;
                 myTransform.SetParent(surfaceTransform);
                 myRigidBody.velocity = Vector2.zero;
