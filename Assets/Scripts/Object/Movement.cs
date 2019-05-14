@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour
 
     //=======================================================================================================================
     // Trajectory dots
-    int numDots = 10;
+    const int numDots = 10;
     [Header("seconds: if 10s, means the distance between two dots takes 10 seconds to reach")]
     public float dotsPositionOverTime;
     Vector2 GRAVITY = new Vector2(0, -45f);
@@ -739,8 +739,7 @@ public class Movement : MonoBehaviour
 
                 // set position based on calculation the position of dots over time
                 Vector2 tempDotPosition = CalculatePosition(temp * dotsPositionOverTime) + myPosition;
-
-                // trajectoryDots[i].transform.position = tempDotPosition;
+                
                 if (h - 1 > 0)
                 {
                     previousDotObject = trajectoryDots[h - 1];
@@ -764,17 +763,27 @@ public class Movement : MonoBehaviour
             float cache = 11;
             for (int i = 0; i < numDots; i++)
             {
-                if (i - 1 > 0)
+                if(i-1 >= 0)
                 {
-                    previousDotObject = trajectoryDots[i - 1];
+                    if (dots[i].num < dots[i - 1].num)
+                    {
+                        previousDotObject = gameObject;
+                    }
+                    else if (dots[i].num > dots[i - 1].num)
+                    {
+                        previousDotObject = trajectoryDots[i - 1];
+                    }
                 }
                 else
                 {
-                    previousDotObject = gameObject;
-                }
-                if(dots[i].num < 1)
-                {
-                    previousDotObject = gameObject;
+                    if (dots[i].num < dots[numDots - 1].num)
+                    {
+                        previousDotObject = gameObject;
+                    }
+                    else if (dots[i].num > dots[numDots - 1].num)
+                    {
+                        previousDotObject = trajectoryDots[numDots - 1];
+                    }
                 }
 
                 #region old wall
@@ -826,21 +835,19 @@ public class Movement : MonoBehaviour
                     }
                     return;
                 }
-                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
+                else
                 {
                     dots[i].mySR.enabled = true;
                 }
-                
+              /*  if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
+                {
+                    dots[i].mySR.enabled = true;
+                }
+                */
             }
         }
         else
         {
-            /*
-            foreach (GameObject Dots in trajectoryDots)
-            {
-                Dots.SetActive(false);
-            }
-            */
             for(int m=0; m<numDots; m++)
             {
                 dots[m].mySR.enabled = false;
@@ -850,7 +857,7 @@ public class Movement : MonoBehaviour
             
         }
     }
-
+    
     // calculate the position of dots over time
     private Vector2 CalculatePosition(float elapsedTime)
     {
@@ -920,6 +927,8 @@ public class Movement : MonoBehaviour
         float distance = direction.magnitude;
 
         hit = Physics2D.Raycast(prevDot.transform.position, direction, distance);
+        Debug.DrawRay(prevDot.transform.position, direction);
+
         Physics2D.queriesStartInColliders = false;
         Physics2D.queriesHitTriggers = false;
 
