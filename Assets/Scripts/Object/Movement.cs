@@ -117,8 +117,6 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float randXPos = Random.Range(-1.72f, 2.04f);
-        transform.position = new Vector3(randXPos, transform.position.y, 0f);
         //myAnimation = GetComponent<PlayerAnimation>();
         myMoveStick = MoveState.STICK;
         myTransform = GetComponent<Transform>();
