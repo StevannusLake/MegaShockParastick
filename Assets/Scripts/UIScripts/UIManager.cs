@@ -489,22 +489,22 @@ public class UIManager : MonoBehaviour
             OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
 
-            //GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = true;
+            CustomAudioHandler.soundEffectVolume = 0.7f;
+            CustomAudioHandler.bgmVolume = 0.7f;
         }
         else
         {
             OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
 
-            //GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = false;
+            CustomAudioHandler.soundEffectVolume = 0;
+            CustomAudioHandler.bgmVolume = 0;
         }
 
         if (TurnOnVibration)
         {
             OnVibrateButton.GetComponent<Image>().sprite = OnPressedVibrateButton;
             OffVibrateButton.GetComponent<Image>().sprite = OffIdleVibrateButton;
-
-            playerMovement.VibrateNow();
         }
         else
         {
@@ -532,6 +532,8 @@ public class UIManager : MonoBehaviour
         TurnOnVibration = true;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TurnOnVibration", TurnOnVibration ? 1 : 0);
+
+        playerMovement.VibrateNow();
     }
 
     public void DeactivateVibration()
