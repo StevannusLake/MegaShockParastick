@@ -38,7 +38,7 @@ public class DragController : MonoBehaviour
                 bottomObject = coinsBottomObject;
             }            
         }
-        else if(SceneManager.GetActiveScene().name == "Challenges")
+        else if(UIManager.Instance.ChallengesMenu.activeInHierarchy)
         {
             bottomObject = challengesBottom;
         }
