@@ -50,7 +50,7 @@ public class OpalEffect : MonoBehaviour
                 UIOpal.SetBool("GetOpal", true);
             }
 
-            myAnimator.SetBool("PlayerCoin", true);
+            myAnimator.SetBool("PlayerOpal", true);
             dieBool = true;
         }
     }

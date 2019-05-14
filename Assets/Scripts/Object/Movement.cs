@@ -718,17 +718,26 @@ public class Movement : MonoBehaviour
             currentInputPosition = Input.mousePosition;
             currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
 
-            dotCounterIncrement += Time.unscaledDeltaTime * 0.5f;
+            dotCounterIncrement += Time.unscaledDeltaTime;
 
             for (int i = 0; i < numDots; i++)
             {
+                /*
                 if(dotCounterIncrement > 1)
                 {
                     dotCounterIncrement = 0;
                 }
+                */
 
                 // set position based on calculation the position of dots over time
-                Vector2 tempDotPosition = CalculatePosition(dotCounterIncrement * dotsPositionOverTime * (i + 1)) + myPosition;
+                Vector2 tempDotPosition = CalculatePosition(dotCounterIncrement * dotsPositionOverTime)+ myPosition;
+
+                if((tempDotPosition - myPosition).magnitude > 5)
+                {
+                    tempDotPosition = myPosition;
+                    dotCounterIncrement = 0;
+                }
+
                 // trajectoryDots[i].transform.position = tempDotPosition;
                 GameObject previousDotObject;
                 if (i - 1 > 0)
@@ -812,7 +821,7 @@ public class Movement : MonoBehaviour
             float control = i > 1 ? 1 : i;
             launchVelocity *= control;
         }
-
+        
         Vector2 resultVector = (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
         
         return resultVector;
