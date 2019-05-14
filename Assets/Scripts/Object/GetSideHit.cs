@@ -16,6 +16,7 @@ public class GetSideHit : MonoBehaviour
 
     private void Start()
     {
+        //! Random Start Position Of Player
         float randXPos = Random.Range(-1.72f, 2.04f);
         transform.position = new Vector3(randXPos, transform.position.y, 0f);
     }

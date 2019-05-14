@@ -957,6 +957,9 @@ public class Movement : MonoBehaviour
 
             distanceCounterText.text = playerDistance.ToString("F1") + " mm";
             GameManager.instance.playerDistanceTraveled = playerDistance;
+
+            ButtonManager.instance.TempScore = playerDistance;
+            PlayerPrefs.SetFloat("TempScore", ButtonManager.instance.TempScore);
         }
     }
 
