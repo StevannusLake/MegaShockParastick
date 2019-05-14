@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 93823483}
   m_Layer: 0
   m_Name: WallCollider (1)
-  m_TagString: Deadly
+  m_TagString: HorizontalWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14633,7 +14633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPitchRestartTime: 1
   defultCoinPitch: 0.6
-  soundEffectSlider: {fileID: 0}
 --- !u!1 &1968270231
 GameObject:
   m_ObjectHideFlags: 0
@@ -15934,7 +15933,7 @@ GameObject:
   - component: {fileID: 2090742174}
   m_Layer: 0
   m_Name: WallCollider
-  m_TagString: Deadly
+  m_TagString: HorizontalWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
