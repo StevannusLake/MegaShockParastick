@@ -303,6 +303,7 @@ public class LevelGenerator : MonoBehaviour
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Moving).transform.rotation,
                     transform);
                 Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListBlue[i].transform;
+                Platforms.GetComponent<Surfaces>().isMover = true;
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
@@ -324,7 +325,8 @@ public class LevelGenerator : MonoBehaviour
                 GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe),
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe).transform.rotation,
-                    transform);            
+                    transform);
+               
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
@@ -347,7 +349,8 @@ public class LevelGenerator : MonoBehaviour
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
                     transform);
-                Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListBlue[i].transform;
+                Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListRedMoving[i].transform;
+                Platforms.GetComponent<Surfaces>().isMover = true;
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 

@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb5462b66cce694784db983c45e48b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMover: 0
   thisType: 0
   rotationSpeed: 0
   pingpongSpeed: 0
@@ -4373,6 +4374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb5462b66cce694784db983c45e48b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMover: 0
   thisType: 0
   rotationSpeed: 0
   pingpongSpeed: 0
@@ -10658,6 +10660,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 865800734882749116, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: platformObjectsArray.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 865800734882749116, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: platformObjectsArray.Array.data[3].types
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 865800734882749116, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: platformObjectsArray.Array.data[3].surfaceGameObject
+      value: 
+      objectReference: {fileID: 5872609325806167603, guid: 41f667e60c69f5947a6c3f9d3efa7494,
+        type: 3}
+    - target: {fileID: 865800734882749116, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: platformObjectsArray.Array.data[3].radiusForCoins
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a9781b656b8cf49a10c29c02bc8f42, type: 3}

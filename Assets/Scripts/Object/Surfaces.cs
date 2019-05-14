@@ -8,6 +8,7 @@ public class Surfaces : MonoBehaviour
     public enum SurfaceTypes {Safe,Dangerous,Moving}
     private enum PingPongDirection {Forward,Back }
     private PingPongDirection pingpongDirection = PingPongDirection.Forward;
+    public bool isMover = false;
     public SurfaceTypes thisType;
     public float rotationSpeed;
     public float pingpongSpeed;
@@ -46,7 +47,7 @@ public class Surfaces : MonoBehaviour
     {
        
         myTransform = GetComponent<Transform>();
-        if (thisType == SurfaceTypes.Moving) FindPingPongObjects();
+        if (isMover) FindPingPongObjects();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerCollider = player.GetComponent<CircleCollider2D>();
@@ -65,12 +66,20 @@ public class Surfaces : MonoBehaviour
         }
         
         DropAfter();
-        if (thisType == SurfaceTypes.Moving && foundDestination) MoveBetweenPingPongs();
+        if (isMover && foundDestination) MoveBetweenPingPongs();
     }
 
     void FindPingPongObjects()
     {
         pingpongObjects = new Transform[platformPlacementTransform.childCount];
+
+      //  for (int i=0; i< platformPlacementTransform.childCount;i++)
+       // {
+       //     pingpongObjects[i]= platformPlacementTransform.Find("PingPong"+(i+1));
+       // }
+       // destination = pingpongObjects[1];
+       // foundDestination = true;
+        
         if(platformPlacementTransform.childCount==2)
         {
             pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
@@ -86,9 +95,25 @@ public class Surfaces : MonoBehaviour
             destination = pingpongObjects[1];
             foundDestination = true;
         }
-        
-       
-        
+        if (platformPlacementTransform.childCount == 2)
+        {
+            pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
+            pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
+            destination = pingpongObjects[1];
+            foundDestination = true;
+        }
+        if (platformPlacementTransform.childCount == 4)
+        {
+            pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
+            pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
+            pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
+            pingpongObjects[2] = platformPlacementTransform.Find("PingPong4");
+            destination = pingpongObjects[1];
+            foundDestination = true;
+        }
+
+
+
 
     }
 
