@@ -14633,6 +14633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPitchRestartTime: 1
   defultCoinPitch: 0.6
+  soundEffectSlider: {fileID: 0}
 --- !u!1 &1968270231
 GameObject:
   m_ObjectHideFlags: 0
