@@ -4579,6 +4579,7 @@ MonoBehaviour:
   QuitPrompt: {fileID: 1958140822}
   coinCounterInGame: {fileID: 1859935335}
   pointCounterInGame: {fileID: 655657460}
+  pointCounterInSecondChance: {fileID: 206701900}
   OnSoundButton: {fileID: 740638511}
   OffSoundButton: {fileID: 1694929686}
   OnVibrateButton: {fileID: 1252273813}
