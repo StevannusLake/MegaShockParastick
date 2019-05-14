@@ -177,9 +177,11 @@ public class Movement : MonoBehaviour
 
             if (!playerJustDied)
             {
-                VibrateNow();
-                //Invoke("CancelVibration", 0.2f);
-
+                if (GameManager.instance.uiManager.TurnOnVibration)
+                {
+                    VibrateNow();
+                    //Invoke("CancelVibration", 0.2f);
+                }
                 playerJustDied = true;
             }
         }

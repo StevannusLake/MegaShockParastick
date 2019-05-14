@@ -57,6 +57,30 @@ public class UIManager : MonoBehaviour
 
     public GameObject QuitPrompt;
 
+    private Animator MainMenuAnim;
+
+    #region Sound & Vibrate Button in Settings Menu
+
+    public Button OnSoundButton;
+    public Button OffSoundButton;
+    public Button OnVibrateButton;
+    public Button OffVibrateButton;
+    
+    [HideInInspector] public bool TurnOnSound = false;
+    [HideInInspector] public bool TurnOnVibration = false;
+
+    public Sprite OnIdleSoundButton;
+    public Sprite OnPressedSoundButton;
+    public Sprite OffIdleSoundButton;
+    public Sprite OffPressedSoundButton;
+
+    public Sprite OnIdleVibrateButton;
+    public Sprite OnPressedVibrateButton;
+    public Sprite OffIdleVibrateButton;
+    public Sprite OffPressedVibrateButton;
+
+    #endregion
+
     private void Awake()
     {
         if(instance == null)
@@ -86,12 +110,24 @@ public class UIManager : MonoBehaviour
         continueFillTimer = continueFillDuration;
 
         QuitPrompt.SetActive(false);
+
+        MainMenuAnim = MainMenu.GetComponent<Animator>();
+
+        #region Sound & Vibrate Button in Settings Menu
+
+        // Get boolean using PlayerPrefs
+        TurnOnSound = PlayerPrefs.GetInt("TurnOnSound") == 1 ? true : false;
+        TurnOnVibration = PlayerPrefs.GetInt("TurnOnVibration") == 1 ? true : false;
+
+        #endregion
     }
 
     private void Update()
     {
         //GameManager.instance.SaveData();
-        CheckSecondChanceButton();
+
+        //CheckSecondChanceButton();
+
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
 
         if(ContinueFill.activeInHierarchy)
@@ -199,6 +235,8 @@ public class UIManager : MonoBehaviour
         {
             QuitPrompt.SetActive(true);
         }
+
+        CheckSoundVibrationSetting();
     }
 
     public void ClosePrompt()
@@ -263,9 +301,17 @@ public class UIManager : MonoBehaviour
 
     public void CloseMainMenu()
     {
+        MainMenuAnim.SetBool("CloseMenu",true);
+        Invoke("CallClosingMainMenu", 1.2f);
+            
+    }
+
+    void CallClosingMainMenu()
+    {
         MainMenu.SetActive(false);
         playerMovement.enabled = true;
         playerColliderConroller.enabled = true;
+        //! CALL ANIMATOR BOOLEAN BACK
     }
 
     void ReloadScene()
@@ -406,4 +452,65 @@ public class UIManager : MonoBehaviour
 
         ColliderController.tempCollectedCoin = 0;
     }
+
+    #region Sound & Vibrate Button in Settings Menu
+
+    void CheckSoundVibrationSetting()
+    {
+        if (TurnOnSound)
+        {
+            OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
+            OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
+
+            GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = true;
+        }
+        else
+        {
+            OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
+            OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
+
+            GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = false;
+        }
+
+        if (TurnOnVibration)
+        {
+            OnVibrateButton.GetComponent<Image>().sprite = OnPressedVibrateButton;
+            OffVibrateButton.GetComponent<Image>().sprite = OffIdleVibrateButton;
+        }
+        else
+        {
+            OnVibrateButton.GetComponent<Image>().sprite = OnIdleVibrateButton;
+            OffVibrateButton.GetComponent<Image>().sprite = OffPressedVibrateButton;
+        }
+    }
+
+    public void ActivateSound()
+    {
+        TurnOnSound = true;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
+    }
+
+    public void DeactivateSound()
+    {
+        TurnOnSound = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
+    }
+
+    public void ActivateVibration()
+    {
+        TurnOnVibration = true;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnVibration", TurnOnVibration ? 1 : 0);
+    }
+
+    public void DeactivateVibration()
+    {
+        TurnOnVibration = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnVibration", TurnOnVibration ? 1 : 0);
+    }
+
+    #endregion
 }
