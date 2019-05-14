@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5872609325806167612}
   - component: {fileID: 3238142340719041044}
   - component: {fileID: 8627222726811154167}
+  - component: {fileID: 26028768}
   m_Layer: 0
   m_Name: MovingParasite
   m_TagString: Surface
@@ -139,3 +140,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.004}
   m_Size: {x: 0.25, y: 0.1}
   m_Direction: 1
+--- !u!95 &26028768
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5872609325806167603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37b6dffba324676459565aca14fd40f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
