@@ -86,8 +86,9 @@ public class Movement : MonoBehaviour
     TrailRenderer myTrailRenderer;
     //=======================================================================================================================
     float dotAngle;
-
-    float dotCounterIncrement;
+    
+    GameObject previousDotObject;
+    Dot[] dots = new Dot[10];
     //=======================================================================================================================
 
     public bool playerJustDied = false;
@@ -136,6 +137,11 @@ public class Movement : MonoBehaviour
         distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";
 
         playerJustDied = true;
+
+        for(int i=0; i<numDots; i++)
+        {
+            dots[i] = trajectoryDots[i].GetComponent<Dot>();
+        }
     }
 
     // Update is called once per frame
@@ -717,20 +723,11 @@ public class Movement : MonoBehaviour
             Vector2 myPosition = myTransform.position;
             currentInputPosition = Input.mousePosition;
             currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
-
-           // dotCounterIncrement += Time.unscaledDeltaTime;
-
-            for (int i = 0; i < numDots; i++)
+            
+            for(int h=0; h<numDots; h++)
             {
-                /*
-                if(dotCounterIncrement > 1)
-                {
-                    dotCounterIncrement = 0;
-                }
-                */
-
-                float temp = trajectoryDots[i].GetComponent<Dot>().num;
-                if(temp >= numDots)
+                float temp = dots[h].num;
+                if (temp >= 10)
                 {
                     temp = 0;
                 }
@@ -738,21 +735,35 @@ public class Movement : MonoBehaviour
                 {
                     temp += Time.unscaledDeltaTime;
                 }
-                trajectoryDots[i].GetComponent<Dot>().num = temp;
+                dots[h].num = temp;
 
                 // set position based on calculation the position of dots over time
-                Vector2 tempDotPosition = CalculatePosition(temp * dotsPositionOverTime)+ myPosition;
-
-                /*
-                if((tempDotPosition - myPosition).magnitude > 5)
-                {
-                    tempDotPosition = myPosition;
-                    dotCounterIncrement = 0;
-                }
-                */
+                Vector2 tempDotPosition = CalculatePosition(temp * dotsPositionOverTime) + myPosition;
 
                 // trajectoryDots[i].transform.position = tempDotPosition;
-                GameObject previousDotObject;
+                if (h - 1 > 0)
+                {
+                    previousDotObject = trajectoryDots[h - 1];
+                }
+                else
+                {
+                    previousDotObject = gameObject;
+                }
+
+                if(temp < 1)
+                {
+                    previousDotObject = gameObject;
+                }
+
+                CalculateDotAngle(previousDotObject.transform.position, trajectoryDots[h].transform.position);
+
+                trajectoryDots[h].transform.SetPositionAndRotation(tempDotPosition, Quaternion.AngleAxis(dotAngle, new Vector3(0.0f, 0.0f, 1.0f)));
+
+            }
+
+            float cache = 11;
+            for (int i = 0; i < numDots; i++)
+            {
                 if (i - 1 > 0)
                 {
                     previousDotObject = trajectoryDots[i - 1];
@@ -761,11 +772,13 @@ public class Movement : MonoBehaviour
                 {
                     previousDotObject = gameObject;
                 }
+                if(dots[i].num < 1)
+                {
+                    previousDotObject = gameObject;
+                }
 
-                CalculateDotAngle(previousDotObject.transform.position, trajectoryDots[i].transform.position);
-                
-                trajectoryDots[i].transform.SetPositionAndRotation(tempDotPosition, Quaternion.AngleAxis(dotAngle, new Vector3(0.0f, 0.0f, 1.0f)));
-               /* 
+                #region old wall
+                /* 
                 Vector2 temp = CalculateDotHitWall(previousDotObject, trajectoryDots[i]);
 
                 if (temp != Vector2.zero)
@@ -794,18 +807,30 @@ public class Movement : MonoBehaviour
                     wallDie = true;
                 }
                 */
-                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
+                #endregion
+
+                if(DotHitsSurface(previousDotObject, trajectoryDots[i]))
                 {
-                    trajectoryDots[i].SetActive(true);
-                }
-                else
-                {
-                    for (int j = i; j < numDots; j++)
+                    cache = dots[i].num;
+
+                    for (int j = 0; j < numDots; j++)
                     {
-                        trajectoryDots[j].SetActive(false);
+                        if (dots[j].num >= cache)
+                        {
+                            dots[j].mySR.enabled = false;
+                        }
+                        else
+                        {
+                            dots[j].mySR.enabled = true;
+                        }
                     }
                     return;
                 }
+                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
+                {
+                    dots[i].mySR.enabled = true;
+                }
+                
             }
         }
         else
@@ -818,12 +843,11 @@ public class Movement : MonoBehaviour
             */
             for(int m=0; m<numDots; m++)
             {
-                trajectoryDots[m].SetActive(false);
+                dots[m].mySR.enabled = false;
                 trajectoryDots[m].GetComponent<Dot>().num = m;
             }
             shakeTimer = 0;
-
-            dotCounterIncrement = 0;
+            
         }
     }
 

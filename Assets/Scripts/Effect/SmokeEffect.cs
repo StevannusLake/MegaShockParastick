@@ -23,7 +23,6 @@ public class SmokeEffect : MonoBehaviour
     {
         if(mySR.enabled)
         {
-            Debug.Log(counter);
             Countdown();
         }
 
