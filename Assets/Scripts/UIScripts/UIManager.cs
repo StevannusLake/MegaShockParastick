@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public Movement playerMovement;
     public ColliderController playerColliderConroller;
     public GameObject SecondChanceMenu;
+    public GameObject ChallengesMenu;
     public Text currentScore;
     public Text highScore;
     public GameObject player;
@@ -286,6 +287,9 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
 
         CoinMultiplyPanel.SetActive(true);
+
+        //Check mission
+        MissionManager.instance.CheckMissionEnd(MissionManager.instance.missions);
     }
 
     public void CloseLoseMenu()
@@ -365,7 +369,7 @@ public class UIManager : MonoBehaviour
        // if (GameManager.instance.GetPoints() >= 4)
         //{
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
-            
+
             GameManager.instance.DecreasePoints(4);
             GameManager.instance.SavePoints();
             GameManager.instance.LoadData();
@@ -483,20 +487,22 @@ public class UIManager : MonoBehaviour
             OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
 
-            GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = true;
+            //GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = true;
         }
         else
         {
             OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
 
-            GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = false;
+            //GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = false;
         }
 
         if (TurnOnVibration)
         {
             OnVibrateButton.GetComponent<Image>().sprite = OnPressedVibrateButton;
             OffVibrateButton.GetComponent<Image>().sprite = OffIdleVibrateButton;
+
+            playerMovement.VibrateNow();
         }
         else
         {
