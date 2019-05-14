@@ -13,11 +13,19 @@ public class CustomAudioHandler : MonoBehaviour
     private float coinPitch ;
     public Slider soundEffectSlider;
     private AudioManager.Sound[] soundEffectList;
-    
+    private AudioManager.Sound[] bgmList;
+
+    public static float soundEffectVolume;
+    public static float bgmVolume;
+
     private void Awake()
     {
         
-        soundEffectList = new AudioManager.Sound[] { AudioManager.Sound.CollectCoin, AudioManager.Sound.PlayerDie,AudioManager.Sound.InGameBGM };
+        soundEffectList = new AudioManager.Sound[] { AudioManager.Sound.Button , AudioManager.Sound.CollectCoin, AudioManager.Sound.CollectCoinMain, AudioManager.Sound.Continue,
+                                                     AudioManager.Sound.Lose, AudioManager.Sound.PlayerDie, AudioManager.Sound.PlayerStick,AudioManager.Sound.PlayerUnstick,
+                                                     AudioManager.Sound.Reborn};
+
+        bgmList = new AudioManager.Sound[] { AudioManager.Sound.InGameBGM};
 
         coinPitch = defultCoinPitch;
         if (instance == null)
@@ -55,15 +63,15 @@ public class CustomAudioHandler : MonoBehaviour
         {
             foreach(AudioManager.Sound sound in soundEffectList)
             {
-                if (clips.sound == sound) clips.volume = soundEffectSlider.value;
+                if (clips.sound == sound) clips.volume = soundEffectVolume;
             }
             
         }
         foreach (GameAssets.SoundAudioClip clips in GameAssets.i.soundAudioClipArray)
         {
-            foreach (AudioManager.Sound sound in soundEffectList)
+            foreach (AudioManager.Sound sound in bgmList)
             {
-                //if (clips.sound == sound) clips.volume = 
+                if (clips.sound == sound) clips.volume = bgmVolume;
             }
 
         }
