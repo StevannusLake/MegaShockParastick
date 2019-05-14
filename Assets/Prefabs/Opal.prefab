@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6255eec7961b2499bad495f907f6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OpalCounter: {fileID: 0}
+  OpalCounterAnim: {fileID: 0}
 --- !u!114 &4165270971732812080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285845008c4db3e47b5956a25dc2e0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   colliders: []
 --- !u!50 &2881680187245212094
 Rigidbody2D:

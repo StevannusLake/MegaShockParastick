@@ -57,13 +57,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject QuitPrompt;
 
-    public Text coinCounterInGame;
-    public Text pointCounterInGame;
-
-    public Text pointCounterInSecondChance;
-
     private Animator MainMenuAnim;
-
 
     #region Sound & Vibrate Button in Settings Menu
 
@@ -86,6 +80,9 @@ public class UIManager : MonoBehaviour
     public Sprite OffPressedVibrateButton;
 
     #endregion
+
+    private Animator OpalCounterAnim;
+    private Animator OpalEffectAnim;
 
     private void Awake()
     {
@@ -126,6 +123,9 @@ public class UIManager : MonoBehaviour
         TurnOnVibration = PlayerPrefs.GetInt("TurnOnVibration") == 1 ? true : false;
 
         #endregion
+
+        OpalCounterAnim = GameObject.FindGameObjectWithTag("OpalCounter").GetComponent<Animator>();
+        OpalEffectAnim = GameObject.FindGameObjectWithTag("UIOpal").GetComponent<Animator>();
     }
 
     private void Update()
@@ -136,15 +136,7 @@ public class UIManager : MonoBehaviour
 
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
 
-        coinCounterInGame.text = ""+GameManager.instance.GetCoin();
-        pointCounterInGame.text = "" + GameManager.instance.GetPoints();
-
-        if(SecondChanceMenu.activeInHierarchy)
-        {
-            pointCounterInSecondChance.text = ""+GameManager.instance.GetPoints();
-        }
-
-        if (ContinueFill.activeInHierarchy)
+        if(ContinueFill.activeInHierarchy)
         {
             continueFillTimer -= Time.deltaTime;
             ContinueFill.GetComponent<Image>().fillAmount = continueFillTimer / continueFillDuration;
@@ -159,8 +151,62 @@ public class UIManager : MonoBehaviour
 
         if(continueFillTimer <= 0f)
         {
+            //closingSecondChanceMenu = true;
+
             CallLoseMenu();
         }
+
+        //if (callSecondChanceMenu)
+        //{
+        //    for (int i = 0; i < ContinueUI.Length; i++)
+        //    {
+        //        ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, new Vector3(Screen.width/2f,Screen.height/2f,0f), 4f * Time.deltaTime);
+        //    }
+        //    if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 10f)
+        //    {
+        //        for (int i = 0; i < ContinueUI.Length; i++)
+        //        {
+        //            ContinueUI[i].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        //        }
+        //        callSecondChanceMenu = false;
+        //    }
+        //}
+
+        //if (closingSecondChanceMenu)
+        //{
+        //    for (int i = 0; i < ContinueUI.Length; i++)
+        //    {
+        //        ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, ContinueUI[i].GetComponent<UITransition>().startPos, 4f * Time.deltaTime);
+        //    }
+        //    if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, ContinueUI[0].GetComponent<UITransition>().startPos) < 13f)
+        //    {
+        //        for (int i = 0; i < ContinueUI.Length; i++)
+        //        {
+        //            ContinueUI[i].GetComponent<RectTransform>().position = ContinueUI[i].GetComponent<UITransition>().startPos;
+        //        }
+        //        closingSecondChanceMenu = false;
+        //        if (ButtonManager.instance.secondlife == true)
+        //        {
+        //            SecondChanceMenu.SetActive(false);
+        //            ReloadScene();
+        //        }
+        //        else
+        //        {
+        //            SecondChanceMenu.SetActive(false);
+        //            callLoseMenu = true;
+        //        }
+        //    }
+        //}
+
+        //if(callLoseMenu)
+        //{
+        //    LoseUI[0].GetComponent<RectTransform>().position = Vector3.Lerp(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), 4f * Time.deltaTime);
+        //    if(Vector3.Distance(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 8f)
+        //    {
+        //        LoseUI[0].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        //        callLoseMenu = false;
+        //    }
+        //}
 
         if (secondChanceCalled)
         {
@@ -197,6 +243,8 @@ public class UIManager : MonoBehaviour
         }
 
         CheckSoundVibrationSetting();
+
+        CheckOpalUIAnimation();
     }
 
     public void ClosePrompt()
@@ -473,4 +521,23 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
+
+    void CheckOpalUIAnimation()
+    {
+        if (OpalCounterAnim.GetCurrentAnimatorStateInfo(0).IsName("OnOpalCounter"))
+        {
+            Invoke("OpalCounterTransitionBack", 3f);
+            Invoke("OpalEffectTransitionBack", 3f);
+        }
+    }
+
+    void OpalCounterTransitionBack()
+    {
+        OpalCounterAnim.SetBool("OpenCounter", false);
+    }
+
+    void OpalEffectTransitionBack()
+    {
+        OpalEffectAnim.SetBool("OpenOpalIcon", false);
+    }
 }
