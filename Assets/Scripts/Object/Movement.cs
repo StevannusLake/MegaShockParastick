@@ -134,7 +134,9 @@ public class Movement : MonoBehaviour
         initialPosition = this.gameObject.transform.position.y;
 
         playerDistance = ButtonManager.instance.TempScore;
-        distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";
+        distanceCounterText.text = playerDistance.ToString("F1") + " mm";
+
+        //distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";
 
         playerJustDied = true;
 
