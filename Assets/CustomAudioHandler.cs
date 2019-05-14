@@ -14,6 +14,7 @@ public class CustomAudioHandler : MonoBehaviour
     public Slider soundEffectSlider;
     private AudioManager.Sound[] soundEffectList;
     
+    
     private void Awake()
     {
         
@@ -39,11 +40,7 @@ public class CustomAudioHandler : MonoBehaviour
         SetCustomAudio();
     }
 
-    private void OnGUI()
-    {
-        
-        
-    }
+  
 
 
 
