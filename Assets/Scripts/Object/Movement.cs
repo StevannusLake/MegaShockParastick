@@ -117,8 +117,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float randXPos = Random.Range(-1.72f, 2.04f);
-        transform.position = new Vector3(randXPos, transform.position.y, 0f);
+        GameManager.instance.coinCollectedInAGame = 0; // reset
         //myAnimation = GetComponent<PlayerAnimation>();
         myMoveStick = MoveState.STICK;
         myTransform = GetComponent<Transform>();
@@ -958,6 +957,9 @@ public class Movement : MonoBehaviour
 
             distanceCounterText.text = playerDistance.ToString("F1") + " mm";
             GameManager.instance.playerDistanceTraveled = playerDistance;
+
+            ButtonManager.instance.TempScore = playerDistance;
+            PlayerPrefs.SetFloat("TempScore", ButtonManager.instance.TempScore);
         }
     }
 

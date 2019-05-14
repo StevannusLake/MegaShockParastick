@@ -59,7 +59,7 @@ public class ButtonManager : MonoBehaviour
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TryAgain", tryagain ? 1 : 0);
 
-        PlayerPrefs.SetFloat("TempScore", 0);
+        //PlayerPrefs.SetFloat("TempScore", 0);
 
         UIManager.Instance.secondChanceCalled = false;
         // Save boolean using PlayerPrefs
@@ -95,9 +95,9 @@ public class ButtonManager : MonoBehaviour
 
     void CheckMainMenu()
     {
-        if(UIManager.Instance.MainMenu.activeSelf)
+        if(UIManager.Instance.LoseMenu.activeSelf)
         {
-            PlayerPrefs.SetFloat("TempScore", 0);
+            //PlayerPrefs.SetFloat("TempScore", 0);
             TempScore = PlayerPrefs.GetFloat("TempScore", TempScore);
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 public enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right }
 public class GetSideHit : MonoBehaviour
 {
-   
+
 
     /************************************************************
     ** Make sure to add rigidbodies to your objects.
@@ -14,8 +14,13 @@ public class GetSideHit : MonoBehaviour
     ** remember to name your C# script "GetSideHit"
     ************************************************************/
 
-   
-    
+    private void Start()
+    {
+        //! Random Start Position Of Player
+        float randXPos = Random.Range(-1.72f, 2.04f);
+        transform.position = new Vector3(randXPos, transform.position.y, 0f);
+    }
+
     public  HitDirection ReturnDirection(GameObject Object, GameObject ObjectHit)
     {
 

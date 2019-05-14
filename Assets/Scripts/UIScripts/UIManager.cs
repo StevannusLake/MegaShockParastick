@@ -297,7 +297,7 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("SecondLife", ButtonManager.instance.secondlife ? 1 : 0);
 
         //! Save Temporary Player Distance
-        PlayerPrefs.SetFloat("TempScore", 0);
+        //PlayerPrefs.SetFloat("TempScore", 0);
 
         secondChanceCalled = false;
         // Save boolean using PlayerPrefs
@@ -370,6 +370,7 @@ public class UIManager : MonoBehaviour
             GameManager.instance.SavePoints();
             GameManager.instance.LoadData();
             PostRestartDataHolder.instance.UseSecondLife();
+
             ButtonManager.instance.secondlife = true;
             // Save boolean using PlayerPrefs
             PlayerPrefs.SetInt("SecondLife", ButtonManager.instance.secondlife ? 1 : 0);
