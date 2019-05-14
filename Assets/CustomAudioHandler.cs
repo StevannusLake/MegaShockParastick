@@ -9,9 +9,8 @@ public class CustomAudioHandler : MonoBehaviour
     float coinPickUpTimer = 0;
     bool pickedCoin = false;
     System.Array AudioSoundType;
-    public float defultCoinPitch = 0.8f;
+    public float defultCoinPitch;
     private float coinPitch ;
-    public Slider soundEffectSlider;
     private AudioManager.Sound[] soundEffectList;
     private AudioManager.Sound[] bgmList;
 
@@ -129,7 +128,7 @@ public class CustomAudioHandler : MonoBehaviour
     {
         PickUpCoin();
         
-        coinPitch += 0.05f;
+        coinPitch += 0.04f;
         coinPitch = Mathf.Clamp(coinPitch, defultCoinPitch, 1f);
     }
     public float CoinPitch()
