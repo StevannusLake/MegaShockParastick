@@ -718,7 +718,7 @@ public class Movement : MonoBehaviour
             currentInputPosition = Input.mousePosition;
             currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
 
-            dotCounterIncrement += Time.unscaledDeltaTime;
+           // dotCounterIncrement += Time.unscaledDeltaTime;
 
             for (int i = 0; i < numDots; i++)
             {
@@ -729,14 +729,27 @@ public class Movement : MonoBehaviour
                 }
                 */
 
-                // set position based on calculation the position of dots over time
-                Vector2 tempDotPosition = CalculatePosition(dotCounterIncrement * dotsPositionOverTime)+ myPosition;
+                float temp = trajectoryDots[i].GetComponent<Dot>().num;
+                if(temp >= numDots)
+                {
+                    temp = 0;
+                }
+                else
+                {
+                    temp += Time.unscaledDeltaTime;
+                }
+                trajectoryDots[i].GetComponent<Dot>().num = temp;
 
+                // set position based on calculation the position of dots over time
+                Vector2 tempDotPosition = CalculatePosition(temp * dotsPositionOverTime)+ myPosition;
+
+                /*
                 if((tempDotPosition - myPosition).magnitude > 5)
                 {
                     tempDotPosition = myPosition;
                     dotCounterIncrement = 0;
                 }
+                */
 
                 // trajectoryDots[i].transform.position = tempDotPosition;
                 GameObject previousDotObject;
@@ -797,9 +810,16 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            /*
             foreach (GameObject Dots in trajectoryDots)
             {
                 Dots.SetActive(false);
+            }
+            */
+            for(int m=0; m<numDots; m++)
+            {
+                trajectoryDots[m].SetActive(false);
+                trajectoryDots[m].GetComponent<Dot>().num = m;
             }
             shakeTimer = 0;
 
