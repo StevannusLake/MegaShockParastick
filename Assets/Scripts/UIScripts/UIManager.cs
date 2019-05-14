@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
     public Text coinText;
     public Text continueScore;
     public GameObject PauseMenu;
+    public Text coinCounterInGame;
+    public Text pointCounterInGame;
+    public Text pointCounterInSecondChance;
+
     //private float delayTimer = 0f;
     //private bool isPaused = false;
 
@@ -57,6 +61,33 @@ public class UIManager : MonoBehaviour
 
     public GameObject QuitPrompt;
 
+    private Animator MainMenuAnim;
+
+    #region Sound & Vibrate Button in Settings Menu
+
+    public Button OnSoundButton;
+    public Button OffSoundButton;
+    public Button OnVibrateButton;
+    public Button OffVibrateButton;
+    
+    [HideInInspector] public bool TurnOnSound = false;
+    [HideInInspector] public bool TurnOnVibration = false;
+
+    public Sprite OnIdleSoundButton;
+    public Sprite OnPressedSoundButton;
+    public Sprite OffIdleSoundButton;
+    public Sprite OffPressedSoundButton;
+
+    public Sprite OnIdleVibrateButton;
+    public Sprite OnPressedVibrateButton;
+    public Sprite OffIdleVibrateButton;
+    public Sprite OffPressedVibrateButton;
+
+    #endregion
+
+    private Animator OpalCounterAnim;
+    private Animator OpalEffectAnim;
+
     private void Awake()
     {
         if(instance == null)
@@ -86,12 +117,35 @@ public class UIManager : MonoBehaviour
         continueFillTimer = continueFillDuration;
 
         QuitPrompt.SetActive(false);
+
+        MainMenuAnim = MainMenu.GetComponent<Animator>();
+
+        #region Sound & Vibrate Button in Settings Menu
+
+        // Get boolean using PlayerPrefs
+        TurnOnSound = PlayerPrefs.GetInt("TurnOnSound") == 1 ? true : false;
+        TurnOnVibration = PlayerPrefs.GetInt("TurnOnVibration") == 1 ? true : false;
+
+        #endregion
+
+        OpalCounterAnim = GameObject.FindGameObjectWithTag("OpalCounter").GetComponent<Animator>();
+        OpalEffectAnim = GameObject.FindGameObjectWithTag("UIOpal").GetComponent<Animator>();
     }
 
     private void Update()
     {
         //GameManager.instance.SaveData();
-        CheckSecondChanceButton();
+
+        //CheckSecondChanceButton();
+
+        coinCounterInGame.text = "" + GameManager.instance.GetCoin();
+        pointCounterInGame.text = "" + GameManager.instance.GetPoints();
+
+        if (SecondChanceMenu.activeInHierarchy)
+        {
+            pointCounterInSecondChance.text = "" + GameManager.instance.GetPoints();
+        }
+
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
 
         if(ContinueFill.activeInHierarchy)
@@ -199,6 +253,10 @@ public class UIManager : MonoBehaviour
         {
             QuitPrompt.SetActive(true);
         }
+
+        CheckSoundVibrationSetting();
+
+        CheckOpalUIAnimation();
     }
 
     public void ClosePrompt()
@@ -263,9 +321,17 @@ public class UIManager : MonoBehaviour
 
     public void CloseMainMenu()
     {
+        MainMenuAnim.SetBool("CloseMenu",true);
+        Invoke("CallClosingMainMenu", 1.2f);
+            
+    }
+
+    void CallClosingMainMenu()
+    {
         MainMenu.SetActive(false);
         playerMovement.enabled = true;
         playerColliderConroller.enabled = true;
+        //! CALL ANIMATOR BOOLEAN BACK
     }
 
     void ReloadScene()
@@ -405,5 +471,85 @@ public class UIManager : MonoBehaviour
         CoinMultiplyPanel.SetActive(false);
 
         ColliderController.tempCollectedCoin = 0;
+    }
+
+    #region Sound & Vibrate Button in Settings Menu
+
+    void CheckSoundVibrationSetting()
+    {
+        if (TurnOnSound)
+        {
+            OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
+            OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
+
+            GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = true;
+        }
+        else
+        {
+            OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
+            OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
+
+            GameManager.instance.audioSourcePlayer.GetComponent<AudioSource>().enabled = false;
+        }
+
+        if (TurnOnVibration)
+        {
+            OnVibrateButton.GetComponent<Image>().sprite = OnPressedVibrateButton;
+            OffVibrateButton.GetComponent<Image>().sprite = OffIdleVibrateButton;
+        }
+        else
+        {
+            OnVibrateButton.GetComponent<Image>().sprite = OnIdleVibrateButton;
+            OffVibrateButton.GetComponent<Image>().sprite = OffPressedVibrateButton;
+        }
+    }
+
+    public void ActivateSound()
+    {
+        TurnOnSound = true;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
+    }
+
+    public void DeactivateSound()
+    {
+        TurnOnSound = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
+    }
+
+    public void ActivateVibration()
+    {
+        TurnOnVibration = true;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnVibration", TurnOnVibration ? 1 : 0);
+    }
+
+    public void DeactivateVibration()
+    {
+        TurnOnVibration = false;
+        // Save boolean using PlayerPrefs
+        PlayerPrefs.SetInt("TurnOnVibration", TurnOnVibration ? 1 : 0);
+    }
+
+    #endregion
+
+    void CheckOpalUIAnimation()
+    {
+        if (OpalCounterAnim.GetCurrentAnimatorStateInfo(0).IsName("OnOpalCounter"))
+        {
+            Invoke("OpalCounterTransitionBack", 3f);
+            Invoke("OpalEffectTransitionBack", 3f);
+        }
+    }
+
+    void OpalCounterTransitionBack()
+    {
+        OpalCounterAnim.SetBool("OpenCounter", false);
+    }
+
+    void OpalEffectTransitionBack()
+    {
+        OpalEffectAnim.SetBool("OpenOpalIcon", false);
     }
 }

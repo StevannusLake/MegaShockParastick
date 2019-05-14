@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour
 
     //=======================================================================================================================
     // Trajectory dots
-    int numDots = 10;
+    const int numDots = 10;
     [Header("seconds: if 10s, means the distance between two dots takes 10 seconds to reach")]
     public float dotsPositionOverTime;
     Vector2 GRAVITY = new Vector2(0, -45f);
@@ -86,8 +86,9 @@ public class Movement : MonoBehaviour
     TrailRenderer myTrailRenderer;
     //=======================================================================================================================
     float dotAngle;
-
-    float dotCounterIncrement;
+    
+    GameObject previousDotObject;
+    Dot[] dots = new Dot[10];
     //=======================================================================================================================
 
     public bool playerJustDied = false;
@@ -109,6 +110,8 @@ public class Movement : MonoBehaviour
     //=======================================================================================================================
     public SmokeEffect mySmokeEffect;
     public SpriteRenderer danger;
+
+    Vector2 collideWallPoint;
     //=======================================================================================================================
 
     // Start is called before the first frame update
@@ -134,6 +137,11 @@ public class Movement : MonoBehaviour
         distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";
 
         playerJustDied = true;
+
+        for(int i=0; i<numDots; i++)
+        {
+            dots[i] = trajectoryDots[i].GetComponent<Dot>();
+        }
     }
 
     // Update is called once per frame
@@ -177,9 +185,11 @@ public class Movement : MonoBehaviour
 
             if (!playerJustDied)
             {
-                VibrateNow();
-                //Invoke("CancelVibration", 0.2f);
-
+                if (GameManager.instance.uiManager.TurnOnVibration)
+                {
+                    VibrateNow();
+                    //Invoke("CancelVibration", 0.2f);
+                }
                 playerJustDied = true;
             }
         }
@@ -522,6 +532,7 @@ public class Movement : MonoBehaviour
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
                 {
+                    // enable change sprite for effect (temporary? not sure how the effects go)
                     danger.enabled = true;
                     deadState = 1;
                
@@ -547,6 +558,18 @@ public class Movement : MonoBehaviour
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
                 }
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
+
+                // ===================================================================================================================================
+                // get info to spawn relative smoke effect
+                Vector2 pos = collision.GetContact(0).point;
+                collideWallPoint = pos;
+                float angle = Mathf.Atan2(pos.y - myTransform.position.y, pos.x - myTransform.position.x);
+                angle *= Mathf.Rad2Deg;
+                angle += 90;
+                mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+                // ===================================================================================================================================
+
+
             }
 
             if (collision.collider.gameObject.name == "FirstInitialPlatform")
@@ -576,6 +599,13 @@ public class Movement : MonoBehaviour
                     float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
+                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 1, angle, "SafePlatform");
+                }
+                else if(currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
+                {
+                    float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
+                    angle *= Mathf.Rad2Deg;
+                    angle += 90;
                     mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle, "MovingPlatform");
                 }
 
@@ -583,7 +613,7 @@ public class Movement : MonoBehaviour
                 myEmotion.EmoteIdle();
             }
         }
-        
+
         if(collision.collider.name == "FirstInitialPlatform" && deadState == 0)
         {
             myEmotion.EmoteIdle();
@@ -632,10 +662,30 @@ public class Movement : MonoBehaviour
                 float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
+                mySmokeEffect.SpawnSmoke(myTransform.position, 1, angle, "SafePlatform");
+            }
+            else if (currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
+            {
+                float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
+                angle *= Mathf.Rad2Deg;
+                angle -= 90;
                 mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle, "MovingPlatform");
             }
             // ===================================================================================================================================
         }
+        else if(collision.collider.CompareTag(horizontalWall))
+        {
+            // ===================================================================================================================================
+            // get info to spawn relative smoke effect
+            Vector2 pos = collideWallPoint;
+            float angle = Mathf.Atan2(pos.y - myTransform.position.y, pos.x - myTransform.position.x);
+            angle *= Mathf.Rad2Deg;
+            angle -= 90;
+            mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+            // ===================================================================================================================================
+
+        }
+
         if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1 && myMoveStick == MoveState.FLYING)
         {
             surfaceStickCount = 2;
@@ -673,33 +723,71 @@ public class Movement : MonoBehaviour
             Vector2 myPosition = myTransform.position;
             currentInputPosition = Input.mousePosition;
             currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
-
-            dotCounterIncrement += Time.unscaledDeltaTime * 0.5f;
-
-            for (int i = 0; i < numDots; i++)
+            
+            for(int h=0; h<numDots; h++)
             {
-                if(dotCounterIncrement > 1)
+                float temp = dots[h].num;
+                if (temp >= 10)
                 {
-                    dotCounterIncrement = 0;
+                    temp = 0;
                 }
+                else
+                {
+                    temp += Time.unscaledDeltaTime;
+                }
+                dots[h].num = temp;
 
                 // set position based on calculation the position of dots over time
-                Vector2 tempDotPosition = CalculatePosition(dotCounterIncrement * dotsPositionOverTime * (i + 1)) + myPosition;
-                // trajectoryDots[i].transform.position = tempDotPosition;
-                GameObject previousDotObject;
-                if (i - 1 > 0)
+                Vector2 tempDotPosition = CalculatePosition(temp * dotsPositionOverTime) + myPosition;
+                
+                if (h - 1 > 0)
                 {
-                    previousDotObject = trajectoryDots[i - 1];
+                    previousDotObject = trajectoryDots[h - 1];
                 }
                 else
                 {
                     previousDotObject = gameObject;
                 }
 
-                CalculateDotAngle(previousDotObject.transform.position, trajectoryDots[i].transform.position);
-                
-                trajectoryDots[i].transform.SetPositionAndRotation(tempDotPosition, Quaternion.AngleAxis(dotAngle, new Vector3(0.0f, 0.0f, 1.0f)));
-               /* 
+                if(temp < 1)
+                {
+                    previousDotObject = gameObject;
+                }
+
+                CalculateDotAngle(previousDotObject.transform.position, trajectoryDots[h].transform.position);
+
+                trajectoryDots[h].transform.SetPositionAndRotation(tempDotPosition, Quaternion.AngleAxis(dotAngle, new Vector3(0.0f, 0.0f, 1.0f)));
+
+            }
+
+            float cache = 11;
+            for (int i = 0; i < numDots; i++)
+            {
+                if(i-1 >= 0)
+                {
+                    if (dots[i].num < dots[i - 1].num)
+                    {
+                        previousDotObject = gameObject;
+                    }
+                    else if (dots[i].num > dots[i - 1].num)
+                    {
+                        previousDotObject = trajectoryDots[i - 1];
+                    }
+                }
+                else
+                {
+                    if (dots[i].num < dots[numDots - 1].num)
+                    {
+                        previousDotObject = gameObject;
+                    }
+                    else if (dots[i].num > dots[numDots - 1].num)
+                    {
+                        previousDotObject = trajectoryDots[numDots - 1];
+                    }
+                }
+
+                #region old wall
+                /* 
                 Vector2 temp = CalculateDotHitWall(previousDotObject, trajectoryDots[i]);
 
                 if (temp != Vector2.zero)
@@ -728,32 +816,48 @@ public class Movement : MonoBehaviour
                     wallDie = true;
                 }
                 */
-                if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
+                #endregion
+
+                if(DotHitsSurface(previousDotObject, trajectoryDots[i]))
                 {
-                    trajectoryDots[i].SetActive(true);
-                }
-                else
-                {
-                    for (int j = i; j < numDots; j++)
+                    cache = dots[i].num;
+
+                    for (int j = 0; j < numDots; j++)
                     {
-                        trajectoryDots[j].SetActive(false);
+                        if (dots[j].num >= cache)
+                        {
+                            dots[j].mySR.enabled = false;
+                        }
+                        else
+                        {
+                            dots[j].mySR.enabled = true;
+                        }
                     }
                     return;
                 }
+                else
+                {
+                    dots[i].mySR.enabled = true;
+                }
+              /*  if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
+                {
+                    dots[i].mySR.enabled = true;
+                }
+                */
             }
         }
         else
         {
-            foreach (GameObject Dots in trajectoryDots)
+            for(int m=0; m<numDots; m++)
             {
-                Dots.SetActive(false);
+                dots[m].mySR.enabled = false;
+                trajectoryDots[m].GetComponent<Dot>().num = m;
             }
             shakeTimer = 0;
-
-            dotCounterIncrement = 0;
+            
         }
     }
-
+    
     // calculate the position of dots over time
     private Vector2 CalculatePosition(float elapsedTime)
     {
@@ -768,7 +872,7 @@ public class Movement : MonoBehaviour
             float control = i > 1 ? 1 : i;
             launchVelocity *= control;
         }
-
+        
         Vector2 resultVector = (gravity * elapsedTime * elapsedTime * 0.5f + launchVelocity * elapsedTime) * -1;
         
         return resultVector;
@@ -823,6 +927,8 @@ public class Movement : MonoBehaviour
         float distance = direction.magnitude;
 
         hit = Physics2D.Raycast(prevDot.transform.position, direction, distance);
+        Debug.DrawRay(prevDot.transform.position, direction);
+
         Physics2D.queriesStartInColliders = false;
         Physics2D.queriesHitTriggers = false;
 

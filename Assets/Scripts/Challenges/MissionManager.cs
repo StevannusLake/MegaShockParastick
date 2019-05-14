@@ -9,6 +9,7 @@ public class MissionManager : MonoBehaviour
     public int[] missionListId;
     public Missions[] missions;
     public Text[] MissionTabs;
+    public GameObject ChallengesMenu;
 
     void Awake()
     {
@@ -41,8 +42,14 @@ public class MissionManager : MonoBehaviour
             var tempItem = new Missions(missionListId[i]);
             missions[i] = tempItem;
         }
+    }
 
-        ShowMissionObjective();
+    private void Update()
+    {
+        if(ChallengesMenu.activeInHierarchy)
+        {
+            ShowMissionObjective();
+        }
     }
 
     void ShowMissionObjective()

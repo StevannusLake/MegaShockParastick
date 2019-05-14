@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public float highScore;
     public int spinCount;
     private int points;
+    public UIManager uiManager;
 
     void Awake()
     {

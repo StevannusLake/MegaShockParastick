@@ -33,6 +33,7 @@ public class SmokeEffect : MonoBehaviour
         if (counter >= duration)
         {
             counter = 0;
+            mySR.sprite = null;
             mySR.enabled = false;
             myAnimator.SetInteger("state", 0);
         }
@@ -44,7 +45,7 @@ public class SmokeEffect : MonoBehaviour
 
     //1 = normal, 2 = moving
     /// <summary>
-    /// MovingPlatform
+    /// state name = MovingPlatform, SafePlatform, WallBounce
     /// </summary>
     /// <param name="spawnPosition"></param>
     /// <param name=""></param>
@@ -54,8 +55,8 @@ public class SmokeEffect : MonoBehaviour
         myTransform.position = spawnPosition;
         myTransform.rotation = Quaternion.Euler(0,0, angle);
         mySR.enabled = true;
-       // myAnimator.SetInteger("state", smokeState);
-        myAnimator.Play(stateName,0, 0 );
+        myAnimator.SetInteger("state", smokeState);
+        //myAnimator.Play(stateName,0, 0);
     }
     
 }
