@@ -54,7 +54,7 @@ public class CustomAudioHandler : MonoBehaviour
     {
         PickUpCoin();
         
-        coinPitch += 0.1f;
+        coinPitch += 0.05f;
         coinPitch = Mathf.Clamp(coinPitch, defultCoinPitch, 1f);
     }
     public float CoinPitch()

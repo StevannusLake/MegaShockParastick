@@ -3304,7 +3304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343994896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 10.77, z: 0}
+  m_LocalPosition: {x: -0, y: 10.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 2090742173}
@@ -7257,7 +7257,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -7
+  m_SortingOrder: -17
   m_Sprite: {fileID: 21300000, guid: dcc300ea9cba4fb4e945c464a4ca0fc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7277,7 +7277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951532630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.02, y: -7.12, z: 0.0001828149}
+  m_LocalPosition: {x: -8.09, y: -7.12, z: 0.0001828149}
   m_LocalScale: {x: 1.0929241, y: 1.0929241, z: 1.0929241}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10318,7 +10318,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -7
+  m_SortingOrder: -17
   m_Sprite: {fileID: 21300000, guid: dcc300ea9cba4fb4e945c464a4ca0fc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14417,7 +14417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPitchRestartTime: 1
-  defultCoinPitch: 0.5
+  defultCoinPitch: 0.6
 --- !u!1 &1968270231
 GameObject:
   m_ObjectHideFlags: 0
@@ -15155,7 +15155,7 @@ PrefabInstance:
     - target: {fileID: 3431472271669697413, guid: 9fc975ed833e9b14caf4deeaaf314d65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 3431472271669697413, guid: 9fc975ed833e9b14caf4deeaaf314d65,
         type: 3}
