@@ -446,7 +446,7 @@ public class Movement : MonoBehaviour
     {
         if (prevMagnitude >= 0 && !spawnDot)
         {
-            prevMagnitude = Mathf.MoveTowards(prevMagnitude, 0, Time.deltaTime * prevSlingShotVelocity * 2f);
+            prevMagnitude = Mathf.MoveTowards(prevMagnitude, 0, Time.deltaTime * prevSlingShotVelocity * 1.6f);
 
         }
     }

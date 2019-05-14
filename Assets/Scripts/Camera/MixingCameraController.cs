@@ -33,9 +33,9 @@ public class MixingCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      // Debug.Log(Target.GetComponent<Movement>().CalculateCameraZoom());      
-        
-        
+        // Debug.Log(Target.GetComponent<Movement>().CalculateCameraZoom());      
+
+        ChangeCameraZoom();
         if (isInsideZoomArea) EnteredTransitionArea();
         if (!isInsideZoomArea) ExitedTransitionArea();
          
@@ -46,7 +46,7 @@ public class MixingCameraController : MonoBehaviour
         if (shouldGoToLeft) SlowlyOffsetToLeft();
         if (shouldGoToRight) SlowlyOffsetToRight();
         if (shouldGoToDefaultOffset) PositionOnDefaultCameraOffset();
-        ChangeCameraZoom();
+      
 
     }
 
