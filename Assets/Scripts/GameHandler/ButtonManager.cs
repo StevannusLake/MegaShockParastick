@@ -50,7 +50,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Update()
     {
-        CheckMainMenu();
+        //CheckMainMenu();
     }
 
     public void TryAgain()
@@ -97,7 +97,7 @@ public class ButtonManager : MonoBehaviour
     {
         if(UIManager.Instance.LoseMenu.activeSelf)
         {
-            //PlayerPrefs.SetFloat("TempScore", 0);
+            PlayerPrefs.SetFloat("TempScore", 0);
             TempScore = PlayerPrefs.GetFloat("TempScore", TempScore);
         }
     }

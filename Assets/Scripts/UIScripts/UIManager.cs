@@ -135,6 +135,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
+
         //GameManager.instance.SaveData();
 
         //CheckSecondChanceButton();
@@ -379,9 +381,9 @@ public class UIManager : MonoBehaviour
             // Save boolean using PlayerPrefs
             PlayerPrefs.SetInt("SecondLife", ButtonManager.instance.secondlife ? 1 : 0);
 
-            ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
+            //ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
             //! Save Temporary Player Distance
-            PlayerPrefs.SetFloat("TempScore", ButtonManager.instance.TempScore);
+            PlayerPrefs.SetFloat("TempScore", player.GetComponent<Movement>().playerDistance);
 
             SecondChanceMenu.SetActive(false);
             Movement.deadState = 0;
