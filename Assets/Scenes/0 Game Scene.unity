@@ -4577,6 +4577,8 @@ MonoBehaviour:
   ContinueFill: {fileID: 1866819971}
   continueFillDuration: 10
   QuitPrompt: {fileID: 1958140822}
+  coinCounterInGame: {fileID: 1859935335}
+  pointCounterInGame: {fileID: 655657460}
   OnSoundButton: {fileID: 740638511}
   OffSoundButton: {fileID: 1694929686}
   OnVibrateButton: {fileID: 1252273813}
@@ -15641,8 +15643,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092232753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -12.209, z: 0}
-  m_LocalScale: {x: 0.35376057, y: 0.35376057, z: 0.35376057}
+  m_LocalPosition: {x: 0, y: -13.716, z: 0}
+  m_LocalScale: {x: 0.49314225, y: 0.49314225, z: 0.49314225}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8

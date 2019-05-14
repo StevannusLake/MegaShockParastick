@@ -57,7 +57,11 @@ public class UIManager : MonoBehaviour
 
     public GameObject QuitPrompt;
 
+    public Text coinCounterInGame;
+    public Text pointCounterInGame;
+
     private Animator MainMenuAnim;
+
 
     #region Sound & Vibrate Button in Settings Menu
 
@@ -130,7 +134,10 @@ public class UIManager : MonoBehaviour
 
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
 
-        if(ContinueFill.activeInHierarchy)
+        coinCounterInGame.text = ""+GameManager.instance.GetCoin();
+        pointCounterInGame.text = "" + GameManager.instance.GetPoints();
+
+        if (ContinueFill.activeInHierarchy)
         {
             continueFillTimer -= Time.deltaTime;
             ContinueFill.GetComponent<Image>().fillAmount = continueFillTimer / continueFillDuration;
