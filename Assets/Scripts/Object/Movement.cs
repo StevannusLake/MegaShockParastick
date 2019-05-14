@@ -109,6 +109,8 @@ public class Movement : MonoBehaviour
     //=======================================================================================================================
     public SmokeEffect mySmokeEffect;
     public SpriteRenderer danger;
+
+    Vector2 collideWallPoint;
     //=======================================================================================================================
 
     // Start is called before the first frame update
@@ -524,6 +526,7 @@ public class Movement : MonoBehaviour
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
                 {
+                    // enable change sprite for effect (temporary? not sure how the effects go)
                     danger.enabled = true;
                     deadState = 1;
                
@@ -549,6 +552,18 @@ public class Movement : MonoBehaviour
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
                 }
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
+
+                // ===================================================================================================================================
+                // get info to spawn relative smoke effect
+                Vector2 pos = collision.GetContact(0).point;
+                collideWallPoint = pos;
+                float angle = Mathf.Atan2(pos.y - myTransform.position.y, pos.x - myTransform.position.x);
+                angle *= Mathf.Rad2Deg;
+                angle += 90;
+                mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+                // ===================================================================================================================================
+
+
             }
 
             if (collision.collider.gameObject.name == "FirstInitialPlatform")
@@ -578,6 +593,13 @@ public class Movement : MonoBehaviour
                     float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
+                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 1, angle, "SafePlatform");
+                }
+                else if(currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
+                {
+                    float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
+                    angle *= Mathf.Rad2Deg;
+                    angle += 90;
                     mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle, "MovingPlatform");
                 }
 
@@ -585,7 +607,7 @@ public class Movement : MonoBehaviour
                 myEmotion.EmoteIdle();
             }
         }
-        
+
         if(collision.collider.name == "FirstInitialPlatform" && deadState == 0)
         {
             myEmotion.EmoteIdle();
@@ -634,10 +656,30 @@ public class Movement : MonoBehaviour
                 float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
+                mySmokeEffect.SpawnSmoke(myTransform.position, 1, angle, "SafePlatform");
+            }
+            else if (currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
+            {
+                float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
+                angle *= Mathf.Rad2Deg;
+                angle -= 90;
                 mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle, "MovingPlatform");
             }
             // ===================================================================================================================================
         }
+        else if(collision.collider.CompareTag(horizontalWall))
+        {
+            // ===================================================================================================================================
+            // get info to spawn relative smoke effect
+            Vector2 pos = collideWallPoint;
+            float angle = Mathf.Atan2(pos.y - myTransform.position.y, pos.x - myTransform.position.x);
+            angle *= Mathf.Rad2Deg;
+            angle -= 90;
+            mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+            // ===================================================================================================================================
+
+        }
+
         if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1 && myMoveStick == MoveState.FLYING)
         {
             surfaceStickCount = 2;
