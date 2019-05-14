@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
     public Text coinText;
     public Text continueScore;
     public GameObject PauseMenu;
+    public Text coinCounterInGame;
+    public Text pointCounterInGame;
+    public Text pointCounterInSecondChance;
+
     //private float delayTimer = 0f;
     //private bool isPaused = false;
 
@@ -133,6 +137,14 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.SaveData();
 
         //CheckSecondChanceButton();
+
+        coinCounterInGame.text = "" + GameManager.instance.GetCoin();
+        pointCounterInGame.text = "" + GameManager.instance.GetPoints();
+
+        if (SecondChanceMenu.activeInHierarchy)
+        {
+            pointCounterInSecondChance.text = "" + GameManager.instance.GetPoints();
+        }
 
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
 
