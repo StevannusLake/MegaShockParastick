@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int numOfSkinCollected = 0;
     public MixingCameraController mixingCameraController;
     public float playerDistanceTraveled;
+    public int coinCollectedInAGame = 0;
     public GameObject player;
     public Movement playerMovement;
     public ColliderController playerColliderController;

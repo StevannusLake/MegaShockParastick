@@ -67,6 +67,27 @@ public class MissionManager : MonoBehaviour
             PlayerPrefs.SetInt("Mission" + (i + 1), missionListId[i]);
         }
     }
+
+    public void CheckMissionEnd(Missions[] missions)
+    {
+        for(int i=0;i<5;i++)
+        {
+            if(missions[i].missionType == Missions.MissionType.DistanceBetween)
+            {
+                if(GameManager.instance.playerDistanceTraveled > missions[i].minDistance && GameManager.instance.playerDistanceTraveled < missions[i].maxDistance)
+                {
+                    missions[i].isCompleted = true;
+                }
+            }
+            else if(missions[i].missionType == Missions.MissionType.CoinBetween)
+            {
+                if (GameManager.instance.coinCollectedInAGame > missions[i].minCoin && GameManager.instance.coinCollectedInAGame < missions[i].maxCoin)
+                {
+                    missions[i].isCompleted = true;
+                }
+            }
+        }
+    }
 }
 
 public class Missions
@@ -106,13 +127,14 @@ public class Missions
     public int pointObj;
     public int completeObj;
     public int completeNum = 0;
+    public bool isCompleted = false;
 
-    private enum MissionType
+    public enum MissionType
     {
         Distance, DistanceNoCoin, DistanceBetween, DistanceTotal, CoinBetween, CoinExact, Coin, CoinTotal, Bounce, BounceBetween, BounceExact,
         BounceTotal, Stick, StickBetween, StickExact, StickTotal, Play, PlayLuckySpin, Point, HighScore
     };
-    private MissionType missionType;
+    public MissionType missionType;
 
     public Missions(int id)
     {

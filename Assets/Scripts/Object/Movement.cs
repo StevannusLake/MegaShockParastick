@@ -117,6 +117,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.coinCollectedInAGame = 0; // reset
         //myAnimation = GetComponent<PlayerAnimation>();
         myMoveStick = MoveState.STICK;
         myTransform = GetComponent<Transform>();
