@@ -9347,6 +9347,7 @@ MonoBehaviour:
   bounceCounterInAGame: 0
   stickCounterInAGame: 0
   player: {fileID: 1968270231}
+  water: {fileID: 0}
   playerMovement: {fileID: 1968270234}
   playerColliderController: {fileID: 0}
   currentActiveLevelGeneratorID: 0
@@ -10909,7 +10910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1354248951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11894,7 +11895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4014239, y: 0.4004067}
   m_AnchorMax: {x: 0.60200006, y: 1}
-  m_AnchoredPosition: {x: -1.0169144, y: 518.54663}
+  m_AnchoredPosition: {x: -1.0169067, y: 518.54663}
   m_SizeDelta: {x: -119.14221, y: -1037.0935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1468190107
