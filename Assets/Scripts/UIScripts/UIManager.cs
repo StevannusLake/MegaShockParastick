@@ -329,14 +329,15 @@ public class UIManager : MonoBehaviour
     {
         MainMenuAnim.SetBool("CloseMenu",true);
         Invoke("CallClosingMainMenu", 1.2f);
-            
+        playerMovement.enabled = true;
+        playerColliderConroller.enabled = true;
+
     }
 
     void CallClosingMainMenu()
     {
         MainMenu.SetActive(false);
-        playerMovement.enabled = true;
-        playerColliderConroller.enabled = true;
+        
         //! CALL ANIMATOR BOOLEAN BACK
     }
 
