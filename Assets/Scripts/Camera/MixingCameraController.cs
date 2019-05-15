@@ -46,13 +46,13 @@ public class MixingCameraController : MonoBehaviour
         if (shouldGoToLeft) SlowlyOffsetToLeft();
         if (shouldGoToRight) SlowlyOffsetToRight();
         if (shouldGoToDefaultOffset) PositionOnDefaultCameraOffset();
-      
+        WaterClosingShake();
 
     }
 
     private void FixedUpdate()
     {
-        if (!isShaked) isDraggingShake();
+         
         
     }
     void ChangeCameraZoom()
@@ -76,16 +76,34 @@ public class MixingCameraController : MonoBehaviour
         shakeDuration = duration;
     }
 
-    public void isDraggingShake()
+    public void WaterClosingShake()
     {
-        /*for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        float distanceTillPlayer = Vector2.Distance(GameManager.instance.player.transform.position, GameManager.instance.water.transform.position);
+        if (distanceTillPlayer < 10)
         {
-            float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
-            float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
-            CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-            noiseChannel.m_AmplitudeGain = shakeAmplitude;
-            noiseChannel.m_FrequencyGain = shakeFrequency;
-        }*/
+            for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+            {
+                float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
+                float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
+                CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                noiseChannel.m_AmplitudeGain = Mathf.Lerp(noiseChannel.m_AmplitudeGain, 2 / distanceTillPlayer, Time.deltaTime * 2f);
+                noiseChannel.m_FrequencyGain = Mathf.Lerp(noiseChannel.m_FrequencyGain, 2 / distanceTillPlayer, Time.deltaTime*2f);
+            }
+        }
+        else
+        {
+            
+                for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+                {
+                    float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
+                    float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
+                    CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    noiseChannel.m_AmplitudeGain = Mathf.Lerp(noiseChannel.m_AmplitudeGain, 0, Time.deltaTime * 2f);
+                    noiseChannel.m_FrequencyGain = Mathf.Lerp(noiseChannel.m_FrequencyGain, 0, Time.deltaTime * 2f);
+                }
+            
+        }
+       
         
     }
 
