@@ -121,6 +121,7 @@ public class Movement : MonoBehaviour
     {
         GameManager.instance.coinCollectedInAGame = 0; // reset for missions
         GameManager.instance.bounceCounterInAGame = 0; // reset for missions
+        
         //myAnimation = GetComponent<PlayerAnimation>();
         myMoveStick = MoveState.STICK;
         myTransform = GetComponent<Transform>();
@@ -152,6 +153,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         currentVelocity = myRigidBody.velocity;
+        MissionManager.instance.CheckMissionInGame(MissionManager.instance.missions);
         if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
         {
             if (myCollider.isTrigger)

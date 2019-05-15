@@ -292,6 +292,7 @@ public class UIManager : MonoBehaviour
 
         //Check mission
         MissionManager.instance.CheckMissionEnd(MissionManager.instance.missions);
+        GameManager.instance.SaveTotalValues();
     }
 
     public void CloseLoseMenu()

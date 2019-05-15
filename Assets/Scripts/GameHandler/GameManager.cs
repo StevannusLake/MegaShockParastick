@@ -24,6 +24,13 @@ public class GameManager : MonoBehaviour
     public int spinCount;
     private int points;
     public UIManager uiManager;
+    public float totalDistanceTravelled;
+    public int totalCoinCollected;
+    public int totalBounce;
+    public int totalStick;
+    public int totalPlay;
+    public int totalPoints;
+    public int totalSpin;
 
     void Awake()
     {
@@ -162,11 +169,43 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        LoadTotalValue();
         coin = PlayerPrefs.GetInt("Coin", 0);
         spinCount = PlayerPrefs.GetInt("Spin", 0);
         points = PlayerPrefs.GetInt("Points", 0);
         if (!PlayerPrefs.HasKey("HighScore"))
             PlayerPrefs.SetFloat("HighScore", 0f);
+        else
+        {
+            highScore = PlayerPrefs.GetFloat("HighScore");
+        }
+    }
+
+    public void LoadTotalValue()
+    {
+        totalDistanceTravelled = PlayerPrefs.GetFloat("TotalDistance", 0);
+        totalCoinCollected = PlayerPrefs.GetInt("TotalCoin", 0);
+        totalBounce = PlayerPrefs.GetInt("TotalBounce", 0);
+        totalStick = PlayerPrefs.GetInt("TotalStick", 0);
+        totalPlay = PlayerPrefs.GetInt("TotalPlay", 0);
+        totalSpin = PlayerPrefs.GetInt("TotalSpin", 0);
+        totalPoints = PlayerPrefs.GetInt("TotalPoints", 0);
+    }
+
+    public void SaveTotalValues() // for missions
+    {
+        totalDistanceTravelled += playerDistanceTraveled;
+        PlayerPrefs.SetFloat("TotalDistance", totalDistanceTravelled);
+        totalCoinCollected += coinCollectedInAGame;
+        PlayerPrefs.SetInt("TotalCoin", totalCoinCollected);
+        totalBounce += bounceCounterInAGame;
+        PlayerPrefs.SetInt("TotalBounce", totalBounce);
+        totalStick += stickCounterInAGame;
+        PlayerPrefs.SetInt("TotalStick", totalStick);
+        totalPlay += 1;
+        PlayerPrefs.SetInt("TotalPlay", totalPlay);
+        PlayerPrefs.SetInt("TotalSpin", totalSpin);
+        PlayerPrefs.SetInt("TotalPoints", totalPoints);
     }
 
     void OnApplicationQuit()
@@ -174,6 +213,7 @@ public class GameManager : MonoBehaviour
         SaveCoin();
         SaveSpin();
         SaveSkin();
+        SaveTotalValues();
     }
 
 
