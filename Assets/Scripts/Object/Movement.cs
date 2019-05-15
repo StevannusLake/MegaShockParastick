@@ -109,9 +109,11 @@ public class Movement : MonoBehaviour
 
     //=======================================================================================================================
     public SmokeEffect mySmokeEffect;
-    public SpriteRenderer danger;
 
     Vector2 collideWallPoint;
+    //=======================================================================================================================
+    public DangerPlatformEffect[] dangerEffects = new DangerPlatformEffect[3];
+    Vector2 currentVelocity;
     //=======================================================================================================================
 
     // Start is called before the first frame update
@@ -149,7 +151,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentVelocity = myRigidBody.velocity;
         if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
         {
             if (myCollider.isTrigger)
@@ -242,12 +244,7 @@ public class Movement : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-
-        if(deadState == 0)
-        {
-            danger.enabled = false;
-        }
-
+        
         if(deadState == 0 && bounceCounter >= 3)
         {
             deadState = 1;
@@ -260,7 +257,7 @@ public class Movement : MonoBehaviour
 
     void SlingShot()
     {
-        if(doubleSlingshotCounter <= 0)
+        if (doubleSlingshotCounter <= 0)
         {
             doubleSlingshot = 2;
         }
@@ -534,8 +531,13 @@ public class Movement : MonoBehaviour
                 //UIManager.Instance.CallSecondChanceMenu();
                 if (deadState == 0)
                 {
-                    // enable change sprite for effect (temporary? not sure how the effects go)
-                    danger.enabled = true;
+                    //==================================================================================================
+                    // hit dangerous platform effects code go here
+                    for(int i=0; i< dangerEffects.Length; i++)
+                    {
+                        dangerEffects[i].TouchedDangerousEffect(myTransform.position, currentVelocity);
+                    }
+                    //==================================================================================================
                     deadState = 1;
                
                     playerJustDied = false;
