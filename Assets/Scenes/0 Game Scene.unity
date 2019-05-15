@@ -3949,9 +3949,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slingshotBars:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1753385546}
+  - {fileID: 1277660428}
+  - {fileID: 749232154}
   BarOn: {fileID: 21300000, guid: 7c982b505fa70334b9298260edceb247, type: 3}
   BarOff: {fileID: 21300000, guid: a3e9bd81e657a7744aaf74026244ce8f, type: 3}
   playerMovementScript: {fileID: 1968270234}
@@ -12501,9 +12501,10 @@ MonoBehaviour:
   - {fileID: 1737372164}
   - {fileID: 1972989245}
   - {fileID: 276933279}
-  OffGrey: {fileID: 21300000, guid: 77b3a9e40128a7244a34a046ad99e36d, type: 3}
-  On: {fileID: 21300000, guid: 0aac539b65e039e43b1d920f1095e52d, type: 3}
-  Off: {fileID: 21300000, guid: ed08f891f93225c489f5e1f0b4513f76, type: 3}
+  RecoveringColor: {fileID: 21300000, guid: ed08f891f93225c489f5e1f0b4513f76, type: 3}
+  OnColor: {fileID: 21300000, guid: 0aac539b65e039e43b1d920f1095e52d, type: 3}
+  OffColor: {fileID: 21300000, guid: 77b3a9e40128a7244a34a046ad99e36d, type: 3}
+  playerMovementScript: {fileID: 1968270234}
 --- !u!1 &1533376282
 GameObject:
   m_ObjectHideFlags: 0
