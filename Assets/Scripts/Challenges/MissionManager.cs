@@ -72,94 +72,196 @@ public class MissionManager : MonoBehaviour
     {
         for(int i=0;i<5;i++)
         {
-            #region Distance
-            if (missions[i].missionType == Missions.MissionType.DistanceBetween)
+            if(!missions[i].isCompleted)
             {
-                if(GameManager.instance.playerDistanceTraveled >= missions[i].minDistance && GameManager.instance.playerDistanceTraveled <= missions[i].maxDistance)
+                #region Distance
+                if (missions[i].missionType == Missions.MissionType.DistanceBetween)
                 {
-                    missions[i].completeNum++;
-                    if (missions[i].completeNum == missions[i].completeObj)
+                    if (GameManager.instance.playerDistanceTraveled >= missions[i].minDistance && GameManager.instance.playerDistanceTraveled <= missions[i].maxDistance)
+                    {
+                        missions[i].completeNum++;
+                        if (missions[i].completeNum == missions[i].completeObj)
+                        {
+                            missions[i].isCompleted = true;
+                        }
+                    }
+                }
+                #endregion
+                #region Coin
+                else if (missions[i].missionType == Missions.MissionType.CoinBetween)
+                {
+                    if (GameManager.instance.coinCollectedInAGame >= missions[i].minCoin && GameManager.instance.coinCollectedInAGame <= missions[i].maxCoin)
+                    {
+                        missions[i].isCompleted = true;
+                        Debug.Log(missions[i].description + " COMPLETED");
+                    }
+                }
+                else if (missions[i].missionType == Missions.MissionType.CoinExact)
+                {
+                    if (GameManager.instance.coinCollectedInAGame == missions[i].coinObj)
                     {
                         missions[i].isCompleted = true;
                     }
                 }
-            }
-            #endregion
-            #region Coin
-            else if (missions[i].missionType == Missions.MissionType.CoinBetween)
-            {
-                if (GameManager.instance.coinCollectedInAGame >= missions[i].minCoin && GameManager.instance.coinCollectedInAGame <= missions[i].maxCoin)
+                else if (missions[i].missionType == Missions.MissionType.Coin)
                 {
-                    missions[i].isCompleted = true;
-                    Debug.Log(missions[i].description + " COMPLETED");
+                    if (GameManager.instance.coinCollectedInAGame >= missions[i].coinObj)
+                    {
+                        missions[i].completeNum++;
+                        if (missions[i].completeNum == missions[i].completeObj)
+                        {
+                            missions[i].isCompleted = true;
+                        }
+                    }
                 }
-            }
-            else if(missions[i].missionType == Missions.MissionType.CoinExact)
-            {
-                if(GameManager.instance.coinCollectedInAGame == missions[i].coinObj)
+                #endregion
+                #region Bounce
+                else if (missions[i].missionType == Missions.MissionType.BounceBetween)
                 {
-                    missions[i].isCompleted = true;
-                }
-            }
-            else if(missions[i].missionType == Missions.MissionType.Coin)
-            {
-                if(GameManager.instance.coinCollectedInAGame >= missions[i].coinObj)
-                {
-                    missions[i].completeNum++;
-                    if (missions[i].completeNum == missions[i].completeObj)
+                    if (GameManager.instance.bounceCounterInAGame >= missions[i].minBounce && GameManager.instance.bounceCounterInAGame <= missions[i].maxBounce)
                     {
                         missions[i].isCompleted = true;
                     }
                 }
-            }
-            #endregion
-            #region Bounce
-            else if (missions[i].missionType == Missions.MissionType.BounceBetween)
-            {
-                if(GameManager.instance.bounceCounterInAGame >= missions[i].minBounce && GameManager.instance.bounceCounterInAGame <= missions[i].maxBounce)
+                else if (missions[i].missionType == Missions.MissionType.BounceExact)
                 {
-                    missions[i].isCompleted = true;
+                    if (GameManager.instance.bounceCounterInAGame == missions[i].bounceObj)
+                    {
+                        missions[i].completeNum++;
+                        if (missions[i].completeNum == missions[i].completeObj)
+                        {
+                            missions[i].isCompleted = true;
+                        }
+                    }
                 }
-            }
-            else if(missions[i].missionType == Missions.MissionType.BounceExact)
-            {
-                if(GameManager.instance.bounceCounterInAGame == missions[i].bounceObj)
+                #endregion
+                #region Stick
+                else if (missions[i].missionType == Missions.MissionType.Stick)
                 {
-                    missions[i].completeNum++;
-                    if (missions[i].completeNum == missions[i].completeObj)
+                    if (GameManager.instance.stickCounterInAGame >= missions[i].stickObj)
+                    {
+                        missions[i].completeNum++;
+                        if (missions[i].completeNum == missions[i].completeObj)
+                        {
+                            missions[i].isCompleted = true;
+                        }
+                    }
+                }
+                else if (missions[i].missionType == Missions.MissionType.StickBetween)
+                {
+                    if (GameManager.instance.stickCounterInAGame >= missions[i].minStick && GameManager.instance.stickCounterInAGame <= missions[i].maxStick)
                     {
                         missions[i].isCompleted = true;
                     }
                 }
-            }
-            #endregion
-            #region Stick
-            else if(missions[i].missionType == Missions.MissionType.Stick)
-            {
-                if(GameManager.instance.stickCounterInAGame >= missions[i].stickObj)
+                else if (missions[i].missionType == Missions.MissionType.StickExact)
                 {
-                    missions[i].completeNum++;
-                    if (missions[i].completeNum == missions[i].completeObj)
+                    if (GameManager.instance.stickCounterInAGame == missions[i].stickObj)
                     {
                         missions[i].isCompleted = true;
                     }
                 }
-            }
-            else if(missions[i].missionType == Missions.MissionType.StickBetween)
-            {
-                if(GameManager.instance.stickCounterInAGame >= missions[i].minStick && GameManager.instance.stickCounterInAGame <= missions[i].maxStick)
+                #endregion
+                #region Other
+                else if (missions[i].missionType == Missions.MissionType.Play)
                 {
-                    missions[i].isCompleted = true;
+                    if(GameManager.instance.totalPlay >= missions[i].playObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
                 }
+                #endregion
             }
-            else if(missions[i].missionType == Missions.MissionType.StickExact)
+        }
+    }
+
+    public void CheckMissionInGame(Missions[] missions)
+    {
+        for(int i=0;i<5;i++)
+        {   
+            if(!missions[i].isCompleted)
             {
-                if(GameManager.instance.stickCounterInAGame == missions[i].stickObj)
+                #region Distance
+                if (missions[i].missionType == Missions.MissionType.Distance)
                 {
-                    missions[i].isCompleted = true;
+                    if(GameManager.instance.playerDistanceTraveled >= missions[i].distanceObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
                 }
+                else if(missions[i].missionType == Missions.MissionType.DistanceNoCoin)
+                {
+                    if(GameManager.instance.playerDistanceTraveled >= missions[i].distanceObj && GameManager.instance.coinCollectedInAGame == 0)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                else if(missions[i].missionType == Missions.MissionType.DistanceTotal)
+                {
+                    if(GameManager.instance.totalDistanceTravelled >= missions[i].distanceObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                #endregion
+                #region Coin
+                else if(missions[i].missionType == Missions.MissionType.CoinTotal)
+                {
+                    if(GameManager.instance.totalCoinCollected >= missions[i].coinObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                #endregion
+                #region Bounce
+                else if(missions[i].missionType == Missions.MissionType.Bounce)
+                {
+                    if(GameManager.instance.bounceCounterInAGame >= missions[i].bounceObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                else if(missions[i].missionType == Missions.MissionType.BounceTotal)
+                {
+                    if(GameManager.instance.totalBounce >= missions[i].bounceObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                #endregion
+                #region Stick
+                else if(missions[i].missionType == Missions.MissionType.StickTotal)
+                {
+                    if(GameManager.instance.totalStick >= missions[i].stickObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                #endregion
+                #region Other
+                else if(missions[i].missionType == Missions.MissionType.PlayLuckySpin)
+                {
+                    if(GameManager.instance.totalSpin >= missions[i].spinObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                else if(missions[i].missionType == Missions.MissionType.Point)
+                {
+                    if(GameManager.instance.totalPoints >= missions[i].pointObj)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                else if(missions[i].missionType == Missions.MissionType.HighScore)
+                {
+                    if(GameManager.instance.playerDistanceTraveled >= GameManager.instance.highScore)
+                    {
+                        missions[i].isCompleted = true;
+                    }
+                }
+                #endregion
             }
-            #endregion
         }
     }
 }

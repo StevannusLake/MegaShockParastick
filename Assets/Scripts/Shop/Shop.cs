@@ -27,7 +27,7 @@ public class Shop : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Shop")
+        if(UIManager.Instance.ShopMenu.activeInHierarchy)
         {
             coinText.text = ""+GameManager.instance.GetCoin();
             CheckIsBought(); // prevent multiple buying

@@ -20,7 +20,7 @@ public class DailyRewards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        MissionManager.instance.CheckMissionInGame(MissionManager.instance.missions);
     }
 
     void CheckDate()
@@ -92,30 +92,37 @@ public class DailyRewards : MonoBehaviour
         if(day == 1)
         {
             GameManager.instance.AddCoin(5);
+            GameManager.instance.totalCoinCollected += 5;
         }
         else if(day == 2)
         {
             GameManager.instance.AddCoin(10);
+            GameManager.instance.totalCoinCollected += 10;
         }
         else if (day == 3)
         {
             GameManager.instance.AddCoin(15);
+            GameManager.instance.totalCoinCollected += 15;
         }
         else if (day == 4)
         {
             GameManager.instance.AddCoin(20);
+            GameManager.instance.totalCoinCollected += 20;
         }
         else if (day == 5)
         {
             GameManager.instance.AddCoin(25);
+            GameManager.instance.totalCoinCollected += 25;
         }
         else if (day == 6)
         {
             GameManager.instance.AddCoin(30);
+            GameManager.instance.totalCoinCollected += 30;
         }
         else if (day == 7)
         {
             GameManager.instance.AddPoints(5);
+            GameManager.instance.totalPoints += 5;
         }
         GameManager.instance.SaveCoin();
         GameManager.instance.SavePoints();

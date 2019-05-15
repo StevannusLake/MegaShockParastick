@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public ColliderController playerColliderConroller;
     public GameObject SecondChanceMenu;
     public GameObject ChallengesMenu;
+    public GameObject ShopMenu;
     public Text currentScore;
     public Text highScore;
     public GameObject player;
@@ -292,6 +293,7 @@ public class UIManager : MonoBehaviour
 
         //Check mission
         MissionManager.instance.CheckMissionEnd(MissionManager.instance.missions);
+        GameManager.instance.SaveTotalValues();
     }
 
     public void CloseLoseMenu()

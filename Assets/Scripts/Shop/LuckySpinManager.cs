@@ -124,6 +124,7 @@ public class LuckySpinManager : MonoBehaviour
 
             GameManager.instance.DecreaseSpin(1);
             spinText.text = ""+GameManager.instance.GetSpin();
+            GameManager.instance.totalSpin += 1;
         }
     }
 
@@ -137,32 +138,40 @@ public class LuckySpinManager : MonoBehaviour
                 break;
             case 1:
                 GameManager.instance.AddPoints(25);
+                GameManager.instance.totalPoints += 25;
                 break;
             case 2:
                 GameManager.instance.AddPoints(50);
+                GameManager.instance.totalPoints += 50;
                 break;
             case 3:
                 GameManager.instance.AddPoints(1000);
+                GameManager.instance.totalPoints += 1000;
                 break;
             case 4: // zonk
                 break;
             case 5:
                 GameManager.instance.AddPoints(500);
+                GameManager.instance.totalPoints += 500;
                 break;
             case 6:
                 GameManager.instance.AddPoints(5);
+                GameManager.instance.totalPoints += 5;
                 break;
             case 7:
                 GameManager.instance.AddPoints(100);
+                GameManager.instance.totalPoints += 100;
                 break;
             default:
                 GameManager.instance.AddPoints(10);
+                GameManager.instance.totalPoints += 10;
                 break;
         }
     }
 
     void Update()
     {
+        MissionManager.instance.CheckMissionInGame(MissionManager.instance.missions);
         // Make turn button non interactable if user has not enough money for the turn
         if (_isStarted || GameManager.instance.GetSpin() < 1)
         {
