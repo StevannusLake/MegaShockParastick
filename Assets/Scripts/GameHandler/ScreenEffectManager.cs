@@ -38,10 +38,7 @@ public class ScreenEffectManager : MonoBehaviour
     }
 
 
-    public void ShakeCameraWhenWaterClose()
-    {
-
-    }
+    
     //  CAMERA SHAKE
    
 
