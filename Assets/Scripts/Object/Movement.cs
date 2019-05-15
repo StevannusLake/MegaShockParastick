@@ -154,7 +154,7 @@ public class Movement : MonoBehaviour
     {
         currentVelocity = myRigidBody.velocity;
         MissionManager.instance.CheckMissionInGame(MissionManager.instance.missions);
-        if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && deadState == 0)
+        if (!UIManager.Instance.LoseMenu.activeSelf && deadState == 0) // && !MainMenu.activeSelf 
         {
             if (myCollider.isTrigger)
             {
