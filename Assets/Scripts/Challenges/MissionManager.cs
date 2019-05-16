@@ -352,7 +352,10 @@ public class MissionManager : MonoBehaviour
                 missionClaimButton[0].image.sprite = claimButtonSprite;
                 missions[0].isClaimed = true;
                 questCompleted = 0;
-                MissionTabs[0].GetComponent<Animator>().Play("NextMission");
+                if(missions[0].nextQuest)
+                {
+                    MissionTabs[0].GetComponent<Animator>().Play("NextMission");
+                }
             }
         }      
     }
@@ -365,7 +368,10 @@ public class MissionManager : MonoBehaviour
             missions[1].isClaimed = true;
             missionClaimButton[1].image.sprite = claimButtonSprite;
             questCompleted = 1;
-            MissionTabs[1].GetComponent<Animator>().Play("NextMission");
+            if (missions[1].nextQuest)
+            {
+                MissionTabs[1].GetComponent<Animator>().Play("NextMission");
+            }
         }
     }
     public void Mission3Claim()
@@ -377,7 +383,10 @@ public class MissionManager : MonoBehaviour
             missionClaimButton[2].image.sprite = claimButtonSprite;
             missions[2].isClaimed = true;
             questCompleted = 2;
-            MissionTabs[2].GetComponent<Animator>().Play("NextMission");
+            if (missions[2].nextQuest)
+            {
+                MissionTabs[2].GetComponent<Animator>().Play("NextMission");
+            }
         }
     }
     public void Mission4Claim()
@@ -389,7 +398,10 @@ public class MissionManager : MonoBehaviour
             missionClaimButton[3].image.sprite = claimButtonSprite;
             missions[3].isClaimed = true;
             questCompleted = 3;
-            MissionTabs[3].GetComponent<Animator>().Play("NextMission");
+            if (missions[3].nextQuest)
+            {
+                MissionTabs[3].GetComponent<Animator>().Play("NextMission");
+            }
         }
     }
     public void Mission5Claim()
@@ -401,19 +413,19 @@ public class MissionManager : MonoBehaviour
             missionClaimButton[4].image.sprite = claimButtonSprite;
             missions[4].isClaimed = true;
             questCompleted = 4;
-            MissionTabs[4].GetComponent<Animator>().Play("NextMission");
+            if (missions[4].nextQuest)
+            {
+                MissionTabs[4].GetComponent<Animator>().Play("NextMission");
+            }
         }
     }
 
     public void NextMission()
     {
-        if(missions[questCompleted].nextQuest)
-        {
-            PlayerPrefs.SetInt("Mission" + (questCompleted + 1) + "Progress", 0);
-            missionListId[questCompleted] = missions[questCompleted].nextId;
-            var tempItem = new Missions(missionListId[questCompleted]);
-            missions[questCompleted] = tempItem;
-        }
+         PlayerPrefs.SetInt("Mission" + (questCompleted + 1) + "Progress", 0);
+         missionListId[questCompleted] = missions[questCompleted].nextId;
+         var tempItem = new Missions(missionListId[questCompleted]);
+         missions[questCompleted] = tempItem;
     }
 }
 
