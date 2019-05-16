@@ -51,6 +51,10 @@ public class MissionManager : MonoBehaviour
             {
                 missions[i].isCompleted = true;
             }
+            if (PlayerPrefs.GetInt("Mission" + (i + 1) + "Claimed") == 1)
+            {
+                missions[i].isClaimed = true;
+            }
         }
     }
 
@@ -76,6 +80,14 @@ public class MissionManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Mission" + (i + 1) + "Completed", 0);
             }
+            if (missions[i].isClaimed)
+            {
+                PlayerPrefs.SetInt("Mission" + (i + 1) + "Claimed", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Mission" + (i + 1) + "Claimed", 0);
+            }
         }
     }
 
@@ -90,6 +102,11 @@ public class MissionManager : MonoBehaviour
             else
             {
                 missionClaimButton[i].interactable = false;
+            }
+
+            if(missions[i].isClaimed)
+            {
+                missionClaimButton[i].image.sprite = claimButtonSprite;
             }
         }
     }
@@ -319,6 +336,7 @@ public class MissionManager : MonoBehaviour
                 GameManager.instance.AddCoin(missions[0].coinReward);
                 GameManager.instance.totalCoinCollected += missions[0].coinReward;
                 missionClaimButton[0].image.sprite = claimButtonSprite;
+                missions[0].isClaimed = true;
             }
         }      
     }
@@ -328,6 +346,7 @@ public class MissionManager : MonoBehaviour
         {
             GameManager.instance.AddCoin(missions[1].coinReward);
             GameManager.instance.totalCoinCollected += missions[1].coinReward;
+            missions[1].isClaimed = true;
             missionClaimButton[1].image.sprite = claimButtonSprite;
         }
     }
@@ -338,6 +357,7 @@ public class MissionManager : MonoBehaviour
             GameManager.instance.AddCoin(missions[2].coinReward);
             GameManager.instance.totalCoinCollected += missions[2].coinReward;
             missionClaimButton[2].image.sprite = claimButtonSprite;
+            missions[2].isClaimed = true;
         }
     }
     public void Mission4Claim()
@@ -347,6 +367,7 @@ public class MissionManager : MonoBehaviour
             GameManager.instance.AddCoin(missions[3].coinReward);
             GameManager.instance.totalCoinCollected += missions[3].coinReward;
             missionClaimButton[3].image.sprite = claimButtonSprite;
+            missions[3].isClaimed = true;
         }
     }
     public void Mission5Claim()
@@ -356,6 +377,7 @@ public class MissionManager : MonoBehaviour
             GameManager.instance.AddCoin(missions[4].coinReward);
             GameManager.instance.totalCoinCollected += missions[4].coinReward;
             missionClaimButton[4].image.sprite = claimButtonSprite;
+            missions[4].isClaimed = true;
         }
     }
 }
@@ -398,6 +420,7 @@ public class Missions
     public int completeObj;
     public int completeNum = 0;
     public bool isCompleted = false;
+    public bool isClaimed = false;
 
     public enum MissionType
     {
