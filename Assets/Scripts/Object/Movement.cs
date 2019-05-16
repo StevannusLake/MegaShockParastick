@@ -115,6 +115,9 @@ public class Movement : MonoBehaviour
     public DangerPlatformEffect[] dangerEffects = new DangerPlatformEffect[3];
     Vector2 currentVelocity;
     //=======================================================================================================================
+    public PlayerParticleSystem myParticleSystem;
+    bool doubleSSEffect;
+    //=======================================================================================================================
 
     // Start is called before the first frame update
     void Start()
@@ -1050,10 +1053,21 @@ public class Movement : MonoBehaviour
         if(myMoveStick == MoveState.STICK || deadState != 0)
         {
             myTrailRenderer.enabled = false;
+            myParticleSystem.OffParticleSystem();
+            doubleSSEffect = false;
         }
         else if(myMoveStick == MoveState.FLYING && deadState == 0)
         {
-            myTrailRenderer.enabled = true;
+            if(Time.timeScale == 1 && !doubleSSEffect)
+            {
+                myTrailRenderer.enabled = true;
+            }
+            else
+            {
+                doubleSSEffect = true;
+                myTrailRenderer.enabled = false;
+                myParticleSystem.DoubleSlingshotEffect();
+            }
         }
 
         if (myTrailRenderer.enabled == false)
