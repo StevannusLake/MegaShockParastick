@@ -11,10 +11,13 @@ public class ObjectSpawner : MonoBehaviour
     public bool canRespawnOpalMiddle = false;
     float SpawnRateInSeconds = 1.0f; // First time to start the spawning . For test only
     public static ObjectSpawner instance;
+
+    int layer_mask;
     private void Awake()
     {
         if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
+        layer_mask= LayerMask.GetMask("Platform","Wall");
     }
     void Start()
     {
@@ -142,17 +145,12 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position, 0.5f, (secondObject.transform.position - firstObject.transform.position));
-        if (hit.collider.gameObject.tag == "Deadly" || hit.collider.gameObject.tag == "HorizontalWall")
-        {
-            Debug.Log("HittedDeadluy");
-            
-            return;
-        }
+        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position, 1.0f, (secondObject.transform.position - firstObject.transform.position),10, layer_mask);
+        if (hit.collider.gameObject.tag == "Deadly" || hit.collider.gameObject.tag == "HorizontalWall") return;
 
-        
 
-        Surfaces surface1 = firstObject.GetComponent<Surfaces>();
+
+         Surfaces surface1 = firstObject.GetComponent<Surfaces>();
         Surfaces surface2 = secondObject.GetComponent<Surfaces>();
         
         int numberOfOpals = 1;
@@ -182,12 +180,9 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
 
-        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position, 0.5f, (secondObject.transform.position - firstObject.transform.position));
-        if (hit.collider.tag == "Deadly"|| hit.collider.tag == "HorizontalWall")
-        {
-            Debug.Log("HittedObstacles");
-            return;
-        }
+        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position, 1.0f, (secondObject.transform.position - firstObject.transform.position), 10, layer_mask);
+        if (hit.collider.tag == "Deadly" || hit.collider.tag == "HorizontalWall") return;
+        
       
 
 

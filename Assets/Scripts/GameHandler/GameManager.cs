@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int stickCounterInAGame = 0;
     public GameObject player;
     public GameObject water;
+    
     public Movement playerMovement;
     public ColliderController playerColliderController;
     public static GameManager instance;

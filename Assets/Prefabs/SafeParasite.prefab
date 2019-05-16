@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4105004474322400533}
   - component: {fileID: 1248516918164119301}
   - component: {fileID: 8224682451615939670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SafeParasite
   m_TagString: Surface
   m_Icon: {fileID: 0}
@@ -95,9 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb5462b66cce694784db983c45e48b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMover: 0
   thisType: 0
   rotationSpeed: 0.2
   pingpongSpeed: 0
+  rotationSpeedRandom: 0
   stickCount: 0
   platformPlacementTransform: {fileID: 0}
   alreadyRespawnedCoin: 0

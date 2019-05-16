@@ -19,11 +19,12 @@ public class LevelGenerator : MonoBehaviour
     public Transform pivotAnchor;
     public Transform nextLayoutAnchor;
     public Transform defaultOffset;
+    public bool isDummy = false;
  
     private bool DangerAlreadyMade = false;
     public bool test;
 
-    public CurrentDirection[] upwardPossibilities;
+    public static CurrentDirection[] upwardPossibilities;
 
     private void Awake()
     {
@@ -45,6 +46,11 @@ public class LevelGenerator : MonoBehaviour
         upwardPossibilities = new CurrentDirection[] { CurrentDirection.UP, CurrentDirection.LEFT, CurrentDirection.RIGHT };
         
 
+    }
+
+    private void Update()
+    {
+       
     }
 
     void GetAllBackgrounds()
@@ -225,7 +231,7 @@ public class LevelGenerator : MonoBehaviour
 
     void RespawnPlatforms()
     {
-
+        
         // White Platforms
         //Respawn one dangerous randomly
         #region White Platforms
@@ -345,9 +351,9 @@ public class LevelGenerator : MonoBehaviour
                 BoxCollider2D collider = platformPlacementListRedMoving[i].GetComponent<BoxCollider2D>();
                 float randXOnRenderer = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
                 float randYOnRenderer = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
-                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous),
+                GameObject Platforms = Instantiate(GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.DangerousMoving),
                     new Vector3(randXOnRenderer, randYOnRenderer),
-                    GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
+                    GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.DangerousMoving).transform.rotation,
                     transform);
                 Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListRedMoving[i].transform;
                 Platforms.GetComponent<Surfaces>().isMover = true;
@@ -408,15 +414,15 @@ public class LevelGenerator : MonoBehaviour
                 float desiredX = currentAnchor.position.x;
                 Debug.Log(currentParent);
 
-                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection,LevelHandler.instance.levelType).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
                 LevelGenerator newLayoutGenerator = newLayout.GetComponentInChildren<LevelGenerator>();
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);            
                 newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;
                 newLayoutGenerator.Initialize();
                 ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
                 newLayoutGenerator.PostInitialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection).direction + ")";
-                SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout( randomDirection).direction);             
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).direction + ")";
+                SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).direction);             
                 if(i!= (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayoutGenerator, "Up");
 
@@ -429,7 +435,7 @@ public class LevelGenerator : MonoBehaviour
                 float desiredX = currentAnchor.position.x;
 
 
-                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
 
                 LevelGenerator newLayoutGenerator = newLayout.GetComponentInChildren<LevelGenerator>();
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);              
@@ -437,8 +443,8 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.Initialize();
                 ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
                 newLayoutGenerator.PostInitialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection).direction + ")";
-                SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection).direction);
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction + ")";
+                SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayoutGenerator, "Right");
 
@@ -451,7 +457,7 @@ public class LevelGenerator : MonoBehaviour
                 float desiredX = currentAnchor.position.x;
 
 
-                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
+                GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
 
                 LevelGenerator newLayoutGenerator = newLayout.GetComponentInChildren<LevelGenerator>();
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);          
@@ -459,8 +465,8 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.Initialize();
                 ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
                 newLayoutGenerator.PostInitialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection).direction + ")";
-                SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection).direction);
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction + ")";
+                SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayoutGenerator, "Left");
 

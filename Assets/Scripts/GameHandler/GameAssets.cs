@@ -58,6 +58,8 @@ public class GameAssets : MonoBehaviour
                 return platformObjectsArray[0].surfaceGameObject;
             case Surfaces.SurfaceTypes.Moving:
                 return platformObjectsArray[2].surfaceGameObject;
+            case Surfaces.SurfaceTypes.DangerousMoving:
+                return platformObjectsArray[3].surfaceGameObject;
 
         }
         return null;
@@ -84,36 +86,34 @@ public class GameAssets : MonoBehaviour
 
 
     #region LevelLayouts
-
+   
     public LevelLayouts[] levelLayoutsAArray;
-    [Header("NEXT LAYOUT")]
-    public LevelLayouts[] levelLayoutsBArray;
-    [Header("NEXT LAYOUT")]
-    public LevelLayouts[] levelLayoutsCArray;
-    [System.Serializable]
+    
+     [System.Serializable]
     public class LevelLayouts
     {
         public GameObject levelLayOutPrefab;
         public CurrentDirection direction;
+        public LevelType type;
     }
     
-    public LevelLayouts GetDesiredLevelLayout( CurrentDirection direction)
+    public LevelLayouts GetDesiredLevelLayout( CurrentDirection direction, LevelType type)
     {
-       return GetCorrectOrRandomDirectionLayout( direction);
+       return GetCorrectOrRandomDirectionLayout( direction,type);
         
  
     }
 
    
 
-    public LevelLayouts GetCorrectOrRandomDirectionLayout( CurrentDirection direction)
+    public LevelLayouts GetCorrectOrRandomDirectionLayout( CurrentDirection direction, LevelType type)
     {
        
         
                 List<LevelLayouts> possibleLayout = new List<LevelLayouts>();
                 foreach (LevelLayouts obj in levelLayoutsAArray)
                     {
-                        if (obj.direction == direction)
+                        if (obj.direction == direction && obj.type==type)
                         {
                             possibleLayout.Add(obj);
                         }
@@ -145,4 +145,32 @@ public class GameAssets : MonoBehaviour
     }
 
     #endregion
+
+    #region LevelTypes
+
+    public LevelTypes[] levelTypesArray;
+    [System.Serializable]
+    public class LevelTypes
+    {
+        public Sprite[] sprites;
+        public LevelType type;
+    }
+
+
+    public LevelTypes GetCorrectLevelType(LevelType type)
+    {
+    
+        foreach (LevelTypes obj in levelTypesArray)
+        {
+            if (obj.type == type)
+            {
+                return obj;
+            }
+        }
+        return null;
+  
+    }
+    #endregion
+    
+
 }

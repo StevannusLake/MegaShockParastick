@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Surfaces : MonoBehaviour
 {
-    public enum SurfaceTypes {Safe,Dangerous,Moving}
+    public enum SurfaceTypes {Safe,Dangerous,Moving ,DangerousMoving}
     private enum PingPongDirection {Forward,Back }
     private PingPongDirection pingpongDirection = PingPongDirection.Forward;
     public bool isMover = false;

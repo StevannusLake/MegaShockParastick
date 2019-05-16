@@ -120,6 +120,14 @@ public class ColliderController : MonoBehaviour
 
         if (other.CompareTag("RightMovementOffset"))
         {
+            if (!other.GetComponent<ZoomController>().isAlreadyActivated)
+            {
+                other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                LevelHandler.instance.cameraController.CapturePrevOffset();
+                LevelHandler.instance.cameraController.shouldGoToRight = true;
+            }
+
+
             #region CustomizationForMovingCamera
             GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[LevelHandler.instance.layoutPlayerIsIn.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
 
@@ -142,19 +150,21 @@ public class ColliderController : MonoBehaviour
             }
             #endregion
 
-            if (!other.GetComponent<ZoomController>().isAlreadyActivated )
-                {
-                    other.GetComponent<ZoomController>().isAlreadyActivated = true;
-                    LevelHandler.instance.cameraController.CapturePrevOffset();
-                    LevelHandler.instance.cameraController.shouldGoToRight = true;
-                }
-                
+        
             
 
         }
         /////// DefaultOffset
         if (other.CompareTag("LeftMovementOffset"))
         {
+            if (!other.GetComponent<ZoomController>().isAlreadyActivated)
+            {
+                other.GetComponent<ZoomController>().isAlreadyActivated = true;
+                LevelHandler.instance.cameraController.CapturePrevOffset();
+                LevelHandler.instance.cameraController.shouldGoToLeft = true;
+
+            }
+
             #region CustomizationForMovingCamera
             GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[LevelHandler.instance.layoutPlayerIsIn.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
 
@@ -168,13 +178,7 @@ public class ColliderController : MonoBehaviour
             #endregion
 
 
-            if (!other.GetComponent<ZoomController>().isAlreadyActivated)
-            {
-                other.GetComponent<ZoomController>().isAlreadyActivated = true;
-                LevelHandler.instance.cameraController.CapturePrevOffset();
-                LevelHandler.instance.cameraController.shouldGoToLeft = true;
-
-            }
+          
 
         }
     }

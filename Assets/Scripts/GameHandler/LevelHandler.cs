@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 public enum CurrentDirection {UP,RIGHT,LEFT}
 public enum LevelDifficulty {A,B,C,D,E,F}
+public enum LevelType {TYPE1,TYPE2,TYPE3 }
 public class LevelHandler : MonoBehaviour
 {
     [SerializeField]
@@ -11,6 +12,7 @@ public class LevelHandler : MonoBehaviour
     public static LevelHandler instance;
     public GameObject finalLayout;
     public GameObject layoutPlayerIsIn;
+    public GameObject firstLayoutPos;
     public MixingCameraController cameraController;
     [Header("Number of layouts to be created in advance. should be a even number")]
     public int numberOfMapToGenerate;
@@ -22,7 +24,8 @@ public class LevelHandler : MonoBehaviour
 
     public CurrentDirection currentDirection;
     public LevelDifficulty levelDifficulty;
-
+    public LevelType levelType;
+    public List<SpriteRenderer> listOfOldSprites;
 
     public float currentActiveLevelGeneratorID = 0;
     public float distanceToRespawnCoin = 5;
@@ -36,11 +39,16 @@ public class LevelHandler : MonoBehaviour
 
 
 
-
+    private void OnEnable()
+    {
+        //ChangeLevelSprites();
+        //SetLevelSprite();
+    }
 
 
     private void Awake()
     {
+        
         instance = this;
         levelLayoutsCreated = new List<GameObject>();
         GameObject dataHolder = GameObject.Find("PostRestartDataHolder");
@@ -49,15 +57,82 @@ public class LevelHandler : MonoBehaviour
             GameObject newDataHolder = Instantiate(GameAssets.i.postRestartDataHolder);
             newDataHolder.name = "PostRestartDataHolder";
         }
+        if (PostRestartDataHolder.instance.secondLifeUsed) GetSecondLifeData();
+       
+        listOfOldSprites = new List<SpriteRenderer>();
         
+        CreateFirstLayout();
 
-        if (PostRestartDataHolder.instance.secondLifeUsed)
-        {
-            GetSecondLifeData();
-        }
-        
+
+
+
+
 
     }
+
+    void CreateFirstLayout()
+    {
+       
+        GameObject firstLayout=Instantiate(GameAssets.i.GetDesiredLevelLayout(CurrentDirection.UP, levelType).levelLayOutPrefab, new Vector3(firstLayoutPos.transform.position.x, firstLayoutPos.transform.position.y), Quaternion.identity);
+        Transform pivotAnchor =firstLayout.transform.Find("PivotAnchor").transform;
+        GameObject generator = pivotAnchor.Find("LevelGenerator").transform.gameObject;
+        Transform positionBeforeSettingActive= pivotAnchor.GetComponentInChildren<LevelGenerator>().nextLayoutAnchor.transform;
+        generator.SetActive(false);
+        pivotAnchor.transform.position = firstLayout.transform.position;
+        GameObject secondLayout= Instantiate(GameAssets.i.GetDesiredLevelLayout(CurrentDirection.UP, levelType).levelLayOutPrefab, new Vector3(firstLayoutPos.transform.position.x, firstLayoutPos.transform.position.y), Quaternion.identity);
+        Transform pivotAnchor2 = secondLayout.transform.Find("PivotAnchor").transform;
+        pivotAnchor2.transform.position = positionBeforeSettingActive.position;
+        LevelGenerator levelGenerator = secondLayout.GetComponentInChildren<LevelGenerator>();
+        levelGenerator.borderCollider.size = new Vector2(levelGenerator.borderCollider.size.x, levelGenerator.borderCollider.size.y + 30f);
+
+
+        //////////////////
+        GameObject backgroundFirstLayer = pivotAnchor.transform.Find("BrownBackground").gameObject;
+        for (int i = 0; i < backgroundFirstLayer.transform.childCount; i++)
+        {
+            backgroundFirstLayer.transform.GetChild(i).GetComponent<SpriteRenderer>().sortingOrder += -10;
+            
+   
+        }
+
+    }
+     /*
+    void ChangeLevelSprites()
+    {
+        int levelsCount = GameAssets.i.levelLayoutsAArray.Count();
+        
+        //Get all old Sprites
+        for (int i=0; i<levelsCount;i++)
+        {
+            Transform pipeParent = GameAssets.i.levelLayoutsAArray[i].levelLayOutPrefab.transform.Find("PivotAnchor").transform.Find("PipeShape").transform;
+            Transform backgroundParent= GameAssets.i.levelLayoutsAArray[i].levelLayOutPrefab.transform.Find("PivotAnchor").transform.Find("BrownBackground").transform;
+            for (int j=0; j<pipeParent.childCount;j++)
+            {
+                listOfOldSprites.Add(pipeParent.GetChild(j).GetComponent<SpriteRenderer>());
+            }
+            for (int j = 0; j < backgroundParent.childCount; j++)
+            {
+                listOfOldSprites.Add(backgroundParent.GetChild(j).GetComponent<SpriteRenderer>());
+            }
+        }
+        //Replace them with new ones
+       
+
+    }
+
+    void SetLevelSprite()
+    {
+        GameAssets.LevelTypes correctLevelType = GameAssets.i.GetCorrectLevelType(levelType);
+        for (int i = 0; i < listOfOldSprites.Count; i++)
+        {
+
+            foreach (Sprite sprite in correctLevelType.sprites)
+            {
+                if (sprite.name == listOfOldSprites[i].sprite.name) listOfOldSprites[i].sprite = sprite;
+            }
+
+        }
+    }*/
 
     void GetSecondLifeData()
     {
@@ -71,6 +146,8 @@ public class LevelHandler : MonoBehaviour
         {
             Movement.deadState = 0;
         }
+        
+        
 
     }
 
@@ -195,7 +272,7 @@ public class LevelHandler : MonoBehaviour
         ObjectSpawner.instance.CheckForSpawningOpalInMiddle(layout, generator);
         ObjectSpawner.instance.CheckForRespawnCoinInMiddle(layout, generator);    
         ObjectSpawner.instance.CheckForSpawningCoinAround(layout, generator);
-        CheckForDifficulty();
+       // CheckForDifficulty();
 
 
     }
