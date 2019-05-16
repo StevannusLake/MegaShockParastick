@@ -87,8 +87,15 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region Opal UI Animation
     private Animator OpalCounterAnim;
     private Animator OpalEffectAnim;
+    #endregion
+
+    public GameObject CreditsMenu;
+
+    public GameObject GarageTransition;
+    [HideInInspector] public Animator GarageAnim;
 
     private void Awake()
     {
@@ -130,8 +137,16 @@ public class UIManager : MonoBehaviour
 
         #endregion
 
+        #region Opal UI Animation
         OpalCounterAnim = GameObject.FindGameObjectWithTag("OpalCounter").GetComponent<Animator>();
         OpalEffectAnim = GameObject.FindGameObjectWithTag("UIOpal").GetComponent<Animator>();
+        #endregion
+
+        CreditsMenu.SetActive(false);
+
+        GarageAnim = GarageTransition.GetComponent<Animator>();
+
+        //Invoke("TurnOffGarage", 3.5f);
     }
 
     private void Update()
@@ -312,10 +327,22 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
     }
 
+    #region CallMainMenu
+
     public void CallMainMenu()
     {
         Time.timeScale = 1f;
 
+        GarageTransition.SetActive(true);
+        GarageAnim.SetBool("OpenGarage", false);
+
+        Invoke("MainMenuInvoke", 1f);
+
+        //Invoke("TurnOffGarage", 7f);
+    }
+
+    void MainMenuInvoke()
+    {
         MainMenu.SetActive(true);
         PauseMenu.SetActive(false);
         LoseMenu.SetActive(false);
@@ -325,7 +352,11 @@ public class UIManager : MonoBehaviour
         secondChanceCalled = false;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
+
+        ReloadScene();
     }
+
+    #endregion
 
     public void CloseMainMenu()
     {
@@ -450,6 +481,18 @@ public class UIManager : MonoBehaviour
         MainMenu.SetActive(true);
     }
 
+    public void OpenCreditsScreen()
+    {
+        CreditsMenu.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void CloseCreditsMenu()
+    {
+        CreditsMenu.SetActive(false);
+        MainMenu.SetActive(true);
+    }
+
     public void LightIndicatorCheck()
     {
         if(Movement.deadState == 0 && !PauseMenu.activeSelf && !SecondChanceUI.activeSelf && !LoseMenu.activeSelf && !MainMenu.activeSelf)
@@ -548,13 +591,22 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region Opal UI Animation
+
     void CheckOpalUIAnimation()
     {
         if (OpalCounterAnim.GetCurrentAnimatorStateInfo(0).IsName("OnOpalCounter"))
         {
-            Invoke("OpalCounterTransitionBack", 3f);
-            Invoke("OpalEffectTransitionBack", 3f);
+            Invoke("OpalEffectGetOpalJumping", 1f);
+
+            Invoke("OpalCounterTransitionBack", 2f);
+            Invoke("OpalEffectTransitionBack", 2f);
         }
+    }
+
+    void OpalEffectGetOpalJumping()
+    {
+        OpalEffectAnim.SetBool("GetOpal", true);
     }
 
     void OpalCounterTransitionBack()
@@ -565,5 +617,12 @@ public class UIManager : MonoBehaviour
     void OpalEffectTransitionBack()
     {
         OpalEffectAnim.SetBool("OpenOpalIcon", false);
+    }
+
+    #endregion
+
+    void TurnOffGarage()
+    {
+        GarageTransition.SetActive(false);
     }
 }

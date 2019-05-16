@@ -88,9 +88,10 @@ public class ButtonManager : MonoBehaviour
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondChanceCalled", UIManager.Instance.secondChanceCalled ? 1 : 0);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.instance.uiManager.GarageTransition.SetActive(true);
+        GameManager.instance.uiManager.GarageAnim.SetBool("OpenGarage", false);
 
-
+        Invoke("ReloadScene", 1f);
     }
 
     void CheckMainMenu()
@@ -100,5 +101,10 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.SetFloat("TempScore", 0);
             TempScore = PlayerPrefs.GetFloat("TempScore", TempScore);
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
