@@ -43,6 +43,7 @@ public class LevelHandler : MonoBehaviour
     {
         //ChangeLevelSprites();
         //SetLevelSprite();
+        levelType = LevelType.TYPE1;
     }
 
 
