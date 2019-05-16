@@ -10,6 +10,8 @@ public class MissionManager : MonoBehaviour
     public Missions[] missions;
     public GameObject[] MissionTabs;
     public GameObject ChallengesMenu;
+    public Button[] missionClaimButton;
+    public Sprite claimButtonSprite;
 
     void Awake()
     {
@@ -49,6 +51,23 @@ public class MissionManager : MonoBehaviour
         if(ChallengesMenu.activeInHierarchy)
         {
             ShowMissionObjective();
+            //CheckCompleted(); 
+        }
+        CheckMissionInGame(missions);
+    }
+
+    void CheckCompleted() //for buttons
+    {
+        for (int i = 0; i < missions.Length; i++)
+        {   
+            if (missions[i].isCompleted)
+            {
+                missionClaimButton[i].interactable = true;
+            }
+            else
+            {
+                missionClaimButton[i].interactable = false;
+            }
         }
     }
 
@@ -187,6 +206,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.playerDistanceTraveled >= missions[i].distanceObj)
                     {
                         missions[i].isCompleted = true;
+                        Debug.Log(missions[i].description + " COMPLETED");
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.DistanceNoCoin)
@@ -262,6 +282,52 @@ public class MissionManager : MonoBehaviour
                 }
                 #endregion
             }
+        }
+    }
+
+    public void Mission1Claim()
+    {
+        if(missions[0].rewardType == Missions.RewardType.coins)
+        {
+            GameManager.instance.AddCoin(missions[0].coinReward);
+            GameManager.instance.totalCoinCollected += missions[0].coinReward;
+            missionClaimButton[0].image.sprite = claimButtonSprite;
+        }
+    }
+    public void Mission2Claim()
+    {
+        if (missions[1].rewardType == Missions.RewardType.coins)
+        {
+            GameManager.instance.AddCoin(missions[1].coinReward);
+            GameManager.instance.totalCoinCollected += missions[1].coinReward;
+            missionClaimButton[1].image.sprite = claimButtonSprite;
+        }
+    }
+    public void Mission3Claim()
+    {
+        if (missions[2].rewardType == Missions.RewardType.coins)
+        {
+            GameManager.instance.AddCoin(missions[2].coinReward);
+            GameManager.instance.totalCoinCollected += missions[2].coinReward;
+            missionClaimButton[2].image.sprite = claimButtonSprite;
+        }
+    }
+    public void Mission4Claim()
+    {
+        if (missions[3].rewardType == Missions.RewardType.coins)
+        {
+            GameManager.instance.AddCoin(missions[3].coinReward);
+            GameManager.instance.totalCoinCollected += missions[3].coinReward;
+            missionClaimButton[3].image.sprite = claimButtonSprite;
+        }
+    }
+    public void Mission5Claim()
+    {
+        if (missions[4].rewardType == Missions.RewardType.coins)
+        {
+            GameManager.instance.AddCoin(missions[4].coinReward);
+            GameManager.instance.totalCoinCollected += missions[4].coinReward;
+            missionClaimButton[4].image.sprite = claimButtonSprite;
         }
     }
 }
