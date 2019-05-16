@@ -20,7 +20,7 @@ public class MissionManager : MonoBehaviour
     }
 
     void Start()
-    {   
+    {       
         if(!PlayerPrefs.HasKey("Mission1"))
         {
             missionListId[0] = 1;
@@ -37,12 +37,20 @@ public class MissionManager : MonoBehaviour
             }
         }
 
-        missions = new Missions[5];
+        missions = new Missions[5];   
 
         for (int i=0;i<5;i++)
         {
             var tempItem = new Missions(missionListId[i]);
             missions[i] = tempItem;
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.GetInt("Mission" + (i + 1) + "Completed") == 1)
+            {
+                missions[i].isCompleted = true;
+            }
         }
     }
 
@@ -51,9 +59,24 @@ public class MissionManager : MonoBehaviour
         if(ChallengesMenu.activeInHierarchy)
         {
             ShowMissionObjective();
-            //CheckCompleted(); 
+            CheckCompleted(); 
         }
         CheckMissionInGame(missions);
+    }
+
+    void SaveCompletion()
+    {
+        for(int i=0;i<5;i++)
+        {
+            if(missions[i].isCompleted)
+            {
+                PlayerPrefs.SetInt("Mission" + (i + 1) + "Completed", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Mission" + (i + 1) + "Completed", 0);
+            }
+        }
     }
 
     void CheckCompleted() //for buttons
@@ -85,6 +108,7 @@ public class MissionManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Mission" + (i + 1), missionListId[i]);
         }
+        SaveCompletion();
     }
 
     public void CheckMissionEnd(Missions[] missions)
@@ -192,6 +216,7 @@ public class MissionManager : MonoBehaviour
                 #endregion
             }
         }
+        SaveCompletion();
     }
 
     public void CheckMissionInGame(Missions[] missions)
@@ -286,13 +311,16 @@ public class MissionManager : MonoBehaviour
     }
 
     public void Mission1Claim()
-    {
-        if(missions[0].rewardType == Missions.RewardType.coins)
+    {   
+        if(missions[0].isCompleted)
         {
-            GameManager.instance.AddCoin(missions[0].coinReward);
-            GameManager.instance.totalCoinCollected += missions[0].coinReward;
-            missionClaimButton[0].image.sprite = claimButtonSprite;
-        }
+            if (missions[0].rewardType == Missions.RewardType.coins)
+            {
+                GameManager.instance.AddCoin(missions[0].coinReward);
+                GameManager.instance.totalCoinCollected += missions[0].coinReward;
+                missionClaimButton[0].image.sprite = claimButtonSprite;
+            }
+        }      
     }
     public void Mission2Claim()
     {
