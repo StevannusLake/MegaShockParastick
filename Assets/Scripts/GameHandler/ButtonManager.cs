@@ -88,8 +88,8 @@ public class ButtonManager : MonoBehaviour
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondChanceCalled", UIManager.Instance.secondChanceCalled ? 1 : 0);
 
-        GameManager.instance.uiManager.GarageTransition.SetActive(true);
-        GameManager.instance.uiManager.GarageAnim.SetBool("OpenGarage", false);
+        //GameManager.instance.uiManager.GarageTransition.SetActive(true);
+       // GameManager.instance.uiManager.GarageAnim.SetBool("OpenGarage", false);
 
         Invoke("ReloadScene", 1f);
     }
