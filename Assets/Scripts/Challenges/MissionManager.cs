@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour
     public GameObject ChallengesMenu;
     public Button[] missionClaimButton;
     public Sprite claimButtonSprite;
+    public int questCompleted;
 
     void Awake()
     {
@@ -20,8 +21,8 @@ public class MissionManager : MonoBehaviour
     }
 
     void Start()
-    {       
-        if(!PlayerPrefs.HasKey("Mission1"))
+    {
+        if (!PlayerPrefs.HasKey("Mission1"))
         {
             missionListId[0] = 1;
             missionListId[1] = 11;
@@ -39,6 +40,7 @@ public class MissionManager : MonoBehaviour
 
         missions = new Missions[5];   
 
+        // Load mission
         for (int i=0;i<5;i++)
         {
             var tempItem = new Missions(missionListId[i]);
@@ -54,6 +56,12 @@ public class MissionManager : MonoBehaviour
             if (PlayerPrefs.GetInt("Mission" + (i + 1) + "Claimed") == 1)
             {
                 missions[i].isClaimed = true;
+            }
+
+            if (missions[i].missionType == Missions.MissionType.DistanceBetween || missions[i].missionType == Missions.MissionType.Coin
+                || missions[i].missionType == Missions.MissionType.BounceExact || missions[i].missionType == Missions.MissionType.Stick)
+            {
+                missions[i].completeNum = PlayerPrefs.GetInt("Mission" + (i + 1) + "Progress");
             }
         }
     }
@@ -87,6 +95,12 @@ public class MissionManager : MonoBehaviour
             else
             {
                 PlayerPrefs.SetInt("Mission" + (i + 1) + "Claimed", 0);
+            }
+
+            if(missions[i].missionType == Missions.MissionType.DistanceBetween || missions[i].missionType == Missions.MissionType.Coin
+                || missions[i].missionType == Missions.MissionType.BounceExact || missions[i].missionType == Missions.MissionType.Stick)
+            {
+                PlayerPrefs.SetInt("Mission" + (i + 1) + "Progress", missions[i].completeNum);
             }
         }
     }
@@ -337,6 +351,8 @@ public class MissionManager : MonoBehaviour
                 GameManager.instance.totalCoinCollected += missions[0].coinReward;
                 missionClaimButton[0].image.sprite = claimButtonSprite;
                 missions[0].isClaimed = true;
+                questCompleted = 0;
+                MissionTabs[0].GetComponent<Animator>().Play("NextMission");
             }
         }      
     }
@@ -348,6 +364,8 @@ public class MissionManager : MonoBehaviour
             GameManager.instance.totalCoinCollected += missions[1].coinReward;
             missions[1].isClaimed = true;
             missionClaimButton[1].image.sprite = claimButtonSprite;
+            questCompleted = 1;
+            MissionTabs[1].GetComponent<Animator>().Play("NextMission");
         }
     }
     public void Mission3Claim()
@@ -358,6 +376,8 @@ public class MissionManager : MonoBehaviour
             GameManager.instance.totalCoinCollected += missions[2].coinReward;
             missionClaimButton[2].image.sprite = claimButtonSprite;
             missions[2].isClaimed = true;
+            questCompleted = 2;
+            MissionTabs[2].GetComponent<Animator>().Play("NextMission");
         }
     }
     public void Mission4Claim()
@@ -368,6 +388,8 @@ public class MissionManager : MonoBehaviour
             GameManager.instance.totalCoinCollected += missions[3].coinReward;
             missionClaimButton[3].image.sprite = claimButtonSprite;
             missions[3].isClaimed = true;
+            questCompleted = 3;
+            MissionTabs[3].GetComponent<Animator>().Play("NextMission");
         }
     }
     public void Mission5Claim()
@@ -378,6 +400,19 @@ public class MissionManager : MonoBehaviour
             GameManager.instance.totalCoinCollected += missions[4].coinReward;
             missionClaimButton[4].image.sprite = claimButtonSprite;
             missions[4].isClaimed = true;
+            questCompleted = 4;
+            MissionTabs[4].GetComponent<Animator>().Play("NextMission");
+        }
+    }
+
+    public void NextMission()
+    {
+        if(missions[questCompleted].nextQuest)
+        {
+            PlayerPrefs.SetInt("Mission" + (questCompleted + 1) + "Progress", 0);
+            missionListId[questCompleted] = missions[questCompleted].nextId;
+            var tempItem = new Missions(missionListId[questCompleted]);
+            missions[questCompleted] = tempItem;
         }
     }
 }
