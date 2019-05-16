@@ -29,7 +29,6 @@ public class OpalEffect : MonoBehaviour
             if (counter >= duration)
             {
                 counter = 0;
-                //UIOpal.SetBool("GetOpal", false);
                 Destroy(gameObject);
 
                 Invoke("TurnOffOpalCounter", 2f);
@@ -57,20 +56,10 @@ public class OpalEffect : MonoBehaviour
                 OpalCounterAnim.SetBool("OpenCounter", true);
 
                 UIOpal.SetBool("OpenOpalIcon", true);
-                UIOpal.SetBool("GetEffect", true);
-                UIOpal.SetBool("GetOpal", true);
-
-                //Invoke("TurnOffOpalCounter", 2f);
             }
 
             myAnimator.SetBool("PlayerCoin", true);
             dieBool = true;
         }
     }
-
-    //void TurnOffOpalCounter()
-    //{
-    //    OpalCounterAnim.SetBool("OpenCounter", false);
-    //    UIOpal.SetBool("OpenOpalIcon", false);
-    //}
 }
