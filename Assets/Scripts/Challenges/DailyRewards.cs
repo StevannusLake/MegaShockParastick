@@ -17,12 +17,6 @@ public class DailyRewards : MonoBehaviour
         CheckGreenTick();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        MissionManager.instance.CheckMissionInGame(MissionManager.instance.missions);
-    }
-
     void CheckDate()
     {
         if(PlayerPrefs.GetInt("LoginDay") == 0)

@@ -3729,6 +3729,48 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 308574650}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &308574653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833761058041895319, guid: 811959adcef4eb244831c2cdc09f75e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 308574650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &308574654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833761059077500356, guid: 811959adcef4eb244831c2cdc09f75e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 308574650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &308574655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833761057994435559, guid: 811959adcef4eb244831c2cdc09f75e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 308574650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &308574656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833761058213468011, guid: 811959adcef4eb244831c2cdc09f75e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 308574650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &308574657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833761058193992868, guid: 811959adcef4eb244831c2cdc09f75e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 308574650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &308574658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833761059372528147, guid: 811959adcef4eb244831c2cdc09f75e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 308574650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &308574659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833761058687510551, guid: 811959adcef4eb244831c2cdc09f75e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 308574650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &343994896
 GameObject:
   m_ObjectHideFlags: 0
@@ -14339,6 +14381,7 @@ GameObject:
   - component: {fileID: 1170094492}
   - component: {fileID: 1170094496}
   - component: {fileID: 1170094498}
+  - component: {fileID: 1170094499}
   - component: {fileID: 1170094497}
   m_Layer: 0
   m_Name: GameHandler
@@ -14521,6 +14564,26 @@ MonoBehaviour:
   skinSelecting: {fileID: 0}
   shopState: 0
   coinText: {fileID: 0}
+--- !u!114 &1170094499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170094491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73673db386fc5744a35d1c131cbc522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenTicks:
+  - {fileID: 308574659}
+  - {fileID: 308574658}
+  - {fileID: 308574657}
+  - {fileID: 308574656}
+  - {fileID: 308574655}
+  - {fileID: 308574654}
+  - {fileID: 308574653}
 --- !u!1 &1203520971
 GameObject:
   m_ObjectHideFlags: 0
