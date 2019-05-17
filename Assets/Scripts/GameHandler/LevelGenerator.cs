@@ -25,6 +25,7 @@ public class LevelGenerator : MonoBehaviour
     public bool test;
 
     public static CurrentDirection[] upwardPossibilities;
+    public CurrentDirection thisLevelDirection;
 
     private void Awake()
     {
@@ -77,13 +78,20 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+    void SetThisLevelTypeDirection()
+    {
+        if (transform.parent.parent.tag == "UpLayout") thisLevelDirection = CurrentDirection.UP;
+        else if (transform.parent.parent.tag == "LeftLayout") thisLevelDirection = CurrentDirection.LEFT;
+        else if (transform.parent.parent.tag == "RightLayout") thisLevelDirection = CurrentDirection.RIGHT;
+    }
 
     public void Initialize()
     {
+        SetThisLevelTypeDirection();
         GetAllBackgrounds();     
         AddChildsToList();
-        RespawnPlatforms();
         SortAllPlatfromsBasedOnDistance();
+        RespawnPlatforms();     
         GetTheToppestAndBottomPlatform();
         RemoveSpriteRenderers();
         if (levelGeneratorID == 0) AddSelfToLevelHandler();
@@ -130,6 +138,12 @@ public class LevelGenerator : MonoBehaviour
 
 
         }
+
+        platformPlacementListGreen.Sort(Compare);
+        platformPlacementListRedMoving.Sort(Compare);
+        platformPlacementListWhite.Sort(Compare);
+        platformPlacementListBlue.Sort(Compare);
+        platformPlacementListRed.Sort(Compare);
     }
 
     Transform DifficultyBasedLayoutChildTransform(LevelDifficulty levelDifficulty)
@@ -235,7 +249,7 @@ public class LevelGenerator : MonoBehaviour
         // White Platforms
         //Respawn one dangerous randomly
         #region White Platforms
-        int randomDangerousPlatform = Random.Range(1, platformPlacementListWhite.Count);
+        int randomDangerousPlatform = Random.Range(1, platformPlacementListWhite.Count-1);
 
         for (int i = 0; i < platformPlacementListWhite.Count; i++)
         {
@@ -488,9 +502,30 @@ public class LevelGenerator : MonoBehaviour
     }
     private  int Compare(GameObject _objA, GameObject _objB )
     {
-        float t1 = Vector2.Distance(_objA.transform.position, new Vector2(borderCollider.bounds.min.x, borderCollider.bounds.min.y));
-        float t2 = Vector2.Distance(_objB.transform.position, new Vector2(borderCollider.bounds.min.x, borderCollider.bounds.min.y));
-        return t1.CompareTo(t2);
+       switch (thisLevelDirection)
+        {
+            case CurrentDirection.UP:
+                {
+                    float t1 = Vector2.Distance(_objA.transform.position, new Vector2(borderCollider.bounds.min.x, borderCollider.bounds.min.y));
+                    float t2 = Vector2.Distance(_objB.transform.position, new Vector2(borderCollider.bounds.min.x, borderCollider.bounds.min.y));
+                    return t1.CompareTo(t2);
+                }
+            case CurrentDirection.RIGHT:
+                {
+                    float t1 = Vector2.Distance(_objA.transform.position, new Vector2(borderCollider.bounds.min.x, borderCollider.bounds.min.y));
+                    float t2 = Vector2.Distance(_objB.transform.position, new Vector2(borderCollider.bounds.min.x, borderCollider.bounds.min.y));
+                    return t1.CompareTo(t2);
+                }
+            case CurrentDirection.LEFT:
+                {
+                    float t1 = Vector2.Distance(_objA.transform.position, new Vector2(borderCollider.bounds.max.x, borderCollider.bounds.min.y));
+                    float t2 = Vector2.Distance(_objB.transform.position, new Vector2(borderCollider.bounds.max.x, borderCollider.bounds.min.y));
+                    return t1.CompareTo(t2);
+                }
+        }
+
+        return 0;
+      
     }
 
 
