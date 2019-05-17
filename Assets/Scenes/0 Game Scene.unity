@@ -24417,6 +24417,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1641396750621175143, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: levelLayoutsAArray.Array.data[0].direction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3721947121187993158, guid: 97a9781b656b8cf49a10c29c02bc8f42,
         type: 3}
       propertyPath: m_Name
@@ -24529,11 +24534,6 @@ PrefabInstance:
         type: 3}
       propertyPath: levelLayoutsAArray.Array.data[5].type
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641396750621175143, guid: 97a9781b656b8cf49a10c29c02bc8f42,
-        type: 3}
-      propertyPath: levelLayoutsAArray.Array.data[0].direction
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a9781b656b8cf49a10c29c02bc8f42, type: 3}
