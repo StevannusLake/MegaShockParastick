@@ -421,7 +421,7 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.Initialize();
                 ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
                 newLayoutGenerator.PostInitialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).direction + ")";
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).direction + ")" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).type;
                 SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).direction);             
                 if(i!= (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayoutGenerator, "Up");
@@ -443,7 +443,7 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.Initialize();
                 ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
                 newLayoutGenerator.PostInitialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction + ")";
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction + ")" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).type;
                 SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayoutGenerator, "Right");
@@ -465,7 +465,7 @@ public class LevelGenerator : MonoBehaviour
                 newLayoutGenerator.Initialize();
                 ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
                 newLayoutGenerator.PostInitialize();
-                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction + ")";
+                newLayout.name = "LevelLayout-" + (this.levelGeneratorID + 2) + "(" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction + ")" + GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).type;
                 SendLastGeneratedLevel(newLayoutGenerator, GameAssets.i.GetDesiredLevelLayout(randomDirection, LevelHandler.instance.levelType).direction);
                 if (i != (int)LevelHandler.instance.numberOfMapToGenerate - LevelHandler.instance.whenToGenerateMoreMaps) newLayout.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
                 LevelHandler.instance.LevelAdded(newLayout, newLayoutGenerator, "Left");
