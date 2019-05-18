@@ -391,6 +391,7 @@ public class UIManager : MonoBehaviour
     public void CloseMainMenu()
     {
         MainMenuAnim.SetBool("CloseMenu",true);
+        LevelHandler.instance.cameraController.gameObject.GetComponent<MixingCameraController>().enabled = true;
         Invoke("CallClosingMainMenu", 1.2f);
         playerMovement.enabled = true;
         playerColliderConroller.enabled = true;
