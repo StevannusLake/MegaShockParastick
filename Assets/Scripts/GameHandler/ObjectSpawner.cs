@@ -145,8 +145,21 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position, 1.0f, (secondObject.transform.position - firstObject.transform.position),10, layer_mask);
-        if (hit.collider.gameObject.tag == "Deadly" || hit.collider.gameObject.tag == "HorizontalWall") return;
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.1f, (secondObject.transform.position - firstObject.transform.position),10, layer_mask);
+        for(int i =0; i<hit.Length;i++)
+        {
+            if(hit[i].collider.gameObject!=firstObject.gameObject)
+            {
+                if (hit[i].collider.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
+                {
+                    GameObject collided = new GameObject("collided");
+                    collided.transform.position = hit[i].transform.position;
+                    return;
+                }
+               
+            }
+        }
+        
 
 
 
@@ -180,14 +193,25 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
 
-        RaycastHit2D hit = Physics2D.CircleCast(firstObject.transform.position, 1.0f, (secondObject.transform.position - firstObject.transform.position), 10, layer_mask);
-        if (hit.collider.tag == "Deadly" || hit.collider.tag == "HorizontalWall") return;
-        
-      
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.1f, (secondObject.transform.position - firstObject.transform.position), 10, layer_mask);
+        for (int i = 0; i < hit.Length; i++)
+        {
+            if (hit[i].collider.gameObject != firstObject.gameObject)
+            {
+                if (hit[i].collider.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
+                {
+                    GameObject collided = new GameObject("collided");
+                    collided.transform.position = hit[i].transform.position;
+                    return;
+                }
+
+            }
+        }
 
 
 
-         Surfaces surface1 = firstObject.GetComponent<Surfaces>();
+
+        Surfaces surface1 = firstObject.GetComponent<Surfaces>();
         Surfaces surface2 = secondObject.GetComponent<Surfaces>();
         if (surface1.alreadyRespawnedCoin || surface1.alreadyRespawnedCoin) return;
         int randomNumberOfCoins = Random.Range(3, 6);

@@ -45,6 +45,9 @@ public static class AudioManager
                 source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
                 source.volume = GetAudioClipVolume(sound);
                 source.PlayOneShot(GetAudioClip(sound));
+                DoCustomization(sound, source);
+
+
             }
             
             else if (!GameManager.instance.soundSourcesCreated.Contains(soundName))
@@ -57,12 +60,30 @@ public static class AudioManager
                 source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
                 source.volume= GetAudioClipVolume(sound);
                 source.PlayOneShot(GetAudioClip(sound));
+                DoCustomization(sound, source);
             }
+
            
+              
+                    
+
             
-                  
+
         }
+
+      
   
+    }
+
+
+    static void DoCustomization(Sound sound,AudioSource source)
+    {
+        switch (sound)
+        {
+            case Sound.InGameBGM:
+                source.loop = true;
+                break;
+        }
     }
 
     public static void PlaySoundCustom(Sound sound, float volume, float pitch)
@@ -75,6 +96,7 @@ public static class AudioManager
             source.pitch = pitch;
             source.volume = volume;
             source.PlayOneShot(GetAudioClip(sound));
+            DoCustomization(sound, source);
         }
 
         else if (!GameManager.instance.soundSourcesCreated.Contains(soundName))
@@ -87,6 +109,7 @@ public static class AudioManager
             source.pitch = pitch;
             source.volume = volume;
             source.PlayOneShot(GetAudioClip(sound));
+            DoCustomization(sound, source);
         }
 
 
