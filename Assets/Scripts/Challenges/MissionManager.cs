@@ -13,6 +13,7 @@ public class MissionManager : MonoBehaviour
     public Button[] missionClaimButton;
     public Sprite claimButtonSprite;
     public int questCompleted;
+    public GameObject missionCompleteNotic;
 
     void Awake()
     {
@@ -157,6 +158,7 @@ public class MissionManager : MonoBehaviour
                         if (missions[i].completeNum == missions[i].completeObj)
                         {
                             missions[i].isCompleted = true;
+                            missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                         }
                     }
                 }
@@ -168,6 +170,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         Debug.Log(missions[i].description + " COMPLETED");
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.CoinExact)
@@ -175,6 +178,7 @@ public class MissionManager : MonoBehaviour
                     if (GameManager.instance.coinCollectedInAGame == missions[i].coinObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.Coin)
@@ -185,6 +189,7 @@ public class MissionManager : MonoBehaviour
                         if (missions[i].completeNum == missions[i].completeObj)
                         {
                             missions[i].isCompleted = true;
+                            missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                         }
                     }
                 }
@@ -195,6 +200,7 @@ public class MissionManager : MonoBehaviour
                     if (GameManager.instance.bounceCounterInAGame >= missions[i].minBounce && GameManager.instance.bounceCounterInAGame <= missions[i].maxBounce)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.BounceExact)
@@ -205,6 +211,7 @@ public class MissionManager : MonoBehaviour
                         if (missions[i].completeNum == missions[i].completeObj)
                         {
                             missions[i].isCompleted = true;
+                            missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                         }
                     }
                 }
@@ -218,6 +225,7 @@ public class MissionManager : MonoBehaviour
                         if (missions[i].completeNum == missions[i].completeObj)
                         {
                             missions[i].isCompleted = true;
+                            missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                         }
                     }
                 }
@@ -226,6 +234,7 @@ public class MissionManager : MonoBehaviour
                     if (GameManager.instance.stickCounterInAGame >= missions[i].minStick && GameManager.instance.stickCounterInAGame <= missions[i].maxStick)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.StickExact)
@@ -233,6 +242,7 @@ public class MissionManager : MonoBehaviour
                     if (GameManager.instance.stickCounterInAGame == missions[i].stickObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 #endregion
@@ -242,6 +252,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.totalPlay >= missions[i].playObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 #endregion
@@ -263,6 +274,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         Debug.Log(missions[i].description + " COMPLETED");
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.DistanceNoCoin)
@@ -270,6 +282,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.playerDistanceTraveled >= missions[i].distanceObj && GameManager.instance.coinCollectedInAGame == 0)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.DistanceTotal)
@@ -277,6 +290,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.totalDistanceTravelled >= missions[i].distanceObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 #endregion
@@ -286,6 +300,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.totalCoinCollected >= missions[i].coinObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 #endregion
@@ -295,6 +310,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.bounceCounterInAGame >= missions[i].bounceObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.BounceTotal)
@@ -302,6 +318,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.totalBounce >= missions[i].bounceObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 #endregion
@@ -311,6 +328,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.totalStick >= missions[i].stickObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 #endregion
@@ -320,6 +338,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.totalSpin >= missions[i].spinObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.Point)
@@ -327,6 +346,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.totalPoints >= missions[i].pointObj)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.HighScore)
@@ -334,6 +354,7 @@ public class MissionManager : MonoBehaviour
                     if(GameManager.instance.playerDistanceTraveled >= GameManager.instance.highScore)
                     {
                         missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
                     }
                 }
                 #endregion
