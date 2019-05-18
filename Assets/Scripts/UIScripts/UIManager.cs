@@ -42,10 +42,17 @@ public class UIManager : MonoBehaviour
     public bool callLoseMenu = false;
     public bool closingSecondChanceMenu = false;
 
+    private Animator secondChanceMenuAnim;
+
     public GameObject[] ContinueUI;
     public GameObject[] LoseUI;
 
+    #region Settings Screen
+
     public GameObject SettingsScreen;
+    private Animator settingsScreenAnim;
+
+    #endregion
 
     public GameObject FirstInitialPlatform;
     public GameObject SecondLifeInitialPlatform;
@@ -56,6 +63,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject CoinMultiplyPanel;
     public Text DoubleCoinText;
+    private Animator coinMultiplyPanelAnim;
 
     public GameObject ContinueFill;
     public float continueFillDuration;
@@ -90,6 +98,23 @@ public class UIManager : MonoBehaviour
     private Animator OpalCounterAnim;
     private Animator OpalEffectAnim;
 
+    #region Garage Transitioning
+
+    public GameObject GarageTransitioning;
+    private Animator GarageAnim;
+
+    #endregion
+
+    #region Credits Menu
+
+    public GameObject CreditsMenu;
+    private Animator creditsMenuAnim;
+
+    #endregion
+
+    public GameObject InGameUI;
+    private Animator inGameUIAnim;
+
     private void Awake()
     {
         if(instance == null)
@@ -104,13 +129,18 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        highScoreInMainMenu.text = PlayerPrefs.GetFloat("HighScore",0).ToString("F1")+" mm";
+        highScoreInMainMenu.text = PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
 
         TutorialScreen.SetActive(false);
 
         secondChanceCalled = PlayerPrefs.GetInt("SecondChanceCalled") == 1 ? true : false;
 
+        #region Settings Screen
+
         SettingsScreen.SetActive(false);
+        settingsScreenAnim = SettingsScreen.GetComponent<Animator>();
+
+        #endregion
 
         PauseMenu.SetActive(false);
 
@@ -132,6 +162,25 @@ public class UIManager : MonoBehaviour
 
         OpalCounterAnim = GameObject.FindGameObjectWithTag("OpalCounter").GetComponent<Animator>();
         OpalEffectAnim = GameObject.FindGameObjectWithTag("UIOpal").GetComponent<Animator>();
+
+        #region Garage Transitioning
+
+        GarageAnim = GarageTransitioning.GetComponent<Animator>();
+
+        #endregion
+
+        #region Credits Menu
+
+        CreditsMenu.SetActive(false);
+        creditsMenuAnim = CreditsMenu.GetComponent<Animator>();
+
+        #endregion
+
+        secondChanceMenuAnim = SecondChanceMenu.GetComponent<Animator>();
+
+        coinMultiplyPanelAnim = CoinMultiplyPanel.GetComponent<Animator>();
+
+        inGameUIAnim = InGameUI.GetComponent<Animator>();
     }
 
     private void Update()
@@ -270,12 +319,12 @@ public class UIManager : MonoBehaviour
 
     public void CallLoseMenu()
     {
-        SecondChanceMenu.SetActive(false);
+        secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
 
         AudioManager.PlaySound(AudioManager.Sound.Lose);
         closingSecondChanceMenu = true;
         //callSecondChanceMenu = false;
-        LoseMenu.SetActive(true);
+        
         // Update score
         GameManager.instance.SaveCoin();
         GameManager.instance.SaveScore();
@@ -294,6 +343,16 @@ public class UIManager : MonoBehaviour
         //Check mission
         MissionManager.instance.CheckMissionEnd(MissionManager.instance.missions);
         GameManager.instance.SaveTotalValues();
+
+        ClosingInGameUI();
+
+        Invoke("TurnOffSecondChanceMenuToLoseMenu", 1.2f);
+    }
+
+    void TurnOffSecondChanceMenuToLoseMenu()
+    {
+        SecondChanceMenu.SetActive(false);
+        LoseMenu.SetActive(true);
     }
 
     public void CloseLoseMenu()
@@ -334,6 +393,8 @@ public class UIManager : MonoBehaviour
         playerMovement.enabled = true;
         playerColliderConroller.enabled = true;
 
+        Invoke("OpeningInGameUI", 0.6f);
+
     }
 
     void CallClosingMainMenu()
@@ -367,12 +428,17 @@ public class UIManager : MonoBehaviour
         secondChanceCalled = true;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
+
+        ClosingInGameUI();
     }
 
     public void CloseSecondChanceMenu()
     {
-       // if (GameManager.instance.GetPoints() >= 4)
+        // if (GameManager.instance.GetPoints() >= 4)
         //{
+
+            secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
+
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
 
             GameManager.instance.DecreasePoints(4);
@@ -387,11 +453,18 @@ public class UIManager : MonoBehaviour
             //ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
             //! Save Temporary Player Distance
             PlayerPrefs.SetFloat("TempScore", player.GetComponent<Movement>().playerDistance);
-
-            SecondChanceMenu.SetActive(false);
+            
             Movement.deadState = 0;
-            ReloadScene();
+
+            ClosingGarage();
+            Invoke("TurnOffSecondChanceMenu", 1.2f);
        // }
+    }
+
+    void TurnOffSecondChanceMenu()
+    {
+        SecondChanceMenu.SetActive(false);
+        ReloadScene();
     }
 
     public void CheckSecondChanceButton()
@@ -438,17 +511,28 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    #region Settings Screen
+
     public void OpenSettingsScreen()
     {
         SettingsScreen.SetActive(true);
-        MainMenu.SetActive(false);
+        //MainMenu.SetActive(false);
     }
 
     public void CloseSettingsScreen()
     {
-        SettingsScreen.SetActive(false);
-        MainMenu.SetActive(true);
+        settingsScreenAnim.SetBool("OpenSettings", false);
+        //MainMenu.SetActive(true);
+
+        Invoke("TurnOffSettingsScreen", 1.2f);
     }
+
+    void TurnOffSettingsScreen()
+    {
+        SettingsScreen.SetActive(false);
+    }
+
+    #endregion
 
     public void LightIndicatorCheck()
     {
@@ -478,9 +562,16 @@ public class UIManager : MonoBehaviour
 
     public void CloseCoinMultiplyPanel()
     {
-        CoinMultiplyPanel.SetActive(false);
+        coinMultiplyPanelAnim.SetBool("OpenCoinMultiplyPanel", false);
 
         ColliderController.tempCollectedCoin = 0;
+
+        Invoke("TurnOffCoinMultiplyPanel", 1.2f);
+    }
+
+    void TurnOffCoinMultiplyPanel()
+    {
+        CoinMultiplyPanel.SetActive(false);
     }
 
     #region Sound & Vibrate Button in Settings Menu
@@ -552,9 +643,15 @@ public class UIManager : MonoBehaviour
     {
         if (OpalCounterAnim.GetCurrentAnimatorStateInfo(0).IsName("OnOpalCounter"))
         {
+            Invoke("OpalJumpingEffect", 1f);
             Invoke("OpalCounterTransitionBack", 3f);
             Invoke("OpalEffectTransitionBack", 3f);
         }
+    }
+
+    void OpalJumpingEffect()
+    {
+        OpalEffectAnim.SetBool("GetOpal", true);
     }
 
     void OpalCounterTransitionBack()
@@ -565,5 +662,49 @@ public class UIManager : MonoBehaviour
     void OpalEffectTransitionBack()
     {
         OpalEffectAnim.SetBool("OpenOpalIcon", false);
+    }
+
+    #region Garage Transitioning
+
+    public void OpeningGarage()
+    {
+        GarageAnim.SetBool("OpenGarage", true);
+    }
+
+    public void ClosingGarage()
+    {
+        GarageAnim.SetBool("OpenGarage", false);
+    }
+
+    #endregion
+
+    #region Credits Menu
+
+    public void OpenCreditsMenu()
+    {
+        CreditsMenu.SetActive(true);
+    }
+
+    public void CloseCreditsMenu()
+    {
+        creditsMenuAnim.SetBool("OpenCredits",false);
+        Invoke("TurnOffCreditsMenu", 1.2f);
+    }
+
+    void TurnOffCreditsMenu()
+    {
+        CreditsMenu.SetActive(false);
+    }
+
+    #endregion
+
+    public void OpeningInGameUI()
+    {
+        inGameUIAnim.SetBool("OpenInGameUI", true);
+    }
+
+    public void ClosingInGameUI()
+    {
+        inGameUIAnim.SetBool("OpenInGameUI", false);
     }
 }
