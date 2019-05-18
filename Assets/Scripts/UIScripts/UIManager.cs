@@ -129,6 +129,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        ShopMenu.SetActive(false);
+
         highScoreInMainMenu.text = PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
 
         TutorialScreen.SetActive(false);
@@ -716,5 +718,20 @@ public class UIManager : MonoBehaviour
     public void MegaShockIGLink()
     {
         Application.OpenURL("https://www.instagram.com/megashockentertainment/");
+    }
+
+    public void ShowShopMenu()
+    {
+        ShopMenu.SetActive(true);
+    }
+
+    public void ShowChallengesMenu()
+    {
+        ChallengesMenu.SetActive(true);
+    }
+
+    public void CloseChallengesMenu()
+    {
+        ChallengesMenu.SetActive(false);
     }
 }

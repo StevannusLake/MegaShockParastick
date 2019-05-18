@@ -167,6 +167,7 @@ public class GameManager : MonoBehaviour
                 if (Shop.instance.skinList[j].name == PlayerPrefs.GetString("Skin[" + i + "].name", ""))
                 {
                     skinCollected.Add(Shop.instance.skinList[j]);
+                    Shop.instance.skinList[j].GetComponent<Skin>().isBought = true;
                     break;
                 }
             }

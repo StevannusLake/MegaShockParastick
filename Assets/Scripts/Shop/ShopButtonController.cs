@@ -10,6 +10,7 @@ public class ShopButtonController : MonoBehaviour
     public GameObject coinsMenu;
     public GameObject notEnoughMenu;
     public GameObject buyConfirmationMenu;
+    public GameObject luckySpinMenu;
     public Text coin;
 
     private void Update()
@@ -64,5 +65,10 @@ public class ShopButtonController : MonoBehaviour
     public void ResetAllData()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public void ShowLuckySpinMenu()
+    {
+        luckySpinMenu.SetActive(true);
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    public bool isUnlocked = false;
     public int price;
     //public string skinName;
     public Sprite skinImage;
@@ -14,16 +13,27 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public GameObject mainCamera;
     public bool isBought = false;
 
+    void Awake()
+    {   
+        skinImage = GetComponent<Button>().image.sprite;
+    }
+
     void Start()
     {
-        skinImage = GetComponent<Button>().image.sprite;
         confirmationMenu = GameObject.FindWithTag("BuyConfirmationMenu");
         mainCamera = GameObject.FindWithTag("MainCamera");
     }
 
     void Update()
     {
-
+        if(Shop.instance.skinUsing == this.gameObject)
+        {
+            // enable highlight
+        }
+        else
+        {
+            // disable highlight
+        }
     }
 
     public bool CheckCoinEnough()
@@ -58,6 +68,12 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                 // Shows Not Enough coin
                 mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
             }
+        }
+        else
+        {
+            Shop.instance.skinUsing = this.gameObject;
+            Shop.instance.ChangeSkin();
+            Debug.Log("ChangeSkin : " + this.name);
         }
     }
 }

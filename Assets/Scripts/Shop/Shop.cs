@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    public GameObject defaultSkin;
     public GameObject[] skinList;
     public GameObject skinSelecting;
+    public GameObject skinUsing;
     public enum ShopState { parasite,place,coins};
     public ShopState shopState;
     public Text coinText;
@@ -23,6 +25,30 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
+        //Load SkinUsing
+        if(PlayerPrefs.HasKey("SkinUsing"))
+        {
+            if (PlayerPrefs.GetString("SkinUsing") == defaultSkin.name)
+            {
+                skinUsing = defaultSkin;
+            }
+            else
+            {
+                for (int i = 0; i < skinList.Length; i++)
+                {   
+                    if (skinList[i].name == PlayerPrefs.GetString("SkinUsing"))
+                    {
+                        skinUsing = skinList[i];
+                        ChangeSkin();
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            skinUsing = defaultSkin;
+        }
     }
 
     private void Update()
@@ -47,6 +73,16 @@ public class Shop : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ChangeSkin()
+    {
+        GameManager.instance.player.GetComponent<SpriteRenderer>().sprite = skinUsing.GetComponent<Skin>().skinImage;
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetString("SkinUsing", skinUsing.name);
     }
 
     //For button OnClick() function

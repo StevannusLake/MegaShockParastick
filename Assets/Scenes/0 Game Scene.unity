@@ -673,7 +673,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 46953470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 508106769}
+        m_MethodName: ShowShopMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &46953470
@@ -762,7 +773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &84369166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4147,6 +4158,36 @@ PrefabInstance:
       propertyPath: scrollBar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8833761059397504524, guid: 811959adcef4eb244831c2cdc09f75e6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833761059397504524, guid: 811959adcef4eb244831c2cdc09f75e6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833761059397504524, guid: 811959adcef4eb244831c2cdc09f75e6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833761059397504524, guid: 811959adcef4eb244831c2cdc09f75e6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 508106769}
+    - target: {fileID: 8833761059397504524, guid: 811959adcef4eb244831c2cdc09f75e6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseChallengesMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833761059397504524, guid: 811959adcef4eb244831c2cdc09f75e6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 811959adcef4eb244831c2cdc09f75e6, type: 3}
 --- !u!1 &343994896
@@ -4349,6 +4390,7 @@ GameObject:
   - component: {fileID: 365027982}
   - component: {fileID: 365027981}
   - component: {fileID: 365027980}
+  - component: {fileID: 365027985}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4471,6 +4513,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365027985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365027979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e78449feb03cb4cbf745bb3a744f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parasiteMenu: {fileID: 406812926833788225}
+  placeMenu: {fileID: 406812927765397731}
+  coinsMenu: {fileID: 406812928041134840}
+  notEnoughMenu: {fileID: 406812928101738256}
+  buyConfirmationMenu: {fileID: 406812928208674091}
+  luckySpinMenu: {fileID: 571444016}
+  coin: {fileID: 406812928206297184}
 --- !u!1 &366588487
 GameObject:
   m_ObjectHideFlags: 0
@@ -5890,8 +5951,8 @@ RectTransform:
   m_Children:
   - {fileID: 946061138}
   - {fileID: 1354248953}
-  - {fileID: 655496846}
   - {fileID: 4535209352820014739}
+  - {fileID: 655496846}
   - {fileID: 9088645629637390814}
   - {fileID: 366588488}
   - {fileID: 1700775327}
@@ -6579,6 +6640,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564314991}
   m_CullTransparentMesh: 0
+--- !u!1 &571444016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1186203910139980422, guid: 2daea1a10dfa86d4b884078fa3a026c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 655496845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &596579977
 GameObject:
   m_ObjectHideFlags: 0
@@ -7189,7 +7256,7 @@ PrefabInstance:
     - target: {fileID: 1186203910139980423, guid: 2daea1a10dfa86d4b884078fa3a026c4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1186203910139980423, guid: 2daea1a10dfa86d4b884078fa3a026c4,
         type: 3}
@@ -15342,6 +15409,7 @@ MonoBehaviour:
   coinsMenu: {fileID: 406812928041134840}
   notEnoughMenu: {fileID: 406812928101738256}
   buyConfirmationMenu: {fileID: 406812928208674091}
+  luckySpinMenu: {fileID: 0}
   coin: {fileID: 406812928206297184}
 --- !u!114 &1170094498
 MonoBehaviour:
@@ -15355,6 +15423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e15c99b47b3b6499202ce89f675c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSkin: {fileID: 1646647208}
   skinList:
   - {fileID: 406812927896589402}
   - {fileID: 406812927937589525}
@@ -15388,6 +15457,7 @@ MonoBehaviour:
   - {fileID: 406812926662688476}
   - {fileID: 406812927811934823}
   skinSelecting: {fileID: 0}
+  skinUsing: {fileID: 0}
   shopState: 0
   coinText: {fileID: 406812928206297184}
 --- !u!114 &1170094499
@@ -19223,12 +19293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 200
+  price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
-  isBought: 0
+  isBought: 1
 --- !u!114 &1646647211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20147,7 +20216,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1728409042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 508106769}
+        m_MethodName: ShowChallengesMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1728409042
@@ -24631,8 +24711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 0
+  price: 99999999
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -24657,7 +24736,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7f2c9972e92bb1f40924e5431b0a2d64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24910,7 +24989,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 365027985}
         m_MethodName: ShowCoinsMenu
         m_Mode: 1
         m_Arguments:
@@ -24935,7 +25014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -24961,7 +25039,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 95c7d927f08fbf840a2c0b4a826173f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25437,7 +25515,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 406812926638978904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 365027985}
+        m_MethodName: ShowLuckySpinMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &406812926638978909
@@ -25479,7 +25568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -25789,7 +25877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -25925,8 +26012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 0
+  price: 99999999
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -25993,7 +26079,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: fdc78fe733746e641afeb802b4e5c3ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26061,7 +26147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -26633,7 +26718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -26842,7 +26926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -26868,7 +26951,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7af418de09d1238419f46d1b9d433846, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27045,7 +27128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -27373,7 +27455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -27559,7 +27640,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d5f3d29f2caf45449727cdc43d637ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27627,8 +27708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 0
+  price: 99999999
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -28066,7 +28146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -28155,7 +28234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -28223,7 +28301,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 995679e0ca17fac499342491dfd51d4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28407,7 +28485,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 5770a203226eebb408f99adb56036631, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28475,7 +28553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -28860,7 +28937,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 365027985}
         m_MethodName: ShowParasiteMenu
         m_Mode: 1
         m_Arguments:
@@ -29033,7 +29110,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 79617d7c819b9724db4acd5f803c5f9a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29101,7 +29178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -29228,7 +29304,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 365027985}
         m_MethodName: CloseNotEnough
         m_Mode: 1
         m_Arguments:
@@ -29483,7 +29559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -29657,7 +29732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -29773,7 +29847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -30119,7 +30192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -30145,7 +30217,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 63e6306afb34a67499c49eb399e5a124, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30255,7 +30327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -30281,7 +30352,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 994069034519f9144a9d4eaff718873f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30389,7 +30460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -30415,7 +30485,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: c8504cb96c963f6499d550f7ed698ddd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30575,7 +30645,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 593d015a9b2dcbf4ebbc5db45c53817e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30643,7 +30713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 1
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -30748,8 +30817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 0
+  price: 99999999
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -30816,7 +30884,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6f0770ef44aaab04ca6bc08e3366e25b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31075,7 +31143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -31130,7 +31197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -31274,7 +31340,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: a347e6661bd37f9469dc239fbc32dd90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31384,7 +31450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 200
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -31638,8 +31703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 0
+  price: 99999999
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -31664,7 +31728,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3b60e84cb5f07154ca0d166732fde563, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31792,7 +31856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -31818,7 +31881,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 64f3fa4a9e5a31a4fa5b44ae1aebf7d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31977,8 +32040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  price: 0
+  price: 99999999
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -32045,7 +32107,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6f78801f4b9959c45b3acb3ed87432e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -32329,7 +32391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -32485,7 +32546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   price: 0
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
@@ -32511,7 +32571,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 5e156ae7b6757c64e9ff158b3168aca5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -32764,7 +32824,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 365027985}
         m_MethodName: ShowPlaceMenu
         m_Mode: 1
         m_Arguments:
@@ -33331,8 +33391,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Buy
+      - m_Target: {fileID: 365027979}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34651,7 +34711,7 @@ RectTransform:
   - {fileID: 406812926604242382}
   - {fileID: 406812927103786014}
   m_Father: {fileID: 508106768}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
