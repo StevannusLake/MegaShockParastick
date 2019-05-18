@@ -25,7 +25,7 @@ public class DragController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(SceneManager.GetActiveScene().name == "Shop")
+        if(UIManager.Instance.ShopMenu.activeInHierarchy)
         {
             if (Shop.instance.shopState == Shop.ShopState.parasite)
             {
