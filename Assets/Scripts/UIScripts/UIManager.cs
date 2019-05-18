@@ -707,4 +707,14 @@ public class UIManager : MonoBehaviour
     {
         inGameUIAnim.SetBool("OpenInGameUI", false);
     }
+
+    public void MegaShockFBLink()
+    {
+        Application.OpenURL("https://www.facebook.com/Mega-Shock-Entertainment-2503342479678228/?modal=admin_todo_tour");
+    }
+
+    public void MegaShockIGLink()
+    {
+        Application.OpenURL("https://www.instagram.com/megashockentertainment/");
+    }
 }
