@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DragController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class DragController : MonoBehaviour
     public Transform coinsBottomObject;
     private Transform bottomObject;
     public Transform challengesBottom;
+    public GameObject scrollBar;
 
     // Start is called before the first frame update
     void Start()
