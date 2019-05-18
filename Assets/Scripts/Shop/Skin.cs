@@ -34,6 +34,15 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         {
             // disable highlight
         }
+
+        if(isBought)
+        {
+            GetComponent<Button>().image.color = new Color(1f, 1f, 1f,1f);
+        }
+        else
+        {
+            GetComponent<Button>().image.color = new Color(0.4f, 0.4f, 0.4f,0.5f);
+        }
     }
 
     public bool CheckCoinEnough()
