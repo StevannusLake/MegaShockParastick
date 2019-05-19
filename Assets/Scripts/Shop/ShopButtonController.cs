@@ -71,4 +71,9 @@ public class ShopButtonController : MonoBehaviour
     {
         luckySpinMenu.SetActive(true);
     }
+
+    public void CloseLuckySpinMenu()
+    {
+        luckySpinMenu.SetActive(false);
+    }
 }

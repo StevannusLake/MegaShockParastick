@@ -744,4 +744,9 @@ public class UIManager : MonoBehaviour
     {
         ChallengesMenu.SetActive(false);
     }
+
+    public void CloseShopMenu()
+    {
+        ShopMenu.SetActive(false);
+    }
 }
