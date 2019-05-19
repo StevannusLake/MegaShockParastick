@@ -162,11 +162,15 @@ public class LevelHandler : MonoBehaviour
 
     void CheckForDifficulty()
     {
-        if (distanceTraveledByLayout > 100) SetLevelDifficulty(LevelDifficulty.B);
-        if (distanceTraveledByLayout > 250) SetLevelDifficulty(LevelDifficulty.C);
-        if (distanceTraveledByLayout > 500) SetLevelDifficulty(LevelDifficulty.D);
-        if (distanceTraveledByLayout > 1000) SetLevelDifficulty(LevelDifficulty.E);
-        if (distanceTraveledByLayout > 5000) SetLevelDifficulty(LevelDifficulty.F);
+        if (distanceTraveledByLayout > 50) SetLevelDifficulty(LevelDifficulty.B);
+        if (distanceTraveledByLayout > 100) SetLevelDifficulty(LevelDifficulty.C);
+        if (distanceTraveledByLayout > 300) SetLevelDifficulty(LevelDifficulty.D);
+        if (distanceTraveledByLayout > 500) SetLevelDifficulty(LevelDifficulty.C);
+        if (distanceTraveledByLayout > 800) SetLevelDifficulty(LevelDifficulty.E);
+        if (distanceTraveledByLayout > 1000) SetLevelDifficulty(LevelDifficulty.D);
+        if (distanceTraveledByLayout > 1200) SetLevelDifficulty(LevelDifficulty.F);
+        if (distanceTraveledByLayout > 1300) distanceTraveledByLayout = 100;
+
     }
 
     public void SetLevelDifficulty(LevelDifficulty difficulty)
