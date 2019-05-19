@@ -60,7 +60,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    void CheckIsBought()
+    public void CheckIsBought()
     {
         for (int i = 0; i < GameManager.instance.skinCollected.Count; i++)
         {
