@@ -13,9 +13,12 @@ public class CustomAudioHandler : MonoBehaviour
     private float coinPitch ;
     private AudioManager.Sound[] soundEffectList;
     private AudioManager.Sound[] bgmList;
+    public List<float> prevVolumes;
+    bool isMuteOrUnmuting = false;
 
-    public static float soundEffectVolume;
-    public static float bgmVolume;
+
+   // public static float soundEffectVolume;
+    //public static float bgmVolume;
 
     private void Awake()
     {
@@ -39,23 +42,52 @@ public class CustomAudioHandler : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        prevVolumes = new List<float>();
+        CapturePrevAudioVolumes();
+    }
+
     public void Update()
     {
         PickedUpCoin();
         SetAllAudioVolumeOnUpdate();
-        SetCustomAudio();
+       // SetCustomAudio();
     }
 
-    private void OnGUI()
+    public void Mute()
     {
-        
-        
+        Debug.Log("muted");
+        for (int i = 0; i < GameAssets.i.soundAudioClipArray.Length; i++)
+        {
+            GameAssets.i.soundAudioClipArray[i].volume = 0;
+
+        }
+    }
+
+    public void Unmute()
+    {
+        Debug.Log("Unmuted");
+        for (int i = 0; i < GameAssets.i.soundAudioClipArray.Length; i++)
+        {
+            GameAssets.i.soundAudioClipArray[i].volume = prevVolumes[i];
+            Debug.Log("Changed");
+        }
+    }
+
+    
+    
+    void CapturePrevAudioVolumes()
+    {
+        for(int i=0;i<GameAssets.i.soundAudioClipArray.Length;i++)
+        {
+            prevVolumes.Add(GameAssets.i.soundAudioClipArray[i].volume);
+        }
     }
 
 
 
-
-    void SetCustomAudio()
+   /* void SetCustomAudio()
     {
        
         foreach(GameAssets.SoundAudioClip clips in GameAssets.i.soundAudioClipArray)
@@ -74,7 +106,10 @@ public class CustomAudioHandler : MonoBehaviour
             }
 
         }
-    }
+    }*/
+
+
+    
 
 
 

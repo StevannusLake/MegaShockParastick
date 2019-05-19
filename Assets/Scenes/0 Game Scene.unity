@@ -23026,6 +23026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPitchRestartTime: 1
   defultCoinPitch: 0.6
+  prevVolumes: []
 --- !u!1 &1968270231
 GameObject:
   m_ObjectHideFlags: 0
@@ -32637,6 +32638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: soundAudioClipArray.Array.data[7].minPitch
       value: 0.836
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[0].volume
+      value: 0.766
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a9781b656b8cf49a10c29c02bc8f42, type: 3}
