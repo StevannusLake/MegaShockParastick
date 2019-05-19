@@ -79,7 +79,8 @@ public class DragController : MonoBehaviour
                     }
                     else if (bottomObject.position.y > initPos.y + 30f)
                     {
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 944.3f, 0f), 3f * Time.deltaTime);
+                        rawDelta.y = 0f;
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 496.2f, 0f), 3f * Time.deltaTime);
                     }
                 }
             }
