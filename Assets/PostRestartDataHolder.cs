@@ -10,10 +10,6 @@ public class PostRestartDataHolder : MonoBehaviour
     [HideInInspector] public LevelDifficulty savedDifficulty;
     [HideInInspector]public float savedDistanceTraveledByLayout;
     
-
-
-    
-
     private void Awake()
     {
         if (instance == null) instance = this;
