@@ -14,7 +14,6 @@ public class DragController : MonoBehaviour
     public Transform coinsBottomObject;
     private Transform bottomObject;
     public Transform challengesBottom;
-    public GameObject scrollBar;
 
     // Start is called before the first frame update
     void Start()
@@ -57,24 +56,96 @@ public class DragController : MonoBehaviour
             }
         }
         MoveByDrag(rawDelta);
-        if(!isDragging)
+        if (!isDragging)
         {
-            if(transform.position.y < initPos.y )
+            if (UIManager.Instance.ShopMenu.activeInHierarchy)
             {
-               this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                if (Shop.instance.shopState == Shop.ShopState.parasite)
+                {
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    }
+                    else if (bottomObject.position.y > initPos.y + 30f)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 944.3f, 0f), 3f * Time.deltaTime);
+                    }
+                }
+                else if(Shop.instance.shopState == Shop.ShopState.place)
+                {
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    }
+                    else if (bottomObject.position.y > initPos.y + 30f)
+                    {
+                        rawDelta.y = 0f;
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 496.2f, 0f), 3f * Time.deltaTime);
+                    }
+                }
             }
-            else if(transform.position.y > bottomObject.position.y)
+            else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
             {
-                this.transform.position = Vector3.Lerp(transform.position, bottomObject.position, 3f * Time.deltaTime);
+                if (transform.position.y < initPos.y)
+                {
+                    this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    Debug.Log("Too Low");
+                }
+                else if (bottomObject.position.y > initPos.y-40f)
+                {
+                    rawDelta.y = 0f;
+                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 134.6f, 0f), 3f * Time.deltaTime);
+                    Debug.Log("Too HIGH");
+                }
             }
         }
-        rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 3f);
+        rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 2f);
+        Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
     }
 
     void MoveByDrag(Vector3 rawD)
     {
-        Vector3 moveDirection = Vector3.zero;
-        moveDirection.y = rawD.y;
-        this.transform.Translate(-moveDirection, Space.World);
+        if (UIManager.Instance.ShopMenu.activeInHierarchy)
+        {
+            if (rawD.y > 0)
+            {
+                if (bottomObject.position.y < initPos.y + 30f)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
+            }
+            else
+            {
+                if (transform.position.y >= initPos.y)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
+            }
+        }
+        else if(UIManager.Instance.ChallengesMenu.activeInHierarchy)
+        {
+            if (rawD.y > 1f)
+            {
+                if (bottomObject.position.y < initPos.y-40f)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
+            }
+            else
+            {
+                if (transform.position.y >= initPos.y)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
+            }
+        }
     }
 }
