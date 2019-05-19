@@ -140,7 +140,7 @@ public class ColliderController : MonoBehaviour
 
             if (prevousLayoutBeforeThis.gameObject.tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("PivotAnchor").transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
             {
                 Debug.Log("Return Happend");
                 return;
@@ -149,7 +149,7 @@ public class ColliderController : MonoBehaviour
            
             if (prevousLayoutBeforeThis.gameObject.tag == "RightLayout"
                 && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("PivotAnchor").transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
             {
                 Debug.Log("Return Happend");
                 return;
@@ -177,10 +177,10 @@ public class ColliderController : MonoBehaviour
 
             if (prevousLayoutBeforeThis.gameObject.tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("PivotAnchor").transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
             if (prevousLayoutBeforeThis.gameObject.tag == "RightLayout"
                 && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
-                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
+                LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.Find("PivotAnchor").transform.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
 
             #endregion
 
