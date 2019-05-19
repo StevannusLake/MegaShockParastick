@@ -14,7 +14,6 @@ public class DragController : MonoBehaviour
     public Transform coinsBottomObject;
     private Transform bottomObject;
     public Transform challengesBottom;
-    public GameObject scrollBar;
 
     // Start is called before the first frame update
     void Start()
@@ -57,24 +56,39 @@ public class DragController : MonoBehaviour
             }
         }
         MoveByDrag(rawDelta);
-        if(!isDragging)
+        if (!isDragging)
         {
-            if(transform.position.y < initPos.y )
+            if (transform.position.y < initPos.y)
             {
-               this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
             }
-            else if(transform.position.y > bottomObject.position.y)
+            else if (bottomObject.position.y > initPos.y + 30f)
             {
-                this.transform.position = Vector3.Lerp(transform.position, bottomObject.position, 3f * Time.deltaTime);
+                this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f,944.3f,0f), 3f * Time.deltaTime);
             }
         }
-        rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 3f);
+        rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 2f); 
     }
 
     void MoveByDrag(Vector3 rawD)
     {
-        Vector3 moveDirection = Vector3.zero;
-        moveDirection.y = rawD.y;
-        this.transform.Translate(-moveDirection, Space.World);
+        if (rawD.y > 0)
+        {
+            if (bottomObject.position.y < initPos.y+30f)
+            {
+                Vector3 moveDirection = Vector3.zero;
+                moveDirection.y = rawD.y;
+                this.transform.Translate(moveDirection, Space.World);
+            }
+        }
+        else
+        {
+            if (transform.position.y >= initPos.y)
+            {
+                Vector3 moveDirection = Vector3.zero;
+                moveDirection.y = rawD.y;
+                this.transform.Translate(moveDirection, Space.World);
+            }
+        }
     }
 }
