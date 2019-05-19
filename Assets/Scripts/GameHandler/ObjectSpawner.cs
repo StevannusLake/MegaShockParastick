@@ -84,7 +84,7 @@ public class ObjectSpawner : MonoBehaviour
 
     RandomizeAgain:
        
-        
+      
         if (generator.platformList[randomized].tag == "Deadly" || generator.platformList[randomized + 1].tag == "Deadly")
         {
             randomized += 1;

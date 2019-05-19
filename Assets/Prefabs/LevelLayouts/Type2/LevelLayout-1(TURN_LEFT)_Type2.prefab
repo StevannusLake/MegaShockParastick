@@ -1053,6 +1053,7 @@ MonoBehaviour:
   defaultOffset: {fileID: 0}
   isDummy: 0
   test: 0
+  thisLevelDirection: 0
 --- !u!1 &3160579944113132066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8786,12 +8787,12 @@ PrefabInstance:
     - target: {fileID: 3537331175912231443, guid: 269adb81075ecf440add52de6c8c822f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.59
+      value: -5.05
       objectReference: {fileID: 0}
     - target: {fileID: 3537331175912231443, guid: 269adb81075ecf440add52de6c8c822f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.2
+      value: -11.21
       objectReference: {fileID: 0}
     - target: {fileID: 3537331175912231443, guid: 269adb81075ecf440add52de6c8c822f,
         type: 3}

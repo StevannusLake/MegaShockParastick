@@ -107,10 +107,21 @@ public class Surfaces : MonoBehaviour
             pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
             pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
             pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
-            pingpongObjects[2] = platformPlacementTransform.Find("PingPong4");
+            pingpongObjects[3] = platformPlacementTransform.Find("PingPong4");
             destination = pingpongObjects[1];
             foundDestination = true;
         }
+        if (platformPlacementTransform.childCount == 5)
+        {
+            pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
+            pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
+            pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
+            pingpongObjects[3] = platformPlacementTransform.Find("PingPong4");
+            pingpongObjects[4] = platformPlacementTransform.Find("PingPong5");
+            destination = pingpongObjects[1];
+            foundDestination = true;
+        }
+
 
 
 
