@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Assets.SimpleAndroidNotifications;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -125,6 +127,10 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // schedule without icon
+        NotificationManager.Send(System.TimeSpan.FromSeconds(5), "FUCK YOU", "FUCK YOURSELF, YOU PARASTICK", Color.red, NotificationIcon.Heart);
+
     }
 
     private void Start()

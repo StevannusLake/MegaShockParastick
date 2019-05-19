@@ -23145,6 +23145,7 @@ MonoBehaviour:
   initialPosition: 0
   MainMenu: {fileID: 1354248950}
   SecondChanceMenu: {fileID: 1700775326}
+  CoinMultiplyMenu: {fileID: 2012518296}
   deadVelocity: 10
   cancelIndicator: {fileID: 1747142759}
   Cinemachine: {fileID: 2087839692}

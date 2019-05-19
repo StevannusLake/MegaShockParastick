@@ -64,6 +64,7 @@ public class Movement : MonoBehaviour
 
     public GameObject MainMenu;
     public GameObject SecondChanceMenu;
+    public GameObject CoinMultiplyMenu;
 
     /// <summary>
     /// 0 : alive, 1 : dead animation, 2 : die and call menu
@@ -118,7 +119,7 @@ public class Movement : MonoBehaviour
     public PlayerParticleSystem myParticleSystem;
     bool doubleSSEffect;
     //=======================================================================================================================
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -183,6 +184,10 @@ public class Movement : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
+
+            // gravity scale = 1 so it will fall
+            myRigidBody.gravityScale = 1;
+
             // disable dot
             spawnDot = false;
             myEmotion.EmoteDeath();
@@ -200,37 +205,44 @@ public class Movement : MonoBehaviour
                 playerJustDied = true;
             }
         }
-        else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 2)
+        else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && !CoinMultiplyMenu.activeSelf && deadState == 2)
         {
             if (!UIManager.Instance.secondChanceCalled)
             {
                 UIManager.Instance.CallSecondChanceMenu();
+                deadState = 0;
             }
             else
             {
                 UIManager.Instance.CallLoseMenu();
+                deadState = 0;
             }
 
             doubleSlingshotCounter = MAXSLINGSHOT;
             doubleSlingshot = 0;
             myEmotion.EmoteIdle();
             isDead = false;
-            deadState = 0;
+            //deadState = 0; move up to after the menu call, so in second life, it wont play dead movement/animation function twice
+            // above theory failed, so ignore that in terms of fixing the mentioned bug
             cancelSlingshotState = 0;
             myCollider.isTrigger = true;
             Cinemachine.SetActive(true);
         }
-
-        if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf)
+        
+        if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && !CoinMultiplyMenu.activeSelf)
         {
             DropDead();
         }
-        else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf || PostRestartDataHolder.instance.secondLifeUsed)
+        else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf || CoinMultiplyMenu.activeSelf || PostRestartDataHolder.instance.secondLifeUsed)
         {
             //reset
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
-            myRigidBody.gravityScale = 0;
+            //myRigidBody.gravityScale = 0; if 0, the emote wont change back to idle
+
+            myEmotion.EmoteIdle();
+            myRigidBody.gravityScale = 1;
+
             if (myCollider.isTrigger == true)
             {
                 myCollider.isTrigger = false;
@@ -247,7 +259,7 @@ public class Movement : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-        
+
         if(deadState == 0 && bounceCounter >= 3)
         {
             deadState = 1;
@@ -550,9 +562,14 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+                
+                if (doubleSlingshot == 2)
+                {
+                    doubleSlingshotCounter += INCREMENTSLINGSHOT;
+                }
 
                 // reset slingshot after once double slingshot if not in recover
-                if(doubleSlingshot != 2)
+                if (doubleSlingshot != 2)
                 {
                     doubleSlingshot = 0;
                 }
@@ -590,7 +607,7 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
-
+                
                 GameManager.instance.stickCounterInAGame++;
                 surfaceTransform = collision.gameObject.transform;
                 myTransform.SetParent(surfaceTransform);
@@ -654,7 +671,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag(surfaceTag))
+        if (collision.collider.CompareTag(surfaceTag) && deadState != 1)
         {
             surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
 
@@ -711,6 +728,8 @@ public class Movement : MonoBehaviour
 
         if (other.CompareTag(deadlyTag))
         {
+            myRigidBody.velocity = Vector2.zero;
+
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
 
             // Die and Second Chance Menu pop out
