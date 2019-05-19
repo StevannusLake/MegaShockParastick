@@ -17,8 +17,16 @@ public class Shop : MonoBehaviour
     public GameObject[] lockedMask;
     public GameObject[] holder;
     public GameObject defaultHolder;
+    public Sprite defaultHolderSprite;
     public Sprite InUseImage;
     public Sprite lastHolder;
+    public GameObject[] environmentSkin;
+    public GameObject[] environmentLockedMask;
+    public GameObject defaultEnvironment;
+    public GameObject environmentDefaultMask;
+    public GameObject environmentUsing;
+    public Sprite InUseEnvironmentMask;
+    public Sprite TransparentMask;
 
     public static Shop instance;
     void Awake()
@@ -36,6 +44,7 @@ public class Shop : MonoBehaviour
             if (PlayerPrefs.GetString("SkinUsing") == defaultSkin.name)
             {
                 skinUsing = defaultSkin;
+                defaultHolder.GetComponent<Image>().sprite = InUseImage;
             }
             else
             {
@@ -53,6 +62,35 @@ public class Shop : MonoBehaviour
         else
         {
             skinUsing = defaultSkin;
+            defaultHolder.GetComponent<Image>().sprite = InUseImage;
+        }
+
+        CheckEnvironmentBought();
+
+        if (PlayerPrefs.HasKey("EnvironmentUsing"))
+        {
+            if(PlayerPrefs.GetString("EnvironmentUsing") == defaultEnvironment.name)
+            {
+                environmentUsing = defaultEnvironment;
+                environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
+            }
+            else
+            {
+                for(int i=0;i<environmentSkin.Length;i++)
+                {
+                    if(PlayerPrefs.GetString("EnvironmentUsing") == environmentSkin[i].name)
+                    {
+                        environmentUsing = environmentSkin[i];
+                        environmentLockedMask[i].GetComponent<Image>().sprite = InUseEnvironmentMask;
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            environmentUsing = defaultEnvironment;
+            environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
         }
     }
 
@@ -81,6 +119,19 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void CheckEnvironmentBought()
+    {
+        //check environment
+        for (int i = 0; i < environmentSkin.Length; i++)
+        {
+            if (PlayerPrefs.GetInt(environmentSkin[i].name) == 1)
+            {
+                environmentSkin[i].GetComponent<Skin>().isBought = true;
+                environmentLockedMask[i].GetComponent<Image>().sprite = TransparentMask;
+            }
+        }
+    }
+
     public void ResetInUseHolder()
     {
         if (lastHolder != null)
@@ -101,10 +152,44 @@ public class Shop : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            defaultHolder.GetComponent<Image>().sprite = defaultHolderSprite;
+        }
+    }
+
+    public void ResetInUseEnvironment()
+    {
+        if (environmentUsing == defaultEnvironment)
+        {
+            environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
+            for(int i =0;i<environmentLockedMask.Length;i++)
+            {
+                environmentLockedMask[i].GetComponent<Image>().sprite = TransparentMask;
+            }
+        }
+        else
+        {
+            environmentDefaultMask.GetComponent<Image>().sprite = TransparentMask;
+            for (int i = 0; i < environmentSkin.Length; i++)
+            {
+                if (environmentUsing == environmentSkin[i])
+                {
+                    environmentLockedMask[i].GetComponent<Image>().sprite = InUseEnvironmentMask;
+                }
+                else
+                {
+                    if (environmentSkin[i].GetComponent<Skin>().isBought)
+                    {
+                        environmentLockedMask[i].GetComponent<Image>().sprite = TransparentMask;
+                    }
+                }
+            }
+        }        
     }
 
     public void ChangeSkin()
-    {
+    {   
         GameManager.instance.player.GetComponent<SpriteRenderer>().sprite = skinUsing.GetComponent<Skin>().skinImage;
         
         if(skinUsing == defaultSkin)
@@ -126,21 +211,50 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void ChangeEnvironment()
+    {
+        if(environmentUsing == defaultEnvironment)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetString("SkinUsing", skinUsing.name);
+        PlayerPrefs.SetString("EnvironmentUsing", environmentUsing.name);
     }
 
     //For button OnClick() function
     public void Buy()
     {
-        GameManager.instance.skinCollected.Add(skinSelecting.gameObject);
-        GameManager.instance.DecreaseCoin(skinSelecting.GetComponent<Skin>().price);
-        GameManager.instance.numOfSkinCollected++;
-        CheckIsBought();
-        // close the buy confirmation menu
-        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
-        GameManager.instance.SaveSkin();
+        if(skinSelecting.GetComponent<Skin>().skinType == Skin.SkinType.player)
+        {
+            if (skinSelecting.GetComponent<Skin>().priceType == Skin.PriceType.coin)
+            {
+                GameManager.instance.DecreaseCoin(skinSelecting.GetComponent<Skin>().price);
+            }
+            else
+            {
+                GameManager.instance.DecreasePoints(skinSelecting.GetComponent<Skin>().price);
+            }
+            GameManager.instance.skinCollected.Add(skinSelecting.gameObject);
+            GameManager.instance.numOfSkinCollected++;
+            CheckIsBought();
+            // close the buy confirmation menu
+            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
+            GameManager.instance.SaveSkin();
+        }
+        else
+        {
+            PlayerPrefs.SetInt(skinSelecting.name, 1);
+            CheckEnvironmentBought();
+            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
+        }
     }
 
     //For button OnClick() function

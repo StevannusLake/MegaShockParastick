@@ -21,6 +21,8 @@ public class ShopButtonController : MonoBehaviour
     private void Start()
     {
         Shop.instance.shopState = Shop.ShopState.parasite;
+        placeMenu.SetActive(false);
+        coinsMenu.SetActive(false);
     }
 
     public void ShowParasiteMenu()
