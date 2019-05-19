@@ -216,7 +216,8 @@ public class ObjectSpawner : MonoBehaviour
         if (surface1.alreadyRespawnedCoin || surface1.alreadyRespawnedCoin) return;
         int randomNumberOfCoins = Random.Range(3, 6);
         int randomNumberForChance = Random.Range(0, 2);
-        if (randomNumberForChance == 0) canRespawnCoinsMiddle = true;
+        //if (randomNumberForChance == 0)
+        canRespawnCoinsMiddle = true;
         if(canRespawnCoinsMiddle)
         {
             for (int i = 1; i < randomNumberOfCoins; i++)

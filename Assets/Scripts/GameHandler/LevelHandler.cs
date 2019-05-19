@@ -37,7 +37,7 @@ public class LevelHandler : MonoBehaviour
     public int numberOfSectionToHold;
 
 
-
+    
 
     private void OnEnable()
     {
@@ -45,29 +45,40 @@ public class LevelHandler : MonoBehaviour
         //SetLevelSprite();
         
     }
-
+    private void Start()
+    {
+        FindRestartDataHolder();
+        if (PostRestartDataHolder.instance.secondLifeUsed) GetSecondLifeData();
+        if (PostRestartDataHolder.instance.secondLifeUsed)
+        {
+            Movement.deadState = 0;
+        }
+    }
 
     private void Awake()
     {
         
         instance = this;
-        levelLayoutsCreated = new List<GameObject>();
-        GameObject dataHolder = GameObject.Find("PostRestartDataHolder");
-        if (!dataHolder)
-        {
-            GameObject newDataHolder = Instantiate(GameAssets.i.postRestartDataHolder);
-            newDataHolder.name = "PostRestartDataHolder";
-        }
-        if (PostRestartDataHolder.instance.secondLifeUsed) GetSecondLifeData();
-       
+        levelLayoutsCreated = new List<GameObject>();  
         listOfOldSprites = new List<SpriteRenderer>();
-        
-        CreateFirstLayout();
+        Invoke("CreateFirstLayout", 0.1f);
+    }
 
+    void FindRestartDataHolder()
+    {
+        if (GameObject.Find("PostRestartDataHolder")!=null)
+        {
+            Debug.Log("Found");
+            return;
+        }
 
-
-
-
+        else
+        {
+            string name = "PostRestartDataHolder";
+            GameObject postDataHolder =Instantiate(GameAssets.i.postRestartDataHolder);
+            postDataHolder.name = name;
+            Debug.Log("NotFound");
+        }
 
     }
 
@@ -141,16 +152,7 @@ public class LevelHandler : MonoBehaviour
         distanceTraveledByLayout = PostRestartDataHolder.instance.savedDistanceTraveledByLayout;
     }
 
-    private void Start()
-    {
-        if (PostRestartDataHolder.instance.secondLifeUsed)
-        {
-            Movement.deadState = 0;
-        }
-        
-        
-
-    }
+   
 
     private void Update()
     {
