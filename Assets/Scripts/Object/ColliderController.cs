@@ -94,23 +94,28 @@ public class ColliderController : MonoBehaviour
             LevelHandler.instance.layoutPlayerIsIn = other.gameObject.transform.parent.parent.gameObject;
             if (!other.gameObject.GetComponent<EnterController>().isAlreadyActivated)
             {
-                if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID == 0)
+                if (other.gameObject.transform.parent.Find("LevelGenerator").gameObject.activeSelf)
                 {
-                    LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
-                    levelGenerator.Initialize();
-                    levelGenerator.PostInitialize();
-                    levelGenerator.GenerateMapOnTop(false);
-                    other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
+                    if(other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID == 0)
+                    {
+                        LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
+                        levelGenerator.Initialize();
+                        levelGenerator.PostInitialize();
+                        levelGenerator.GenerateMapOnTop(false);
+                        other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
+                    }
+                    else if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID != 0 && !other.gameObject.transform.parent.GetComponentInChildren<EnterController>().isAlreadyActivated)
+                    {
+                        EnterController LastLayoutEnter = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<EnterController>();
+                        LevelGenerator LastLayoutGenerator = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<LevelGenerator>();
+                        LastLayoutEnter.isAlreadyActivated = false;
+                        LastLayoutGenerator.GenerateMapOnTop(true);
+                        LastLayoutEnter.isAlreadyActivated = true;
+                        other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
+                    }
                 }
-                else if (other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID != 0 && !other.gameObject.transform.parent.GetComponentInChildren<EnterController>().isAlreadyActivated)
-                {
-                    EnterController LastLayoutEnter = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<EnterController>();
-                    LevelGenerator LastLayoutGenerator = LevelHandler.instance.levelLayoutsCreated.Last().GetComponentInChildren<LevelGenerator>();
-                    LastLayoutEnter.isAlreadyActivated = false;
-                    LastLayoutGenerator.GenerateMapOnTop(true);
-                    LastLayoutEnter.isAlreadyActivated = true;
-                    other.GetComponentInChildren<EnterController>().isAlreadyActivated = true;
-                }
+                
+              
                 
             }
            
@@ -130,9 +135,10 @@ public class ColliderController : MonoBehaviour
 
 
             #region CustomizationForMovingCamera
-            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[LevelHandler.instance.layoutPlayerIsIn.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+            //GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[LevelHandler.instance.layoutPlayerIsIn.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
 
-            if (prevousLayoutBeforeThis.tag == "LeftLayout"
+            if (prevousLayoutBeforeThis.gameObject.tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
                 LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
             {
@@ -141,7 +147,7 @@ public class ColliderController : MonoBehaviour
                
             }
            
-            if (prevousLayoutBeforeThis.tag == "RightLayout"
+            if (prevousLayoutBeforeThis.gameObject.tag == "RightLayout"
                 && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
                 LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true)
             {
@@ -167,12 +173,12 @@ public class ColliderController : MonoBehaviour
             }
 
             #region CustomizationForMovingCamera
-            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[LevelHandler.instance.layoutPlayerIsIn.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
+            GameObject prevousLayoutBeforeThis = LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1];
 
-            if (prevousLayoutBeforeThis.tag == "LeftLayout"
+            if (prevousLayoutBeforeThis.gameObject.tag == "LeftLayout"
                 && other.gameObject.transform.parent.parent.tag == "RightLayout" &&
                 LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
-            if (prevousLayoutBeforeThis.tag == "RightLayout"
+            if (prevousLayoutBeforeThis.gameObject.tag == "RightLayout"
                 && other.gameObject.transform.parent.parent.tag == "LeftLayout" &&
                 LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID - 1].transform.parent.Find("OffsetCameraArea").GetComponent<ZoomController>().isAlreadyActivated == true) return;
 
