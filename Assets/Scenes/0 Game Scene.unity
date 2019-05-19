@@ -23415,6 +23415,7 @@ MonoBehaviour:
   initialPosition: 0
   MainMenu: {fileID: 1354248950}
   SecondChanceMenu: {fileID: 1700775326}
+  CoinMultiplyMenu: {fileID: 2012518296}
   deadVelocity: 10
   cancelIndicator: {fileID: 1747142759}
   Cinemachine: {fileID: 2087839692}
@@ -24920,7 +24921,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32.412, y: 21.535}
+    oldSize: {x: 32.399998, y: 21.599998}
     newSize: {x: 28.260002, y: 20.880001}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
