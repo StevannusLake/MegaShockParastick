@@ -51,14 +51,14 @@ public class OpalEffect : MonoBehaviour
                 AudioManager.PlaySound(AudioManager.Sound.CollectCoin);
                 AudioManager.PlaySound(AudioManager.Sound.CollectCoinMain);
 
-                GameManager.instance.AddCoin(1);
+                GameManager.instance.AddPoints(1);
 
                 OpalCounterAnim.SetBool("OpenCounter", true);
 
                 UIOpal.SetBool("OpenOpalIcon", true);
             }
 
-            myAnimator.SetBool("PlayerCoin", true);
+            myAnimator.SetBool("PlayerOpal", true);
             dieBool = true;
         }
     }
