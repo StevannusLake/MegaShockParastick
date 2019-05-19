@@ -60,13 +60,27 @@ public class DragController : MonoBehaviour
         {
             if (UIManager.Instance.ShopMenu.activeInHierarchy)
             {
-                if (transform.position.y < initPos.y)
+                if (Shop.instance.shopState == Shop.ShopState.parasite)
                 {
-                    this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    }
+                    else if (bottomObject.position.y > initPos.y + 30f)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 944.3f, 0f), 3f * Time.deltaTime);
+                    }
                 }
-                else if (bottomObject.position.y > initPos.y + 30f)
+                else if(Shop.instance.shopState == Shop.ShopState.place)
                 {
-                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 944.3f, 0f), 3f * Time.deltaTime);
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    }
+                    else if (bottomObject.position.y > initPos.y + 30f)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 944.3f, 0f), 3f * Time.deltaTime);
+                    }
                 }
             }
             else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
@@ -85,7 +99,7 @@ public class DragController : MonoBehaviour
             }
         }
         rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 2f);
-        //Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
+        Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
     }
 
     void MoveByDrag(Vector3 rawD)
