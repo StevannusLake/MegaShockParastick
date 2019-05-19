@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Assets.SimpleAndroidNotifications;
 
 public class DailyRewards : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class DailyRewards : MonoBehaviour
     {   
         CheckDate();
         CheckGreenTick();
+
+        //=============================================================================================================
+        OnApplicationQuit();
     }
 
     void CheckDate()
@@ -74,11 +78,25 @@ public class DailyRewards : MonoBehaviour
         {
             PlayerPrefs.SetString("lastLogin", System.DateTime.Now.ToBinary().ToString());
             Debug.Log("Save Date");
+
         }
         else
         {
             Debug.Log("Cheat");
         }
+
+        //=============================================================================================================TimeSpan delayNotifyTime = new TimeSpan(0, 0, 3);
+
+        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 5);
+        Debug.Log(delayNotifyTime);
+        // schedule without icon
+        NotificationManager.Send(delayNotifyTime, "FK", "FKFKFKFK", Color.red, NotificationIcon.Heart);
+
+        NotificationManager.Cancel(0);
+        delayNotifyTime = new TimeSpan(0, 0, 3);
+        Debug.Log(delayNotifyTime);
+        // schedule without icon
+        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
     }
 
     void GiveRewards(int day)

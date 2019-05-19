@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Assets.SimpleAndroidNotifications;
 
 
 public class UIManager : MonoBehaviour
@@ -117,8 +116,6 @@ public class UIManager : MonoBehaviour
     public GameObject InGameUI;
     private Animator inGameUIAnim;
 
-    System.TimeSpan ts;
-
     private void Awake()
     {
         if(instance == null)
@@ -129,11 +126,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        ts.Add(System.TimeSpan.FromSeconds(10));
-
-        // schedule without icon
-        NotificationManager.Send(ts, "FUCK YOU", "FUCK YOURSELF, YOU PARASTICK", Color.red, NotificationIcon.Heart);
     }
 
     private void Start()

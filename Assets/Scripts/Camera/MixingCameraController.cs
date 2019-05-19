@@ -79,7 +79,7 @@ public class MixingCameraController : MonoBehaviour
     public void WaterClosingShake()
     {
         float distanceTillPlayer = Vector2.Distance(GameManager.instance.player.transform.position, GameManager.instance.water.transform.position);
-        if (distanceTillPlayer < 10)
+        if (distanceTillPlayer < 10 && Movement.deadState==0)
         {
             for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
             {
