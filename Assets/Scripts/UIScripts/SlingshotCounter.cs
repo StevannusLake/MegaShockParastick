@@ -6,12 +6,22 @@ using UnityEngine.UI;
 public class SlingshotCounter : MonoBehaviour
 {
     public Image[] slingshotCounters = new Image[9];
+    DoubleSSUIBlink[] blinkScript = new DoubleSSUIBlink[9];
 
     public Sprite RecoveringColor;
     public Sprite OnColor;
     public Sprite OffColor;
 
     public Movement playerMovementScript;
+
+    private void Start()
+    {
+        for(int i=0; i<blinkScript.Length; i++)
+        {
+            blinkScript[i] = slingshotCounters[i].gameObject.GetComponent<DoubleSSUIBlink>();
+        }
+
+    }
 
     private void Update()
     {
@@ -24,6 +34,11 @@ public class SlingshotCounter : MonoBehaviour
         if (playerMovementScript.doubleSlingshot == 2 && playerMovementScript.doubleSlingshotCounter - 1 >= 0)
         {
             slingshotCounters[playerMovementScript.doubleSlingshotCounter - 1].sprite = RecoveringColor;
+
+            for (int i = 0; i < blinkScript.Length; i++)
+            {
+                blinkScript[i].isBlink = false;
+            }
         }
         else if(playerMovementScript.doubleSlingshot != 2)
         {
@@ -44,6 +59,18 @@ public class SlingshotCounter : MonoBehaviour
                 slingshotCounters[2].sprite = OffColor;
                 slingshotCounters[1].sprite = OffColor;
                 slingshotCounters[0].sprite = OffColor;
+            }
+
+            for(int i=0; i<blinkScript.Length; i++)
+            {
+                if(slingshotCounters[i].sprite == OnColor)
+                {
+                    blinkScript[i].isBlink = true;
+                }
+                else
+                {
+                    blinkScript[i].isBlink = false;
+                }
             }
         }
 
