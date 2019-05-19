@@ -587,16 +587,15 @@ public class UIManager : MonoBehaviour
             OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
 
-            CustomAudioHandler.soundEffectVolume = 0.7f;
-            CustomAudioHandler.bgmVolume = 0.7f;
+            
+            
         }
-        else
+        else if(!TurnOnSound)
         {
             OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
 
-            CustomAudioHandler.soundEffectVolume = 0;
-            CustomAudioHandler.bgmVolume = 0;
+           
         }
 
         if (TurnOnVibration)
@@ -614,6 +613,7 @@ public class UIManager : MonoBehaviour
     public void ActivateSound()
     {
         TurnOnSound = true;
+        CustomAudioHandler.instance.Unmute();
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
     }
@@ -621,6 +621,7 @@ public class UIManager : MonoBehaviour
     public void DeactivateSound()
     {
         TurnOnSound = false;
+        CustomAudioHandler.instance.Mute();
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
     }
