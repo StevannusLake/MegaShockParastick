@@ -117,6 +117,8 @@ public class Movement : MonoBehaviour
     Vector2 currentVelocity;
     //=======================================================================================================================
     public PlayerParticleSystem myParticleSystem;
+    public ParticleSystem myDeadParticleSystem;
+    ParticleSystem.EmissionModule dpsEmission;
     bool doubleSSEffect;
     //=======================================================================================================================
     
@@ -177,6 +179,11 @@ public class Movement : MonoBehaviour
             DistanceCounter();
 
             Falling();
+
+            // dead particle system off
+            dpsEmission = myDeadParticleSystem.emission;
+            dpsEmission.enabled = false;
+            myDeadParticleSystem.Stop();
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 1)
         {
@@ -237,6 +244,10 @@ public class Movement : MonoBehaviour
         }
         else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf || CoinMultiplyMenu.activeSelf || PostRestartDataHolder.instance.secondLifeUsed)
         {
+            // off dead particle system
+            dpsEmission = myDeadParticleSystem.emission;
+            dpsEmission.enabled = true;
+            
             //reset
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
@@ -550,10 +561,17 @@ public class Movement : MonoBehaviour
                 {
                     //==================================================================================================
                     // hit dangerous platform effects code go here
+                    /*
                     for(int i=0; i< dangerEffects.Length; i++)
                     {
                         dangerEffects[i].TouchedDangerousEffect(myTransform.position, currentVelocity);
                     }
+                    */
+                    // change to particle system for now
+                    myDeadParticleSystem.Play();
+                    dpsEmission = myDeadParticleSystem.emission;
+                    dpsEmission.enabled = true;
+
                     //==================================================================================================
                     deadState = 1;
                
