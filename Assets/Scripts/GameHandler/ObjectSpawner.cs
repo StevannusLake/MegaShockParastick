@@ -145,7 +145,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position),10, layer_mask);
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position, firstObject.transform.position), layer_mask);
         for(int i =0; i<hit.Length;i++)
         {
             if(hit[i].collider.gameObject!=firstObject.gameObject)
@@ -193,7 +193,7 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
 
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position), 10, layer_mask);
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position ,firstObject.transform.position), layer_mask);
         for (int i = 0; i < hit.Length; i++)
         {
             if (hit[i].collider.gameObject != firstObject.gameObject)
