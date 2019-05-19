@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Assets.SimpleAndroidNotifications;
 
 public class DailyRewards : MonoBehaviour
 {
@@ -74,11 +75,19 @@ public class DailyRewards : MonoBehaviour
         {
             PlayerPrefs.SetString("lastLogin", System.DateTime.Now.ToBinary().ToString());
             Debug.Log("Save Date");
+
         }
         else
         {
             Debug.Log("Cheat");
         }
+
+        //=============================================================================================================
+        NotificationManager.CancelAll();
+        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 10);
+        Debug.Log(delayNotifyTime);
+        // schedule without icon
+        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
     }
 
     void GiveRewards(int day)
