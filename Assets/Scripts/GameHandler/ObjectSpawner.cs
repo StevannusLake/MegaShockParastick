@@ -84,7 +84,7 @@ public class ObjectSpawner : MonoBehaviour
 
     RandomizeAgain:
        
-        
+      
         if (generator.platformList[randomized].tag == "Deadly" || generator.platformList[randomized + 1].tag == "Deadly")
         {
             randomized += 1;
@@ -145,12 +145,12 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.1f, (secondObject.transform.position - firstObject.transform.position),10, layer_mask);
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position),10, layer_mask);
         for(int i =0; i<hit.Length;i++)
         {
             if(hit[i].collider.gameObject!=firstObject.gameObject)
             {
-                if (hit[i].collider.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
+                if (hit[i].transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
                 {
                     GameObject collided = new GameObject("collided");
                     collided.transform.position = hit[i].transform.position;
@@ -193,12 +193,12 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
 
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.1f, (secondObject.transform.position - firstObject.transform.position), 10, layer_mask);
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position), 10, layer_mask);
         for (int i = 0; i < hit.Length; i++)
         {
             if (hit[i].collider.gameObject != firstObject.gameObject)
             {
-                if (hit[i].collider.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
+                if (hit[i].transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
                 {
                     GameObject collided = new GameObject("collided");
                     collided.transform.position = hit[i].transform.position;

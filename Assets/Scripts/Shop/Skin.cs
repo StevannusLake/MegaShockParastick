@@ -80,6 +80,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         }
         else
         {
+            Shop.instance.ResetInUseHolder();
             Shop.instance.skinUsing = this.gameObject;
             Shop.instance.ChangeSkin();
             Debug.Log("ChangeSkin : " + this.name);

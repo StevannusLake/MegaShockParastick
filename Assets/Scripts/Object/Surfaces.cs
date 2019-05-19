@@ -107,10 +107,21 @@ public class Surfaces : MonoBehaviour
             pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
             pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
             pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
-            pingpongObjects[2] = platformPlacementTransform.Find("PingPong4");
+            pingpongObjects[3] = platformPlacementTransform.Find("PingPong4");
             destination = pingpongObjects[1];
             foundDestination = true;
         }
+        if (platformPlacementTransform.childCount == 5)
+        {
+            pingpongObjects[0] = platformPlacementTransform.Find("PingPong1");
+            pingpongObjects[1] = platformPlacementTransform.Find("PingPong2");
+            pingpongObjects[2] = platformPlacementTransform.Find("PingPong3");
+            pingpongObjects[3] = platformPlacementTransform.Find("PingPong4");
+            pingpongObjects[4] = platformPlacementTransform.Find("PingPong5");
+            destination = pingpongObjects[1];
+            foundDestination = true;
+        }
+
 
 
 
@@ -156,7 +167,9 @@ public class Surfaces : MonoBehaviour
         }
          if(!alreadyRespawnedCoin)
         {
-
+            PlatformCondition condition = platformPlacementTransform.GetComponent<PlatformCondition>();
+            bool shouldLoop = condition.isLoop;
+            ///
             if (transform.position != destination.position)
             {
                  transform.position = Vector3.MoveTowards(transform.position, destination.position, Time.deltaTime * 1.2f);
@@ -165,28 +178,57 @@ public class Surfaces : MonoBehaviour
             }
             if (transform.position == destination.position)
             {
-                if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.Last()))
+                switch (shouldLoop)
                 {
-                    pingpongDirection = PingPongDirection.Back;
-                    destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
-                }
-                else if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.First()))
-                {
-                    pingpongDirection = PingPongDirection.Forward;
+                    case false:
+                        if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.Last()))
+                        {
+                            pingpongDirection = PingPongDirection.Back;
+                            destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+                        }
+                        else if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.First()))
+                        {
+                            pingpongDirection = PingPongDirection.Forward;
 
-                    destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                            destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                        }
+                        else
+                        {
+                            if (pingpongDirection == PingPongDirection.Forward)
+                            {
+                                destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                            }
+                            else if (pingpongDirection == PingPongDirection.Back)
+                            {
+                                destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
+                            }
+                        }
+                        break;
+
+                    case true:
+                        if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.Last()))
+                        {
+                            
+                            destination = pingpongObjects[0];
+                        }
+                        else if (System.Array.IndexOf(pingpongObjects, destination) == System.Array.IndexOf(pingpongObjects, pingpongObjects.First()))
+                        {
+                            pingpongDirection = PingPongDirection.Forward;
+
+                            destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                        }
+                        else
+                        {
+                            if (pingpongDirection == PingPongDirection.Forward)
+                            {
+                                destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
+                            }
+                            
+                        }
+                        break;
+
                 }
-                else
-                {
-                    if (pingpongDirection == PingPongDirection.Forward)
-                    {
-                        destination = pingpongObjects[DestinationCurrentIndex(destination) + 1];
-                    }
-                    else if (pingpongDirection == PingPongDirection.Back)
-                    {
-                        destination = pingpongObjects[DestinationCurrentIndex(destination) - 1];
-                    }
-                }
+               
             }
         }
        

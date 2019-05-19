@@ -14,6 +14,11 @@ public class Shop : MonoBehaviour
     public ShopState shopState;
     public Text coinText;
     private GameObject mainCamera;
+    public GameObject[] lockedMask;
+    public GameObject[] holder;
+    public GameObject defaultHolder;
+    public Sprite InUseImage;
+    public Sprite lastHolder;
 
     public static Shop instance;
     void Awake()
@@ -69,7 +74,30 @@ public class Shop : MonoBehaviour
                 if (GameManager.instance.skinCollected[i].name == skinList[j].name)
                 {
                     skinList[j].GetComponent<Skin>().isBought = true;
+                    lockedMask[j].SetActive(false);
                     break;
+                }
+            }
+        }
+    }
+
+    public void ResetInUseHolder()
+    {
+        if (lastHolder != null)
+        {
+            if (skinUsing == defaultSkin)
+            {
+                defaultHolder.GetComponent<Image>().sprite = lastHolder;
+            }
+            else
+            {
+                for (int i = 0; i < skinList.Length; i++)
+                {
+                    if (skinList[i].name == skinUsing.name)
+                    {
+                        holder[i].GetComponent<Image>().sprite = lastHolder;
+                        break;
+                    }
                 }
             }
         }
@@ -78,6 +106,24 @@ public class Shop : MonoBehaviour
     public void ChangeSkin()
     {
         GameManager.instance.player.GetComponent<SpriteRenderer>().sprite = skinUsing.GetComponent<Skin>().skinImage;
+        
+        if(skinUsing == defaultSkin)
+        {
+            lastHolder = defaultHolder.GetComponent<Image>().sprite;
+            defaultHolder.GetComponent<Image>().sprite = InUseImage;
+        }
+        else
+        {
+            for (int i = 0; i < skinList.Length; i++)
+            {
+                if (skinList[i].name == skinUsing.name)
+                {
+                    lastHolder = holder[i].GetComponent<Image>().sprite;
+                    holder[i].GetComponent<Image>().sprite = InUseImage;
+                    break;
+                }
+            }
+        }
     }
 
     private void OnApplicationQuit()
