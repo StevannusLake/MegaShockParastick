@@ -58,36 +58,78 @@ public class DragController : MonoBehaviour
         MoveByDrag(rawDelta);
         if (!isDragging)
         {
-            if (transform.position.y < initPos.y)
+            if (UIManager.Instance.ShopMenu.activeInHierarchy)
             {
-                this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                if (transform.position.y < initPos.y)
+                {
+                    this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                }
+                else if (bottomObject.position.y > initPos.y + 30f)
+                {
+                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 944.3f, 0f), 3f * Time.deltaTime);
+                }
             }
-            else if (bottomObject.position.y > initPos.y + 30f)
+            else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
             {
-                this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f,944.3f,0f), 3f * Time.deltaTime);
+                if (transform.position.y < initPos.y)
+                {
+                    this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    Debug.Log("Too Low");
+                }
+                else if (bottomObject.position.y > initPos.y-40f)
+                {
+                    rawDelta.y = 0f;
+                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 134.6f, 0f), 3f * Time.deltaTime);
+                    Debug.Log("Too HIGH");
+                }
             }
         }
-        rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 2f); 
+        rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 2f);
+        //Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
     }
 
     void MoveByDrag(Vector3 rawD)
     {
-        if (rawD.y > 0)
+        if (UIManager.Instance.ShopMenu.activeInHierarchy)
         {
-            if (bottomObject.position.y < initPos.y+30f)
+            if (rawD.y > 0)
             {
-                Vector3 moveDirection = Vector3.zero;
-                moveDirection.y = rawD.y;
-                this.transform.Translate(moveDirection, Space.World);
+                if (bottomObject.position.y < initPos.y + 30f)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
+            }
+            else
+            {
+                if (transform.position.y >= initPos.y)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
             }
         }
-        else
+        else if(UIManager.Instance.ChallengesMenu.activeInHierarchy)
         {
-            if (transform.position.y >= initPos.y)
+            if (rawD.y > 1f)
             {
-                Vector3 moveDirection = Vector3.zero;
-                moveDirection.y = rawD.y;
-                this.transform.Translate(moveDirection, Space.World);
+                if (bottomObject.position.y < initPos.y-40f)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
+            }
+            else
+            {
+                if (transform.position.y >= initPos.y)
+                {
+                    Vector3 moveDirection = Vector3.zero;
+                    moveDirection.y = rawD.y;
+                    this.transform.Translate(moveDirection, Space.World);
+                }
             }
         }
     }
