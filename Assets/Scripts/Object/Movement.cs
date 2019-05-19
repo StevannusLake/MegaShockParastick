@@ -184,6 +184,8 @@ public class Movement : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
+            
+            myTransform.SetParent(null);
 
             // gravity scale = 1 so it will fall
             myRigidBody.gravityScale = 1;
