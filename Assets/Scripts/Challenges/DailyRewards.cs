@@ -16,6 +16,9 @@ public class DailyRewards : MonoBehaviour
     {   
         CheckDate();
         CheckGreenTick();
+
+        //=============================================================================================================
+        OnApplicationQuit();
     }
 
     void CheckDate()
@@ -82,9 +85,15 @@ public class DailyRewards : MonoBehaviour
             Debug.Log("Cheat");
         }
 
-        //=============================================================================================================
-        NotificationManager.CancelAll();
-        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 10);
+        //=============================================================================================================TimeSpan delayNotifyTime = new TimeSpan(0, 0, 3);
+
+        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 5);
+        Debug.Log(delayNotifyTime);
+        // schedule without icon
+        NotificationManager.Send(delayNotifyTime, "FK", "FKFKFKFK", Color.red, NotificationIcon.Heart);
+
+        NotificationManager.Cancel(0);
+        delayNotifyTime = new TimeSpan(0, 0, 3);
         Debug.Log(delayNotifyTime);
         // schedule without icon
         NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
