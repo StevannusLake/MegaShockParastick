@@ -23,7 +23,7 @@ public class MissionManager : MonoBehaviour
 
     void Start()
     {
-        if (!PlayerPrefs.HasKey("Mission1"))
+        if (PlayerPrefs.GetInt("Mission1") == 0)
         {
             missionListId[0] = 1;
             missionListId[1] = 11;
@@ -477,6 +477,10 @@ public class MissionManager : MonoBehaviour
          missionListId[questCompleted] = missions[questCompleted].nextId;
          var tempItem = new Missions(missionListId[questCompleted]);
          missions[questCompleted] = tempItem;
+        for (int i = 0; i < 5; i++)
+        {
+            PlayerPrefs.SetInt("Mission" + (i + 1), missionListId[i]);
+        }
     }
 }
 

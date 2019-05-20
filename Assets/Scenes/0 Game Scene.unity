@@ -15625,7 +15625,6 @@ GameObject:
   - component: {fileID: 1170094492}
   - component: {fileID: 1170094496}
   - component: {fileID: 1170094498}
-  - component: {fileID: 1170094499}
   - component: {fileID: 1170094497}
   m_Layer: 0
   m_Name: GameHandler
@@ -15902,28 +15901,6 @@ MonoBehaviour:
   InUseEnvironmentMask: {fileID: 21300000, guid: 454ec841f901348419bef4c110f2ce34,
     type: 3}
   TransparentMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
---- !u!114 &1170094499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1170094491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73673db386fc5744a35d1c131cbc522, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  greenTicks:
-  - {fileID: 8833761058991313325}
-  - {fileID: 8833761059077065641}
-  - {fileID: 8833761057956730142}
-  - {fileID: 8833761057972055761}
-  - {fileID: 8833761058289848925}
-  - {fileID: 8833761059372946558}
-  - {fileID: 8833761058274435117}
-  NotificationWindow: {fileID: 1213093781}
-  notificationText: {fileID: 2074407374}
 --- !u!1 &1170484583 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1549639103193081128, guid: dd7ab32655b789041b676c7d2c8ca08b,
@@ -18311,7 +18288,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1170094499}
+      - m_Target: {fileID: 0}
         m_MethodName: CloseNotificationWindow
         m_Mode: 1
         m_Arguments:
@@ -32313,6 +32290,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.78
       objectReference: {fileID: 0}
+    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4107613679727241748, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
       propertyPath: m_IsActive
@@ -32332,16 +32319,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -282
-      objectReference: {fileID: 0}
-    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7ab32655b789041b676c7d2c8ca08b, type: 3}
@@ -33784,6 +33761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9088645629637390814}
+  - component: {fileID: 8646306001157498754}
   m_Layer: 5
   m_Name: ChallengesMenu
   m_TagString: Untagged
@@ -33791,6 +33769,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &8646306001157498754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8646306001157498753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73673db386fc5744a35d1c131cbc522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenTicks:
+  - {fileID: 8833761058991313325}
+  - {fileID: 8833761059077065641}
+  - {fileID: 8833761057956730142}
+  - {fileID: 8833761057972055761}
+  - {fileID: 8833761058289848925}
+  - {fileID: 8833761059372946558}
+  - {fileID: 8833761058274435117}
+  NotificationWindow: {fileID: 1213093781}
+  notificationText: {fileID: 2074407374}
 --- !u!1001 &8795367024868477351
 PrefabInstance:
   m_ObjectHideFlags: 0
