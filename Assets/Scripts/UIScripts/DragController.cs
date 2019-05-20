@@ -47,7 +47,7 @@ public class DragController : MonoBehaviour
         {
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                rawDelta = Input.GetTouch(0).deltaPosition;
+                rawDelta = Input.GetTouch(0).deltaPosition * 0.01f;
                 isDragging = true;
             }
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
@@ -66,9 +66,10 @@ public class DragController : MonoBehaviour
                     {
                         this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
                     }
-                    else if (bottomObject.position.y > initPos.y + 30f)
+                    else if (bottomObject.position.y > initPos.y + 1f)
                     {
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 944.3f, 0f), 3f * Time.deltaTime);
+                        rawDelta.y = 0f;
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 26.7f, transform.position.z), 3f * Time.deltaTime);
                     }
                 }
                 else if(Shop.instance.shopState == Shop.ShopState.place)
@@ -77,10 +78,10 @@ public class DragController : MonoBehaviour
                     {
                         this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
                     }
-                    else if (bottomObject.position.y > initPos.y + 30f)
+                    else if (bottomObject.position.y > initPos.y - 1f)
                     {
                         rawDelta.y = 0f;
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 496.2f, 0f), 3f * Time.deltaTime);
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 10.9f, transform.position.z), 3f * Time.deltaTime);
                     }
                 }
             }
@@ -91,16 +92,16 @@ public class DragController : MonoBehaviour
                     this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
                     Debug.Log("Too Low");
                 }
-                else if (bottomObject.position.y > initPos.y-40f)
+                else if (bottomObject.position.y > initPos.y-2f)
                 {
                     rawDelta.y = 0f;
-                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(98.5f, 134.6f, 0f), 3f * Time.deltaTime);
+                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -0.9f, transform.position.z), 3f * Time.deltaTime);
                     Debug.Log("Too HIGH");
                 }
             }
         }
         rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 1f);
-        //Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
+        Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
     }
 
     void MoveByDrag(Vector3 rawD)
@@ -109,7 +110,7 @@ public class DragController : MonoBehaviour
         {
             if (rawD.y > 0)
             {
-                if (bottomObject.position.y < initPos.y + 30f)
+                if (bottomObject.position.y < initPos.y + 1f)
                 {
                     Vector3 moveDirection = Vector3.zero;
                     moveDirection.y = rawD.y;
@@ -128,9 +129,9 @@ public class DragController : MonoBehaviour
         }
         else if(UIManager.Instance.ChallengesMenu.activeInHierarchy)
         {
-            if (rawD.y > 1f)
+            if (rawD.y > 0)
             {
-                if (bottomObject.position.y < initPos.y-40f)
+                if (bottomObject.position.y < initPos.y-2f)
                 {
                     Vector3 moveDirection = Vector3.zero;
                     moveDirection.y = rawD.y;

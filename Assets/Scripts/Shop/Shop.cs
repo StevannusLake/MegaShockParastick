@@ -165,6 +165,7 @@ public class Shop : MonoBehaviour
             environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
             for(int i =0;i<environmentLockedMask.Length;i++)
             {
+                if(environmentLockedMask[i].GetComponent<Skin>().isBought)
                 environmentLockedMask[i].GetComponent<Image>().sprite = TransparentMask;
             }
         }
