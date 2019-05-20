@@ -8,7 +8,8 @@ public class LoadingScreen : MonoBehaviour
 {
     public RectTransform parasite;
     public RectTransform endParasite;
-    private float zRotation = 0f; 
+    private float zRotation = 0f;
+    public GameObject greenFill;
 
     void Start()
     {
@@ -32,9 +33,10 @@ public class LoadingScreen : MonoBehaviour
             float targetRotation = 360f / (asyncOperation.progress + 0.1f);
             if(zRotation<targetRotation)
             {
-                zRotation += 1.2f;
+                zRotation += 1.5f;
             }
             parasite.transform.eulerAngles = new Vector3(0, 0, -zRotation);
+            greenFill.GetComponent<Image>().fillAmount = parasite.transform.position.x / endParasite.transform.position.x;
             Debug.Log("Pro :" + asyncOperation.progress);
             if (Vector3.Distance(parasite.position,endParasite.position) <= 2.0f)
             {
