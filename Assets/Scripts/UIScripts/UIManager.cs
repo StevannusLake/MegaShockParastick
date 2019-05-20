@@ -190,6 +190,10 @@ public class UIManager : MonoBehaviour
         inGameUIAnim = InGameUI.GetComponent<Animator>();
 
         PauseMenuAnim = PauseMenu.GetComponent<Animator>();
+
+        CoinCounterSelfOpen();
+        OpalCounterTransitionOpen();
+        OpalEffectTransitionOpen();
     }
 
     private void Update()
@@ -330,6 +334,8 @@ public class UIManager : MonoBehaviour
 
     public void CallLoseMenu()
     {
+        CoinCounterSelfClose();
+
         secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
 
         AudioManager.PlaySound(AudioManager.Sound.Lose);
@@ -408,8 +414,12 @@ public class UIManager : MonoBehaviour
         Invoke("CallClosingMainMenu", 1.2f);
         playerMovement.enabled = true;
         playerColliderConroller.enabled = true;
-
+        
         Invoke("OpeningInGameUI", 0.6f);
+
+        //CoinCounterSelfClose();
+        OpalCounterTransitionBack();
+        OpalEffectTransitionBack();
 
     }
 
@@ -432,6 +442,8 @@ public class UIManager : MonoBehaviour
 
     public void CallSecondChanceMenu()
     {
+        CoinCounterSelfClose();
+
         GameManager.instance.SaveCoin();
         GameManager.instance.SaveScore();
         //callSecondChanceMenu = true;
@@ -683,7 +695,7 @@ public class UIManager : MonoBehaviour
 
     void CheckOpalUIAnimation()
     {
-        if (OpalCounterAnim.GetCurrentAnimatorStateInfo(0).IsName("OnOpalCounter"))
+        if (OpalCounterAnim.GetCurrentAnimatorStateInfo(0).IsName("OnOpalCounter") && !MainMenu.activeSelf)
         {
             Invoke("OpalJumpingEffect", 1f);
             Invoke("OpalCounterTransitionBack", 3f);
@@ -701,10 +713,22 @@ public class UIManager : MonoBehaviour
         OpalCounterAnim.SetBool("OpenCounter", false);
     }
 
+    void OpalCounterTransitionOpen()
+    {
+        OpalCounterAnim.SetBool("OpenCounter", true);
+    }
+
     void OpalEffectTransitionBack()
     {
         OpalEffectAnim.SetBool("OpenOpalIcon", false);
     }
+
+    void OpalEffectTransitionOpen()
+    {
+        OpalEffectAnim.SetBool("OpenOpalIcon", true);
+    }
+
+
 
     #region Garage Transitioning
 
@@ -748,6 +772,16 @@ public class UIManager : MonoBehaviour
     public void ClosingInGameUI()
     {
         inGameUIAnim.SetBool("OpenInGameUI", false);
+    }
+
+    void CoinCounterSelfOpen()
+    {
+        inGameUIAnim.SetBool("OpenCoinCounterUI", true);
+    }
+
+    void CoinCounterSelfClose()
+    {
+        inGameUIAnim.SetBool("OpenCoinCounterUI", false);
     }
 
     public void MegaShockFBLink()
