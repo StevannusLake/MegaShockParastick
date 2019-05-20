@@ -32141,6 +32141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 9206214766654105281, guid: dd7ab32655b789041b676c7d2c8ca08b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 572344182314776665, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
       propertyPath: m_LocalPosition.x
