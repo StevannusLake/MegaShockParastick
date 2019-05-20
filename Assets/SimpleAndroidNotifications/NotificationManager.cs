@@ -26,7 +26,7 @@ namespace Assets.SimpleAndroidNotifications
         {
             return SendCustom(new NotificationParams
             {
-                Id = UnityEngine.Random.Range(0, int.MaxValue),
+                Id = 60, //  UnityEngine.Random.Range(0, int.MaxValue),
                 Delay = delay,
                 Title = title,
                 Message = message,

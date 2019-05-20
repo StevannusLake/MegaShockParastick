@@ -18,6 +18,18 @@ public class DailyRewards : MonoBehaviour
         CheckGreenTick();
     }
 
+    private void Update()
+    {
+
+        //=============================================================================================================
+
+        NotificationManager.Cancel(60);
+        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 10);
+        Debug.Log(delayNotifyTime);
+        // schedule without icon
+        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
+    }
+
     void CheckDate()
     {
         if(PlayerPrefs.GetInt("LoginDay") == 0)
@@ -73,16 +85,7 @@ public class DailyRewards : MonoBehaviour
                 Debug.Log("Day Not Passed");
             }
         }
-
-
-        //=============================================================================================================TimeSpan delayNotifyTime = new TimeSpan(0, 0, 3);
-
-        NotificationManager.CancelAll();
-        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 10);
-        Debug.Log(delayNotifyTime);
-        // schedule without icon
-        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
-
+        
     }
 
     void GiveRewards(int day)
