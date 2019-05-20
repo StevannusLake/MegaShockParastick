@@ -121,7 +121,11 @@ public class Movement : MonoBehaviour
     ParticleSystem.EmissionModule dpsEmission;
     bool doubleSSEffect;
     //=======================================================================================================================
-    
+    // bounce counter delay timer
+    static bool isBounceRecover;
+    static float bounceRecoverCounter, bounceRecoverTimer = 0.5f;
+    //=======================================================================================================================
+
     // Start is called before the first frame update
     void Start()
     {
@@ -281,6 +285,9 @@ public class Movement : MonoBehaviour
         }
         //=======================================================================================================================
         ConfigureTrail();
+        //=======================================================================================================================
+        BounceRecoverCountdown();
+
     }
 
     void SlingShot()
@@ -596,8 +603,12 @@ public class Movement : MonoBehaviour
             }
             else if (collision.collider.CompareTag(horizontalWall))
             {
-                bounceCounter++;
-                GameManager.instance.bounceCounterInAGame++;
+                if(!isBounceRecover)
+                {
+                    isBounceRecover = true;
+                    bounceCounter++;
+                    GameManager.instance.bounceCounterInAGame++;
+                }
                 if (doubleSlingshot == 2)
                 {
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
@@ -1111,6 +1122,22 @@ public class Movement : MonoBehaviour
         if (myTrailRenderer.enabled == false)
         {
             myTrailRenderer.Clear();
+        }
+    }
+
+    void BounceRecoverCountdown()
+    {
+        if(isBounceRecover)
+        {
+            if(bounceRecoverCounter > bounceRecoverTimer)
+            {
+                isBounceRecover = false;
+                bounceRecoverCounter = 0;
+            }
+            else
+            {
+                bounceRecoverCounter += Time.unscaledDeltaTime;
+            }
         }
     }
 }

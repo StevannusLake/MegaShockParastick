@@ -783,6 +783,7 @@ MonoBehaviour:
   defaultOffset: {fileID: 0}
   isDummy: 0
   test: 0
+  thisLevelDirection: 0
 --- !u!1 &2956785303922046004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,7 +1196,7 @@ GameObject:
   - component: {fileID: 2928240563025993099}
   m_Layer: 12
   m_Name: WallCollider (4)
-  m_TagString: Untagged
+  m_TagString: HorizontalWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
