@@ -116,6 +116,10 @@ public class UIManager : MonoBehaviour
     public GameObject InGameUI;
     private Animator inGameUIAnim;
 
+    private Animator PauseMenuAnim;
+
+    public Button PauseButton;
+
     private void Awake()
     {
         if(instance == null)
@@ -184,6 +188,8 @@ public class UIManager : MonoBehaviour
         coinMultiplyPanelAnim = CoinMultiplyPanel.GetComponent<Animator>();
 
         inGameUIAnim = InGameUI.GetComponent<Animator>();
+
+        PauseMenuAnim = PauseMenu.GetComponent<Animator>();
     }
 
     private void Update()
@@ -313,6 +319,8 @@ public class UIManager : MonoBehaviour
         CheckSoundVibrationSetting();
 
         CheckOpalUIAnimation();
+
+        CheckPauseButton();
     }
 
     public void ClosePrompt()
@@ -378,7 +386,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        MainMenu.SetActive(true);
+        //MainMenu.SetActive(true);
         PauseMenu.SetActive(false);
         LoseMenu.SetActive(false);
         playerMovement.enabled = false;
@@ -387,6 +395,10 @@ public class UIManager : MonoBehaviour
         secondChanceCalled = false;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondChanceCalled", secondChanceCalled ? 1 : 0);
+
+        ClosingGarage();
+
+        Invoke("ReloadScene",1.2f);
     }
 
     public void CloseMainMenu()
@@ -506,13 +518,38 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         PauseMenu.SetActive(true);
-        Invoke("TimeScale0", 0.7f);
+        Invoke("TimeScale0", 0.5f);
+
+        playerMovement.enabled = false;
+        playerColliderConroller.enabled = false;
     }
 
     public void ResumeGame()
     {
-        PauseMenu.SetActive(false);
+        PauseMenuAnim.SetBool("OpenPauseMenu", false);
         Time.timeScale = 1f;
+
+        Invoke("TurnOffPauseMenu", 0.5f);
+
+        playerMovement.enabled = true;
+        playerColliderConroller.enabled = true;
+    }
+
+    void TurnOffPauseMenu()
+    {
+        PauseMenu.SetActive(false);
+    }
+
+    void CheckPauseButton()
+    {
+        if(PauseMenu.activeSelf || SecondChanceMenu.activeSelf || LoseMenu.activeSelf)
+        {
+            PauseButton.interactable = false;
+        }
+        else
+        {
+            PauseButton.interactable = true;
+        }
     }
 
     #region Settings Screen
@@ -556,25 +593,25 @@ public class UIManager : MonoBehaviour
     {
         //! Play Ad Video
 
+        coinMultiplyPanelAnim.SetBool("OpenCoinMultiplyPanel", false);
+
         GameManager.instance.AddCoin(ColliderController.tempCollectedCoin);
         GameManager.instance.SaveCoin();
         GameManager.instance.GetCoin();
-        CoinMultiplyPanel.SetActive(false);
 
-        ColliderController.tempCollectedCoin = 0;
+        Invoke("TurnOffCoinMultiplyPanel", 1.2f);
     }
 
     public void CloseCoinMultiplyPanel()
     {
         coinMultiplyPanelAnim.SetBool("OpenCoinMultiplyPanel", false);
 
-        ColliderController.tempCollectedCoin = 0;
-
         Invoke("TurnOffCoinMultiplyPanel", 1.2f);
     }
 
     void TurnOffCoinMultiplyPanel()
     {
+        ColliderController.tempCollectedCoin = 0;
         CoinMultiplyPanel.SetActive(false);
     }
 
