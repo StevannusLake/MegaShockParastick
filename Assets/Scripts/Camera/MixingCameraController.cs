@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+public enum CameraFollowingState { NORMAL, ONMOVINGPLATFORM };
 public class MixingCameraController : MonoBehaviour
 {
+   
     public GameObject Target;
     public CinemachineMixingCamera mixingCamera;
     public bool isInsideZoomArea = false;
@@ -15,12 +17,14 @@ public class MixingCameraController : MonoBehaviour
     public float[] previousCameraOrto;
     public float prevousCameraOffset;
     public GameObject currentActiveLayout;
+    public GameObject currentSurface;
     [Header("Amount to zoomout")]
     public float amountToZoomOut;
 
     public bool shouldGoToLeft = false;
     public bool shouldGoToRight = false;
     public bool shouldGoToDefaultOffset = false;
+    public CameraFollowingState cameraState = CameraFollowingState.NORMAL;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +45,21 @@ public class MixingCameraController : MonoBehaviour
          
         
         if (isShaked) StopShake();
-
-
-        if (shouldGoToLeft) SlowlyOffsetToLeft();
-        if (shouldGoToRight) SlowlyOffsetToRight();
-        if (shouldGoToDefaultOffset) PositionOnDefaultCameraOffset();
         WaterClosingShake();
+        switch (cameraState)
+        {
+            case CameraFollowingState.NORMAL:
+                if (shouldGoToLeft) SlowlyOffsetToLeft();
+                if (shouldGoToRight) SlowlyOffsetToRight();
+                if (shouldGoToDefaultOffset) PositionOnDefaultCameraOffset();
+               
+                break;
+            case CameraFollowingState.ONMOVINGPLATFORM:
+                MoveWithMovingPlatform();
+                break;
+
+        }
+        
 
     }
 
@@ -61,6 +74,17 @@ public class MixingCameraController : MonoBehaviour
         if(zoom>=0) mixingCamera.m_Weight1 = zoom;
       
 
+    }
+
+    void MoveWithMovingPlatform()
+    {
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            float speedOfMoving = Time.deltaTime * 1.5f;
+            if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 0.5f;
+            mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, currentSurface.transform.position.x, speedOfMoving);
+           
+        }
     }
    
     public void ShakeCamera(float shakeAmplitude, float shakeFrequency, float duration)

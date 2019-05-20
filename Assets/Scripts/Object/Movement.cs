@@ -686,6 +686,7 @@ public class Movement : MonoBehaviour
 
                 // get info to spawn relative smoke effect
                 Surfaces currentSurface = collision.collider.gameObject.GetComponent<Surfaces>();
+                
                 if(currentSurface.thisType == Surfaces.SurfaceTypes.Safe)
                 {
                     float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
@@ -699,11 +700,18 @@ public class Movement : MonoBehaviour
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
                     mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle, "MovingPlatform");
+                   LevelHandler.instance.cameraController.currentSurface = currentSurface.gameObject;
+                 //  LevelHandler.instance.cameraController.cameraState = CameraFollowingState.ONMOVINGPLATFORM;
                 }
 
                 // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
             }
+            
+            
+               
+            
+            
         }
 
         if(collision.collider.name == "FirstInitialPlatform" && deadState == 0)
@@ -785,6 +793,10 @@ public class Movement : MonoBehaviour
 
             // myAnimation.PlayIdle();
             myEmotion.EmoteIdle();
+           // LevelHandler.instance.cameraController.cameraState = CameraFollowingState.NORMAL;
+            LevelHandler.instance.cameraController.currentSurface = null;
+
+            
         }
     }
 
