@@ -69,19 +69,12 @@ public class DailyRewards : MonoBehaviour
         }
     }
 
-    void OnApplicationQuit()
+    void Update()
     {
         if (currentDate > oldDate)
         {
             PlayerPrefs.SetString("lastLogin", System.DateTime.Now.ToBinary().ToString());
-            Debug.Log("Save Date");
-
         }
-        else
-        {
-            Debug.Log("Cheat");
-        }
-
     }
 
     private void OnDisable()
