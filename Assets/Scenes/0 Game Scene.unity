@@ -2246,7 +2246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.779, y: 0.883}
   m_AnchorMax: {x: 0.8358519, y: 0.9444797}
-  m_AnchoredPosition: {x: 263, y: 0}
+  m_AnchoredPosition: {x: 342, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &203950998
@@ -4288,7 +4288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.765, y: 0.935}
   m_AnchorMax: {x: 1, y: 0.985}
-  m_AnchoredPosition: {x: 261.99997, y: 0}
+  m_AnchoredPosition: {x: 343.99997, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360836380
@@ -6009,7 +6009,7 @@ Canvas:
   m_GameObject: {fileID: 508106764}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 365027983}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -6019,7 +6019,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &508106768
 RectTransform:
@@ -6779,7 +6779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77900004, y: 0.9444797}
   m_AnchorMax: {x: 0.83400005, y: 1}
-  m_AnchoredPosition: {x: 267.0001, y: 0}
+  m_AnchoredPosition: {x: 348.99997, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &596579979
@@ -15639,7 +15639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.765, y: 0.875}
   m_AnchorMax: {x: 1, y: 0.925}
-  m_AnchoredPosition: {x: 262.99997, y: 0}
+  m_AnchoredPosition: {x: 342.0001, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159378303
@@ -30121,10 +30121,12 @@ MonoBehaviour:
   previousCameraOrto: []
   prevousCameraOffset: 0
   currentActiveLayout: {fileID: 0}
+  currentSurface: {fileID: 0}
   amountToZoomOut: 4.5
   shouldGoToLeft: 0
   shouldGoToRight: 0
   shouldGoToDefaultOffset: 0
+  cameraState: 0
 --- !u!114 &2087839694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32243,7 +32245,7 @@ PrefabInstance:
     - target: {fileID: 9206214766654105281, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572344182314776665, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
