@@ -229,7 +229,7 @@ public class ColliderController : MonoBehaviour
 
         }
         /////// DefaultOffset
-        if (other.CompareTag("LeftMovementOffset"))
+        if (other.CompareTag("LeftMovementOffset") )
         {
             if (LevelHandler.instance.levelLayoutsCreated[other.gameObject.transform.parent.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID+1].tag == "RightLayout" 
                 && other.gameObject.transform.parent.parent.tag == "LeftLayout") return;
