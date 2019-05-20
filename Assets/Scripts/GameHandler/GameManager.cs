@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using Assets.SimpleAndroidNotifications;
+
 public class GameManager : MonoBehaviour
 {
     public List<string> soundSourcesCreated;
@@ -57,6 +60,17 @@ public class GameManager : MonoBehaviour
         playerColliderController = player.GetComponent<ColliderController>();
     }
 
+
+    private void Update()
+    {
+
+        //=============================================================================================================
+
+        NotificationManager.Cancel(60);
+        TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
+        // schedule without icon
+        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been two hours since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
+    }
 
 
 

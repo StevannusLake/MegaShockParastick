@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Assets.SimpleAndroidNotifications;
 using UnityEngine.UI;
 
 public class DailyRewards : MonoBehaviour
@@ -19,17 +18,6 @@ public class DailyRewards : MonoBehaviour
     {   
         CheckDate();
         CheckGreenTick();
-    }
-
-    private void Update()
-    {
-
-        //=============================================================================================================
-
-        NotificationManager.Cancel(60);
-        TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
-        // schedule without icon
-        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been two hours since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
     }
 
     void CheckDate()
