@@ -24,10 +24,9 @@ public class DailyRewards : MonoBehaviour
         //=============================================================================================================
 
         NotificationManager.Cancel(60);
-        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 10);
-        Debug.Log(delayNotifyTime);
+        TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
         // schedule without icon
-        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been two hours since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
     }
 
     void CheckDate()
