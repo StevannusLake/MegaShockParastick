@@ -74,21 +74,18 @@ public class DailyRewards : MonoBehaviour
         if (currentDate > oldDate)
         {
             PlayerPrefs.SetString("lastLogin", System.DateTime.Now.ToBinary().ToString());
+
+            //=============================================================================================================TimeSpan delayNotifyTime = new TimeSpan(0, 0, 3);
+
+            NotificationManager.CancelAll();
+            TimeSpan delayNotifyTime = new TimeSpan(0, 0, 10);
+            Debug.Log(delayNotifyTime);
+            // schedule without icon
+            NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
+
         }
     }
-
-    private void OnDisable()
-    {
-        //=============================================================================================================TimeSpan delayNotifyTime = new TimeSpan(0, 0, 3);
-
-        NotificationManager.CancelAll();
-        TimeSpan delayNotifyTime = new TimeSpan(0, 0, 10);
-        Debug.Log(delayNotifyTime);
-        // schedule without icon
-        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been A Thousand Year since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
-
-    }
-
+    
     void GiveRewards(int day)
     {
         if(day == 1)
