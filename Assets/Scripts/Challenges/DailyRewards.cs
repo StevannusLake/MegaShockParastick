@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Assets.SimpleAndroidNotifications;
+using UnityEngine.UI;
 
 public class DailyRewards : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class DailyRewards : MonoBehaviour
     private DateTime currentDate;
     private DateTime oldDate;
     private int numOfDay;
+    public GameObject NotificationWindow;
+    public Text notificationText;
 
     // Start is called before the first frame update
     void Start()
@@ -90,40 +93,48 @@ public class DailyRewards : MonoBehaviour
 
     void GiveRewards(int day)
     {
+        NotificationWindow.SetActive(true);
         if(day == 1)
         {
             GameManager.instance.AddCoin(5);
             GameManager.instance.totalCoinCollected += 5;
+            notificationText.text = "You Received 5 coins!";
         }
         else if(day == 2)
         {
             GameManager.instance.AddCoin(10);
             GameManager.instance.totalCoinCollected += 10;
+            notificationText.text = "You Received 10 coins!";
         }
         else if (day == 3)
         {
             GameManager.instance.AddCoin(15);
             GameManager.instance.totalCoinCollected += 15;
+            notificationText.text = "You Received 15 coins!";
         }
         else if (day == 4)
         {
             GameManager.instance.AddCoin(20);
             GameManager.instance.totalCoinCollected += 20;
+            notificationText.text = "You Received 20 coins!";
         }
         else if (day == 5)
         {
             GameManager.instance.AddCoin(25);
             GameManager.instance.totalCoinCollected += 25;
+            notificationText.text = "You Received 25 coins!";
         }
         else if (day == 6)
         {
             GameManager.instance.AddCoin(30);
             GameManager.instance.totalCoinCollected += 30;
+            notificationText.text = "You Received 30 coins!";
         }
         else if (day == 7)
         {
             GameManager.instance.AddPoints(5);
             GameManager.instance.totalPoints += 5;
+            notificationText.text = "You Received 5 points!";
         }
         GameManager.instance.SaveCoin();
         GameManager.instance.SavePoints();
@@ -135,5 +146,10 @@ public class DailyRewards : MonoBehaviour
         {
             greenTicks[i].SetActive(true);
         }
+    }
+
+    public void CloseNotificationWindow()
+    {
+        NotificationWindow.SetActive(false);
     }
 }
