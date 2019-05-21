@@ -462,8 +462,8 @@ public class UIManager : MonoBehaviour
 
     public void CloseSecondChanceMenu()
     {
-        // if (GameManager.instance.GetPoints() >= 4)
-        //{
+        if (GameManager.instance.GetPoints() >= 4)
+        {
 
             secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
 
@@ -486,7 +486,7 @@ public class UIManager : MonoBehaviour
 
             ClosingGarage();
             Invoke("TurnOffSecondChanceMenu", 1.2f);
-       // }
+       }
     }
 
     void TurnOffSecondChanceMenu()
