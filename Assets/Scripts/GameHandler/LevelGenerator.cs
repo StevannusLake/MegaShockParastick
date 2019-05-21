@@ -20,7 +20,7 @@ public class LevelGenerator : MonoBehaviour
     public Transform nextLayoutAnchor;
     public Transform defaultOffset;
     public bool isDummy = false;
- 
+    public List<GameObject> tempList;
     private bool DangerAlreadyMade = false;
     public bool test;
 
@@ -30,7 +30,16 @@ public class LevelGenerator : MonoBehaviour
     private void Awake()
     {
 
-        
+        tempList = new List<GameObject>();
+        AdjustLayoutSizes();
+
+
+    }
+
+    private void OnEnable()
+    {
+       
+
         platformList = new List<GameObject>();
         platformPlacementListWhite = new List<GameObject>(); //Only one is dangerous
         platformPlacementListRed = new List<GameObject>();// for sure dangerous
@@ -38,20 +47,36 @@ public class LevelGenerator : MonoBehaviour
         borderCollider = transform.parent.Find("PipeShape").GetComponent<BoxCollider2D>();
         pivotAnchor = transform.parent;
         nextLayoutAnchor = transform.parent.Find("NextLayoutAnchor").transform;
-        defaultOffset= transform.parent.Find("DefaultOffset").transform;
+        defaultOffset = transform.parent.Find("DefaultOffset").transform;
         backgroundSprites = new List<SpriteRenderer>();
-
-    }
-    private void Start()
-    {
-       
-        
-
     }
 
-    private void Update()
+
+    public  void AdjustLayoutSizes()
     {
-       
+        Transform PivotAnchor = transform.parent;
+        Transform NextLayoutAnchor = PivotAnchor.transform.Find("NextLayoutAnchor");
+        Transform LayoutContainer = PivotAnchor.transform.parent;
+
+
+        for (int i=0;i< PivotAnchor.childCount;i++)
+        {
+            tempList.Add(PivotAnchor.GetChild(i).gameObject);
+
+        }
+
+        foreach(GameObject childObj in tempList)
+        {
+            childObj.transform.SetParent(LayoutContainer);
+        }
+
+        PivotAnchor.transform.position = transform.parent.Find("AdjustableAnchor").transform.GetComponent<BoxCollider2D>().bounds.center;
+        NextLayoutAnchor.transform.position = transform.parent.Find("AdjustableNextLayout").transform.GetComponent<BoxCollider2D>().bounds.center;
+        foreach (GameObject childObj in tempList)
+        {
+            childObj.transform.SetParent(PivotAnchor);
+        }
+
     }
 
     void GetAllBackgrounds()
@@ -87,6 +112,7 @@ public class LevelGenerator : MonoBehaviour
 
     public void Initialize()
     {
+      
         SetThisLevelTypeDirection();
         GetAllBackgrounds();     
         AddChildsToList();
@@ -439,6 +465,7 @@ public class LevelGenerator : MonoBehaviour
             int number = Random.Range(0, upwardPossibilities.Length);
             CurrentDirection randomDirection = upwardPossibilities[number];
             Transform currentParent = LevelHandler.instance.levelLayoutsCreated[i-1+ offsetLayout].gameObject.transform;
+            
             Transform currentAnchor = currentParent.GetComponentInChildren<LevelGenerator>().nextLayoutAnchor;
             BoxCollider2D currentBoxCollider= LevelHandler.instance.levelLayoutsCreated[i -1+ offsetLayout].GetComponentInChildren<LevelGenerator>().borderCollider;
 
@@ -451,8 +478,9 @@ public class LevelGenerator : MonoBehaviour
 
                 GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection,LevelHandler.instance.levelType).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
                 LevelGenerator newLayoutGenerator = newLayout.GetComponentInChildren<LevelGenerator>();
+                newLayoutGenerator.Awake();
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);            
-                newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;
+                newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;             
                 newLayoutGenerator.Initialize();
                 ChangeNextLayoutBackgroundLayers(newLayoutGenerator.backgroundSprites, currentParent.GetComponentInChildren<LevelGenerator>().backgroundSprites.Last().sortingOrder, i);
                 newLayoutGenerator.PostInitialize();
@@ -465,7 +493,7 @@ public class LevelGenerator : MonoBehaviour
             else if (LevelHandler.instance.currentDirection == CurrentDirection.RIGHT)
             {
 
-               
+
                 float desiredY = currentAnchor.position.y;
                 float desiredX = currentAnchor.position.x;
 
@@ -473,6 +501,7 @@ public class LevelGenerator : MonoBehaviour
                 GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
 
                 LevelGenerator newLayoutGenerator = newLayout.GetComponentInChildren<LevelGenerator>();
+                newLayoutGenerator.Awake();
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);              
                 newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;
                 newLayoutGenerator.Initialize();
@@ -495,6 +524,7 @@ public class LevelGenerator : MonoBehaviour
                 GameObject newLayout = Instantiate(GameAssets.i.GetDesiredLevelLayout( randomDirection, LevelHandler.instance.levelType).levelLayOutPrefab, new Vector3(desiredX, desiredY), Quaternion.identity);
 
                 LevelGenerator newLayoutGenerator = newLayout.GetComponentInChildren<LevelGenerator>();
+                newLayoutGenerator.Awake();
                 newLayoutGenerator.pivotAnchor.position = new Vector2(desiredX, desiredY);          
                 newLayoutGenerator.levelGeneratorID = +levelGeneratorID + i;
                 newLayoutGenerator.Initialize();

@@ -89,6 +89,8 @@ public class LevelHandler : MonoBehaviour
         GameObject firstLayout=Instantiate(GameAssets.i.GetDesiredLevelLayout(CurrentDirection.UP, levelType).levelLayOutPrefab, new Vector3(firstLayoutPos.transform.position.x, firstLayoutPos.transform.position.y), Quaternion.identity);
         Transform pivotAnchor =firstLayout.transform.Find("PivotAnchor").transform;
         GameObject generator = pivotAnchor.Find("LevelGenerator").transform.gameObject;
+        LevelGenerator firstGenerator = generator.GetComponent<LevelGenerator>();
+        //firstGenerator.AdjustLayoutSizes();
         Transform positionBeforeSettingActive= pivotAnchor.GetComponentInChildren<LevelGenerator>().nextLayoutAnchor.transform;
         generator.SetActive(false);
         pivotAnchor.transform.position = firstLayout.transform.position;
@@ -96,6 +98,7 @@ public class LevelHandler : MonoBehaviour
         Transform pivotAnchor2 = secondLayout.transform.Find("PivotAnchor").transform;
         pivotAnchor2.transform.position = positionBeforeSettingActive.position;
         LevelGenerator levelGenerator = secondLayout.GetComponentInChildren<LevelGenerator>();
+        
         levelGenerator.borderCollider.size = new Vector2(levelGenerator.borderCollider.size.x, levelGenerator.borderCollider.size.y + 30f);
 
 

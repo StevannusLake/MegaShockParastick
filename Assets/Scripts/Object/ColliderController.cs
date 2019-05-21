@@ -99,6 +99,7 @@ public class ColliderController : MonoBehaviour
                     if(other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID == 0)
                     {
                         LevelGenerator levelGenerator = other.transform.parent.GetComponentInChildren<LevelGenerator>();
+                        
                         levelGenerator.Initialize();
                         levelGenerator.PostInitialize();
                         levelGenerator.GenerateMapOnTop(false);
