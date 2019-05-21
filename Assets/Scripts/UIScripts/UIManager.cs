@@ -786,11 +786,13 @@ public class UIManager : MonoBehaviour
 
     public void MegaShockFBLink()
     {
+        GameManager.instance.AddCoin(25);
         Application.OpenURL("https://www.facebook.com/Mega-Shock-Entertainment-2503342479678228/?modal=admin_todo_tour");
     }
 
     public void MegaShockIGLink()
     {
+        GameManager.instance.AddCoin(25);
         Application.OpenURL("https://www.instagram.com/megashockentertainment/");
     }
 

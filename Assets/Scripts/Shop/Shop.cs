@@ -209,6 +209,7 @@ public class Shop : MonoBehaviour
                 }
             }
         }
+        PlayerPrefs.SetString("SkinUsing", skinUsing.name);
     }
 
     public void ChangeEnvironment()
@@ -221,6 +222,7 @@ public class Shop : MonoBehaviour
         {
 
         }
+        PlayerPrefs.SetString("EnvironmentUsing", environmentUsing.name);
     }
 
     private void OnApplicationQuit()
