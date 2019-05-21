@@ -8,6 +8,7 @@ public class LoadingScreen : MonoBehaviour
 {
     public RectTransform parasite;
     public RectTransform endParasite;
+    private float zRotation = 0f; 
 
     void Start()
     {
@@ -25,11 +26,17 @@ public class LoadingScreen : MonoBehaviour
 
         
         while (!asyncOperation.isDone)
-        {
+        {   
             Vector3 endPos = new Vector3(endParasite.position.x * (asyncOperation.progress+0.1f), endParasite.position.y);
             parasite.position = Vector3.Lerp(parasite.position, endPos, 1f * Time.deltaTime);
+            float targetRotation = 360f / (asyncOperation.progress + 0.1f);
+            if(zRotation<targetRotation)
+            {
+                zRotation += 1.2f;
+            }
+            parasite.transform.eulerAngles = new Vector3(0, 0, -zRotation);
             Debug.Log("Pro :" + asyncOperation.progress);
-            if (Vector3.Distance(parasite.position,endParasite.position) <= 1.5f)
+            if (Vector3.Distance(parasite.position,endParasite.position) <= 2.0f)
             {
                 Debug.Log("Reach");
                 asyncOperation.allowSceneActivation = true;
