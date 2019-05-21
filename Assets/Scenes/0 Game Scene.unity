@@ -23715,7 +23715,7 @@ MonoBehaviour:
   MaxSlingshotForce: 12
   myMoveStick: 0
   initialGroundTransform: {fileID: 486306795}
-  dotsPositionOverTime: 0.2
+  dotsPositionOverTime: 0.05
   trajectoryDots:
   - {fileID: 1141145112}
   - {fileID: 1241452708}
@@ -32166,16 +32166,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.78
       objectReference: {fileID: 0}
-    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4107613679727241748, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
       propertyPath: m_IsActive
@@ -32195,6 +32185,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -282
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7ab32655b789041b676c7d2c8ca08b, type: 3}
