@@ -15369,6 +15369,7 @@ GameObject:
   - component: {fileID: 1159378304}
   - component: {fileID: 1159378303}
   - component: {fileID: 1159378305}
+  - component: {fileID: 1159378306}
   m_Layer: 0
   m_Name: OpalCounter
   m_TagString: OpalCounter
@@ -15452,6 +15453,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1159378306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159378301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8c4ddda6375c44a85d8f8f7ceb42a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1170094491
 GameObject:
   m_ObjectHideFlags: 0
@@ -31756,17 +31769,17 @@ PrefabInstance:
     - target: {fileID: 4369730595088248979, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 69.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4369730595088248979, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -169
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4369730595088248979, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.8678
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 4369730596526864348, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
@@ -31787,6 +31800,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369730596204796628, guid: dd7ab32655b789041b676c7d2c8ca08b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4107613679727241748, guid: dd7ab32655b789041b676c7d2c8ca08b,
         type: 3}
