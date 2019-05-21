@@ -601,6 +601,7 @@ MonoBehaviour:
   defaultOffset: {fileID: 0}
   isDummy: 0
   test: 0
+  thisLevelDirection: 0
 --- !u!1 &3098809659936866362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,7 +2247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2994925432430767433
 Transform:
   m_ObjectHideFlags: 0

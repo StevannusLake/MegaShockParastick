@@ -9,6 +9,8 @@ public class ObjectSpawner : MonoBehaviour
     public bool canRespawnCoinsAround = false;
     public bool canRespawnCoinsMiddle = false;
     public bool canRespawnOpalMiddle = false;
+
+    public List<Collider2D> tempList;
     float SpawnRateInSeconds = 1.0f; // First time to start the spawning . For test only
     public static ObjectSpawner instance;
 
@@ -21,7 +23,8 @@ public class ObjectSpawner : MonoBehaviour
     }
     void Start()
     {
-        if(shouldSpawnInStart) Invoke("SpawnObject", SpawnRateInSeconds);
+        tempList = new List<Collider2D>();
+        if (shouldSpawnInStart) Invoke("SpawnObject", SpawnRateInSeconds);
 
     }
 
@@ -122,7 +125,9 @@ public class ObjectSpawner : MonoBehaviour
         if(canRespawnCoinsAround)
         {
             GameObject mainParent = Instantiate(new GameObject("SurfaceParent"), surfacePos.transform.position, surfacePos.transform.rotation);
+            Transform LayoutParent = surfacePos.transform.parent;
             surfacePos.transform.SetParent(mainParent.transform);
+            mainParent.transform.SetParent(LayoutParent);
             int randomNumberOfCoins = Random.Range(3, 8);
             for (int i = 0; i < randomNumberOfCoins; i++)
             {
@@ -145,25 +150,26 @@ public class ObjectSpawner : MonoBehaviour
 
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position, firstObject.transform.position));
+        bool checkHitCollision = false;
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Opal).GetComponent<CircleCollider2D>().radius + 0.3f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position, firstObject.transform.position));
         for(int i =0; i<hit.Length;i++)
         {
             if(hit[i].collider.gameObject!=firstObject.gameObject)
             {
                 if (hit[i].transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
                 {
-                    GameObject collided = new GameObject("collided");
-                    collided.transform.position = hit[i].transform.position;
-                    return;
+                   // GameObject collided = new GameObject("collided");
+                    //collided.transform.position = hit[i].transform.position;
+                    checkHitCollision = true;
                 }
                
             }
         }
-        
+
+        if (checkHitCollision) return;
 
 
-
-         Surfaces surface1 = firstObject.GetComponent<Surfaces>();
+        Surfaces surface1 = firstObject.GetComponent<Surfaces>();
         Surfaces surface2 = secondObject.GetComponent<Surfaces>();
         
         int numberOfOpals = 1;
@@ -192,22 +198,24 @@ public class ObjectSpawner : MonoBehaviour
    
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
-
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, 0.2f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position ,firstObject.transform.position));
+        bool checkHitCollision = false;
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Coin).GetComponent<CircleCollider2D>().radius+0.3f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position ,firstObject.transform.position));
         for (int i = 0; i < hit.Length; i++)
         {
+           
             if (hit[i].collider.gameObject != firstObject.gameObject && hit[i].collider.gameObject != secondObject.gameObject)
             {
                 if (hit[i].transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly" || hit[i].collider.gameObject.tag == "Surface")
                 {
-                    GameObject collided = new GameObject("collided");
-                    collided.transform.position = hit[i].transform.position;
-                    return;
+                   // GameObject collided = new GameObject("collided");
+                   // collided.transform.position = hit[i].normal;
+                    checkHitCollision = true;
                 }
 
             }
         }
 
+        if (checkHitCollision) return;
 
 
 

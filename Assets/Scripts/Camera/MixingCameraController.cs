@@ -161,7 +161,7 @@ public class MixingCameraController : MonoBehaviour
             float speedOfMoving = Time.deltaTime * 3.5f;
             if (GameManager.instance.playerMovement.spawnDot) speedOfMoving = Time.deltaTime * 1.5f;
             mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition = Mathf.MoveTowards(mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition, prevousCameraOffset + 3.42f, speedOfMoving);
-            if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition== prevousCameraOffset + 5f)
+            if (mixingCamera.ChildCameras[i].GetComponent<LockCameraX>().m_XPosition== prevousCameraOffset + 4.8f)
             {
                 shouldGoToRight = false;
             }

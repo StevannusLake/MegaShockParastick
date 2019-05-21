@@ -21,7 +21,7 @@ public class LevelHandler : MonoBehaviour
     [Header("Distance from wall which player will lose when collide with")]
     public float distanceFromWall;
 
-
+    public CurrentDirection[] upwardPossibilities;
     public CurrentDirection currentDirection;
     public LevelDifficulty levelDifficulty;
     public LevelType levelType;
@@ -84,14 +84,15 @@ public class LevelHandler : MonoBehaviour
 
     void CreateFirstLayout()
     {
-       
+        int randomNum = Random.Range(0, LevelGenerator.upwardPossibilities.Length);
+        CurrentDirection randomDirection = LevelGenerator.upwardPossibilities[randomNum];
         GameObject firstLayout=Instantiate(GameAssets.i.GetDesiredLevelLayout(CurrentDirection.UP, levelType).levelLayOutPrefab, new Vector3(firstLayoutPos.transform.position.x, firstLayoutPos.transform.position.y), Quaternion.identity);
         Transform pivotAnchor =firstLayout.transform.Find("PivotAnchor").transform;
         GameObject generator = pivotAnchor.Find("LevelGenerator").transform.gameObject;
         Transform positionBeforeSettingActive= pivotAnchor.GetComponentInChildren<LevelGenerator>().nextLayoutAnchor.transform;
         generator.SetActive(false);
         pivotAnchor.transform.position = firstLayout.transform.position;
-        GameObject secondLayout= Instantiate(GameAssets.i.GetDesiredLevelLayout(CurrentDirection.UP, levelType).levelLayOutPrefab, new Vector3(firstLayoutPos.transform.position.x, firstLayoutPos.transform.position.y), Quaternion.identity);
+        GameObject secondLayout= Instantiate(GameAssets.i.GetDesiredLevelLayout(randomDirection, levelType).levelLayOutPrefab, new Vector3(firstLayoutPos.transform.position.x, firstLayoutPos.transform.position.y), Quaternion.identity);
         Transform pivotAnchor2 = secondLayout.transform.Find("PivotAnchor").transform;
         pivotAnchor2.transform.position = positionBeforeSettingActive.position;
         LevelGenerator levelGenerator = secondLayout.GetComponentInChildren<LevelGenerator>();

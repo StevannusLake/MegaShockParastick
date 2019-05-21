@@ -24,7 +24,7 @@ public class LevelGenerator : MonoBehaviour
     private bool DangerAlreadyMade = false;
     public bool test;
 
-    public static CurrentDirection[] upwardPossibilities;
+    public static  CurrentDirection[] upwardPossibilities = new CurrentDirection[] { CurrentDirection.UP, CurrentDirection.LEFT, CurrentDirection.RIGHT };
     public CurrentDirection thisLevelDirection;
 
     private void Awake()
@@ -44,7 +44,7 @@ public class LevelGenerator : MonoBehaviour
     }
     private void Start()
     {
-        upwardPossibilities = new CurrentDirection[] { CurrentDirection.UP, CurrentDirection.LEFT, CurrentDirection.RIGHT };
+       
         
 
     }
@@ -264,6 +264,9 @@ public class LevelGenerator : MonoBehaviour
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe).transform.rotation,
                     transform);
 
+                GameObject PlatformHolder = new GameObject("PlatformHolder " + Surfaces.SurfaceTypes.Safe.ToString());
+                Platforms.transform.SetParent(PlatformHolder.transform);
+                PlatformHolder.transform.SetParent(transform);
                 //Add the platform to platform list
                 platformList.Add(Platforms);
             }
@@ -277,6 +280,9 @@ public class LevelGenerator : MonoBehaviour
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
                     transform);
+                GameObject PlatformHolder = new GameObject("PlatformHolder " + Surfaces.SurfaceTypes.Safe.ToString());
+                Platforms.transform.SetParent(PlatformHolder.transform);
+                PlatformHolder.transform.SetParent(transform);
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
@@ -299,7 +305,9 @@ public class LevelGenerator : MonoBehaviour
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Dangerous).transform.rotation,
                     transform);
-
+                GameObject PlatformHolder = new GameObject("PlatformHolder " + Surfaces.SurfaceTypes.Safe.ToString());
+                Platforms.transform.SetParent(PlatformHolder.transform);
+                PlatformHolder.transform.SetParent(transform);
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
@@ -324,6 +332,10 @@ public class LevelGenerator : MonoBehaviour
                     transform);
                 Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListBlue[i].transform;
                 Platforms.GetComponent<Surfaces>().isMover = true;
+
+                GameObject PlatformHolder = new GameObject("PlatformHolder " + Surfaces.SurfaceTypes.Safe.ToString());
+                Platforms.transform.SetParent(PlatformHolder.transform);
+                PlatformHolder.transform.SetParent(transform);
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
@@ -346,7 +358,11 @@ public class LevelGenerator : MonoBehaviour
                     new Vector3(randXOnRenderer, randYOnRenderer),
                     GameAssets.i.GetDesiredPlatform(Surfaces.SurfaceTypes.Safe).transform.rotation,
                     transform);
-               
+
+                GameObject PlatformHolder = new GameObject("PlatformHolder " + Surfaces.SurfaceTypes.Safe.ToString());
+                Platforms.transform.SetParent(PlatformHolder.transform);
+                PlatformHolder.transform.SetParent(transform);
+
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
@@ -371,6 +387,11 @@ public class LevelGenerator : MonoBehaviour
                     transform);
                 Platforms.GetComponent<Surfaces>().platformPlacementTransform = platformPlacementListRedMoving[i].transform;
                 Platforms.GetComponent<Surfaces>().isMover = true;
+
+
+                GameObject PlatformHolder = new GameObject("PlatformHolder " + Surfaces.SurfaceTypes.Safe.ToString());
+                Platforms.transform.SetParent(PlatformHolder.transform);
+                PlatformHolder.transform.SetParent(transform);
                 //Add the platform to platform list
                 platformList.Add(Platforms);
 
