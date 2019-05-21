@@ -125,6 +125,8 @@ public class Movement : MonoBehaviour
     static bool isBounceRecover;
     static float bounceRecoverCounter, bounceRecoverTimer = 0.5f;
     //=======================================================================================================================
+    public HandTutorial hand;
+    //=======================================================================================================================
 
     // Start is called before the first frame update
     void Start()
@@ -156,8 +158,15 @@ public class Movement : MonoBehaviour
         {
             dots[i] = trajectoryDots[i].GetComponent<Dot>();
         }
-    }
 
+
+        //========== 20/5 ====================================================================================== 
+        if(hand != null && HandTutorial.tutorialCounter < 2)
+        {
+            hand.OnTutorial(new Vector2(myTransform.position.x, myTransform.position.y + 2));
+        }
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -256,6 +265,8 @@ public class Movement : MonoBehaviour
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
             //myRigidBody.gravityScale = 0; if 0, the emote wont change back to idle
+            //========== 20/5 ====================================================================================== 
+            spawnDot = false;
 
             myEmotion.EmoteIdle();
             myRigidBody.gravityScale = 1;
@@ -354,6 +365,12 @@ public class Movement : MonoBehaviour
                 myEmotion.EmoteFlying();
 
                 AudioManager.PlaySound(AudioManager.Sound.PlayerUnstick);
+
+                //========== 20/5 ====================================================================================== 
+                if (hand != null && HandTutorial.tutorialCounter == 0)
+                {
+                    hand.OffTutorial();
+                }
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -367,6 +384,12 @@ public class Movement : MonoBehaviour
         }
         else if (myMoveStick == MoveState.FLYING && doubleSlingshot == 0)
         {
+            //========== 20/5 ====================================================================================== 
+            if (hand != null)
+            {
+                hand.OnTutorial(new Vector2(myTransform.position.x, myTransform.position.y + 2));
+            }
+
             // use mouse to test movement without concerning control
             if (Input.GetMouseButtonDown(0))
             {
@@ -404,6 +427,12 @@ public class Movement : MonoBehaviour
                 // slingshot once
                 doubleSlingshot = 1;
                 doubleSlingshotCounter -= DECREMENTSLINGSHOT;
+
+                //========== 20/5 ====================================================================================== 
+                if (HandTutorial.tutorialCounter < 2)
+                {
+                    hand.OffTutorial();
+                }
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -636,6 +665,12 @@ public class Movement : MonoBehaviour
             // stick on the surface
             if (collision.collider.CompareTag(surfaceTag) && myMoveStick == MoveState.FLYING && surfaceStickCount == 0) 
             {
+                //========== 20/5 ====================================================================================== 
+                if (hand != null && HandTutorial.tutorialCounter < 2)
+                {
+                    hand.OffSprite();
+                }
+
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
                 
