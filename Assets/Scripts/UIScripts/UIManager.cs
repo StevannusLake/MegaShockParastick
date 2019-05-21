@@ -462,7 +462,7 @@ public class UIManager : MonoBehaviour
 
     public void CloseSecondChanceMenu()
     {
-        if (GameManager.instance.GetPoints() >= 4)
+            if (GameManager.instance.GetPoints() >= 4)
         {
 
             secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
@@ -785,14 +785,23 @@ public class UIManager : MonoBehaviour
     }
 
     public void MegaShockFBLink()
-    {
-        GameManager.instance.AddCoin(25);
+    {   
+        if(PlayerPrefs.GetInt("MSFB") == 0)
+        {
+            GameManager.instance.AddCoin(25);
+            PlayerPrefs.SetInt("MSFB", 1);
+        }
+        
         Application.OpenURL("https://www.facebook.com/Mega-Shock-Entertainment-2503342479678228/?modal=admin_todo_tour");
     }
 
     public void MegaShockIGLink()
     {
-        GameManager.instance.AddCoin(25);
+        if(PlayerPrefs.GetInt("MSIG") == 0)
+        {
+            GameManager.instance.AddCoin(25);
+            PlayerPrefs.SetInt("MSIG", 1);
+        }      
         Application.OpenURL("https://www.instagram.com/megashockentertainment/");
     }
 
