@@ -25,6 +25,7 @@ public class DailyRewards : MonoBehaviour
             PlayerPrefs.SetInt("LoginDay", 1);
             numOfDay = PlayerPrefs.GetInt("LoginDay");
             GiveRewards(numOfDay);
+            PlayerPrefs.SetString("lastLogin", System.DateTime.Now.ToBinary().ToString());
             Debug.Log("Give First Reward");
         }
         else

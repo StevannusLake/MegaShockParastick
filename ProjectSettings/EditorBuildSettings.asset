@@ -8,10 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0 Game Scene.unity
     guid: 9ab07796d8b081d4f8ae7d3ed90c80e0
-  - enabled: 1
-    path: Assets/Scenes/Challenges.unity
-    guid: 750a5b87840067e438788272c33ef083
-  - enabled: 1
-    path: Assets/Scenes/Shop.unity
-    guid: 16f912b9aff53714c8e8687fcdc5662b
   m_configObjects: {}
