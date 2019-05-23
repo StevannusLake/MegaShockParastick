@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
     private float continueFillTimer;
 
     public GameObject QuitPrompt;
+    private Animator QuitPromptAnim;
 
     private Animator MainMenuAnim;
 
@@ -156,6 +157,7 @@ public class UIManager : MonoBehaviour
         continueFillTimer = continueFillDuration;
 
         QuitPrompt.SetActive(false);
+        QuitPromptAnim = QuitPrompt.GetComponent<Animator>();
 
         MainMenuAnim = MainMenu.GetComponent<Animator>();
 
@@ -172,6 +174,7 @@ public class UIManager : MonoBehaviour
 
         #region Garage Transitioning
 
+        GarageTransitioning.SetActive(true);
         GarageAnim = GarageTransitioning.GetComponent<Animator>();
 
         #endregion
@@ -315,10 +318,7 @@ public class UIManager : MonoBehaviour
 
         DoubleCoinText.text = ColliderController.tempCollectedCoin.ToString();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            QuitPrompt.SetActive(true);
-        }
+        AndroidEscapeButtonCheck();
 
         CheckSoundVibrationSetting();
 
@@ -327,7 +327,48 @@ public class UIManager : MonoBehaviour
         CheckPauseButton();
     }
 
-    public void ClosePrompt()
+    void AndroidEscapeButtonCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && MainMenu.activeSelf && !SettingsScreen.activeSelf && !CreditsMenu.activeSelf && !ShopMenu.activeSelf && !ChallengesMenu.activeSelf)
+        {
+            OpenQuitPrompt();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && SettingsScreen.activeSelf)
+        {
+            CloseSettingsScreen();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && CreditsMenu.activeSelf)
+        {
+            CloseCreditsMenu();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && ShopMenu.activeSelf)
+        {
+            CloseShopMenu();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && ChallengesMenu.activeSelf)
+        {
+            CloseChallengesMenu();
+        }
+    }
+
+    public void OpenQuitPrompt()
+    {
+        QuitPrompt.SetActive(true);
+        QuitPromptAnim.SetBool("OpenQuitMenu", true);
+    }
+
+    public void CloseQuitPrompt()
+    {
+        QuitPromptAnim.SetBool("OpenQuitMenu",false);
+
+        Invoke("TurnOffQuitPrompt",0.5f);
+    }
+
+    void TurnOffQuitPrompt()
     {
         QuitPrompt.SetActive(false);
     }
@@ -635,16 +676,11 @@ public class UIManager : MonoBehaviour
         {
             OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
-
-            
-            
         }
         else if(!TurnOnSound)
         {
             OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
-
-           
         }
 
         if (TurnOnVibration)
@@ -677,11 +713,15 @@ public class UIManager : MonoBehaviour
 
     public void ActivateVibration()
     {
+        if (OnVibrateButton.GetComponent<Image>().sprite != OnPressedVibrateButton)
+        {
+            Debug.Log("vibrate testing");
+            playerMovement.VibrateNow();
+        }
+
         TurnOnVibration = true;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TurnOnVibration", TurnOnVibration ? 1 : 0);
-
-        playerMovement.VibrateNow();
     }
 
     public void DeactivateVibration()
