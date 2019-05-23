@@ -121,6 +121,8 @@ public class UIManager : MonoBehaviour
 
     public Button PauseButton;
 
+    public Image QuitPromptBgImage;
+
     private void Awake()
     {
         if(instance == null)
@@ -358,11 +360,18 @@ public class UIManager : MonoBehaviour
     public void OpenQuitPrompt()
     {
         QuitPrompt.SetActive(true);
+        QuitPromptAnim.SetBool("OpenQuitMenu", true);
     }
 
     public void CloseQuitPrompt()
     {
         QuitPromptAnim.SetBool("OpenQuitMenu",false);
+
+        Color c = QuitPromptBgImage.color;
+        if(c.a == 0)
+        {
+            TurnOffQuitPrompt();
+        }
     }
 
     void TurnOffQuitPrompt()
