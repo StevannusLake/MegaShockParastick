@@ -19,7 +19,6 @@ public class DoubleSSUIBlink : MonoBehaviour
         b = myImage.color.b;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (isBlink)

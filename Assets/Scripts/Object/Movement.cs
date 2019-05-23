@@ -255,7 +255,7 @@ public class Movement : MonoBehaviour
         {
             DropDead();
         }
-        else if (UIManager.Instance.LoseMenu.activeSelf || MainMenu.activeSelf || SecondChanceMenu.activeSelf || CoinMultiplyMenu.activeSelf || PostRestartDataHolder.instance.secondLifeUsed)
+        else if (UIManager.Instance.LoseMenu.activeSelf || SecondChanceMenu.activeSelf || CoinMultiplyMenu.activeSelf || PostRestartDataHolder.instance.secondLifeUsed)
         {
             // off dead particle system
             dpsEmission = myDeadParticleSystem.emission;
@@ -267,6 +267,9 @@ public class Movement : MonoBehaviour
             //myRigidBody.gravityScale = 0; if 0, the emote wont change back to idle
             //========== 20/5 ====================================================================================== 
             spawnDot = false;
+            
+            //========== 23/5 ======================================================================================
+            cancelIndicator.SetActive(false);
 
             myEmotion.EmoteIdle();
             myRigidBody.gravityScale = 1;
@@ -291,14 +294,23 @@ public class Movement : MonoBehaviour
         if(deadState == 0 && bounceCounter >= 3)
         {
             deadState = 1;
-
+            
             playerJustDied = false;
         }
         //=======================================================================================================================
         ConfigureTrail();
         //=======================================================================================================================
         BounceRecoverCountdown();
-
+        // 23 / 5 ======================================================================================================================
+        if(deadState != 0)
+        {
+            for (int m = 0; m < numDots; m++)
+            {
+                dots[m].mySR.enabled = false;
+            }
+            spawnDot = false;
+            cancelIndicator.SetActive(false);
+        }
     }
 
     void SlingShot()
@@ -638,10 +650,12 @@ public class Movement : MonoBehaviour
                     bounceCounter++;
                     GameManager.instance.bounceCounterInAGame++;
                 }
+
                 if (doubleSlingshot == 2)
                 {
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
                 }
+
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
 
                 // ===================================================================================================================================
@@ -939,6 +953,7 @@ public class Movement : MonoBehaviour
                             dots[j].mySR.enabled = true;
                         }
                     }
+                    
                     return;
                 }
                 else

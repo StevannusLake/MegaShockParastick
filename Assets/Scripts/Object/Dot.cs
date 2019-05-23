@@ -13,25 +13,31 @@ public class Dot : MonoBehaviour
     {
         mySR = GetComponent<SpriteRenderer>();
     }
-/*
-    private void Update()
+    /*
+        private void Update()
+        {
+            if(onSprite)
+            {
+                mySR.enabled = true;
+            }
+            else
+            {
+                mySR.enabled = false;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player"))
+            {
+                num = 0;
+            }
+        }
+        */
+
+    // 23/5====================================================================================
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if(onSprite)
-        {
-            mySR.enabled = true;
-        }
-        else
-        {
-            mySR.enabled = false;
-        }
+        mySR.enabled = false;
     }
-    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player"))
-        {
-            num = 0;
-        }
-    }
-    */
 }
