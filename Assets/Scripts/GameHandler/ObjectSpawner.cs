@@ -199,7 +199,7 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
         bool checkHitCollision = false;
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Coin).GetComponent<CircleCollider2D>().radius + 1.3f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position ,firstObject.transform.position));
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Coin).GetComponent<CircleCollider2D>().radius , (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position ,firstObject.transform.position));
         for (int i = 0; i < hit.Length; i++)
         {
             tempList.Add(hit[i].collider);

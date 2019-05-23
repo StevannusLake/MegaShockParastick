@@ -8,9 +8,12 @@ public class ObjectOverlap : MonoBehaviour
     public List<Collider2D> colliders = new List<Collider2D>();
     [SerializeField]public List<Collider2D> GetColliders() { return colliders; }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 12) Destroy(this.gameObject);
+    }
 
-    
-    
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (!colliders.Contains(other)) { colliders.Add(other); }
