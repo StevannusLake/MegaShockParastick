@@ -13,6 +13,7 @@ public class Shop : MonoBehaviour
     public enum ShopState { parasite,place,coins};
     public ShopState shopState;
     public Text coinText;
+    public Text opalText;
     private GameObject mainCamera;
     public GameObject[] lockedMask;
     public GameObject[] holder;
@@ -99,6 +100,7 @@ public class Shop : MonoBehaviour
         if(UIManager.Instance.ShopMenu.activeInHierarchy)
         {
             coinText.text = ""+GameManager.instance.GetCoin();
+            opalText.text = "" + GameManager.instance.GetPoints();
             CheckIsBought(); // prevent multiple buying
         }
     }

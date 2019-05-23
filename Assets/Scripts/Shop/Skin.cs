@@ -52,65 +52,68 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {   
-        if(skinType == SkinType.player)
+        if(GameManager.instance.rawDelta < 1f)
         {
-            if (!isBought)
-            {   
-                if(priceType == PriceType.coin)
-                {
-                    if (CheckCoinEnough())
-                    {
-                        // Shows Confirmation Menu
-                        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                        Shop.instance.skinSelecting = this.gameObject;
-                    }
-                    else
-                    {
-                        // Shows Not Enough coin
-                        mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
-                    }
-                }
-                else if(priceType == PriceType.opal)
-                {
-                    if(GameManager.instance.GetPoints() >= price)
-                    {
-                        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                        Shop.instance.skinSelecting = this.gameObject;
-                    }
-                    else
-                    {
-                        mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
-                    }
-                }
-            }
-            else
+            if (skinType == SkinType.player)
             {
-                Shop.instance.ResetInUseHolder();
-                Shop.instance.skinUsing = this.gameObject;
-                Shop.instance.ChangeSkin();
-                Debug.Log("ChangeSkin : " + this.name);
-            }
-        }
-        else if(skinType == SkinType.environment)
-        {
-            if (!isBought)
-            {
-                if(GameManager.instance.GetPoints() >= price)
+                if (!isBought)
                 {
-                    mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                    Shop.instance.skinSelecting = this.gameObject;
+                    if (priceType == PriceType.coin)
+                    {
+                        if (CheckCoinEnough())
+                        {
+                            // Shows Confirmation Menu
+                            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
+                            Shop.instance.skinSelecting = this.gameObject;
+                        }
+                        else
+                        {
+                            // Shows Not Enough coin
+                            mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
+                        }
+                    }
+                    else if (priceType == PriceType.opal)
+                    {
+                        if (GameManager.instance.GetPoints() >= price)
+                        {
+                            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
+                            Shop.instance.skinSelecting = this.gameObject;
+                        }
+                        else
+                        {
+                            mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
+                        }
+                    }
                 }
                 else
                 {
-                    mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
+                    Shop.instance.ResetInUseHolder();
+                    Shop.instance.skinUsing = this.gameObject;
+                    Shop.instance.ChangeSkin();
+                    Debug.Log("ChangeSkin : " + this.name);
                 }
             }
-            else
+            else if (skinType == SkinType.environment)
             {
-                Shop.instance.environmentUsing = this.gameObject;
-                Shop.instance.ResetInUseEnvironment();
-                Shop.instance.ChangeEnvironment();
+                if (!isBought)
+                {
+                    if (GameManager.instance.GetPoints() >= price)
+                    {
+                        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
+                        Shop.instance.skinSelecting = this.gameObject;
+                    }
+                    else
+                    {
+                        mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
+                    }
+                }
+                else
+                {
+                    Shop.instance.environmentUsing = this.gameObject;
+                    Shop.instance.ResetInUseEnvironment();
+                    Shop.instance.ChangeEnvironment();
+                }
             }
-        }
+        } 
     }
 }

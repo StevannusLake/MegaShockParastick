@@ -14,6 +14,8 @@ public class MissionManager : MonoBehaviour
     public Sprite claimButtonSprite;
     public int questCompleted;
     public GameObject missionCompleteNotic;
+    public Text CoinCount;
+    public Text OpalCount;
 
     void Awake()
     {
@@ -72,7 +74,9 @@ public class MissionManager : MonoBehaviour
         if(ChallengesMenu.activeInHierarchy)
         {
             ShowMissionObjective();
-            CheckCompleted(); 
+            CheckCompleted();
+            CoinCount.text = ""+GameManager.instance.GetCoin();
+            OpalCount.text = ""+GameManager.instance.GetPoints();
         }
         CheckMissionInGame(missions);
     }
