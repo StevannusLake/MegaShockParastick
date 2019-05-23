@@ -315,16 +315,41 @@ public class UIManager : MonoBehaviour
 
         DoubleCoinText.text = ColliderController.tempCollectedCoin.ToString();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            QuitPrompt.SetActive(true);
-        }
+        AndroidEscapeButtonCheck();
 
         CheckSoundVibrationSetting();
 
         CheckOpalUIAnimation();
 
         CheckPauseButton();
+    }
+
+    void AndroidEscapeButtonCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && MainMenu.activeSelf && !SettingsScreen.activeSelf && !CreditsMenu.activeSelf && !ShopMenu.activeSelf && !ChallengesMenu.activeSelf)
+        {
+            QuitPrompt.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && SettingsScreen.activeSelf)
+        {
+            CloseSettingsScreen();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && CreditsMenu.activeSelf)
+        {
+            CloseCreditsMenu();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && ShopMenu.activeSelf)
+        {
+            CloseShopMenu();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && ChallengesMenu.activeSelf)
+        {
+            CloseChallengesMenu();
+        }
     }
 
     public void ClosePrompt()
@@ -635,16 +660,11 @@ public class UIManager : MonoBehaviour
         {
             OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
-
-            
-            
         }
         else if(!TurnOnSound)
         {
             OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
-
-           
         }
 
         if (TurnOnVibration)
@@ -677,11 +697,15 @@ public class UIManager : MonoBehaviour
 
     public void ActivateVibration()
     {
+        if (OnVibrateButton.GetComponent<Image>().sprite != OnPressedVibrateButton)
+        {
+            Debug.Log("vibrate testing");
+            playerMovement.VibrateNow();
+        }
+
         TurnOnVibration = true;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TurnOnVibration", TurnOnVibration ? 1 : 0);
-
-        playerMovement.VibrateNow();
     }
 
     public void DeactivateVibration()
