@@ -8,13 +8,46 @@ public class BackgroundGenerator : MonoBehaviour
     List<SpriteRenderer> backgroundSprites;
     Sprite correctSprite;
     public int numberOfBackground = 3;
-
+    public float playerDistanceX = 0;
+    public float playerDistanceY = 0;
+    private float topCreated ;
     private void Start()
     {
+        topCreated = 1;
         myCollider = GetComponent<BoxCollider2D>();
-        backgroundSprites = new List<SpriteRenderer>();
-       
+        backgroundSprites = new List<SpriteRenderer>();    
         SetCorrectBackground();
+        CreateNewBackground("Top");
+    }
+
+    void Update()
+    {
+        CheckPlayerDistance();
+        
+    }
+
+
+    void CheckPlayerDistance()
+    {
+        Vector2 playerPos = GameManager.instance.player.transform.position;
+        Vector2 originPos = transform.position;
+        playerPos.x = 0;
+        originPos.x = 0;
+        float distanceYFromOrigin = Vector2.Distance(playerPos, originPos);
+        playerPos = GameManager.instance.player.transform.position;
+        originPos = transform.position;
+        playerPos.y = 0;
+        originPos.y = 0;
+        float distanceXFromOrigin = Vector2.Distance(playerPos, originPos);
+        playerDistanceX = distanceXFromOrigin;
+        playerDistanceY = distanceYFromOrigin;
+        if (distanceYFromOrigin %10==0)
+        {
+            Debug.Log("dISTANCEHAPPEND");
+            topCreated += 1;
+            CreateNewBackground("Top");
+        }
+       
     }
 
     void SetCorrectBackground()
@@ -27,47 +60,41 @@ public class BackgroundGenerator : MonoBehaviour
         }
 
         //Create First Layout in bottom left
-
-        GameObject firstBackground = new GameObject("FirstBackground");
-        firstBackground.transform.SetParent(transform);
-        firstBackground.AddComponent<SpriteRenderer>();
-        
-        firstBackground.GetComponent<SpriteRenderer>().sprite = correctSprite;
-        SpriteRenderer firstSpriteRenderer = firstBackground.GetComponent<SpriteRenderer>();
-        firstBackground.SetActive(false);
-        
-        firstBackground.transform.position = (new Vector2(transform.position.x - firstSpriteRenderer.bounds.size.x, transform.position.y - firstSpriteRenderer.bounds.size.y));
+    }
 
 
-        for(int i=0;i<numberOfBackground;i++)
+    void CreateNewBackground(string direction)
+    {
+        if(direction=="Top")
         {
-            for(int j=0;j<numberOfBackground;j++)
+            Vector2 firstLayoutPos = new Vector2(transform.position.x - correctSprite.bounds.size.x  ,
+             transform.position.x - correctSprite.bounds.size.y * -topCreated);
+            for (int i = 0; i < numberOfBackground; i++)
             {
-                GameObject background = new GameObject("Background"+i+","+j);
-                background.AddComponent<SpriteRenderer>();
-                background.transform.SetParent(transform);
-                SpriteRenderer backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
-                backgroundSpriteRenderer.sprite = correctSprite;
-                backgroundSpriteRenderer.sortingOrder = -20;
-                background.transform.localPosition = new Vector2(firstBackground.transform.localPosition.x + firstSpriteRenderer.bounds.size.x * i,
-                    firstBackground.transform.localPosition.y + firstSpriteRenderer.bounds.size.y * j);
+                for (int j = 0; j < numberOfBackground; j++)
+                {
+                    GameObject background = new GameObject("Background" + i + "," + j);
+                    background.AddComponent<SpriteRenderer>();
+                    background.transform.SetParent(transform);
+                    SpriteRenderer backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
+                    backgroundSpriteRenderer.sprite = correctSprite;
+                    backgroundSpriteRenderer.sortingOrder = -20;
+                    background.transform.localPosition = new Vector2(firstLayoutPos.x + correctSprite.bounds.size.x * i,
+                        firstLayoutPos.y + correctSprite.bounds.size.y * j);
+                }
+
             }
-            
         }
-        
-        
-        //for (int i=0;i<transform.childCount;i++)
-        //{
-        //    backgroundSprites.Add(transform.GetChild(i).GetComponent<SpriteRenderer>());
-        //}
-       // foreach (SpriteRenderer sprite in backgroundSprites)
-       // {
-        //    sprite.sprite = correctSprite;
-       // }
+      
 
     }
 
-    
-       
-    
+
+
+
+
+
+
+
+
 }
