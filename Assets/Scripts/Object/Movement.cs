@@ -129,6 +129,7 @@ public class Movement : MonoBehaviour
     // 23/5=======================================================================================================================
     List<GameObject> dotList;
     //=======================================================================================================================
+    Vector2 screenMid;
 
     // Start is called before the first frame update
     void Start()
@@ -161,11 +162,12 @@ public class Movement : MonoBehaviour
             dots[i] = trajectoryDots[i].GetComponent<Dot>();
         }
 
+        screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
 
         //========== 20/5 ====================================================================================== 
         if(hand != null && HandTutorial.tutorialCounter < 2)
         {
-            hand.OnTutorial(new Vector2(myTransform.position.x, myTransform.position.y + 2));
+            hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
         }
     }
     
@@ -401,7 +403,7 @@ public class Movement : MonoBehaviour
             //========== 20/5 ====================================================================================== 
             if (hand != null)
             {
-                hand.OnTutorial(new Vector2(myTransform.position.x, myTransform.position.y + 2));
+                hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
             }
 
             // use mouse to test movement without concerning control
@@ -952,8 +954,7 @@ public class Movement : MonoBehaviour
                 // 23/5=======================================================================================================================
                 DotHitsSurface(previousDotObject, trajectoryDots[i]);
             }
-
-            Debug.Log(dotList.Count());
+            
             if (dotList != null)
             {
                 for (int l = 0; l < dotList.Count(); l++)
