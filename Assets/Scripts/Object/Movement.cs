@@ -126,6 +126,8 @@ public class Movement : MonoBehaviour
     static float bounceRecoverCounter, bounceRecoverTimer = 0.5f;
     //=======================================================================================================================
     public HandTutorial hand;
+    // 23/5=======================================================================================================================
+    List<GameObject> dotList;
     //=======================================================================================================================
 
     // Start is called before the first frame update
@@ -838,8 +840,15 @@ public class Movement : MonoBehaviour
 
     private void DotsSpawner()
     {
+        // 23/5=======================================================================================================================
+        if (dotList == null)
+        {
+            dotList = new List<GameObject>();
+        }
+
         if (spawnDot)
         {
+            
             Vector2 myPosition = myTransform.position;
             currentInputPosition = Input.mousePosition;
             currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
@@ -883,7 +892,7 @@ public class Movement : MonoBehaviour
             float cache = 11;
             for (int i = 0; i < numDots; i++)
             {
-                if(i-1 >= 0)
+                if (i - 1 >= 0)
                 {
                     if (dots[i].num < dots[i - 1].num)
                     {
@@ -938,34 +947,67 @@ public class Movement : MonoBehaviour
                 */
                 #endregion
 
-                if(DotHitsSurface(previousDotObject, trajectoryDots[i]))
-                {
-                    cache = dots[i].num;
+                // if (DotHitsSurface(previousDotObject, trajectoryDots[i]))
+                //  {
+                // 23/5=======================================================================================================================
+                DotHitsSurface(previousDotObject, trajectoryDots[i]);
+            }
 
-                    for (int j = 0; j < numDots; j++)
+            Debug.Log(dotList.Count());
+            if (dotList != null)
+            {
+                for (int l = 0; l < dotList.Count(); l++)
+                {
+                    if (dotList[l].GetComponent<Dot>().num < cache)
                     {
-                        if (dots[j].num >= cache)
-                        {
-                            dots[j].mySR.enabled = false;
-                        }
-                        else
-                        {
-                            dots[j].mySR.enabled = true;
-                        }
+                        cache = dotList[l].GetComponent<Dot>().num;
                     }
-                    
-                    return;
+                }
+
+                for (int j = 0; j < numDots; j++)
+                {
+                    if (dots[j].num >= cache)
+                    {
+                        dots[j].mySR.enabled = false;
+                    }
+                    else
+                    {
+                        dots[j].mySR.enabled = true;
+                    }
+                }
+
+
+            }
+
+            for (int j = 0; j < numDots; j++)
+            {
+                if (dots[j].num >= cache)
+                {
+                    dots[j].mySR.enabled = false;
                 }
                 else
                 {
-                    dots[i].mySR.enabled = true;
+                    dots[j].mySR.enabled = true;
                 }
-              /*  if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
-                {
-                    dots[i].mySR.enabled = true;
-                }
-                */
             }
+            
+            dotList.Clear();
+
+
+            //     return;
+            //   }
+            /*
+            else
+            {
+                dots[i].mySR.enabled = true;
+            }
+            */
+            /*  if (!DotHitsSurface(previousDotObject, trajectoryDots[i]) )// && !wallDie)
+              {
+                  dots[i].mySR.enabled = true;
+              }
+              */
+            //}
         }
         else
         {
@@ -975,7 +1017,7 @@ public class Movement : MonoBehaviour
                 trajectoryDots[m].GetComponent<Dot>().num = m;
             }
             shakeTimer = 0;
-            
+
         }
     }
     
@@ -1040,7 +1082,7 @@ public class Movement : MonoBehaviour
         return Vector2.zero;
     }
 
-    bool DotHitsSurface(GameObject prevDot, GameObject currentDot)
+    void DotHitsSurface(GameObject prevDot, GameObject currentDot)
     {
         RaycastHit2D hit;
 
@@ -1062,10 +1104,47 @@ public class Movement : MonoBehaviour
         // no bounce for trajectory dot, mainly because corner cannot be identified and raycast checking issues
         if (hit)// && !hit.collider.gameObject.CompareTag(horizontalWall))
         {
-            return true;
+            // 23/5=======================================================================================================================
+            if (dotList != null)
+            {
+                if(dotList.Count() == 0)
+                {
+                    dotList.Add(currentDot);
+                }
+                else
+                {
+                    for (int i = 0; i < dotList.Count(); i++)
+                    {
+                        if (dotList[i] == currentDot)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            if (i <= dotList.Count() - 1)
+                            {
+                                dotList.Add(currentDot);
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        
+                    }
+                }
+
+            }
+            else
+            {
+
+                Debug.Log("NULLNULLNULL");
+            }
+
+            //return true;
         }
 
-        return false;
+        //return false;
     }
 
     public void DistanceCounter()
