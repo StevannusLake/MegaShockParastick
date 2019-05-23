@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public int totalPoints;
     public int totalSpin;
 
-    public float rawDelta; // for finger dragging distance
+    public bool isDragging = false;
 
     void Awake()
     {

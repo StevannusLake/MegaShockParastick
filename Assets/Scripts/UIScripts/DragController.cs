@@ -48,15 +48,19 @@ public class DragController : MonoBehaviour
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
                 rawDelta = Input.GetTouch(0).deltaPosition * 0.01f;
+                Debug.Log(Input.GetTouch(0).deltaPosition.magnitude);
+                if(Input.GetTouch(0).deltaPosition.magnitude > 4f)
+                {
+                    GameManager.instance.isDragging = true;
+                }
                 isDragging = true;
             }
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
+                GameManager.instance.isDragging = false;
                 isDragging = false;
             }
         }
-        GameManager.instance.rawDelta = rawDelta.y;
-        Debug.Log(GameManager.instance.rawDelta);
         MoveByDrag(rawDelta);
         if (!isDragging)
         {

@@ -47,12 +47,12 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {   
-        if(GameManager.instance.rawDelta < 1f)
+        if(!GameManager.instance.isDragging)
         {
             if (skinType == SkinType.player)
             {
