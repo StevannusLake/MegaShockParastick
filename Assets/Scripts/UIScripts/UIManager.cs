@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
     private float continueFillTimer;
 
     public GameObject QuitPrompt;
+    private Animator QuitPromptAnim;
 
     private Animator MainMenuAnim;
 
@@ -156,6 +157,7 @@ public class UIManager : MonoBehaviour
         continueFillTimer = continueFillDuration;
 
         QuitPrompt.SetActive(false);
+        QuitPromptAnim = QuitPrompt.GetComponent<Animator>();
 
         MainMenuAnim = MainMenu.GetComponent<Animator>();
 
@@ -172,6 +174,7 @@ public class UIManager : MonoBehaviour
 
         #region Garage Transitioning
 
+        GarageTransitioning.SetActive(true);
         GarageAnim = GarageTransitioning.GetComponent<Animator>();
 
         #endregion
@@ -328,7 +331,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && MainMenu.activeSelf && !SettingsScreen.activeSelf && !CreditsMenu.activeSelf && !ShopMenu.activeSelf && !ChallengesMenu.activeSelf)
         {
-            QuitPrompt.SetActive(true);
+            OpenQuitPrompt();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && SettingsScreen.activeSelf)
@@ -352,7 +355,17 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ClosePrompt()
+    public void OpenQuitPrompt()
+    {
+        QuitPrompt.SetActive(true);
+    }
+
+    public void CloseQuitPrompt()
+    {
+        QuitPromptAnim.SetBool("OpenQuitMenu",false);
+    }
+
+    void TurnOffQuitPrompt()
     {
         QuitPrompt.SetActive(false);
     }
