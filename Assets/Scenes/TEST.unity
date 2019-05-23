@@ -8082,13 +8082,13 @@ MonoBehaviour:
   layoutPlayerIsIn: {fileID: 0}
   firstLayoutPos: {fileID: 504791615}
   cameraController: {fileID: 2087839693}
-  numberOfMapToGenerate: 4
+  numberOfMapToGenerate: 5
   whenToGenerateMoreMaps: 2
   distanceFromWall: 0.8
   upwardPossibilities: 
   currentDirection: 0
   levelDifficulty: 2
-  levelType: 0
+  levelType: 1
   listOfOldSprites: []
   currentActiveLevelGeneratorID: 0
   distanceToRespawnCoin: 25
@@ -8096,7 +8096,7 @@ MonoBehaviour:
   timerForCoinRespawn: 0
   timerForOpalRespawn: 0
   distanceTraveledByLayout: 0
-  numberOfSectionToHold: 6
+  numberOfSectionToHold: 20
 --- !u!1 &879512182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2878086343407382964, guid: dd7ab32655b789041b676c7d2c8ca08b,
@@ -15087,6 +15087,7 @@ MonoBehaviour:
   totalPlay: 0
   totalPoints: 0
   totalSpin: 0
+  isDragging: 0
 --- !u!4 &1170094495
 Transform:
   m_ObjectHideFlags: 0
@@ -15133,6 +15134,8 @@ MonoBehaviour:
   claimButtonSprite: {fileID: 21300000, guid: 2e5731f05a8dfd846bd39951ec5380fe, type: 3}
   questCompleted: 0
   missionCompleteNotic: {fileID: 1284416956}
+  CoinCount: {fileID: 0}
+  OpalCount: {fileID: 0}
 --- !u!114 &1170094497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15203,6 +15206,7 @@ MonoBehaviour:
   skinUsing: {fileID: 0}
   shopState: 0
   coinText: {fileID: 2964787331105461989}
+  opalText: {fileID: 0}
   lockedMask:
   - {fileID: 748854498}
   - {fileID: 887612147}

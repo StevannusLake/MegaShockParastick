@@ -94,6 +94,7 @@ public class ColliderController : MonoBehaviour
             LevelHandler.instance.layoutPlayerIsIn = other.gameObject.transform.parent.parent.gameObject;
             if (!other.gameObject.GetComponent<EnterController>().isAlreadyActivated)
             {
+                
                 if (other.gameObject.transform.parent.Find("LevelGenerator").gameObject.activeSelf)
                 {
                     if(other.gameObject.transform.parent.GetComponentInChildren<LevelGenerator>().levelGeneratorID == 0)

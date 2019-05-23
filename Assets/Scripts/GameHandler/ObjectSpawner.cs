@@ -151,12 +151,12 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnOpalInMiddle(GameObject firstObject, GameObject secondObject)
     {
         bool checkHitCollision = false;
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Opal).GetComponent<CircleCollider2D>().radius + 0.3f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position, firstObject.transform.position));
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Opal).GetComponent<CircleCollider2D>().radius , (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position, firstObject.transform.position));
         for(int i =0; i<hit.Length;i++)
         {
             if(hit[i].collider.gameObject!=firstObject.gameObject)
             {
-                if (hit[i].transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
+                if (hit[i].collider.transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly")
                 {
                    // GameObject collided = new GameObject("collided");
                     //collided.transform.position = hit[i].transform.position;
@@ -199,13 +199,13 @@ public class ObjectSpawner : MonoBehaviour
     public void RespawnCoinsInMiddle(GameObject firstObject, GameObject secondObject)
     {
         bool checkHitCollision = false;
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Coin).GetComponent<CircleCollider2D>().radius+0.3f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position ,firstObject.transform.position));
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(firstObject.transform.position, GetGameObjectType(ItemType.Coin).GetComponent<CircleCollider2D>().radius+0.6f, (secondObject.transform.position - firstObject.transform.position), Vector2.Distance(secondObject.transform.position ,firstObject.transform.position));
         for (int i = 0; i < hit.Length; i++)
         {
-           
+            tempList.Add(hit[i].collider);
             if (hit[i].collider.gameObject != firstObject.gameObject && hit[i].collider.gameObject != secondObject.gameObject)
             {
-                if (hit[i].transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly" || hit[i].collider.gameObject.tag == "Surface")
+                if (hit[i].collider.transform.gameObject.layer == 12 || hit[i].collider.gameObject.tag == "Deadly" || hit[i].collider.gameObject.tag == "Surface")
                 {
                    // GameObject collided = new GameObject("collided");
                    // collided.transform.position = hit[i].normal;
@@ -215,35 +215,37 @@ public class ObjectSpawner : MonoBehaviour
             }
         }
 
-        if (checkHitCollision) return;
-
-
-
-        Surfaces surface1 = firstObject.GetComponent<Surfaces>();
-        Surfaces surface2 = secondObject.GetComponent<Surfaces>();
-        if (surface1.alreadyRespawnedCoin || surface1.alreadyRespawnedCoin) return;
-        int randomNumberOfCoins = Random.Range(3, 6);
-        int randomNumberForChance = Random.Range(0, 2);
-        //if (randomNumberForChance == 0)
-        canRespawnCoinsMiddle = true;
-        if(canRespawnCoinsMiddle)
+        if (!checkHitCollision)
         {
-            for (int i = 1; i < randomNumberOfCoins; i++)
+            Surfaces surface1 = firstObject.GetComponent<Surfaces>();
+            Surfaces surface2 = secondObject.GetComponent<Surfaces>();
+            if (surface1.alreadyRespawnedCoin || surface1.alreadyRespawnedCoin) return;
+            int randomNumberOfCoins = Random.Range(3, 6);
+            
+            canRespawnCoinsMiddle = true;
+            if (canRespawnCoinsMiddle)
             {
-                Vector2 position = firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / randomNumberOfCoins * i;
-                
-                Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
-                    - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
-                 GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
-                go.GetComponent<ObjectOverlap>().priority = 1;
+                for (int i = 1; i < randomNumberOfCoins; i++)
+                {
+                    Vector2 position = firstObject.transform.position + (secondObject.transform.position - firstObject.transform.position) * 1 / randomNumberOfCoins * i;
+
+                    Vector2 offsetPosition = position + (new Vector2(secondObject.GetComponent<SpriteRenderer>().bounds.size.x, secondObject.GetComponent<SpriteRenderer>().bounds.size.y))
+                        - (new Vector2(firstObject.GetComponent<SpriteRenderer>().bounds.size.x, firstObject.GetComponent<SpriteRenderer>().bounds.size.y));
+                    GameObject go = Instantiate(GetGameObjectType(ItemType.Coin), offsetPosition, Quaternion.identity, firstObject.transform.parent);
+                    go.GetComponent<ObjectOverlap>().priority = 1;
 
 
+
+                }
+
+                canRespawnCoinsMiddle = false;
 
             }
-           
-            canRespawnCoinsMiddle = false;
-            
+
         }
+
+
+
 
 
     }
