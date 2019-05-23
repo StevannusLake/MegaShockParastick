@@ -6135,6 +6135,7 @@ MonoBehaviour:
   CreditsMenu: {fileID: 1002529515}
   InGameUI: {fileID: 946061137}
   PauseButton: {fileID: 1504117186}
+  QuitPromptBgImage: {fileID: 1958140824}
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0
