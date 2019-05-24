@@ -845,6 +845,11 @@ public class UIManager : MonoBehaviour
         Application.OpenURL("https://www.instagram.com/megashockentertainment/");
     }
 
+    public void FeedbackFormLink()
+    {
+        Application.OpenURL("https://forms.gle/taVcikvtwsFqpBdb8");
+    }
+
     public void ShowShopMenu()
     {
         ShopMenu.SetActive(true);
