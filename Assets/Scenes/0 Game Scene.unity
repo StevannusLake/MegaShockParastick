@@ -7081,7 +7081,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 17
   m_Depth: -1.54
   m_CullingMask:
     serializedVersion: 2
@@ -9568,7 +9568,7 @@ MonoBehaviour:
   upwardPossibilities: 
   currentDirection: 0
   levelDifficulty: 0
-  levelType: 3
+  levelType: 0
   listOfOldSprites: []
   currentActiveLevelGeneratorID: 0
   distanceToRespawnCoin: 25
