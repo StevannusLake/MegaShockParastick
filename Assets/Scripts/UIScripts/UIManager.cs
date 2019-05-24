@@ -847,7 +847,7 @@ public class UIManager : MonoBehaviour
 
     public void FeedbackFormLink()
     {
-        Application.OpenURL("https://forms.gle/taVcikvtwsFqpBdb8");
+        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSdUg0Og8ut5G6NRw2Ph9N3Cl7lKNclYxcydNldIVKZJFLTWsg/viewform?usp=sf_link");
     }
 
     public void ShowShopMenu()
