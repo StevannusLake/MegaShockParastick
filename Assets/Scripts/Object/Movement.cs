@@ -344,7 +344,7 @@ public class Movement : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !PauseScreen.activeInHierarchy)
             {
                 initialInputPosition = (Vector2)Input.mousePosition;
-                initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
+                //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
                 spawnDot = true;
                 //isCancel = true;
                 mousePressed = true;
@@ -352,7 +352,7 @@ public class Movement : MonoBehaviour
                 // myAnimation.PlayHold();
                 myEmotion.EmoteBeforeFlying();
 
-                cancelIndicator.transform.position = initialInputPosition;
+                cancelIndicator.GetComponent<CancelIndicator>().screenPos = initialInputPosition;
                 cancelIndicator.SetActive(true);
             }
 
@@ -364,7 +364,7 @@ public class Movement : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && !isCancel)
             {
                 finalInputPosition = (Vector2)Input.mousePosition;
-                finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
+                //finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
                 slingshotVelocity = SlingshotVelocityCalculation();
 
                 myRigidBody.velocity = slingshotVelocity;
@@ -410,7 +410,7 @@ public class Movement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 initialInputPosition = (Vector2)Input.mousePosition;
-                initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
+                //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
                 spawnDot = true;
                 //isCancel = true;
                 mousePressed = true;
@@ -429,7 +429,7 @@ public class Movement : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && !isCancel)
             {
                 finalInputPosition = (Vector2)Input.mousePosition;
-                finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
+                //finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
                 slingshotVelocity = SlingshotVelocityCalculation();
 
                 myRigidBody.velocity = slingshotVelocity;
@@ -465,8 +465,10 @@ public class Movement : MonoBehaviour
     void CancelSlingShot()
     {
         Vector2 currentMousePos = Input.mousePosition;
-        currentMousePos = Camera.main.ScreenToWorldPoint(currentMousePos);
-        Vector2 launchVelocity = currentMousePos - initialInputPosition;
+        //currentMousePos = Camera.main.ScreenToWorldPoint(currentMousePos);
+        Vector2 tempMousePos = Camera.main.ScreenToWorldPoint(currentMousePos);
+        Vector2 tempInputPos = Camera.main.ScreenToWorldPoint(initialInputPosition);
+        Vector2 launchVelocity = tempMousePos - tempInputPos;
 
         if (launchVelocity.magnitude >= 1.0)
         {
@@ -853,7 +855,7 @@ public class Movement : MonoBehaviour
             
             Vector2 myPosition = myTransform.position;
             currentInputPosition = Input.mousePosition;
-            currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
+            //currentInputPosition = Camera.main.ScreenToWorldPoint(currentInputPosition);
             
             for(int h=0; h<numDots; h++)
             {
