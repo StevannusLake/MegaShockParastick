@@ -29,6 +29,8 @@ TagManager:
   - Super
   - UICoin
   - UIOpal
+  - OpalCounter
+  - TopBackground
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ public class BackgroundGenerator : MonoBehaviour
 
     void Update()
     {
-        CheckPlayerDistance();
+       // CheckPlayerDistance();
         
     }
 
@@ -65,6 +65,7 @@ public class BackgroundGenerator : MonoBehaviour
 
     void CreateNewBackground(string direction)
     {
+        bool isTopCreated = false;
         if(direction=="Top")
         {
             Vector2 firstLayoutPos = new Vector2(transform.position.x - correctSprite.bounds.size.x  ,
@@ -73,7 +74,8 @@ public class BackgroundGenerator : MonoBehaviour
             {
                 for (int j = 0; j < numberOfBackground; j++)
                 {
-                    GameObject background = new GameObject("Background" + i + "," + j);
+                   
+                        GameObject background = new GameObject("Background" + i + "," + j);
                     background.AddComponent<SpriteRenderer>();
                     background.transform.SetParent(transform);
                     SpriteRenderer backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
@@ -81,6 +83,20 @@ public class BackgroundGenerator : MonoBehaviour
                     backgroundSpriteRenderer.sortingOrder = -20;
                     background.transform.localPosition = new Vector2(firstLayoutPos.x + correctSprite.bounds.size.x * i,
                         firstLayoutPos.y + correctSprite.bounds.size.y * j);
+                    background.layer = 10;
+
+                    //Top left
+                    /*if (j == numberOfBackground-1 && i==1)
+                    {
+                        Vector2 offset = new Vector2(0, -4f);
+                        Vector2 backgroundPosition = background.transform.position;
+                        GameObject topCollider = new GameObject("TopCollider");
+                        topCollider.transform.position = backgroundPosition + offset;
+                        BoxCollider2D collider =topCollider.AddComponent<BoxCollider2D>();
+                        collider.size = new Vector2(correctSprite.bounds.size.x * numberOfBackground, 2f);
+
+                    }*/
+
                 }
 
             }
