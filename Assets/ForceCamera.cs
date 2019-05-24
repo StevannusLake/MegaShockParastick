@@ -63,7 +63,8 @@ public class ForceCamera : MonoBehaviour
         Rect nr = new Rect(0, 0, 1, 1);
 
         Camera.main.rect = nr;
-        GL.Clear(true, true, Color.black);
+       // GL.Clear(false, true, Color.clear);
+       
 
         Camera.main.rect = wp;
 
