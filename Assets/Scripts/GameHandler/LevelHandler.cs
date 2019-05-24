@@ -283,7 +283,7 @@ public class LevelHandler : MonoBehaviour
         ObjectSpawner.instance.CheckForSpawningOpalInMiddle(layout, generator);
         ObjectSpawner.instance.CheckForRespawnCoinInMiddle(layout, generator);    
         ObjectSpawner.instance.CheckForSpawningCoinAround(layout, generator);
-        //CheckForDifficulty();
+        CheckForDifficulty();
 
 
     }

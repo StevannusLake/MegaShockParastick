@@ -523,6 +523,7 @@ public class Movement : MonoBehaviour
         if (spawnDot)
         {
             float magnitude = (currentInputPosition - initialInputPosition).magnitude;
+            magnitude = magnitude / 450f;
             prevMagnitude = magnitude;
             return magnitude;
         }
