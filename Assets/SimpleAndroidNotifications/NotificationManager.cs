@@ -22,11 +22,11 @@ namespace Assets.SimpleAndroidNotifications
         /// Schedule simple notification without app icon.
         /// </summary>
         /// <param name="smallIcon">List of build-in small icons: notification_icon_bell (default), notification_icon_clock, notification_icon_heart, notification_icon_message, notification_icon_nut, notification_icon_star, notification_icon_warning.</param>
-        public static int Send(TimeSpan delay, string title, string message, Color smallIconColor, NotificationIcon smallIcon = 0)
+        public static int Send(int ID, TimeSpan delay, string title, string message, Color smallIconColor, NotificationIcon smallIcon = 0)
         {
             return SendCustom(new NotificationParams
             {
-                Id = 60, //  UnityEngine.Random.Range(0, int.MaxValue),
+                Id = ID, //  UnityEngine.Random.Range(0, int.MaxValue),
                 Delay = delay,
                 Title = title,
                 Message = message,

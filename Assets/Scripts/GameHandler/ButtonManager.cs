@@ -16,7 +16,6 @@ public class ButtonManager : MonoBehaviour
         else if (instance != this) Destroy(gameObject);
     }
 
-
     public void Start()
     { 
         // Get boolean using PlayerPrefs
@@ -46,6 +45,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         TempScore = PlayerPrefs.GetFloat("TempScore", TempScore);
+
     }
 
     private void Update()
@@ -108,4 +108,5 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 }

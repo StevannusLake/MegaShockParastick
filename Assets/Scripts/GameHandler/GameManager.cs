@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
         if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
         AudioManager.Initialize();
-       
+
+        Input.multiTouchEnabled = false;
     }
 
     void Start()
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
         NotificationManager.Cancel(60);
         TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
         // schedule without icon
-        NotificationManager.Send(delayNotifyTime, "Parastick", "It's been two hours since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(60, delayNotifyTime, "Parastick", "It's been two hours since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
     }
 
 

@@ -17,7 +17,7 @@ namespace Assets.SimpleAndroidNotifications
 
         public void ScheduleSimple()
         {
-            NotificationManager.Send(TimeSpan.FromSeconds(5), "Simple notification", "Customize icon and color", new Color(1, 0.3f, 0.15f));
+            NotificationManager.Send(44, TimeSpan.FromSeconds(5), "Simple notification", "Customize icon and color", new Color(1, 0.3f, 0.15f));
         }
 
         public void ScheduleNormal()
