@@ -847,7 +847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &84369166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24471,16 +24471,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1842531690}
     m_Modifications:
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24540,6 +24530,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -35808,6 +35808,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 2
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35907,6 +35908,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36180,6 +36182,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 5
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36620,6 +36623,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36757,6 +36761,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 2
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36894,6 +36899,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37139,6 +37145,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37284,6 +37291,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37605,6 +37613,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 5
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37824,6 +37833,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 2
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37953,6 +37963,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38216,6 +38227,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38412,6 +38424,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38557,6 +38570,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38987,6 +39001,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39197,6 +39212,7 @@ MonoBehaviour:
   isBought: 1
   skinType: 1
   priceType: 1
+  rarity: 0
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39452,6 +39468,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -39491,6 +39508,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39728,6 +39746,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39784,6 +39803,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39921,6 +39941,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 5
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40187,6 +40208,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 3
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40324,6 +40346,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40469,6 +40492,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 2
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40797,6 +40821,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 4
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40853,6 +40878,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41108,6 +41134,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41208,6 +41235,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 2
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41264,6 +41292,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41409,6 +41438,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 2
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41593,6 +41623,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 5
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41730,6 +41761,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 1
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43069,6 +43101,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 5
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43247,6 +43280,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 0
   priceType: 0
+  rarity: 5
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43532,6 +43566,7 @@ MonoBehaviour:
   isBought: 1
   skinType: 0
   priceType: 0
+  rarity: 0
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44009,16 +44044,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5854354032655373907}
     m_Modifications:
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44088,6 +44113,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -44253,6 +44288,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 1
   priceType: 1
+  rarity: 0
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46462,6 +46498,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 1
   priceType: 1
+  rarity: 0
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47644,6 +47681,7 @@ MonoBehaviour:
   isBought: 0
   skinType: 1
   priceType: 1
+  rarity: 0
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0
@@ -47880,16 +47918,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5854354032655373907}
     m_Modifications:
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47959,6 +47987,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -49033,16 +49071,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1842531690}
     m_Modifications:
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49097,6 +49125,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}

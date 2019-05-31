@@ -16,6 +16,8 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public SkinType skinType;
     public enum PriceType { coin,opal};
     public PriceType priceType;
+    public enum Rarity { Default,Special,Mission,Video,Secret,Legendary};
+    public Rarity rarity;
 
     void Awake()
     {   
