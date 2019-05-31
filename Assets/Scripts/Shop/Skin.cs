@@ -60,32 +60,35 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             {
                 if (!isBought)
                 {
-                    if (priceType == PriceType.coin)
+                    if (rarity != Rarity.Mission && rarity != Rarity.Video)
                     {
-                        if (CheckCoinEnough())
+                        if (priceType == PriceType.coin)
                         {
-                            // Shows Confirmation Menu
-                            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                            Shop.instance.skinSelecting = this.gameObject;
+                            if (CheckCoinEnough())
+                            {
+                                // Shows Confirmation Menu
+                                mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
+                                Shop.instance.skinSelecting = this.gameObject;
+                            }
+                            else
+                            {
+                                // Shows Not Enough coin
+                                mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
+                            }
                         }
-                        else
+                        else if (priceType == PriceType.opal)
                         {
-                            // Shows Not Enough coin
-                            mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
+                            if (GameManager.instance.GetPoints() >= price)
+                            {
+                                mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
+                                Shop.instance.skinSelecting = this.gameObject;
+                            }
+                            else
+                            {
+                                mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
+                            }
                         }
-                    }
-                    else if (priceType == PriceType.opal)
-                    {
-                        if (GameManager.instance.GetPoints() >= price)
-                        {
-                            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                            Shop.instance.skinSelecting = this.gameObject;
-                        }
-                        else
-                        {
-                            mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
-                        }
-                    }
+                    }                 
                 }
                 else
                 {

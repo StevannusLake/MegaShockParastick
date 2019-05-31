@@ -177,6 +177,11 @@ public class GameManager : MonoBehaviour
     public void LoadData()
     {
         numOfSkinCollected = PlayerPrefs.GetInt("NumOfSkin", 0);
+        if(!PlayerPrefs.HasKey("Coin"))
+        {
+            PlayerPrefs.SetInt("Coin", 25);
+            PlayerPrefs.SetInt("Opal", 20);
+        }
         for (int i = 0; i < numOfSkinCollected; ++i)
         {
             for (int j = 0; j < Shop.instance.skinList.Length; j++)

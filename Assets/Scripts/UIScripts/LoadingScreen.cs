@@ -28,7 +28,7 @@ public class LoadingScreen : MonoBehaviour
         
         while (!asyncOperation.isDone)
         {   
-            Vector3 endPos = new Vector3(endParasite.position.x * (asyncOperation.progress+0.1f), endParasite.position.y);
+            Vector3 endPos = new Vector3(Mathf.Abs(endParasite.position.x * (asyncOperation.progress+0.1f)), endParasite.position.y);
             parasite.position = Vector3.Lerp(parasite.position, endPos, 1f * Time.deltaTime);
             float targetRotation = 360f / (asyncOperation.progress + 0.1f);
             if(zRotation<targetRotation)
