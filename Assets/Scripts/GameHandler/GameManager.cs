@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
         if(!PlayerPrefs.HasKey("Coin"))
         {
             PlayerPrefs.SetInt("Coin", 25);
-            PlayerPrefs.SetInt("Opal", 20);
+            PlayerPrefs.SetInt("Points", 20);
         }
         for (int i = 0; i < numOfSkinCollected; ++i)
         {
