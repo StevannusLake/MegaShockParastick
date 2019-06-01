@@ -7029,7 +7029,7 @@ GameObject:
   - component: {fileID: 535142178}
   m_Layer: 0
   m_Name: BackgroundCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7083,7 +7083,7 @@ Camera:
   field of view: 40
   orthographic: 1
   orthographic size: 17
-  m_Depth: -1.54
+  m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -7095,7 +7095,7 @@ Camera:
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &535142177
