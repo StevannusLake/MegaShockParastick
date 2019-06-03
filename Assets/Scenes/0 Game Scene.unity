@@ -7024,7 +7024,6 @@ GameObject:
   m_Component:
   - component: {fileID: 535142177}
   - component: {fileID: 535142176}
-  - component: {fileID: 535142175}
   - component: {fileID: 535142174}
   - component: {fileID: 535142178}
   m_Layer: 0
@@ -7048,14 +7047,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   offsetY: 0
---- !u!81 &535142175
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535142173}
-  m_Enabled: 1
 --- !u!20 &535142176
 Camera:
   m_ObjectHideFlags: 0
@@ -7065,7 +7056,7 @@ Camera:
   m_GameObject: {fileID: 535142173}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -7082,7 +7073,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 17
+  orthographic size: 18
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
@@ -9581,7 +9572,7 @@ MonoBehaviour:
   upwardPossibilities: 
   currentDirection: 0
   levelDifficulty: 0
-  levelType: 0
+  levelType: 1
   listOfOldSprites: []
   currentActiveLevelGeneratorID: 0
   distanceToRespawnCoin: 25
