@@ -12,6 +12,8 @@ public class ShopButtonController : MonoBehaviour
     public GameObject buyConfirmationMenu;
     public GameObject luckySpinMenu;
     public Text coin;
+    public GameObject abilityWindow;
+    public Text abilityText;
 
     private void Update()
     {
@@ -77,5 +79,16 @@ public class ShopButtonController : MonoBehaviour
     public void CloseLuckySpinMenu()
     {
         luckySpinMenu.SetActive(false);
+    }
+
+    public void ShowAbility()
+    {
+        abilityWindow.SetActive(true);
+        abilityText.text = Shop.instance.skinUsing.GetComponent<Skin>().abilityDescription;
+    }
+
+    public void CloseAbility()
+    {
+        abilityWindow.SetActive(false);
     }
 }
