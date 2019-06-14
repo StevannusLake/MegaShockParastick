@@ -33,7 +33,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     void Update()
     {
-
+        
     }
 
     public bool CheckCoinEnough()

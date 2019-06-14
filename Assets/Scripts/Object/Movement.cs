@@ -37,7 +37,8 @@ public class Movement : MonoBehaviour
     static bool isCancel = false;
     static bool mousePressed;
 
-    int bounceCounter;
+    public int bounceCounter;
+    public int maxBounceCounter;
 
     public Transform initialGroundTransform;
 
@@ -65,6 +66,7 @@ public class Movement : MonoBehaviour
     public GameObject MainMenu;
     public GameObject SecondChanceMenu;
     public GameObject CoinMultiplyMenu;
+    private Shop shop;
 
     /// <summary>
     /// 0 : alive, 1 : dead animation, 2 : die and call menu
@@ -100,10 +102,10 @@ public class Movement : MonoBehaviour
     /// 0 = can, 1 = slingshot once ald, 2 = recover/ cannot
     /// </summary>
     public int doubleSlingshot = 0;
-    const int MAXSLINGSHOT = 9;
+    public int MAXSLINGSHOT;
     const int DECREMENTSLINGSHOT = 3;
     const int INCREMENTSLINGSHOT = 1;
-    public int doubleSlingshotCounter = MAXSLINGSHOT;
+    public int doubleSlingshotCounter;
     //=======================================================================================================================
 
     public GameObject PauseScreen;
@@ -169,6 +171,8 @@ public class Movement : MonoBehaviour
         {
             hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
         }
+
+        doubleSlingshotCounter = MAXSLINGSHOT;
     }
     
     // Update is called once per frame
@@ -295,7 +299,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if(deadState == 0 && bounceCounter >= 3)
+        if(deadState == 0 && bounceCounter >= maxBounceCounter)
         {
             deadState = 1;
             

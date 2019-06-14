@@ -28,6 +28,7 @@ public class Shop : MonoBehaviour
     public GameObject environmentUsing;
     public Sprite InUseEnvironmentMask;
     public Sprite TransparentMask;
+    private GameObject player;
 
     public static Shop instance;
     void Awake()
@@ -39,6 +40,7 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
+        player = GameObject.FindWithTag("Player");
         //Load SkinUsing
         if(PlayerPrefs.HasKey("SkinUsing"))
         {
@@ -97,7 +99,38 @@ public class Shop : MonoBehaviour
 
     private void Update()
     {
-        if(UIManager.Instance.ShopMenu.activeInHierarchy)
+        if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Default)
+        {
+            player.GetComponent<Movement>().maxBounceCounter = 2;
+            player.GetComponent<Movement>().MAXSLINGSHOT = 3;
+        }
+        else if(skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Special)
+        {
+            player.GetComponent<Movement>().maxBounceCounter = 2;
+            player.GetComponent<Movement>().MAXSLINGSHOT = 15;
+        }
+        else if(skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Mission)
+        {
+            player.GetComponent<Movement>().maxBounceCounter = 3;
+            player.GetComponent<Movement>().MAXSLINGSHOT = 9;
+        }
+        else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Video)
+        {
+            player.GetComponent<Movement>().maxBounceCounter = 3;
+            player.GetComponent<Movement>().MAXSLINGSHOT = 9;
+        }
+        else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Secret)
+        {
+            player.GetComponent<Movement>().maxBounceCounter = 5;
+            player.GetComponent<Movement>().MAXSLINGSHOT = 12;
+        }
+        else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Secret)
+        {
+            player.GetComponent<Movement>().maxBounceCounter = 4;
+            player.GetComponent<Movement>().MAXSLINGSHOT = 12;
+        }
+
+        if (UIManager.Instance.ShopMenu.activeInHierarchy)
         {
             coinText.text = ""+GameManager.instance.GetCoin();
             opalText.text = "" + GameManager.instance.GetPoints();
