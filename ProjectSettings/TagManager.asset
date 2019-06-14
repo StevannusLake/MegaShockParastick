@@ -31,6 +31,7 @@ TagManager:
   - UIOpal
   - OpalCounter
   - TopBackground
+  - Special
   layers:
   - Default
   - TransparentFX
