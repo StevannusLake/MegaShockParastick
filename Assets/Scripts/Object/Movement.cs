@@ -150,7 +150,7 @@ public class Movement : MonoBehaviour
         zoomRadiusController = GetComponentInChildren<ZoomRadiusController>();
         facingVector = (Vector2)myTransform.right;
 
-        initialPosition = this.gameObject.transform.position.y;
+       // initialPosition = this.gameObject.transform.position.y;
 
         playerDistance = ButtonManager.instance.TempScore;
         distanceCounterText.text = playerDistance.ToString("F1") + " mm";
@@ -171,8 +171,6 @@ public class Movement : MonoBehaviour
         {
             hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
         }
-
-        doubleSlingshotCounter = MAXSLINGSHOT;
     }
     
     // Update is called once per frame

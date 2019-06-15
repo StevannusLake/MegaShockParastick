@@ -19,6 +19,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public enum Rarity { Default,Special,Mission,Video,Secret,Legendary};
     public Rarity rarity;
     public string abilityDescription;
+    private GameObject player;
 
     void Awake()
     {   
@@ -29,6 +30,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         confirmationMenu = GameObject.FindWithTag("BuyConfirmationMenu");
         mainCamera = GameObject.FindWithTag("MainCamera");
+        player = GameObject.FindWithTag("Player");
     }
 
     void Update()
@@ -89,7 +91,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                                 mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
                             }
                         }
-                    }                 
+                    }   
                 }
                 else
                 {
@@ -97,6 +99,49 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                     Shop.instance.skinUsing = this.gameObject;
                     Shop.instance.ChangeSkin();
                     Debug.Log("ChangeSkin : " + this.name);
+
+                    if (rarity == Rarity.Default)
+                    {
+                        player.GetComponent<Movement>().maxBounceCounter = 2;
+                        player.GetComponent<Movement>().MAXSLINGSHOT = 3;
+                        player.GetComponent<Movement>().playerDistance = 0;
+                        player.GetComponent<Movement>().initialPosition = 0;
+                    }
+                    else if (rarity == Rarity.Special)
+                    {
+                        player.GetComponent<Movement>().maxBounceCounter = 2;
+                        player.GetComponent<Movement>().MAXSLINGSHOT = 15;
+                        player.GetComponent<Movement>().playerDistance = 10;
+                        player.GetComponent<Movement>().initialPosition = 10;
+                    }
+                    else if (rarity == Rarity.Mission)
+                    {
+                        player.GetComponent<Movement>().maxBounceCounter = 3;
+                        player.GetComponent<Movement>().MAXSLINGSHOT = 9;
+                        player.GetComponent<Movement>().playerDistance = 25;
+                        player.GetComponent<Movement>().initialPosition = 25;
+                    }
+                    else if (rarity == Rarity.Video)
+                    {
+                        player.GetComponent<Movement>().maxBounceCounter = 3;
+                        player.GetComponent<Movement>().MAXSLINGSHOT = 9;
+                        player.GetComponent<Movement>().playerDistance = 20;
+                        player.GetComponent<Movement>().initialPosition = 20;
+                    }
+                    else if (rarity == Rarity.Secret)
+                    {
+                        player.GetComponent<Movement>().maxBounceCounter = 5;
+                        player.GetComponent<Movement>().MAXSLINGSHOT = 12;
+                        player.GetComponent<Movement>().playerDistance = 50;
+                        player.GetComponent<Movement>().initialPosition = 50;
+                    }
+                    else if (rarity == Rarity.Legendary)
+                    {
+                        player.GetComponent<Movement>().maxBounceCounter = 4;
+                        player.GetComponent<Movement>().MAXSLINGSHOT = 12;
+                        player.GetComponent<Movement>().playerDistance = 100;
+                        player.GetComponent<Movement>().initialPosition = 100;
+                    }
                 }
             }
             else if (skinType == SkinType.environment)

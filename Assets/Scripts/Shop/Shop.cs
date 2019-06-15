@@ -95,41 +95,53 @@ public class Shop : MonoBehaviour
             environmentUsing = defaultEnvironment;
             environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
         }
-    }
 
-    private void Update()
-    {
         if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Default)
         {
             player.GetComponent<Movement>().maxBounceCounter = 2;
             player.GetComponent<Movement>().MAXSLINGSHOT = 3;
+            player.GetComponent<Movement>().playerDistance = 0;
+            player.GetComponent<Movement>().initialPosition = 0;
         }
-        else if(skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Special)
+        else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Special)
         {
             player.GetComponent<Movement>().maxBounceCounter = 2;
             player.GetComponent<Movement>().MAXSLINGSHOT = 15;
+            player.GetComponent<Movement>().playerDistance = 10;
+            player.GetComponent<Movement>().initialPosition = 10;
         }
-        else if(skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Mission)
+        else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Mission)
         {
             player.GetComponent<Movement>().maxBounceCounter = 3;
             player.GetComponent<Movement>().MAXSLINGSHOT = 9;
+            player.GetComponent<Movement>().playerDistance = 25;
+            player.GetComponent<Movement>().initialPosition = 25;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Video)
         {
             player.GetComponent<Movement>().maxBounceCounter = 3;
             player.GetComponent<Movement>().MAXSLINGSHOT = 9;
+            player.GetComponent<Movement>().playerDistance = 20;
+            player.GetComponent<Movement>().initialPosition = 20;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Secret)
         {
             player.GetComponent<Movement>().maxBounceCounter = 5;
             player.GetComponent<Movement>().MAXSLINGSHOT = 12;
+            player.GetComponent<Movement>().playerDistance = 50;
+            player.GetComponent<Movement>().initialPosition = 50;
         }
-        else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Secret)
+        else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Legendary)
         {
             player.GetComponent<Movement>().maxBounceCounter = 4;
             player.GetComponent<Movement>().MAXSLINGSHOT = 12;
+            player.GetComponent<Movement>().playerDistance = 100;
+            player.GetComponent<Movement>().initialPosition = 100;
         }
+    }
 
+    private void Update()
+    {
         if (UIManager.Instance.ShopMenu.activeInHierarchy)
         {
             coinText.text = ""+GameManager.instance.GetCoin();
