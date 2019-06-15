@@ -104,7 +104,7 @@ public class Movement : MonoBehaviour
     public int doubleSlingshot = 0;
     public int MAXSLINGSHOT;
     const int DECREMENTSLINGSHOT = 3;
-    const int INCREMENTSLINGSHOT = 1;
+    public int INCREMENTSLINGSHOT;
     public int doubleSlingshotCounter;
     //=======================================================================================================================
 

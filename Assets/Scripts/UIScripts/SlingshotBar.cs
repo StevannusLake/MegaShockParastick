@@ -26,28 +26,34 @@ public class SlingshotBar : MonoBehaviour
         }
         if (playerMovementScript.doubleSlingshotCounter == 3)
         {
-            //TurnOnBar(0);
+            TurnOnBar(0);
             TurnOffBar(1);
-            TurnOffBar(2);
             TurnOffBar(2);
             TurnOffBar(3);
             TurnOffBar(4);
         }
         if (playerMovementScript.doubleSlingshotCounter == 6)
         {
-            //TurnOnBar(0);
-            //TurnOnBar(1);
+            TurnOnBar(0);
+            TurnOnBar(1);
             TurnOffBar(2);
             TurnOffBar(3);
             TurnOffBar(4);
         }
         if (playerMovementScript.doubleSlingshotCounter == 9)
         {
+            TurnOnBar(0);
+            TurnOnBar(1);
+            TurnOnBar(2);
             TurnOffBar(3);
             TurnOffBar(4);
         }
         if (playerMovementScript.doubleSlingshotCounter == 12)
         {
+            TurnOnBar(0);
+            TurnOnBar(1);
+            TurnOnBar(2);
+            TurnOnBar(3);
             TurnOffBar(4);
         }
         if (playerMovementScript.doubleSlingshotCounter == 15)
