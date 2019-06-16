@@ -132,6 +132,7 @@ public class Movement : MonoBehaviour
     List<GameObject> dotList;
     //=======================================================================================================================
     Vector2 screenMid;
+    public bool isRareSkin = false;
 
     // Start is called before the first frame update
     void Start()
@@ -639,8 +640,8 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
-                
-                if (doubleSlingshot == 2)
+
+                if (doubleSlingshot == 2 && isRareSkin == true)
                 {
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
                 }

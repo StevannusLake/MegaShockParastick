@@ -105,6 +105,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().maxBounceCounter = 2;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 3;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
+                        player.GetComponent<Movement>().isRareSkin = false;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 3;
                         player.GetComponent<Movement>().playerDistance = 0;
                         player.GetComponent<Movement>().initialPosition = 0;
@@ -114,6 +115,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().maxBounceCounter = 2;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 15;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
+                        player.GetComponent<Movement>().isRareSkin = false;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 15;
                         player.GetComponent<Movement>().playerDistance = 10;
                         player.GetComponent<Movement>().initialPosition = 10;
@@ -123,6 +125,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().maxBounceCounter = 3;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 9;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 2;
+                        player.GetComponent<Movement>().isRareSkin = false;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 9;
                         player.GetComponent<Movement>().playerDistance = 25;
                         player.GetComponent<Movement>().initialPosition = 25;
@@ -132,6 +135,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().maxBounceCounter = 3;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 9;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
+                        player.GetComponent<Movement>().isRareSkin = true;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 9;
                         player.GetComponent<Movement>().playerDistance = 20;
                         player.GetComponent<Movement>().initialPosition = 20;
@@ -141,6 +145,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().maxBounceCounter = 5;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 12;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
+                        player.GetComponent<Movement>().isRareSkin = true;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 12;
                         player.GetComponent<Movement>().playerDistance = 50;
                         player.GetComponent<Movement>().initialPosition = 50;
@@ -150,6 +155,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().maxBounceCounter = 4;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 12;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
+                        player.GetComponent<Movement>().isRareSkin = true;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 12;
                         player.GetComponent<Movement>().playerDistance = 100;
                         player.GetComponent<Movement>().initialPosition = 100;
