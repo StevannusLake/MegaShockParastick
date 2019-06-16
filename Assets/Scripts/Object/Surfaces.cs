@@ -15,15 +15,17 @@ public class Surfaces : MonoBehaviour
     Transform myTransform;
     CapsuleCollider2D myCollider;
     Rigidbody2D myRigidbody;
+    SpriteRenderer myRenderer;
     static float zRotation;
     public float rotationSpeedRandom;
     public int stickCount = 0;
     private bool reachedDestination = false;
+    private bool startedToFade = false;
     private Transform destination;
     string nSurfaceTag = "NSurface";
     private Transform[] pingpongObjects;
     public Transform platformPlacementTransform;
-
+    private float aboutToDieTimer = 0;
     GameObject player;
     CircleCollider2D playerCollider;
     
@@ -66,6 +68,7 @@ public class Surfaces : MonoBehaviour
         }
         
         DropAfter();
+        if (startedToFade) FadeOutAndDie();
         if (isMover && foundDestination) MoveBetweenPingPongs();
     }
 
@@ -291,6 +294,36 @@ public class Surfaces : MonoBehaviour
 
                 Destroy(this.gameObject, 2f);
             }
+            if (stickCount ==1)
+            {
+                if(!startedToFade) startedToFade = true;
+
+            }
+        }
+
+
+        
+    }
+
+    void FadeOutAndDie()
+    {
+        if(myRenderer==null)
+        {
+            myRenderer = GetComponent<SpriteRenderer>();
+        }
+        if (myRenderer != null)
+        {
+            
+            aboutToDieTimer += Time.deltaTime;
+            if(aboutToDieTimer>=2f)
+            {
+                anim.SetBool("AboutToDie", true);
+            }
+            if (aboutToDieTimer >= 4f)
+            {
+                stickCount = 3;
+            }
+
         }
     }
 }

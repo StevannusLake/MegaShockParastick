@@ -24,7 +24,7 @@ public class LevelGenerator : MonoBehaviour
     private bool DangerAlreadyMade = false;
     public bool test;
 
-    public static  CurrentDirection[] upwardPossibilities = new CurrentDirection[] { CurrentDirection.UP, CurrentDirection.LEFT, CurrentDirection.RIGHT };
+    public static  CurrentDirection[] upwardPossibilities = new CurrentDirection[] { CurrentDirection.UP};
     public CurrentDirection thisLevelDirection;
 
     private void Awake()
