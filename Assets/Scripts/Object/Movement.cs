@@ -1179,6 +1179,7 @@ public class Movement : MonoBehaviour
             colliderController.enabled = false;
             myCollider.enabled = false;
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
+            Cinemachine.GetComponent<MixingCameraController>().enabled = false;
         }
     }
 

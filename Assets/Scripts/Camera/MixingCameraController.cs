@@ -11,7 +11,7 @@ public class MixingCameraController : MonoBehaviour
     public CinemachineMixingCamera mixingCamera;
     public bool isInsideZoomArea = false;
     public bool isShaked = false;
-   
+    public CinemachineVirtualCamera backgroundCamera;
     private float shakeDuration=0;
     private float shakeTimer = 0;
     public float[] previousCameraOrto;
@@ -76,6 +76,19 @@ public class MixingCameraController : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
+        {
+            float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
+            float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
+            CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            noiseChannel.m_AmplitudeGain = 0;
+            noiseChannel.m_FrequencyGain = 0;
+           
+        }
+    }
+
     void MoveWithMovingPlatform()
     {
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
@@ -103,16 +116,25 @@ public class MixingCameraController : MonoBehaviour
     public void WaterClosingShake()
     {
         float distanceTillPlayer = Vector2.Distance(GameManager.instance.player.transform.position, GameManager.instance.water.transform.position);
+        float maxAmplitude = 1.5f;
+        float maxFrequencty = 1.0f;
         if (distanceTillPlayer < 10 && Movement.deadState==0)
         {
+            
             for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
             {
                 float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
                 float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
                 CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-                noiseChannel.m_AmplitudeGain = Mathf.MoveTowards(noiseChannel.m_AmplitudeGain, 2.4f / distanceTillPlayer, Time.deltaTime * 2f);
-                noiseChannel.m_FrequencyGain = Mathf.MoveTowards(noiseChannel.m_FrequencyGain, 2.4f / distanceTillPlayer, Time.deltaTime*2f);
+                noiseChannel.m_AmplitudeGain = Mathf.MoveTowards(noiseChannel.m_AmplitudeGain, maxAmplitude / distanceTillPlayer, Time.deltaTime * 2f);
+                noiseChannel.m_FrequencyGain = Mathf.MoveTowards(noiseChannel.m_FrequencyGain, 1.0f / distanceTillPlayer, Time.deltaTime*2f);
+                noiseChannel.m_AmplitudeGain = Mathf.Clamp(noiseChannel.m_AmplitudeGain,0, maxAmplitude);
+                noiseChannel.m_FrequencyGain = Mathf.Clamp(noiseChannel.m_FrequencyGain, 0, maxFrequencty);
             }
+            
+           /* CinemachineBasicMultiChannelPerlin noiseChannelBack = backgroundCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            noiseChannelBack.m_AmplitudeGain = Mathf.MoveTowards(noiseChannelBack.m_AmplitudeGain, maxAmplitude / distanceTillPlayer , Time.deltaTime * 2f);
+            noiseChannelBack.m_FrequencyGain = Mathf.MoveTowards(noiseChannelBack.m_FrequencyGain, maxFrequencty / distanceTillPlayer, Time.deltaTime * 2f);*/
         }
         else
         {
@@ -124,8 +146,13 @@ public class MixingCameraController : MonoBehaviour
                     CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                     noiseChannel.m_AmplitudeGain = Mathf.MoveTowards(noiseChannel.m_AmplitudeGain, 0, Time.deltaTime * 2f);
                     noiseChannel.m_FrequencyGain = Mathf.MoveTowards(noiseChannel.m_FrequencyGain, 0, Time.deltaTime * 2f);
-                }
-            
+                    noiseChannel.m_AmplitudeGain = Mathf.Clamp(noiseChannel.m_AmplitudeGain, 0, maxAmplitude);
+                    noiseChannel.m_FrequencyGain = Mathf.Clamp(noiseChannel.m_FrequencyGain, 0, maxFrequencty);
+            }
+           /* CinemachineBasicMultiChannelPerlin noiseChannelBack = backgroundCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            noiseChannelBack.m_AmplitudeGain = Mathf.MoveTowards(noiseChannelBack.m_AmplitudeGain, 0, Time.deltaTime * 2f);
+            noiseChannelBack.m_FrequencyGain = Mathf.MoveTowards(noiseChannelBack.m_FrequencyGain,0, Time.deltaTime * 2f);*/
+
         }
       
         

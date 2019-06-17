@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Surfaces : MonoBehaviour
 {
-    public enum SurfaceTypes {Safe,Dangerous,Moving ,DangerousMoving}
+    public enum SurfaceTypes {Safe,Dangerous,Moving ,DangerousMoving,Initial}
     private enum PingPongDirection {Forward,Back }
     private PingPongDirection pingpongDirection = PingPongDirection.Forward;
     public bool isMover = false;
@@ -68,7 +68,7 @@ public class Surfaces : MonoBehaviour
         }
         
         DropAfter();
-        if (startedToFade) FadeOutAndDie();
+       if (startedToFade) FadeOutAndDie();
         if (isMover && foundDestination) MoveBetweenPingPongs();
     }
 
@@ -294,7 +294,7 @@ public class Surfaces : MonoBehaviour
 
                 Destroy(this.gameObject, 2f);
             }
-            if (stickCount ==1)
+            if (stickCount ==1 && thisType != SurfaceTypes.Initial)
             {
                 if(!startedToFade) startedToFade = true;
 
@@ -307,23 +307,31 @@ public class Surfaces : MonoBehaviour
 
     void FadeOutAndDie()
     {
+
+        bool createRandomSpeed = false;
+        if(!createRandomSpeed)
+        {
+            float randomSpeed = Random.Range(30f, 50f);
+            createRandomSpeed = true;
+            if (myRenderer != null)
+            {
+                rotationSpeedRandom += Time.deltaTime * randomSpeed;
+                aboutToDieTimer += Time.deltaTime;
+                if (aboutToDieTimer >= 2f)
+                {
+                    anim.SetBool("AboutToDie", true);
+                }
+                if (aboutToDieTimer >= 4f)
+                {
+                    stickCount = 3;
+                }
+
+            }
+        }
         if(myRenderer==null)
         {
             myRenderer = GetComponent<SpriteRenderer>();
         }
-        if (myRenderer != null)
-        {
-            
-            aboutToDieTimer += Time.deltaTime;
-            if(aboutToDieTimer>=2f)
-            {
-                anim.SetBool("AboutToDie", true);
-            }
-            if (aboutToDieTimer >= 4f)
-            {
-                stickCount = 3;
-            }
-
-        }
+      
     }
 }
