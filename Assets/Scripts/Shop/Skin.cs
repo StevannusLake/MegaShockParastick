@@ -107,7 +107,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = false;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 3;
-                        player.GetComponent<Movement>().playerDistance = 0;
+                        player.GetComponent<Movement>().initialDistance = 0;
                         player.GetComponent<Movement>().initialPosition = 0;
                     }
                     else if (rarity == Rarity.Special)
@@ -117,8 +117,8 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = false;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 15;
-                        player.GetComponent<Movement>().playerDistance = 10;
-                        player.GetComponent<Movement>().initialPosition = 10;
+                        player.GetComponent<Movement>().initialDistance = 15;
+                        player.GetComponent<Movement>().initialPosition = 15;
                     }
                     else if (rarity == Rarity.Mission)
                     {
@@ -127,7 +127,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 2;
                         player.GetComponent<Movement>().isRareSkin = false;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 9;
-                        player.GetComponent<Movement>().playerDistance = 25;
+                        player.GetComponent<Movement>().initialDistance = 25;
                         player.GetComponent<Movement>().initialPosition = 25;
                     }
                     else if (rarity == Rarity.Video)
@@ -137,7 +137,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = true;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 9;
-                        player.GetComponent<Movement>().playerDistance = 20;
+                        player.GetComponent<Movement>().initialDistance = 20;
                         player.GetComponent<Movement>().initialPosition = 20;
                     }
                     else if (rarity == Rarity.Secret)
@@ -147,7 +147,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = true;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 12;
-                        player.GetComponent<Movement>().playerDistance = 50;
+                        player.GetComponent<Movement>().initialDistance = 50;
                         player.GetComponent<Movement>().initialPosition = 50;
                     }
                     else if (rarity == Rarity.Legendary)
@@ -157,7 +157,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = true;
                         player.GetComponent<Movement>().MAXSLINGSHOT = 12;
-                        player.GetComponent<Movement>().playerDistance = 100;
+                        player.GetComponent<Movement>().initialDistance = 100;
                         player.GetComponent<Movement>().initialPosition = 100;
                     }
                 }
