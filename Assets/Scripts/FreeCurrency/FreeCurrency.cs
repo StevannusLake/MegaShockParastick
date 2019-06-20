@@ -134,7 +134,7 @@ public class FreeCurrency : MonoBehaviour
                 NotificationManager.Cancel(61);
                 TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
                 // schedule without icon
-                NotificationManager.Send(61, delayNotifyTime, "Parastick", "Free Coins are available now! Come and Get Them All!", Color.red, NotificationIcon.Heart);
+                NotificationManager.Send(61, delayNotifyTime, "Parastick", "Collect Free Opals Now and SHOW OFF your skins!", Color.red, NotificationIcon.Heart);
             }
 
             canGetFree = false;

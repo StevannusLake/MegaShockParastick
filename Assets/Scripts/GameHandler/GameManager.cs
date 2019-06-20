@@ -70,9 +70,13 @@ public class GameManager : MonoBehaviour
         //=============================================================================================================
 
         NotificationManager.Cancel(60);
-        TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
+        TimeSpan delayNotifyTime = new TimeSpan(1, 0, 0);
         // schedule without icon
-        NotificationManager.Send(60, delayNotifyTime, "Parastick", "It's been two hours since you last visit me. Did you forget me? :'( ", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(60, delayNotifyTime, "Parastick", "You know you can achieve more than this! :'( ", Color.red, NotificationIcon.Heart);
+
+        NotificationManager.Cancel(62);
+        TimeSpan delayNotifyTIme2 = new TimeSpan(5, 0, 0);
+        NotificationManager.Send(60, delayNotifyTime, "Parastick", "Reach so far away until nobody can beat you! :'( ", Color.red, NotificationIcon.Heart);
     }
 
 
