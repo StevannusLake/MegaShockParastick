@@ -29,7 +29,7 @@ public class LoadingScreen : MonoBehaviour
         while (!asyncOperation.isDone)
         {   
             //Vector3 endPos = new Vector3(Mathf.Abs(endParasite.position.x * (asyncOperation.progress+0.1f)), endParasite.position.y);
-            parasite.position = Vector3.Lerp(parasite.position, endParasite.position, 1f * Time.deltaTime);
+            parasite.position = Vector3.Lerp(parasite.position, endParasite.position, 2f * Time.deltaTime);
             float targetRotation = 360f / (asyncOperation.progress + 0.1f);
             if(zRotation<targetRotation)
             {
@@ -38,7 +38,7 @@ public class LoadingScreen : MonoBehaviour
             parasite.transform.eulerAngles = new Vector3(0, 0, -zRotation);
             greenFill.GetComponent<Image>().fillAmount = parasite.transform.position.x / endParasite.transform.position.x;
             Debug.Log("Pro :" + asyncOperation.progress);
-            if (Vector3.Distance(parasite.position,endParasite.position) <= 3.0f)
+            if (Vector3.Distance(parasite.position,endParasite.position) <= 7.0f)
             {
                 Debug.Log("Reach");
                 asyncOperation.allowSceneActivation = true;

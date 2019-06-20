@@ -12,8 +12,12 @@ public class ShopButtonController : MonoBehaviour
     public GameObject buyConfirmationMenu;
     public GameObject luckySpinMenu;
     public Text coin;
-    public GameObject abilityWindow;
-    public Text abilityText;
+    public GameObject abilityWindowDefault;
+    public GameObject abilityWindowSpecial;
+    public GameObject abilityWindowMission;
+    public GameObject abilityWindowVideo;
+    public GameObject abilityWindowSecret;
+    public GameObject abilityWindowLegendary;
 
     private void Update()
     {
@@ -81,14 +85,63 @@ public class ShopButtonController : MonoBehaviour
         luckySpinMenu.SetActive(false);
     }
 
-    public void ShowAbility()
+    public void ShowAbilityDefault()
     {
-        abilityWindow.SetActive(true);
-        abilityText.text = Shop.instance.skinUsing.GetComponent<Skin>().abilityDescription;
+        abilityWindowDefault.SetActive(true);
     }
 
-    public void CloseAbility()
+    public void ShowAbilitySpecial()
     {
-        abilityWindow.SetActive(false);
+        abilityWindowSpecial.SetActive(true);
+    }
+
+    public void ShowAbilityMission()
+    {
+        abilityWindowMission.SetActive(true);
+    }
+
+    public void ShowAbilityVideo()
+    {
+        abilityWindowVideo.SetActive(true);
+    }
+
+    public void ShowAbilitySecret()
+    {
+        abilityWindowSecret.SetActive(true);
+    }
+
+    public void ShowAbilityLegendary()
+    {
+        abilityWindowLegendary.SetActive(true);
+    }
+
+    public void CloseAbilityDefault()
+    {
+        abilityWindowDefault.SetActive(false);
+    }
+
+    public void CloseAbilitySpecial()
+    {
+        abilityWindowSpecial.SetActive(false);
+    }
+
+    public void CloseAbilityMission()
+    {
+        abilityWindowMission.SetActive(false);
+    }
+
+    public void CloseAbilityVideo()
+    {
+        abilityWindowVideo.SetActive(false);
+    }
+
+    public void CloseAbilityLegendary()
+    {
+        abilityWindowLegendary.SetActive(false);
+    }
+
+    public void CloseAbilitySecret()
+    {
+        abilityWindowSecret.SetActive(false);
     }
 }
