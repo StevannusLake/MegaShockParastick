@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject audioSourcePlayer;
     public float highScore;
     public int spinCount;
-    private int points;
+    public int points;
     public UIManager uiManager;
     public float totalDistanceTravelled;
     public int totalCoinCollected;
