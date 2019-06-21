@@ -8624,7 +8624,8 @@ MonoBehaviour:
   freeCurrencyTime3: 0
   myLocation: 
   canGetFree: 0
-  opalText: {fileID: 0}
+  canGetFree2: 0
+  canGetFree3: 0
 --- !u!1 &514261383
 GameObject:
   m_ObjectHideFlags: 0
