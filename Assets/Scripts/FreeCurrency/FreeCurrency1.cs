@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 using Assets.SimpleAndroidNotifications;
 
-public class FreeCurrency : MonoBehaviour
+public class FreeCurrency1 : MonoBehaviour
 {
     //============================================================================================================
     // 29/5
@@ -35,8 +35,12 @@ public class FreeCurrency : MonoBehaviour
     public bool canGetFree2;
     public bool canGetFree3;
 
+    public GameObject image1;
+    public GameObject image2;
+    public GameObject image3;
+
     private int addValue;
-    
+
     private void Start()
     {
         //============================================================================================================
@@ -67,18 +71,18 @@ public class FreeCurrency : MonoBehaviour
 
         if (PlayerPrefs.GetInt(myLocation2 + "LoginTime2") == 0)
         {
-            PlayerPrefs.SetInt(myLocation2 + "LoginTime2", 1);
-            freeCurrencyTime2 = PlayerPrefs.GetInt(myLocation2 + "LoginTime2");
+            PlayerPrefs.SetInt(myLocation2 + "LoginTime2", 2);
+            freeCurrencyTime = PlayerPrefs.GetInt(myLocation2 + "LoginTime2");
             PlayerPrefs.SetString(myLocation2 + "lastLoginTime2", System.DateTime.Now.ToBinary().ToString());
         }
         else
         {
-            freeCurrencyTime2 = PlayerPrefs.GetInt(myLocation2 + "LoginTime2");
+            freeCurrencyTime = PlayerPrefs.GetInt(myLocation + "LoginTime");
         }
 
         if (PlayerPrefs.GetInt(myLocation3 + "LoginTime3") == 0)
         {
-            PlayerPrefs.SetInt(myLocation3 + "LoginTime3", 1);
+            PlayerPrefs.SetInt(myLocation3 + "LoginTime3", 3);
             freeCurrencyTime3 = PlayerPrefs.GetInt(myLocation3 + "LoginTime");
             PlayerPrefs.SetString(myLocation3 + "lastLoginTime3", System.DateTime.Now.ToBinary().ToString());
         }
@@ -122,13 +126,17 @@ public class FreeCurrency : MonoBehaviour
                 Debug.Log(myLocation + "2 Hours Not Passed");
             }
 
-            if(difference.Minutes >= 1)
-            {
-                canGetFree = true;
-            }
+            //if(difference.Minutes >= 1)
+            //{
+            //    canGetFree = true;
+            //}
+            //if (difference.Minutes < 1)
+            //{
+            //    canGetFree = false;
+            //}
         }
 
-        if (PlayerPrefs.GetString(myLocation2 + "lastLoginTime2") == "")
+        if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
         {
             oldTime2 = DateTime.Now;
         }
@@ -140,9 +148,9 @@ public class FreeCurrency : MonoBehaviour
             print(myLocation2 + "oldTime: " + oldTime2);
 
             // find differene 
-            TimeSpan difference2 = currentTime2.Subtract(oldTime2);
+            TimeSpan difference2 = currentTime.Subtract(oldTime2);
             print(myLocation2 + "Difference: " + difference2);
-
+            Debug.Log(difference2);
             if (difference2.Hours >= 2)
             {
                 freeCurrencyTime2 = 0;
@@ -152,17 +160,21 @@ public class FreeCurrency : MonoBehaviour
                 {
                     PlayerPrefs.SetString(myLocation2 + "lastLoginTime2", System.DateTime.Now.ToBinary().ToString());
                 }
-                Debug.Log(myLocation + "2 Hours Has Passed");
+                Debug.Log(myLocation2 + "2 Hours Has Passed");
             }
             else
             {
-                Debug.Log(myLocation + "2 Hours Not Passed");
+                Debug.Log(myLocation2 + "2 Hours Not Passed");
             }
 
-            if (difference2.Minutes >= 1)
-            {
-                canGetFree2 = true;
-            }
+            //if (difference2.Minutes >= 1)
+            //{
+            //    canGetFree = true;
+            //}
+            //if (difference2.Minutes < 1)
+            //{
+            //    canGetFree = false;
+            //}
         }
 
         if (PlayerPrefs.GetString(myLocation3 + "lastLoginTime3") == "")
@@ -183,7 +195,7 @@ public class FreeCurrency : MonoBehaviour
             if (difference3.Hours >= 2)
             {
                 freeCurrencyTime3 = 0;
-
+                Debug.Log("No go");
                 PlayerPrefs.SetInt(myLocation3 + "LoginTime3", freeCurrencyTime3);
                 if (currentTime3 > oldTime3)
                 {
@@ -196,19 +208,22 @@ public class FreeCurrency : MonoBehaviour
                 Debug.Log(myLocation3 + "2 Hours Not Passed");
             }
 
-            if (difference3.Minutes >= 1)
-            {
-                canGetFree3 = true;
-            }
+            //if (difference3.Minutes >= 1)
+            //{
+            //    canGetFree3 = true;
+            //}
+            //if(difference3.Minutes < 1)
+            //{
+            //    canGetFree3 = false;
+            //}
         }
-
     }
 
     void UpdatePassedTime()
     {
         // find differene 
         TimeSpan difference = currentTime.Subtract(oldTime);
-        TimeSpan difference2 = currentTime2.Subtract(oldTime2);
+        TimeSpan difference2 = currentTime2.Subtract(oldTime);
         TimeSpan difference3 = currentTime3.Subtract(oldTime3);
 
         if (difference.Hours >= 2)
@@ -227,8 +242,10 @@ public class FreeCurrency : MonoBehaviour
         {
             Debug.Log(myLocation + "2 Hours Not Passed");
         }
-
-        if (difference2.Hours >= 2)
+        Debug.Log(difference);
+        Debug.Log(difference2);
+        Debug.Log(difference3);
+        if (difference.Hours >= 2)
         {
             canGetFree2 = true;
             freeCurrencyTime2 = 0;
@@ -275,14 +292,12 @@ public class FreeCurrency : MonoBehaviour
         if (differenceForMinutes.Minutes >= 1)
         {
             canGetFree = true;
-            
         }
-        else if(differenceForMinutes2.Minutes >= 1)
+        if (differenceForMinutes2.Minutes >= 1)
         {
             canGetFree2 = true;
-            Debug.Log("RUnning");
         }
-        else if (differenceForMinutes3.Minutes >= 1)
+        if (differenceForMinutes3.Minutes >= 1)
         {
             canGetFree3 = true;
         }
@@ -290,9 +305,9 @@ public class FreeCurrency : MonoBehaviour
 
     public void GetFreeButtonS()
     {
-        if(canGetFree && freeCurrencyTime < 3)
+        if (canGetFree && freeCurrencyTime < 3)
         {
-            if(freeCurrencyTime == 0)
+            if (freeCurrencyTime == 0)
             {
                 //=============================================================================================================
                 NotificationManager.Cancel(61);
@@ -302,12 +317,12 @@ public class FreeCurrency : MonoBehaviour
             }
 
             canGetFree = false;
-            
+
             // button pressed, save and set press button time to buttonPressedTime
             PlayerPrefs.SetString(myLocation + "PressButtonTime", System.DateTime.Now.ToBinary().ToString());
             long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "PressButtonTime"));
             buttonPressedTime = DateTime.FromBinary(tempTime);
-            
+
             freeCurrencyTime++;
             PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrencyTime);
 
@@ -316,6 +331,7 @@ public class FreeCurrency : MonoBehaviour
             Debug.Log("Get free");
             GameManager.instance.AddPoints(2);
             GameManager.instance.SavePoints();
+            image1.SetActive(true);
         }
     }
 
@@ -350,6 +366,7 @@ public class FreeCurrency : MonoBehaviour
 
             GameManager.instance.AddPoints(addValue);
             GameManager.instance.SavePoints();
+            image2.SetActive(true);
         }
     }
 
@@ -381,6 +398,22 @@ public class FreeCurrency : MonoBehaviour
             Debug.Log("Get free3");
             GameManager.instance.AddPoints(2);
             GameManager.instance.SavePoints();
+            image3.SetActive(true);
         }
+    }
+
+    public void CloseAds1()
+    {
+        image1.SetActive(false);
+    }
+
+    public void CloseAds2()
+    {
+        image2.SetActive(false);
+    }
+
+    public void CloseAds3()
+    {
+        image3.SetActive(false);
     }
 }

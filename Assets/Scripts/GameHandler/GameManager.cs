@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
+        
         //=============================================================================================================
 
         NotificationManager.Cancel(60);
