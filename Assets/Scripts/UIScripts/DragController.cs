@@ -90,6 +90,18 @@ public class DragController : MonoBehaviour
                         this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 10.9f, transform.position.z), 3f * Time.deltaTime);
                     }
                 }
+                else if(Shop.instance.shopState == Shop.ShopState.coins)
+                {
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    }
+                    else if (bottomObject.position.y > initPos.y - 1f)
+                    {
+                        //rawDelta.y = 0f;
+                        //this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 10.9f, transform.position.z), 3f * Time.deltaTime);
+                    }
+                }
             }
             else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
             {
