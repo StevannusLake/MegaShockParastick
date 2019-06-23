@@ -150,6 +150,15 @@ public class Shop : MonoBehaviour
             player.GetComponent<Movement>().initialDistance = 100;
             player.GetComponent<Movement>().initialPosition = 100;
         }
+
+        // check video skin
+        for(int i = 0; i < skinList.Length; i++)
+        {
+            if(PlayerPrefs.HasKey(skinList[i].name+"WatchCount"))
+            {
+                skinList[i].GetComponent<Skin>().watchCount = PlayerPrefs.GetInt(skinList[i].name + "WatchCount");
+            }
+        }
     }
 
     private void Update()

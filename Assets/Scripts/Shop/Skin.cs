@@ -20,6 +20,8 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public Rarity rarity;
     public string abilityDescription;
     private GameObject player;
+    public int watchNeeded;
+    public int watchCount;
 
     void Awake()
     {   
@@ -92,6 +94,20 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                             }
                         }
                     }   
+                    else if(rarity == Rarity.Video)
+                    {
+                        watchCount += 1;
+                        PlayerPrefs.SetInt(gameObject.name + "WatchCount", watchCount);
+                        // Show ads here
+                        if(watchCount >= watchNeeded)
+                        {
+                            Shop.instance.skinSelecting = this.gameObject;
+                            GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+                            GameManager.instance.numOfSkinCollected++;
+                            Shop.instance.CheckIsBought();
+                            GameManager.instance.SaveSkin();
+                        }
+                    }
                 }
                 else
                 {

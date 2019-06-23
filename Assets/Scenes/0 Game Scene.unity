@@ -45276,6 +45276,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 2
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45377,6 +45379,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: Skin 3 ability
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45652,6 +45656,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 5
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46094,6 +46100,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46233,6 +46241,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 2
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46372,6 +46382,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46625,6 +46637,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46772,6 +46786,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47095,6 +47111,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 5
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47316,6 +47334,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 2
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47447,6 +47467,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47712,6 +47734,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47916,6 +47940,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48063,6 +48089,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48506,6 +48534,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48718,6 +48748,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 0
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48975,6 +49007,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -49016,6 +49050,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49255,6 +49291,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49313,6 +49351,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49452,6 +49492,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 5
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49720,6 +49762,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 3
   abilityDescription: 
+  watchNeeded: 25
+  watchCount: 0
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49859,6 +49903,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: Skin 2 ability
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50006,6 +50052,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 2
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50347,6 +50395,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 4
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50405,6 +50455,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50662,6 +50714,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: Skin 1 ability
+  watchNeeded: 0
+  watchCount: 0
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50764,6 +50818,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 2
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50822,6 +50878,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50969,6 +51027,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 2
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51155,6 +51215,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 5
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51294,6 +51356,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 1
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52635,6 +52699,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 5
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52815,6 +52881,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 5
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53102,6 +53170,8 @@ MonoBehaviour:
   priceType: 0
   rarity: 0
   abilityDescription: Default ability
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53826,6 +53896,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 0
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56037,6 +56109,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 0
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57221,6 +57295,8 @@ MonoBehaviour:
   priceType: 1
   rarity: 0
   abilityDescription: 
+  watchNeeded: 0
+  watchCount: 0
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0

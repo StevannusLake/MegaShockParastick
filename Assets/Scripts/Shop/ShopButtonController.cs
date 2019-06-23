@@ -144,4 +144,13 @@ public class ShopButtonController : MonoBehaviour
     {
         abilityWindowSecret.SetActive(false);
     }
+
+    public void RemoveAds()
+    {
+        Shop.instance.skinSelecting = Shop.instance.skinList[18];
+        GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+        GameManager.instance.numOfSkinCollected++;
+        Shop.instance.CheckIsBought();
+        GameManager.instance.SaveSkin();
+    }
 }
