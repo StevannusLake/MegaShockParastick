@@ -58,9 +58,9 @@ public class FreeCurrency1 : MonoBehaviour
 
     void CheckDate()
     {
-        if (PlayerPrefs.GetInt(myLocation + "LoginTime") == 0)
+        if (PlayerPrefs.GetInt(myLocation + "LoginTime") < 0)
         {
-            PlayerPrefs.SetInt(myLocation + "LoginTime", 1);
+            PlayerPrefs.SetInt(myLocation + "LoginTime", 0);
             freeCurrencyTime = PlayerPrefs.GetInt(myLocation + "LoginTime");
             PlayerPrefs.SetString(myLocation + "lastLoginTime", System.DateTime.Now.ToBinary().ToString());
         }
@@ -69,21 +69,21 @@ public class FreeCurrency1 : MonoBehaviour
             freeCurrencyTime = PlayerPrefs.GetInt(myLocation + "LoginTime");
         }
 
-        if (PlayerPrefs.GetInt(myLocation2 + "LoginTime2") == 0)
+        if (PlayerPrefs.GetInt(myLocation2 + "LoginTime2") < 0)
         {
-            PlayerPrefs.SetInt(myLocation2 + "LoginTime2", 2);
-            freeCurrencyTime = PlayerPrefs.GetInt(myLocation2 + "LoginTime2");
+            PlayerPrefs.SetInt(myLocation2 + "LoginTime2", 0);
+            freeCurrencyTime2 = PlayerPrefs.GetInt(myLocation2 + "LoginTime2");
             PlayerPrefs.SetString(myLocation2 + "lastLoginTime2", System.DateTime.Now.ToBinary().ToString());
         }
         else
         {
-            freeCurrencyTime = PlayerPrefs.GetInt(myLocation + "LoginTime");
+            freeCurrencyTime2 = PlayerPrefs.GetInt(myLocation + "LoginTime2");
         }
 
-        if (PlayerPrefs.GetInt(myLocation3 + "LoginTime3") == 0)
+        if (PlayerPrefs.GetInt(myLocation3 + "LoginTime3") < 0)
         {
-            PlayerPrefs.SetInt(myLocation3 + "LoginTime3", 3);
-            freeCurrencyTime3 = PlayerPrefs.GetInt(myLocation3 + "LoginTime");
+            PlayerPrefs.SetInt(myLocation3 + "LoginTime3", 0);
+            freeCurrencyTime3 = PlayerPrefs.GetInt(myLocation3 + "LoginTime3");
             PlayerPrefs.SetString(myLocation3 + "lastLoginTime3", System.DateTime.Now.ToBinary().ToString());
         }
         else
@@ -126,14 +126,14 @@ public class FreeCurrency1 : MonoBehaviour
                 Debug.Log(myLocation + "2 Hours Not Passed");
             }
 
-            //if(difference.Minutes >= 1)
-            //{
-            //    canGetFree = true;
-            //}
-            //if (difference.Minutes < 1)
-            //{
-            //    canGetFree = false;
-            //}
+            if (difference.Minutes >= 1)
+            {
+                canGetFree = true;
+            }
+            if (difference.Minutes < 1)
+            {
+                canGetFree = false;
+            }
         }
 
         if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
@@ -167,14 +167,14 @@ public class FreeCurrency1 : MonoBehaviour
                 Debug.Log(myLocation2 + "2 Hours Not Passed");
             }
 
-            //if (difference2.Minutes >= 1)
-            //{
-            //    canGetFree = true;
-            //}
-            //if (difference2.Minutes < 1)
-            //{
-            //    canGetFree = false;
-            //}
+            if (difference2.Minutes >= 1)
+            {
+                canGetFree = true;
+            }
+            if (difference2.Minutes < 1)
+            {
+                canGetFree = false;
+            }
         }
 
         if (PlayerPrefs.GetString(myLocation3 + "lastLoginTime3") == "")
@@ -195,7 +195,7 @@ public class FreeCurrency1 : MonoBehaviour
             if (difference3.Hours >= 2)
             {
                 freeCurrencyTime3 = 0;
-                Debug.Log("No go");
+
                 PlayerPrefs.SetInt(myLocation3 + "LoginTime3", freeCurrencyTime3);
                 if (currentTime3 > oldTime3)
                 {
@@ -208,14 +208,14 @@ public class FreeCurrency1 : MonoBehaviour
                 Debug.Log(myLocation3 + "2 Hours Not Passed");
             }
 
-            //if (difference3.Minutes >= 1)
-            //{
-            //    canGetFree3 = true;
-            //}
-            //if(difference3.Minutes < 1)
-            //{
-            //    canGetFree3 = false;
-            //}
+            if (difference3.Minutes >= 1)
+            {
+                canGetFree3 = true;
+            }
+            if (difference3.Minutes < 1)
+            {
+                canGetFree3 = false;
+            }
         }
     }
 
@@ -223,7 +223,7 @@ public class FreeCurrency1 : MonoBehaviour
     {
         // find differene 
         TimeSpan difference = currentTime.Subtract(oldTime);
-        TimeSpan difference2 = currentTime2.Subtract(oldTime);
+        TimeSpan difference2 = currentTime2.Subtract(oldTime2);
         TimeSpan difference3 = currentTime3.Subtract(oldTime3);
 
         if (difference.Hours >= 2)
@@ -245,7 +245,7 @@ public class FreeCurrency1 : MonoBehaviour
         Debug.Log(difference);
         Debug.Log(difference2);
         Debug.Log(difference3);
-        if (difference.Hours >= 2)
+        if (difference2.Hours >= 2)
         {
             canGetFree2 = true;
             freeCurrencyTime2 = 0;
@@ -314,6 +314,7 @@ public class FreeCurrency1 : MonoBehaviour
                 TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
                 // schedule without icon
                 NotificationManager.Send(61, delayNotifyTime, "Parastick", "Collect Free Opals Now and SHOW OFF your skins!", Color.red, NotificationIcon.Heart);
+                Debug.Log(delayNotifyTime);
             }
 
             canGetFree = false;
