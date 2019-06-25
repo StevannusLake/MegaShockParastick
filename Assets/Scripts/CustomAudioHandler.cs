@@ -25,7 +25,7 @@ public class CustomAudioHandler : MonoBehaviour
         
         soundEffectList = new AudioManager.Sound[] { AudioManager.Sound.Button , AudioManager.Sound.CollectCoin, AudioManager.Sound.CollectCoinMain, AudioManager.Sound.Continue,
                                                      AudioManager.Sound.Lose, AudioManager.Sound.PlayerDie, AudioManager.Sound.PlayerStick,AudioManager.Sound.PlayerUnstick,
-                                                     AudioManager.Sound.Reborn};
+                                                     AudioManager.Sound.Reborn,AudioManager.Sound.Water};
 
         bgmList = new AudioManager.Sound[] { AudioManager.Sound.InGameBGM};
 
@@ -52,6 +52,7 @@ public class CustomAudioHandler : MonoBehaviour
     {
         PickedUpCoin();
         SetAllAudioVolumeOnUpdate();
+        HandleWaterSound();
        // SetCustomAudio();
     }
 
@@ -157,6 +158,17 @@ public class CustomAudioHandler : MonoBehaviour
                 pickedCoin = false;
             }
         }
+    }
+
+    void HandleWaterSound()
+    {
+        float distanceTillPlayer = Vector2.Distance(GameManager.instance.player.transform.position, GameManager.instance.water.transform.position);
+        float waterSound = 1.0f / distanceTillPlayer +0.4f;
+        GameAssets.GetAudio(AudioManager.Sound.Water).volume= waterSound;
+            
+
+           
+        
     }
 
     public void HandleCoinSound()

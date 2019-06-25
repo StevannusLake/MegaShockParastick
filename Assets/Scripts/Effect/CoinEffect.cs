@@ -44,8 +44,8 @@ public class CoinEffect : MonoBehaviour
             if (!dieBool)
             {
                 CustomAudioHandler.instance.HandleCoinSound();
-                AudioManager.PlaySoundCustom(AudioManager.Sound.CollectCoin, AudioManager.GetAudioClipVolume(AudioManager.Sound.CollectCoin), CustomAudioHandler.instance.CoinPitch());
-                AudioManager.PlaySoundCustom(AudioManager.Sound.CollectCoinMain, AudioManager.GetAudioClipVolume(AudioManager.Sound.CollectCoinMain), CustomAudioHandler.instance.CoinPitch());
+                AudioManager.PlaySoundCustom(AudioManager.Sound.CollectCoin, AudioManager.GetAudioClipVolume(AudioManager.Sound.CollectCoin), CustomAudioHandler.instance.CoinPitch(),false);
+                AudioManager.PlaySoundCustom(AudioManager.Sound.CollectCoinMain, AudioManager.GetAudioClipVolume(AudioManager.Sound.CollectCoinMain), CustomAudioHandler.instance.CoinPitch(), false);
 
                 GameManager.instance.AddCoin(1);
                 GameManager.instance.coinCollectedInAGame++;

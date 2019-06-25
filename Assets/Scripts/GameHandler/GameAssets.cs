@@ -32,6 +32,19 @@ public class GameAssets : MonoBehaviour
         [Range(0, 1)] public float volume = 1;
     }
 
+    public static SoundAudioClip GetAudio(AudioManager.Sound sound)
+    {
+        foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
+        {
+            if (soundAudioClip.sound == sound)
+            {
+                return soundAudioClip;
+            }
+        }
+        Debug.LogError("Sound" + sound + "wasnt found!");
+        return null;
+    }
+
 
     #endregion
 

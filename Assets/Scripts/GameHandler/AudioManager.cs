@@ -17,6 +17,7 @@ public static class AudioManager
         PlayerDie,
         Reborn,
         InGameBGM,
+        Water,
 
     }
 
@@ -86,7 +87,7 @@ public static class AudioManager
         }
     }
 
-    public static void PlaySoundCustom(Sound sound, float volume, float pitch)
+    public static void PlaySoundCustom(Sound sound, float volume, float pitch , bool shouldLoop)
     {
         string soundName = sound.ToString();
         if (GameManager.instance.soundSourcesCreated.Contains(soundName))
@@ -95,6 +96,7 @@ public static class AudioManager
             AudioSource source = audioSource.GetComponent<AudioSource>();
             source.pitch = pitch;
             source.volume = volume;
+            source.loop = shouldLoop;
             source.PlayOneShot(GetAudioClip(sound));
             DoCustomization(sound, source);
         }
@@ -102,12 +104,14 @@ public static class AudioManager
         else if (!GameManager.instance.soundSourcesCreated.Contains(soundName))
         {
             GameManager.instance.soundSourcesCreated.Add(soundName);
+            Debug.Log("Added it");
             GameObject soundSourceGO = new GameObject(soundName);
             soundSourceGO.transform.SetParent(GameManager.instance.audioSourcePlayer.transform);
             soundSourceGO.AddComponent<AudioSource>();
             AudioSource source = soundSourceGO.GetComponent<AudioSource>();
             source.pitch = pitch;
             source.volume = volume;
+            source.loop = shouldLoop;
             source.PlayOneShot(GetAudioClip(sound));
             DoCustomization(sound, source);
         }
@@ -161,7 +165,7 @@ public static void Play3DSound(Sound sound,AudioSource selfAudio)
     #region Get Audio From GameAssets
 
     //Get and match the chosen audioclip from player to game assets
-    private static AudioClip GetAudioClip(Sound sound)
+    public static AudioClip GetAudioClip(Sound sound)
     {
         foreach(GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
         {
