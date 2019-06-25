@@ -79,14 +79,15 @@ public class MixingCameraController : MonoBehaviour
     private void OnDisable()
     {
         for (int i = 0; i < mixingCamera.ChildCameras.Length; i++)
-        {
-            float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
-            float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
-            CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-            noiseChannel.m_AmplitudeGain = 0;
-            noiseChannel.m_FrequencyGain = 0;
-           
-        }
+         {
+             float shakeAmplitude = Target.GetComponent<Movement>().CalculateCameraAmplitude();
+             float shakeFrequency = Target.GetComponent<Movement>().CalculateCameraFrequency();
+             CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+             noiseChannel.m_AmplitudeGain = 0;
+             noiseChannel.m_FrequencyGain = 0;
+
+         }
+        
     }
 
     void MoveWithMovingPlatform()
