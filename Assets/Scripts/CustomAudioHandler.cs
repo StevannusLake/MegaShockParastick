@@ -163,7 +163,7 @@ public class CustomAudioHandler : MonoBehaviour
     void HandleWaterSound()
     {
         float distanceTillPlayer = Vector2.Distance(GameManager.instance.player.transform.position, GameManager.instance.water.transform.position);
-        float waterSound = 1.0f / distanceTillPlayer +0.4f;
+        float waterSound = 1.2f / distanceTillPlayer+0.15f ;
         GameAssets.GetAudio(AudioManager.Sound.Water).volume= waterSound;
             
 
