@@ -102,7 +102,7 @@ public class Shop : MonoBehaviour
             player.GetComponent<Movement>().doubleSlingshotCounter = 3;
             player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
             player.GetComponent<Movement>().MAXSLINGSHOT = 3;
-            player.GetComponent<Movement>().playerDistance = 0;
+            player.GetComponent<Movement>().initialDistance = 0;
             player.GetComponent<Movement>().initialPosition = 0;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Special)
@@ -111,8 +111,8 @@ public class Shop : MonoBehaviour
             player.GetComponent<Movement>().doubleSlingshotCounter = 15;
             player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
             player.GetComponent<Movement>().MAXSLINGSHOT = 15;
-            player.GetComponent<Movement>().playerDistance = 10;
-            player.GetComponent<Movement>().initialPosition = 10;
+            player.GetComponent<Movement>().initialDistance = 15;
+            player.GetComponent<Movement>().initialPosition = 15;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Mission)
         {
@@ -120,7 +120,7 @@ public class Shop : MonoBehaviour
             player.GetComponent<Movement>().doubleSlingshotCounter = 9;
             player.GetComponent<Movement>().INCREMENTSLINGSHOT = 2;
             player.GetComponent<Movement>().MAXSLINGSHOT = 9;
-            player.GetComponent<Movement>().playerDistance = 25;
+            player.GetComponent<Movement>().initialDistance = 25;
             player.GetComponent<Movement>().initialPosition = 25;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Video)
@@ -129,7 +129,7 @@ public class Shop : MonoBehaviour
             player.GetComponent<Movement>().doubleSlingshotCounter = 9;
             player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
             player.GetComponent<Movement>().MAXSLINGSHOT = 9;
-            player.GetComponent<Movement>().playerDistance = 20;
+            player.GetComponent<Movement>().initialDistance = 20;
             player.GetComponent<Movement>().initialPosition = 20;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Secret)
@@ -138,7 +138,7 @@ public class Shop : MonoBehaviour
             player.GetComponent<Movement>().doubleSlingshotCounter = 12;
             player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
             player.GetComponent<Movement>().MAXSLINGSHOT = 12;
-            player.GetComponent<Movement>().playerDistance = 50;
+            player.GetComponent<Movement>().initialDistance = 50;
             player.GetComponent<Movement>().initialPosition = 50;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Legendary)
@@ -147,8 +147,17 @@ public class Shop : MonoBehaviour
             player.GetComponent<Movement>().doubleSlingshotCounter = 12;
             player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
             player.GetComponent<Movement>().MAXSLINGSHOT = 12;
-            player.GetComponent<Movement>().playerDistance = 100;
+            player.GetComponent<Movement>().initialDistance = 100;
             player.GetComponent<Movement>().initialPosition = 100;
+        }
+
+        // check video skin
+        for(int i = 0; i < skinList.Length; i++)
+        {
+            if(PlayerPrefs.HasKey(skinList[i].name+"WatchCount"))
+            {
+                skinList[i].GetComponent<Skin>().watchCount = PlayerPrefs.GetInt(skinList[i].name + "WatchCount");
+            }
         }
     }
 

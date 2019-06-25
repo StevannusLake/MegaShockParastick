@@ -120,6 +120,7 @@ public class UIManager : MonoBehaviour
     private Animator PauseMenuAnim;
 
     public Button PauseButton;
+    
 
     private void Awake()
     {

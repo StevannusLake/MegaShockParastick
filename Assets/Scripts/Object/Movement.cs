@@ -60,6 +60,7 @@ public class Movement : MonoBehaviour
 
     //Calculate Player Distance
     public float playerDistance;
+    public float initialDistance;
     public Text distanceCounterText;
     public float initialPosition = 0;
 
@@ -151,7 +152,7 @@ public class Movement : MonoBehaviour
         zoomRadiusController = GetComponentInChildren<ZoomRadiusController>();
         facingVector = (Vector2)myTransform.right;
 
-       // initialPosition = this.gameObject.transform.position.y;
+        initialPosition = this.gameObject.transform.position.y;
 
         playerDistance = ButtonManager.instance.TempScore;
         distanceCounterText.text = playerDistance.ToString("F1") + " mm";
@@ -1157,14 +1158,17 @@ public class Movement : MonoBehaviour
     public void DistanceCounter()
     {
         float tempCurrentDistance = this.transform.position.y;
+        float distanceCounter = 0;
 
         if (tempCurrentDistance > initialPosition)
         {
             playerDistance += (tempCurrentDistance - initialPosition);
             initialPosition = this.transform.position.y;
 
-            distanceCounterText.text = playerDistance.ToString("F1") + " mm";
-            GameManager.instance.playerDistanceTraveled = playerDistance;
+            distanceCounter = initialDistance + playerDistance;
+
+            distanceCounterText.text = distanceCounter.ToString("F1") + " mm";
+            GameManager.instance.playerDistanceTraveled = distanceCounter;
         }
     }
 
