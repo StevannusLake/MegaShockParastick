@@ -42683,6 +42683,7 @@ GameObject:
   - component: {fileID: 2092232755}
   - component: {fileID: 2092232754}
   - component: {fileID: 2092232758}
+  - component: {fileID: 2092232759}
   m_Layer: 0
   m_Name: WaterCubeLudumDare
   m_TagString: Deadly
@@ -42813,6 +42814,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2092232759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092232753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0913bd86f374de74b84d5ce5374a26ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2103582091
 GameObject:
   m_ObjectHideFlags: 0
@@ -59011,6 +59024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
         type: 3}
+      propertyPath: soundAudioClipArray.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
       propertyPath: levelLayoutsAArray.Array.data[6].levelLayOutPrefab
       value: 
       objectReference: {fileID: 5572498056215428589, guid: 3d2c3de802a1389419d942d85763644e,
@@ -59201,6 +59219,31 @@ PrefabInstance:
         type: 3}
       propertyPath: levelLayoutsAArray.Array.data[11].type
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[10].sound
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[10].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76250616772300e4e9126602ac38af15, type: 3}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[10].minPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[10].maxPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[10].volume
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a9781b656b8cf49a10c29c02bc8f42, type: 3}
