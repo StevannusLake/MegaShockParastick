@@ -388,7 +388,7 @@ public class UIManager : MonoBehaviour
         GameManager.instance.SaveCoin();
         GameManager.instance.SaveScore();
         scoreInGameUI.SetActive(false);
-        currentScore.text = player.GetComponent<Movement>().playerDistance.ToString("F1") + " mm";
+        currentScore.text = player.GetComponent<Movement>().distanceCounter.ToString("F1") + " mm";
         highScore.text = "" + PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
         coinText.text = "$ " + PlayerPrefs.GetInt("Coin", 0);
         //SecondChanceMenu.SetActive(false);
@@ -492,7 +492,7 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.LoadData();
 
         AudioManager.PlaySound(AudioManager.Sound.Continue);
-        continueScore.text = player.GetComponent<Movement>().playerDistance.ToString("F1") + " mm";
+        continueScore.text = player.GetComponent<Movement>().distanceCounter.ToString("F1") + " mm";
         SecondChanceMenu.SetActive(true);
 
         secondChanceCalled = true;

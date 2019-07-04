@@ -63,6 +63,8 @@ public class Movement : MonoBehaviour
     public float initialDistance;
     public Text distanceCounterText;
     public float initialPosition = 0;
+    public float tempCurrentDistance;
+    public float distanceCounter = 0;
 
     public GameObject MainMenu;
     public GameObject SecondChanceMenu;
@@ -153,7 +155,7 @@ public class Movement : MonoBehaviour
         facingVector = (Vector2)myTransform.right;
 
         initialPosition = this.gameObject.transform.position.y;
-
+        
         playerDistance = ButtonManager.instance.TempScore;
         distanceCounterText.text = playerDistance.ToString("F1") + " mm";
 
@@ -196,7 +198,7 @@ public class Movement : MonoBehaviour
                 DecreaseCameraZoomMagnitude();
             }
 
-
+            
             DistanceCounter();
 
             Falling();
@@ -1157,8 +1159,7 @@ public class Movement : MonoBehaviour
 
     public void DistanceCounter()
     {
-        float tempCurrentDistance = this.transform.position.y;
-        float distanceCounter = 0;
+        tempCurrentDistance = this.gameObject.transform.position.y;
 
         if (tempCurrentDistance > initialPosition)
         {
