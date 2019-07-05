@@ -12,15 +12,18 @@ public class DailyRewards : MonoBehaviour
     private int numOfDay;
     public GameObject NotificationWindow;
     public Text notificationText;
+    private Animator anim;
+    public bool isShowed = false;
 
     // Start is called before the first frame update
     void Start()
     {   
-        CheckDate();
-        CheckGreenTick();
+        //CheckDate();
+        //CheckGreenTick();
+        anim = GetComponent<Animator>();
     }
 
-    void CheckDate()
+    public void CheckDate()
     {
         if(PlayerPrefs.GetInt("LoginDay") == 0)
         {
@@ -127,16 +130,29 @@ public class DailyRewards : MonoBehaviour
         GameManager.instance.SavePoints();
     }
 
-    void CheckGreenTick()
+    public void CheckGreenTick()
     {
         for(int i=0;i<numOfDay;i++)
         {
             greenTicks[i].SetActive(true);
         }
+        isShowed = true;
     }
 
     public void CloseNotificationWindow()
     {
         NotificationWindow.SetActive(false);
+    }
+
+    public void ShowDailyWindow()
+    {
+        if (!isShowed)
+            anim.Play("DailyRewards");
+        else
+        {
+            anim.Play("DailyRewardsOff");
+            isShowed = false;
+        }
+            
     }
 }
