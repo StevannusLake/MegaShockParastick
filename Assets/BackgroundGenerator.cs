@@ -18,14 +18,31 @@ public class BackgroundGenerator : MonoBehaviour
         backgroundSprites = new List<SpriteRenderer>();    
         SetCorrectBackground();
         CreateNewBackground("Top");
+        ChangeScale();
     }
 
     void Update()
     {
-       // CheckPlayerDistance();
         
+
     }
 
+    private void LateUpdate()
+    {
+       
+    }
+
+    void ChangeScale()
+    {
+        transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+    }
+
+
+    private void FixedUpdate()
+    {
+        Vector3 desiredPos = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - 10f, 0);
+        transform.position = desiredPos;
+    }
 
     void CheckPlayerDistance()
     {

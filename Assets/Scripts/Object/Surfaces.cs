@@ -6,8 +6,10 @@ using System.Linq;
 public class Surfaces : MonoBehaviour
 {
     public enum SurfaceTypes {Safe,Dangerous,Moving ,DangerousMoving,Initial}
+    public enum DangerType {NONE,FAST,FADE }
     private enum PingPongDirection {Forward,Back }
     private PingPongDirection pingpongDirection = PingPongDirection.Forward;
+    private DangerType dangerType = DangerType.NONE;
     public bool isMover = false;
     public SurfaceTypes thisType;
     public float rotationSpeed;
@@ -32,7 +34,7 @@ public class Surfaces : MonoBehaviour
     public bool alreadyRespawnedCoin = false;
     private bool foundDestination = false;
     public bool OnRotation = false;
-
+    DangerType[] dangers = new DangerType[] { DangerType.FADE, DangerType.FAST };
     private Animator anim;
 
     // Start is called before the first frame update
@@ -50,14 +52,21 @@ public class Surfaces : MonoBehaviour
        
         myTransform = GetComponent<Transform>();
         if (isMover) FindPingPongObjects();
-
+        ChooseRandomDangerType();
         player = GameObject.FindGameObjectWithTag("Player");
         playerCollider = player.GetComponent<CircleCollider2D>();
 
         anim = GetComponent<Animator>();
     }
 
-    
+    void ChooseRandomDangerType()
+    {
+
+        int randomDanger = Random.Range(0, dangers.Length);
+        dangerType = dangers[randomDanger];
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -315,16 +324,26 @@ public class Surfaces : MonoBehaviour
             createRandomSpeed = true;
             if (myRenderer != null)
             {
-                rotationSpeedRandom += Time.deltaTime * randomSpeed;
-                aboutToDieTimer += Time.deltaTime;
-                if (aboutToDieTimer >= 2f)
+                switch(dangerType)
                 {
-                    anim.SetBool("AboutToDie", true);
+                    case DangerType.FAST:
+                    rotationSpeedRandom += Time.deltaTime * randomSpeed;
+                        break;
+                    case DangerType.FADE:
+                        aboutToDieTimer += Time.deltaTime;
+                        if (aboutToDieTimer >= 2f)
+                        {
+                            anim.SetBool("AboutToDie", true);
+                        }
+                        if (aboutToDieTimer >= 4f)
+                        {
+                            stickCount = 3;
+                        }
+                        break;
                 }
-                if (aboutToDieTimer >= 4f)
-                {
-                    stickCount = 3;
-                }
+
+                
+               
 
             }
         }
