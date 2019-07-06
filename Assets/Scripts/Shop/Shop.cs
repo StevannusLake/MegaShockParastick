@@ -29,6 +29,9 @@ public class Shop : MonoBehaviour
     public Sprite InUseEnvironmentMask;
     public Sprite TransparentMask;
     private GameObject player;
+    public GameObject deathSprite;
+    private Movement movement;
+    private Animator anim;
 
     public static Shop instance;
     void Awake()
@@ -41,6 +44,9 @@ public class Shop : MonoBehaviour
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
         player = GameObject.FindWithTag("Player");
+        movement = player.GetComponent<Movement>();
+        anim = deathSprite.GetComponent<Animator>();
+
         //Load SkinUsing
         if(PlayerPrefs.HasKey("SkinUsing"))
         {
@@ -98,57 +104,57 @@ public class Shop : MonoBehaviour
 
         if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Default)
         {
-            player.GetComponent<Movement>().maxBounceCounter = 2;
-            player.GetComponent<Movement>().doubleSlingshotCounter = 3;
-            player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
-            player.GetComponent<Movement>().MAXSLINGSHOT = 3;
-            player.GetComponent<Movement>().initialDistance = 0;
-            player.GetComponent<Movement>().initialPosition = 0;
+            movement.maxBounceCounter = 2;
+            movement.doubleSlingshotCounter = 3;
+            movement.INCREMENTSLINGSHOT = 1;
+            movement.MAXSLINGSHOT = 3;
+            movement.initialDistance = 0;
+            movement.initialPosition = 0;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Special)
         {
-            player.GetComponent<Movement>().maxBounceCounter = 2;
-            player.GetComponent<Movement>().doubleSlingshotCounter = 15;
-            player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
-            player.GetComponent<Movement>().MAXSLINGSHOT = 15;
-            player.GetComponent<Movement>().initialDistance = 15;
-            player.GetComponent<Movement>().initialPosition = 15;
+            movement.maxBounceCounter = 2;
+            movement.doubleSlingshotCounter = 15;
+            movement.INCREMENTSLINGSHOT = 1;
+            movement.MAXSLINGSHOT = 15;
+            movement.initialDistance = 15;
+            movement.initialPosition = 15;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Mission)
         {
-            player.GetComponent<Movement>().maxBounceCounter = 3;
-            player.GetComponent<Movement>().doubleSlingshotCounter = 9;
-            player.GetComponent<Movement>().INCREMENTSLINGSHOT = 2;
-            player.GetComponent<Movement>().MAXSLINGSHOT = 9;
-            player.GetComponent<Movement>().initialDistance = 25;
-            player.GetComponent<Movement>().initialPosition = 25;
+            movement.maxBounceCounter = 3;
+            movement.doubleSlingshotCounter = 9;
+            movement.INCREMENTSLINGSHOT = 2;
+            movement.MAXSLINGSHOT = 9;
+            movement.initialDistance = 25;
+            movement.initialPosition = 25;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Video)
         {
-            player.GetComponent<Movement>().maxBounceCounter = 3;
-            player.GetComponent<Movement>().doubleSlingshotCounter = 9;
-            player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
-            player.GetComponent<Movement>().MAXSLINGSHOT = 9;
-            player.GetComponent<Movement>().initialDistance = 20;
-            player.GetComponent<Movement>().initialPosition = 20;
+            movement.maxBounceCounter = 3;
+            movement.doubleSlingshotCounter = 9;
+            movement.INCREMENTSLINGSHOT = 1;
+            movement.MAXSLINGSHOT = 9;
+            movement.initialDistance = 20;
+            movement.initialPosition = 20;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Secret)
         {
-            player.GetComponent<Movement>().maxBounceCounter = 5;
-            player.GetComponent<Movement>().doubleSlingshotCounter = 12;
-            player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
-            player.GetComponent<Movement>().MAXSLINGSHOT = 12;
-            player.GetComponent<Movement>().initialDistance = 50;
-            player.GetComponent<Movement>().initialPosition = 50;
+            movement.maxBounceCounter = 5;
+            movement.doubleSlingshotCounter = 12;
+            movement.INCREMENTSLINGSHOT = 1;
+            movement.MAXSLINGSHOT = 12;
+            movement.initialDistance = 50;
+            movement.initialPosition = 50;
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Legendary)
         {
-            player.GetComponent<Movement>().maxBounceCounter = 4;
-            player.GetComponent<Movement>().doubleSlingshotCounter = 12;
-            player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
-            player.GetComponent<Movement>().MAXSLINGSHOT = 12;
-            player.GetComponent<Movement>().initialDistance = 100;
-            player.GetComponent<Movement>().initialPosition = 100;
+            movement.maxBounceCounter = 4;
+            movement.doubleSlingshotCounter = 12;
+            movement.INCREMENTSLINGSHOT = 1;
+            movement.MAXSLINGSHOT = 12;
+            movement.initialDistance = 100;
+            movement.initialPosition = 100;
         }
 
         // check video skin
@@ -168,6 +174,15 @@ public class Shop : MonoBehaviour
             coinText.text = ""+GameManager.instance.GetCoin();
             opalText.text = "" + GameManager.instance.GetPoints();
             CheckIsBought(); // prevent multiple buying
+        }
+
+        if (movement.bounceCounter == movement.maxBounceCounter - 1)
+        {
+            anim.SetBool("IsNearDeath", true);
+        }
+        else
+        {
+            anim.SetBool("IsNearDeath", false);
         }
     }
 
