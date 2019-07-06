@@ -29,19 +29,19 @@ public class BackgroundGenerator : MonoBehaviour
 
     private void LateUpdate()
     {
-       
+       /* Vector3 desiredPos = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - 10f, 1);
+        transform.position = desiredPos;*/
     }
 
     void ChangeScale()
     {
-        transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+        //transform.localScale = new Vector3(0.5f, 0.5f, 1f);
     }
 
 
     private void FixedUpdate()
     {
-        Vector3 desiredPos = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - 10f, 0);
-        transform.position = desiredPos;
+        
     }
 
     void CheckPlayerDistance()

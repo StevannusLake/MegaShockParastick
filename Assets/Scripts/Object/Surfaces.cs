@@ -328,6 +328,7 @@ public class Surfaces : MonoBehaviour
                 {
                     case DangerType.FAST:
                     rotationSpeedRandom += Time.deltaTime * randomSpeed;
+                        rotationSpeedRandom = Mathf.Clamp(rotationSpeedRandom,0f, 480f);
                         break;
                     case DangerType.FADE:
                         aboutToDieTimer += Time.deltaTime;

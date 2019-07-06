@@ -129,8 +129,8 @@ public class MixingCameraController : MonoBehaviour
                 CinemachineBasicMultiChannelPerlin noiseChannel = mixingCamera.ChildCameras[i].GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                 noiseChannel.m_AmplitudeGain = Mathf.MoveTowards(noiseChannel.m_AmplitudeGain, maxAmplitude / distanceTillPlayer, Time.deltaTime * 2f);
                 noiseChannel.m_FrequencyGain = Mathf.MoveTowards(noiseChannel.m_FrequencyGain, 1.0f / distanceTillPlayer, Time.deltaTime*2f);
-                noiseChannel.m_AmplitudeGain = Mathf.Clamp(noiseChannel.m_AmplitudeGain,0, maxAmplitude);
-                noiseChannel.m_FrequencyGain = Mathf.Clamp(noiseChannel.m_FrequencyGain, 0, maxFrequencty);
+                noiseChannel.m_AmplitudeGain = Mathf.Clamp(noiseChannel.m_AmplitudeGain,0, 1.2f);
+                noiseChannel.m_FrequencyGain = Mathf.Clamp(noiseChannel.m_FrequencyGain, 0, 1.2f);
             }
             
         /*    CinemachineBasicMultiChannelPerlin noiseChannelBack = backgroundCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
