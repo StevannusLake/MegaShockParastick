@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour
 
     public int bounceCounter;
     public int maxBounceCounter;
+    public int maxBounceCounterBar;
 
     public Transform initialGroundTransform;
 
@@ -153,7 +154,7 @@ public class Movement : MonoBehaviour
         surfaceTransform = initialGroundTransform;
         zoomRadiusController = GetComponentInChildren<ZoomRadiusController>();
         facingVector = (Vector2)myTransform.right;
-
+        maxBounceCounterBar = maxBounceCounter;
         initialPosition = this.gameObject.transform.position.y;
         
         playerDistance = ButtonManager.instance.TempScore;
