@@ -16,6 +16,7 @@ public class MissionManager : MonoBehaviour
     public GameObject missionCompleteNotic;
     public Text CoinCount;
     public Text OpalCount;
+    public Image[] progressBar;
 
     void Awake()
     {
@@ -77,6 +78,7 @@ public class MissionManager : MonoBehaviour
             CheckCompleted();
             CoinCount.text = ""+GameManager.instance.GetCoin();
             OpalCount.text = ""+GameManager.instance.GetPoints();
+            CheckMissionProgressUI();
         }
         CheckMissionInGame(missions);
     }
@@ -484,6 +486,22 @@ public class MissionManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             PlayerPrefs.SetInt("Mission" + (i + 1), missionListId[i]);
+        }
+    }
+
+    public void CheckMissionProgressUI()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (!missions[i].isCompleted)
+            {
+                progressBar[i].fillAmount = missions[i].completeNum / missions[i].completeObj;
+            }
+            else
+            {
+                progressBar[i].fillAmount = 1;
+                progressBar[i].color = Color.green;
+            }
         }
     }
 }
