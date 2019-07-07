@@ -18,13 +18,13 @@ public class BounceCounterBar : MonoBehaviour
 
     void UpdateBar()
     {
-        if (playerMovementScript.maxBounceCounter <= 0)
+        if (playerMovementScript.maxBounceCounterBar <= 0)
         {
             TurnOffBar(0);
             TurnOffBar(1);
             TurnOffBar(2);
         }
-        if (playerMovementScript.maxBounceCounter == 1)
+        if (playerMovementScript.maxBounceCounterBar == 1)
         {
             TurnOnBar(0);
             TurnOffBar(1);
@@ -32,7 +32,7 @@ public class BounceCounterBar : MonoBehaviour
             TurnOffBar(3);
             TurnOffBar(4);
         }
-        if (playerMovementScript.maxBounceCounter == 2)
+        if (playerMovementScript.maxBounceCounterBar == 2)
         {
             TurnOnBar(0);
             TurnOnBar(1);
@@ -40,7 +40,7 @@ public class BounceCounterBar : MonoBehaviour
             TurnOffBar(3);
             TurnOffBar(4);
         }
-        if (playerMovementScript.maxBounceCounter == 3)
+        if (playerMovementScript.maxBounceCounterBar == 3)
         {
             TurnOnBar(0);
             TurnOnBar(1);
@@ -48,7 +48,7 @@ public class BounceCounterBar : MonoBehaviour
             TurnOffBar(3);
             TurnOffBar(4);
         }
-        if (playerMovementScript.maxBounceCounter == 4)
+        if (playerMovementScript.maxBounceCounterBar == 4)
         {
             TurnOnBar(0);
             TurnOnBar(1);
@@ -56,7 +56,7 @@ public class BounceCounterBar : MonoBehaviour
             TurnOnBar(3);
             TurnOffBar(4);
         }
-        if (playerMovementScript.maxBounceCounter == 5)
+        if (playerMovementScript.maxBounceCounterBar == 5)
         {
             TurnOnBar(0);
             TurnOnBar(1);

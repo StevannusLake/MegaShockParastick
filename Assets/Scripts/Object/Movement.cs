@@ -345,6 +345,7 @@ public class Movement : MonoBehaviour
             if(bounceCounter != 0 && deadState == 0)
             {
                 bounceCounter = 0;
+                maxBounceCounterBar = maxBounceCounter;
             }
 
             // use mouse to test movement without concerning control
@@ -662,6 +663,7 @@ public class Movement : MonoBehaviour
                 {
                     isBounceRecover = true;
                     bounceCounter++;
+                    maxBounceCounterBar--;
                     GameManager.instance.bounceCounterInAGame++;
                 }
 
