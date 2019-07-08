@@ -32,6 +32,8 @@ TagManager:
   - OpalCounter
   - TopBackground
   - Special
+  - SmallCollider
+  - BigCollider
   layers:
   - Default
   - TransparentFX

@@ -49,6 +49,8 @@ public class Movement : MonoBehaviour
     string surfaceTag = "Surface";
     string deadlyTag = "Deadly";
     string horizontalWall = "HorizontalWall";
+    string smallCollider = "SmallCollider";
+    string bigCollider = "BigCollider";
 
     //=======================================================================================================================
     // Trajectory dots
@@ -849,8 +851,19 @@ public class Movement : MonoBehaviour
                 playerJustDied = false;
             }
         }
-    }
 
+        if(other.CompareTag(smallCollider) && this.gameObject.transform.localScale != new Vector3(0.5f, 0.5f, 1.0f))
+        {
+            Debug.Log("Small");
+            this.gameObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.0f);
+        }
+
+        if (other.CompareTag(bigCollider) && this.gameObject.transform.localScale != new Vector3(1.5f, 1.5f, 1.0f))
+        {
+            Debug.Log("Big");
+            this.gameObject.transform.localScale += new Vector3(0.5f, 0.5f, 0.0f);
+        }
+    }
 
     private void DotsSpawner()
     {
