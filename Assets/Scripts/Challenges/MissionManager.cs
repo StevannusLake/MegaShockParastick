@@ -17,6 +17,9 @@ public class MissionManager : MonoBehaviour
     public Text CoinCount;
     public Text OpalCount;
     public Image[] progressBar;
+    public enum ChallengeState { Achievements, Missions};
+    public ChallengeState challengeState;
+
 
     void Awake()
     {

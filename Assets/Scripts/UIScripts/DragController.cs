@@ -14,6 +14,7 @@ public class DragController : MonoBehaviour
     public Transform coinsBottomObject;
     private Transform bottomObject;
     public Transform challengesBottom;
+    public Transform achievementBottom;
 
     // Start is called before the first frame update
     void Start()
@@ -41,14 +42,16 @@ public class DragController : MonoBehaviour
         }
         else if(UIManager.Instance.ChallengesMenu.activeInHierarchy)
         {
-            bottomObject = challengesBottom;
+            if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
+                bottomObject = challengesBottom;
+            else bottomObject = achievementBottom;
         }
         if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
                 rawDelta = Input.GetTouch(0).deltaPosition * 0.01f;
-                Debug.Log(Input.GetTouch(0).deltaPosition.magnitude);
+                //Debug.Log(Input.GetTouch(0).deltaPosition.magnitude);
                 if(Input.GetTouch(0).deltaPosition.magnitude > 4f)
                 {
                     GameManager.instance.isDragging = true;
@@ -104,22 +107,35 @@ public class DragController : MonoBehaviour
                 }
             }
             else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
-            {
-                if (transform.position.y < initPos.y)
+            {   
+                if(MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
                 {
-                    this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
-                    Debug.Log("Too Low");
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    }
+                    else if (bottomObject.position.y > initPos.y - 2f)
+                    {
+                        rawDelta.y = 0f;
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -0.9f, transform.position.z), 3f * Time.deltaTime);
+                    }
                 }
-                else if (bottomObject.position.y > initPos.y-2f)
+                else
                 {
-                    rawDelta.y = 0f;
-                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -0.9f, transform.position.z), 3f * Time.deltaTime);
-                    Debug.Log("Too HIGH");
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    }
+                    else if (bottomObject.position.y > initPos.y - 2f)
+                    {
+                        rawDelta.y = 0f;
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 15f, transform.position.z), 3f * Time.deltaTime);
+                    }
                 }
             }
         }
         rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 1f);
-        //Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
+        Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
     }
 
     void MoveByDrag(Vector3 rawD)
