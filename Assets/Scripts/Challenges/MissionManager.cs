@@ -271,7 +271,7 @@ public class MissionManager : MonoBehaviour
                 #endregion
                 #region Other
                 else if (missions[i].missionType == Missions.MissionType.Play)
-                {
+                {   
                     if(GameManager.instance.totalPlay >= missions[i].playObj)
                     {
                         missions[i].isCompleted = true;
@@ -525,6 +525,35 @@ public class MissionManager : MonoBehaviour
         {
             if (!missions[i].isCompleted)
             {
+                if(missions[i].missionType == Missions.MissionType.Play)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.totalPlay / missions[i].playObj;
+                }
+                else if(missions[i].missionType == Missions.MissionType.StickTotal)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.totalStick / missions[i].stickObj;
+                }
+                else if(missions[i].missionType == Missions.MissionType.PlayLuckySpin)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.totalSpin / missions[i].spinObj;
+                }
+                else if(missions[i].missionType == Missions.MissionType.Point)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.totalPoints / missions[i].pointObj;
+                }
+                else if(missions[i].missionType == Missions.MissionType.BounceTotal)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.totalBounce / missions[i].bounceObj;
+                }
+                else if(missions[i].missionType == Missions.MissionType.CoinTotal)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.totalCoinCollected / missions[i].coinObj;
+                }
+                else if(missions[i].missionType == Missions.MissionType.DistanceTotal)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.totalDistanceTravelled / missions[i].distanceObj;
+                }
+                else
                 progressBar[i].fillAmount = missions[i].completeNum / missions[i].completeObj;
             }
             else
