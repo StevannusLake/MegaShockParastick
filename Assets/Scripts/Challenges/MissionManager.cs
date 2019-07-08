@@ -19,7 +19,8 @@ public class MissionManager : MonoBehaviour
     public Image[] progressBar;
     public enum ChallengeState { Achievements, Missions};
     public ChallengeState challengeState;
-
+    public Text[] achievementText;
+    public int[] achievementCount;
 
     void Awake()
     {
@@ -71,6 +72,8 @@ public class MissionManager : MonoBehaviour
                 missions[i].completeNum = PlayerPrefs.GetInt("Mission" + (i + 1) + "Progress");
             }
         }
+
+        LoadAchievements();
     }
 
     private void Update()
@@ -82,6 +85,7 @@ public class MissionManager : MonoBehaviour
             CoinCount.text = ""+GameManager.instance.GetCoin();
             OpalCount.text = ""+GameManager.instance.GetPoints();
             CheckMissionProgressUI();
+            ShowAchievements();
         }
         CheckMissionInGame(missions);
     }
@@ -150,6 +154,7 @@ public class MissionManager : MonoBehaviour
             PlayerPrefs.SetInt("Mission" + (i + 1), missionListId[i]);
         }
         SaveCompletion();
+        SaveAchievements();
     }
 
     public void CheckMissionEnd(Missions[] missions)
@@ -168,6 +173,7 @@ public class MissionManager : MonoBehaviour
                         {
                             missions[i].isCompleted = true;
                             missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                            achievementCount[0] += 1;
                         }
                     }
                 }
@@ -180,6 +186,7 @@ public class MissionManager : MonoBehaviour
                         missions[i].isCompleted = true;
                         Debug.Log(missions[i].description + " COMPLETED");
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[1] += 1;
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.CoinExact)
@@ -188,6 +195,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[1] += 1;
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.Coin)
@@ -199,6 +207,7 @@ public class MissionManager : MonoBehaviour
                         {
                             missions[i].isCompleted = true;
                             missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                            achievementCount[1] += 1;
                         }
                     }
                 }
@@ -210,6 +219,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[2] += 1;
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.BounceExact)
@@ -221,6 +231,7 @@ public class MissionManager : MonoBehaviour
                         {
                             missions[i].isCompleted = true;
                             missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                            achievementCount[2] += 1;
                         }
                     }
                 }
@@ -235,6 +246,7 @@ public class MissionManager : MonoBehaviour
                         {
                             missions[i].isCompleted = true;
                             missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                            achievementCount[3] += 1;
                         }
                     }
                 }
@@ -244,6 +256,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[3] += 1;
                     }
                 }
                 else if (missions[i].missionType == Missions.MissionType.StickExact)
@@ -252,6 +265,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[3] += 1;
                     }
                 }
                 #endregion
@@ -262,9 +276,11 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[4] += 1;
                     }
                 }
                 #endregion
+                SaveAchievements();
             }
         }
         SaveCompletion();
@@ -284,6 +300,7 @@ public class MissionManager : MonoBehaviour
                         missions[i].isCompleted = true;
                         Debug.Log(missions[i].description + " COMPLETED");
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[0] += 1;
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.DistanceNoCoin)
@@ -292,6 +309,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[0] += 1;
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.DistanceTotal)
@@ -300,6 +318,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[0] += 1;
                     }
                 }
                 #endregion
@@ -310,6 +329,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[1] += 1;
                     }
                 }
                 #endregion
@@ -320,6 +340,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[2] += 1;
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.BounceTotal)
@@ -328,6 +349,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[2] += 1;
                     }
                 }
                 #endregion
@@ -338,6 +360,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[3] += 1;
                     }
                 }
                 #endregion
@@ -348,6 +371,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[4] += 1;
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.Point)
@@ -356,6 +380,7 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[4] += 1;
                     }
                 }
                 else if(missions[i].missionType == Missions.MissionType.HighScore)
@@ -364,9 +389,11 @@ public class MissionManager : MonoBehaviour
                     {
                         missions[i].isCompleted = true;
                         missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[4] += 1;
                     }
                 }
                 #endregion
+                SaveAchievements();
             }
         }
     }
@@ -505,6 +532,60 @@ public class MissionManager : MonoBehaviour
                 progressBar[i].fillAmount = 1;
                 progressBar[i].color = Color.green;
             }
+        }
+    }
+
+    void CheckAchievements()
+    {
+        for(int i=0;i< 5;i++)
+        {
+            if(missions[i].isCompleted)
+            {
+                if(missionListId[i] <= 10)
+                {
+                    achievementCount[0] += 1;
+                }
+                else if(missionListId[i] <= 20 && missionListId[i] > 10)
+                {
+                    achievementCount[1] += 1;
+                }
+                else if(missionListId[i] > 20 && missionListId[i] <= 30)
+                {
+                    achievementCount[2] += 1;
+                }
+                else if (missionListId[i] > 30 && missionListId[i] <= 40)
+                {
+                    achievementCount[3] += 1;
+                }
+                else if (missionListId[i] > 40 && missionListId[i] <= 50)
+                {
+                    achievementCount[4] += 1;
+                }
+            }
+        }
+    }
+
+    public void ShowAchievements()
+    {
+        for(int i=0;i<5;i++)
+        {
+            achievementText[i].text = achievementCount[i]+"/10";
+        }
+    }
+
+    void SaveAchievements()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            PlayerPrefs.SetInt("Achievement" + (i + 1), achievementCount[i]);
+        }
+    }
+
+    void LoadAchievements()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            achievementCount[i] = PlayerPrefs.GetInt("Achievement" + (i + 1));
         }
     }
 }
