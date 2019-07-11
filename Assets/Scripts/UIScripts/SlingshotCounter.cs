@@ -42,26 +42,57 @@ public class SlingshotCounter : MonoBehaviour
         }
         else if(playerMovementScript.doubleSlingshot != 2)
         {
-            if(playerMovementScript.doubleSlingshotCounter == 6)
+            if(playerMovementScript.doubleSlingshotCharge == 1)
             {
-                slingshotCounters[8].sprite = OffColor;
-                slingshotCounters[7].sprite = OffColor;
-                slingshotCounters[6].sprite = OffColor;
+                slingshotCounters[8].sprite = OnColor;
             }
-            if (playerMovementScript.doubleSlingshotCounter == 3)
+            if (playerMovementScript.doubleSlingshotCharge == 2)
             {
-                slingshotCounters[5].sprite = OffColor;
-                slingshotCounters[4].sprite = OffColor;
-                slingshotCounters[3].sprite = OffColor;
+                slingshotCounters[7].sprite = OnColor;
             }
-            if (playerMovementScript.doubleSlingshotCounter < 3)
+            if (playerMovementScript.doubleSlingshotCharge == 3)
             {
-                slingshotCounters[2].sprite = OffColor;
-                slingshotCounters[1].sprite = OffColor;
+                slingshotCounters[6].sprite = OnColor;
+            }
+            if (playerMovementScript.doubleSlingshotCharge == 4)
+            {
+                slingshotCounters[5].sprite = OnColor;
+            }
+            if (playerMovementScript.doubleSlingshotCharge == 5)
+            {
+                slingshotCounters[4].sprite = OnColor;
+            }
+            if (playerMovementScript.doubleSlingshotCharge == 6)
+            {
+                slingshotCounters[3].sprite = OnColor;
+            }
+            if (playerMovementScript.doubleSlingshotCharge == 7)
+            {
+                slingshotCounters[2].sprite = OnColor;
+            }
+            if (playerMovementScript.doubleSlingshotCharge == 8)
+            {
+                slingshotCounters[1].sprite = OnColor;
+            }
+            if (playerMovementScript.doubleSlingshotCharge == 9)
+            {
+                slingshotCounters[0].sprite = OnColor;
+            }
+            
+            if(playerMovementScript.doubleSlingshotCharge == 0)
+            {
                 slingshotCounters[0].sprite = OffColor;
+                slingshotCounters[1].sprite = OffColor;
+                slingshotCounters[2].sprite = OffColor;
+                slingshotCounters[3].sprite = OffColor;
+                slingshotCounters[4].sprite = OffColor;
+                slingshotCounters[5].sprite = OffColor;
+                slingshotCounters[6].sprite = OffColor;
+                slingshotCounters[7].sprite = OffColor;
+                slingshotCounters[8].sprite = OffColor;
             }
 
-            for(int i=0; i<blinkScript.Length; i++)
+            for (int i=0; i<blinkScript.Length; i++)
             {
                 if(slingshotCounters[i].sprite == OnColor)
                 {

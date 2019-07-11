@@ -142,6 +142,7 @@ public class Movement : MonoBehaviour
     public Vector3 scale;
     private float curScale;
     private Vector3 baseScale;
+    public float doubleSlingshotCharge;
 
     // Start is called before the first frame update
     void Start()
@@ -341,6 +342,17 @@ public class Movement : MonoBehaviour
             }
             spawnDot = false;
             cancelIndicator.SetActive(false);
+        }
+
+        if(doubleSlingshotCounter > MAXSLINGSHOT)
+        {
+            doubleSlingshotCounter = MAXSLINGSHOT;
+        }
+
+        if(doubleSlingshotCharge == 9)
+        {
+            doubleSlingshotCounter += INCREMENTSLINGSHOT;
+            doubleSlingshotCharge = 0;
         }
     }
 
@@ -687,10 +699,10 @@ public class Movement : MonoBehaviour
                     GameManager.instance.bounceCounterInAGame++;
                 }
 
-                if (doubleSlingshot == 2)
-                {
-                    doubleSlingshotCounter += INCREMENTSLINGSHOT;
-                }
+               // if (doubleSlingshot == 2)
+              //  {
+                    doubleSlingshotCharge += INCREMENTSLINGSHOT;
+               // }
 
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
 
@@ -913,7 +925,7 @@ public class Movement : MonoBehaviour
             curScale--;
         }
 
-        curScale = Mathf.Clamp(curScale, 0.2f, 0.6f);
+        curScale = Mathf.Clamp(curScale, 0.2f, 0.5f);
 
         scale = baseScale * curScale;
     }
