@@ -139,6 +139,9 @@ public class Movement : MonoBehaviour
     //=======================================================================================================================
     Vector2 screenMid;
     public bool isRareSkin = false;
+    public Vector3 scale;
+    private float curScale;
+    private Vector3 baseScale;
 
     // Start is called before the first frame update
     void Start()
@@ -158,7 +161,10 @@ public class Movement : MonoBehaviour
         facingVector = (Vector2)myTransform.right;
         maxBounceCounterBar = maxBounceCounter;
         initialPosition = this.gameObject.transform.position.y;
-        
+        curScale = 1;
+        baseScale = transform.localScale;
+        transform.localScale = baseScale * 1;
+        scale = baseScale * 1;
         playerDistance = ButtonManager.instance.TempScore;
         distanceCounterText.text = playerDistance.ToString("F1") + " mm";
 
@@ -183,6 +189,18 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetMouseButton(1))
+        {
+            ChangeSize(true);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
+        }
+
+        if (Input.GetMouseButton(2))
+        {
+            ChangeSize(false);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
+        }
+
         currentVelocity = myRigidBody.velocity;
         if (!UIManager.Instance.LoseMenu.activeSelf && deadState == 0) // && !MainMenu.activeSelf 
         {
@@ -851,18 +869,53 @@ public class Movement : MonoBehaviour
                 playerJustDied = false;
             }
         }
+        
 
-        if(other.CompareTag(smallCollider) && this.gameObject.transform.localScale != new Vector3(0.5f, 0.5f, 1.0f))
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag(smallCollider))
         {
             Debug.Log("Small");
-            this.gameObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.0f);
+            ChangeSize(false);
+            // this.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.0f);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
         }
 
-        if (other.CompareTag(bigCollider) && this.gameObject.transform.localScale != new Vector3(1.5f, 1.5f, 1.0f))
+        if (other.CompareTag(bigCollider))
         {
             Debug.Log("Big");
-            this.gameObject.transform.localScale += new Vector3(0.5f, 0.5f, 0.0f);
+            ChangeSize(true);
+            //this.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.0f);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
         }
+
+        
+
+        // If you don't want an eased scaling, replace the above line with the following line
+        //   and change speed to suit:
+        // transform.localScale = Vector3.MoveTowards (transform.localScale, targetScale, speed * Time.deltaTime);
+
+            
+            
+    }
+
+    void ChangeSize(bool bigger)
+    {
+        if (bigger == true)
+        {
+            curScale++;
+        }
+        
+        if(bigger == false)
+        {
+            curScale--;
+        }
+
+        curScale = Mathf.Clamp(curScale, 0.2f, 0.6f);
+
+        scale = baseScale * curScale;
     }
 
     private void DotsSpawner()

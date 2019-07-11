@@ -31869,7 +31869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1531197534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39293,6 +39293,7 @@ MonoBehaviour:
   myDeadParticleSystem: {fileID: 2077168235}
   hand: {fileID: 235355895}
   isRareSkin: 0
+  scale: {x: 0, y: 0, z: 0}
 --- !u!50 &1968270235
 Rigidbody2D:
   serializedVersion: 4
