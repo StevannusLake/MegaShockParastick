@@ -54,7 +54,7 @@ public class DailyRewards : MonoBehaviour
             TimeSpan difference = currentDate.Subtract(oldDate);
             print("Difference: " + difference);
 
-            if (difference.Days >= 1)
+            if (difference.Days >= 1 && difference.Days < 2)
             {   
                 if(numOfDay == 7)
                 {
@@ -73,9 +73,16 @@ public class DailyRewards : MonoBehaviour
                 }
                 Debug.Log("One Day Has Passed");
             }
-            else
+            else if(difference.Days >= 2)
             {
-                Debug.Log("Day Not Passed");
+                numOfDay = 1;
+                PlayerPrefs.SetInt("LoginDay", numOfDay);
+                GiveRewards(numOfDay);
+                if (currentDate > oldDate)
+                {
+                    PlayerPrefs.SetString("lastLogin", System.DateTime.Now.ToBinary().ToString());
+
+                }
             }
         }
         
