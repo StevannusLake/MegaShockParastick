@@ -144,6 +144,8 @@ public class Movement : MonoBehaviour
     private Vector3 baseScale;
     public float doubleSlingshotCharge;
 
+    private float ripplePeriod;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -190,7 +192,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(1))
+        
+
+        if (Input.GetMouseButton(1))
         {
             ChangeSize(true);
             transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
@@ -443,6 +447,7 @@ public class Movement : MonoBehaviour
             //========== 20/5 ====================================================================================== 
             if (hand != null)
             {
+                screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
             }
 
@@ -484,6 +489,8 @@ public class Movement : MonoBehaviour
                 doubleSlingshot = 1;
                 doubleSlingshotCounter -= DECREMENTSLINGSHOT;
 
+                
+
                 //========== 20/5 ====================================================================================== 
                 if (HandTutorial.tutorialCounter < 2)
                 {
@@ -500,6 +507,18 @@ public class Movement : MonoBehaviour
                 Time.timeScale = 1.0f;
             }
         }
+
+        
+    }
+
+    void Ripple()
+    {
+        //! RIPPLE EFFECT
+        FindObjectOfType<RippleEffect>().refractionStrength = 0.1f;
+        FindObjectOfType<RippleEffect>().reflectionStrength = 0.3f;
+        FindObjectOfType<RippleEffect>().waveSpeed = 1.0f;
+        FindObjectOfType<RippleEffect>().dropInterval = 0.3f;
+        FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
     }
 
     void CancelSlingShot()
@@ -768,6 +787,8 @@ public class Movement : MonoBehaviour
 
                 // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
+
+                
             }
             
             
@@ -1339,6 +1360,9 @@ public class Movement : MonoBehaviour
             myTrailRenderer.enabled = false;
             myParticleSystem.OffParticleSystem();
             doubleSSEffect = false;
+
+            FindObjectOfType<RippleEffect>().refractionStrength = 0.4f;
+
         }
         else if(myMoveStick == MoveState.FLYING && deadState == 0)
         {
@@ -1351,12 +1375,21 @@ public class Movement : MonoBehaviour
                 doubleSSEffect = true;
                 myTrailRenderer.enabled = false;
                 myParticleSystem.DoubleSlingshotEffect();
+
+                if (ripplePeriod > 0.1f)
+                {
+                    Ripple();
+                    ripplePeriod = 0;
+                }
+                ripplePeriod += Time.deltaTime;
             }
         }
 
         if (myTrailRenderer.enabled == false)
         {
             myTrailRenderer.Clear();
+
+            
         }
     }
 
