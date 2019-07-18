@@ -353,9 +353,9 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter = MAXSLINGSHOT;
         }
 
-        if(doubleSlingshotCharge == 9)
+        if(doubleSlingshotCharge == 2)
         {
-            doubleSlingshotCounter += INCREMENTSLINGSHOT;
+            doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
         }
     }

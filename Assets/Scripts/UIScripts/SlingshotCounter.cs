@@ -31,17 +31,17 @@ public class SlingshotCounter : MonoBehaviour
     void UpdateCounter()
     {
         // recovering with grey color to show recovered and black/offcolor to show off
-        if (playerMovementScript.doubleSlingshot == 2 && playerMovementScript.doubleSlingshotCounter - 1 >= 0)
-        {
-            slingshotCounters[playerMovementScript.doubleSlingshotCounter - 1].sprite = RecoveringColor;
+        //if (playerMovementScript.doubleSlingshot == 2)
+        //{
+        //    slingshotCounters[playerMovementScript.doubleSlingshotCounter - 1].sprite = RecoveringColor;
 
-            for (int i = 0; i < blinkScript.Length; i++)
-            {
-                blinkScript[i].isBlink = false;
-            }
-        }
-        else if(playerMovementScript.doubleSlingshot != 2)
-        {
+        //    for (int i = 0; i < blinkScript.Length; i++)
+        //    {
+        //        blinkScript[i].isBlink = false;
+        //    }
+        //}
+        //if(playerMovementScript.doubleSlingshot != 2)
+       // {
             if(playerMovementScript.doubleSlingshotCharge == 1)
             {
                 slingshotCounters[8].sprite = OnColor;
@@ -92,7 +92,7 @@ public class SlingshotCounter : MonoBehaviour
                 slingshotCounters[8].sprite = OffColor;
             }
 
-            for (int i=0; i<blinkScript.Length; i++)
+            for (int i=0; i < blinkScript.Length; i++)
             {
                 if(slingshotCounters[i].sprite == OnColor)
                 {
@@ -102,15 +102,15 @@ public class SlingshotCounter : MonoBehaviour
                 {
                     blinkScript[i].isBlink = false;
                 }
-            }
+          //  }
         }
 
-        if (playerMovementScript.doubleSlingshot == 0 && playerMovementScript.doubleSlingshotCounter == 9)
-        {
-            for(int i=0; i< slingshotCounters.Length; i++)
-            {
-                slingshotCounters[i].sprite = OnColor;
-            }
-        }
+        //if (playerMovementScript.doubleSlingshot == 0 && playerMovementScript.doubleSlingshotCounter == 9)
+        //{
+        //    for(int i=0; i< slingshotCounters.Length; i++)
+        //    {
+        //        slingshotCounters[i].sprite = OnColor;
+        //    }
+        //}
     }
 }
