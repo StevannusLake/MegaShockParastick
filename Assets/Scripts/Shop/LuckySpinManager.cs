@@ -40,35 +40,35 @@ public class LuckySpinManager : MonoBehaviour
             {
                 reward = RewardType.tenPoints;
             }
-            else if(randReward > 0.23f && randReward <= 0.33f)
+            else if(randReward > 0.23f && randReward <= 0.39f)
             {
                 reward = RewardType.twoFreeSpins;
             }
-            else if(randReward > 0.33f && randReward <= 0.48f)
+            else if(randReward > 0.39f && randReward <= 0.52f)
             {
                 reward = RewardType.twentyFivePoints;
             }
-            else if(randReward > 0.48 && randReward <= 0.58f)
+            else if(randReward > 0.52f && randReward <= 0.62f)
             {
                 reward = RewardType.fiftyPoints;
             }
-            else if(randReward > 0.58f && randReward <= 0.6f)
+            else if(randReward > 0.62f && randReward <= 0.63f)
             {
                 reward = RewardType.oneThousandPoints;
             }
-            else if(randReward > 0.6f && randReward <= 0.67f)
+            else if(randReward > 0.63f && randReward <= 0.7f)
             {
                 reward = RewardType.zonk;
             }
-            else if(randReward > 0.67f && randReward <= 0.7f)
+            else if(randReward > 0.7f && randReward <= 0.72f)
             {
                 reward = RewardType.fiveHundredPoints;
             }
-            else if(randReward > 0.7f && randReward <= 0.95f)
+            else if(randReward > 0.72f && randReward <= 0.97f)
             {
                 reward = RewardType.fivePoints;
             }
-            else if(randReward > 0.95f && randReward <= 1f)
+            else if(randReward > 0.97f && randReward <= 1f)
             {
                 reward = RewardType.oneHundredPoints;
             }

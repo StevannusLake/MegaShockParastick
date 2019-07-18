@@ -21,6 +21,7 @@ public class MissionManager : MonoBehaviour
     public ChallengeState challengeState;
     public Text[] achievementText;
     public int[] achievementCount;
+    public GameObject exclamationMark;
 
     void Awake()
     {
@@ -88,6 +89,15 @@ public class MissionManager : MonoBehaviour
             ShowAchievements();
         }
         CheckMissionInGame(missions);
+        for (int i = 0; i < missions.Length; i++)
+        {
+            if (missions[i].isCompleted)
+            {
+                exclamationMark.SetActive(true);
+                break;
+            }
+            else exclamationMark.SetActive(false);
+        }
     }
 
     void SaveCompletion()

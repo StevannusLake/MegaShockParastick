@@ -15,11 +15,16 @@ public class DragController : MonoBehaviour
     private Transform bottomObject;
     public Transform challengesBottom;
     public Transform achievementBottom;
+    public Transform creditsBottom;
 
     // Start is called before the first frame update
     void Start()
     {
-        initPos = transform.position;
+        if (UIManager.Instance.CreditsMenu.activeInHierarchy)
+        {
+            initPos = new Vector3(transform.position.x, -1f, transform.position.z);
+        }
+        else initPos = transform.position;
     }
 
     // Update is called once per frame
@@ -45,6 +50,10 @@ public class DragController : MonoBehaviour
             if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
                 bottomObject = challengesBottom;
             else bottomObject = achievementBottom;
+        }
+        else if(UIManager.Instance.CreditsMenu.activeInHierarchy)
+        {
+            bottomObject = creditsBottom;
         }
         if (Input.touchCount > 0)
         {
@@ -131,6 +140,20 @@ public class DragController : MonoBehaviour
                         rawDelta.y = 0f;
                         this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 15f, transform.position.z), 3f * Time.deltaTime);
                     }
+                }
+            }
+            else if(UIManager.Instance.CreditsMenu.activeInHierarchy)
+            {
+                if (transform.position.y < initPos.y)
+                {
+                    this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                    Debug.Log("too hight");
+                }
+                else if (bottomObject.position.y > initPos.y - 2f)
+                {
+                    rawDelta.y = 0f;
+                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 5.2f, transform.position.z), 3f * Time.deltaTime);
+                    Debug.Log("too low");
                 }
             }
         }

@@ -14,6 +14,7 @@ public class DailyRewards : MonoBehaviour
     public Text notificationText;
     private Animator anim;
     public bool isShowed = false;
+    public GameObject exclamationMark;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,20 @@ public class DailyRewards : MonoBehaviour
         //CheckDate();
         //CheckGreenTick();
         anim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        long temp = Convert.ToInt64(PlayerPrefs.GetString("lastLogin"));
+        oldDate = DateTime.FromBinary(temp);
+
+        // find differene 
+        TimeSpan difference = currentDate.Subtract(oldDate);
+        if (difference.Days >= 1)
+        {
+            exclamationMark.SetActive(true);
+        }
+        else exclamationMark.SetActive(false);
     }
 
     public void CheckDate()
@@ -45,8 +60,8 @@ public class DailyRewards : MonoBehaviour
         }
         else
         {
-            long temp = Convert.ToInt64(PlayerPrefs.GetString("lastLogin"));
-            oldDate = DateTime.FromBinary(temp);
+            //long temp = Convert.ToInt64(PlayerPrefs.GetString("lastLogin"));
+            //oldDate = DateTime.FromBinary(temp);
 
             print("oldDate: " + oldDate);
 
@@ -154,7 +169,11 @@ public class DailyRewards : MonoBehaviour
     public void ShowDailyWindow()
     {
         if (!isShowed)
+        {
             anim.Play("DailyRewards");
+            CheckDate();
+            CheckGreenTick();
+        }
         else
         {
             anim.Play("DailyRewardsOff");
