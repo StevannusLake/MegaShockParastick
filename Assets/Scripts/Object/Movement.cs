@@ -143,7 +143,7 @@ public class Movement : MonoBehaviour
     private float curScale;
     private Vector3 baseScale;
     public float doubleSlingshotCharge;
-
+    private bool isSticking = false;
     private float ripplePeriod;
 
     // Start is called before the first frame update
@@ -353,7 +353,7 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter = MAXSLINGSHOT;
         }
 
-        if(doubleSlingshotCharge == 2)
+        if(doubleSlingshotCharge == 9)
         {
             doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
@@ -696,6 +696,7 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+                isSticking = true;
 
                 if (doubleSlingshot == 2 && isRareSkin == true)
                 {
@@ -718,10 +719,11 @@ public class Movement : MonoBehaviour
                     GameManager.instance.bounceCounterInAGame++;
                 }
 
-               // if (doubleSlingshot == 2)
-              //  {
+                if (isSticking == false)
+                {
                     doubleSlingshotCharge += INCREMENTSLINGSHOT;
-               // }
+                }
+               
 
                 ScreenEffectManager.instance.ShakeCamera(ShakeVariation.HittingWall);
 
@@ -836,7 +838,7 @@ public class Movement : MonoBehaviour
             {
                 doubleSlingshot = 0;
             }
-
+            isSticking = false;
             // ===================================================================================================================================
             // get info to spawn relative smoke effect
             Surfaces currentSurface = collision.collider.gameObject.GetComponent<Surfaces>();
