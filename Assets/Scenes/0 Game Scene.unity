@@ -766,6 +766,7 @@ MonoBehaviour:
   waterMovingSpeed: 1
   MainMenu: {fileID: 1354248950}
   SecondChanceMenu: {fileID: 1700775326}
+  movement: {fileID: 0}
 --- !u!1 &37286296
 GameObject:
   m_ObjectHideFlags: 0
@@ -33977,6 +33978,7 @@ MonoBehaviour:
   waterMovingSpeed: 1
   MainMenu: {fileID: 0}
   SecondChanceMenu: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!212 &1508091937
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -50016,6 +50018,7 @@ MonoBehaviour:
   waterMovingSpeed: 1
   MainMenu: {fileID: 1354248950}
   SecondChanceMenu: {fileID: 1700775326}
+  movement: {fileID: 1968270234}
 --- !u!212 &2092232756
 SpriteRenderer:
   m_ObjectHideFlags: 0
