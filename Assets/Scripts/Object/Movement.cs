@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
 
     public int bounceCounter;
     public int maxBounceCounter;
-    public int maxBounceCounterBar;
+   // public int maxBounceCounterBar;
 
     public Transform initialGroundTransform;
 
@@ -143,7 +143,7 @@ public class Movement : MonoBehaviour
     private float curScale;
     private Vector3 baseScale;
     public float doubleSlingshotCharge;
-    private bool isSticking = false;
+    public bool isSticking = false;
     private float ripplePeriod;
 
     // Start is called before the first frame update
@@ -162,7 +162,7 @@ public class Movement : MonoBehaviour
         surfaceTransform = initialGroundTransform;
         zoomRadiusController = GetComponentInChildren<ZoomRadiusController>();
         facingVector = (Vector2)myTransform.right;
-        maxBounceCounterBar = maxBounceCounter;
+        //maxBounceCounterBar = maxBounceCounter;
         initialPosition = this.gameObject.transform.position.y;
         curScale = 1;
         baseScale = transform.localScale;
@@ -381,7 +381,7 @@ public class Movement : MonoBehaviour
             if(bounceCounter != 0 && deadState == 0)
             {
                 bounceCounter = 0;
-                maxBounceCounterBar = maxBounceCounter;
+                //maxBounceCounterBar = maxBounceCounter;
             }
 
             // use mouse to test movement without concerning control
@@ -450,7 +450,7 @@ public class Movement : MonoBehaviour
                 screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
             }
-
+            isSticking = false;
             // use mouse to test movement without concerning control
             if (Input.GetMouseButtonDown(0))
             {
@@ -711,11 +711,11 @@ public class Movement : MonoBehaviour
             }
             else if (collision.collider.CompareTag(horizontalWall))
             {
-                if(!isBounceRecover)
+                if(!isBounceRecover && isSticking == false)
                 {
                     isBounceRecover = true;
                     bounceCounter++;
-                    maxBounceCounterBar--;
+                  //  maxBounceCounterBar--;
                     GameManager.instance.bounceCounterInAGame++;
                 }
 
@@ -756,7 +756,7 @@ public class Movement : MonoBehaviour
 
                 myRigidBody.velocity = Vector2.zero;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerStick);
-                
+                isSticking = true;
                 GameManager.instance.stickCounterInAGame++;
                 surfaceTransform = collision.gameObject.transform;
                 myTransform.SetParent(surfaceTransform);
@@ -838,7 +838,7 @@ public class Movement : MonoBehaviour
             {
                 doubleSlingshot = 0;
             }
-            isSticking = false;
+            
             // ===================================================================================================================================
             // get info to spawn relative smoke effect
             Surfaces currentSurface = collision.collider.gameObject.GetComponent<Surfaces>();
@@ -848,6 +848,7 @@ public class Movement : MonoBehaviour
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
                 mySmokeEffect.SpawnSmoke(myTransform.position, 1, angle, "SafePlatform");
+                
             }
             else if (currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
             {
@@ -875,7 +876,7 @@ public class Movement : MonoBehaviour
         {
             surfaceStickCount = 2;
             collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
-
+            
             // myAnimation.PlayIdle();
             myEmotion.EmoteIdle();
            // LevelHandler.instance.cameraController.cameraState = CameraFollowingState.NORMAL;

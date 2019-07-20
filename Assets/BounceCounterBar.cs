@@ -18,52 +18,52 @@ public class BounceCounterBar : MonoBehaviour
 
     void UpdateBar()
     {
-        if (playerMovementScript.maxBounceCounterBar <= 0)
-        {
-            TurnOffBar(0);
-            TurnOffBar(1);
-            TurnOffBar(2);
-        }
-        if (playerMovementScript.maxBounceCounterBar == 1)
-        {
-            TurnOnBar(0);
-            TurnOffBar(1);
-            TurnOffBar(2);
-            TurnOffBar(3);
-            TurnOffBar(4);
-        }
-        if (playerMovementScript.maxBounceCounterBar == 2)
-        {
-            TurnOnBar(0);
-            TurnOnBar(1);
-            TurnOffBar(2);
-            TurnOffBar(3);
-            TurnOffBar(4);
-        }
-        if (playerMovementScript.maxBounceCounterBar == 3)
-        {
-            TurnOnBar(0);
-            TurnOnBar(1);
-            TurnOnBar(2);
-            TurnOffBar(3);
-            TurnOffBar(4);
-        }
-        if (playerMovementScript.maxBounceCounterBar == 4)
-        {
-            TurnOnBar(0);
-            TurnOnBar(1);
-            TurnOnBar(2);
-            TurnOnBar(3);
-            TurnOffBar(4);
-        }
-        if (playerMovementScript.maxBounceCounterBar == 5)
-        {
-            TurnOnBar(0);
-            TurnOnBar(1);
-            TurnOnBar(2);
-            TurnOnBar(3);
-            TurnOnBar(4);
-        }
+        //if (playerMovementScript.maxBounceCounterBar <= 0)
+        //{
+        //    TurnOffBar(0);
+        //    TurnOffBar(1);
+        //    TurnOffBar(2);
+        //}
+        //if (playerMovementScript.maxBounceCounterBar == 1)
+        //{
+        //    TurnOnBar(0);
+        //    TurnOffBar(1);
+        //    TurnOffBar(2);
+        //    TurnOffBar(3);
+        //    TurnOffBar(4);
+        //}
+        //if (playerMovementScript.maxBounceCounterBar == 2)
+        //{
+        //    TurnOnBar(0);
+        //    TurnOnBar(1);
+        //    TurnOffBar(2);
+        //    TurnOffBar(3);
+        //    TurnOffBar(4);
+        //}
+        //if (playerMovementScript.maxBounceCounterBar == 3)
+        //{
+        //    TurnOnBar(0);
+        //    TurnOnBar(1);
+        //    TurnOnBar(2);
+        //    TurnOffBar(3);
+        //    TurnOffBar(4);
+        //}
+        //if (playerMovementScript.maxBounceCounterBar == 4)
+        //{
+        //    TurnOnBar(0);
+        //    TurnOnBar(1);
+        //    TurnOnBar(2);
+        //    TurnOnBar(3);
+        //    TurnOffBar(4);
+        //}
+        //if (playerMovementScript.maxBounceCounterBar == 5)
+        //{
+        //    TurnOnBar(0);
+        //    TurnOnBar(1);
+        //    TurnOnBar(2);
+        //    TurnOnBar(3);
+        //    TurnOnBar(4);
+        //}
     }
 
     /// <summary>
