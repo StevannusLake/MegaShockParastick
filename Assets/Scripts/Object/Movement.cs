@@ -698,7 +698,7 @@ public class Movement : MonoBehaviour
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
                 isSticking = true;
 
-                if (doubleSlingshot == 2 && isRareSkin == true)
+                if (isRareSkin == true)
                 {
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
                 }

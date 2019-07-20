@@ -108,6 +108,7 @@ public class Shop : MonoBehaviour
             movement.doubleSlingshotCounter = 3;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 3;
+            movement.isRareSkin = false;
             movement.initialDistance = 0;
             movement.initialPosition = 0;
         }
@@ -117,6 +118,7 @@ public class Shop : MonoBehaviour
             movement.doubleSlingshotCounter = 15;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 15;
+            movement.isRareSkin = false;
             movement.initialDistance = 15;
             movement.initialPosition = 15;
         }
@@ -126,6 +128,7 @@ public class Shop : MonoBehaviour
             movement.doubleSlingshotCounter = 9;
             movement.INCREMENTSLINGSHOT = 2;
             movement.MAXSLINGSHOT = 9;
+            movement.isRareSkin = false;
             movement.initialDistance = 25;
             movement.initialPosition = 25;
         }
@@ -135,6 +138,7 @@ public class Shop : MonoBehaviour
             movement.doubleSlingshotCounter = 9;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 9;
+            movement.isRareSkin = true;
             movement.initialDistance = 20;
             movement.initialPosition = 20;
         }
@@ -144,6 +148,7 @@ public class Shop : MonoBehaviour
             movement.doubleSlingshotCounter = 12;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 12;
+            movement.isRareSkin = true;
             movement.initialDistance = 50;
             movement.initialPosition = 50;
         }
@@ -153,6 +158,7 @@ public class Shop : MonoBehaviour
             movement.doubleSlingshotCounter = 12;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 12;
+            movement.isRareSkin = true;
             movement.initialDistance = 100;
             movement.initialPosition = 100;
         }
