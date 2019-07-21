@@ -22,6 +22,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     private GameObject player;
     public int watchNeeded;
     public int watchCount;
+    public bool notUnlockable;
 
     void Awake()
     {   

@@ -538,14 +538,28 @@ public class UIManager : MonoBehaviour
     }
 
     public void CheckSecondChanceButton()
-    {
-        if(GameManager.instance.GetPoints() >= 4)
+    {   
+        if(GameManager.instance.secondChanceDiscount == 0)
         {
-            SecondChanceButton.interactable = true;
+            if (GameManager.instance.GetPoints() >= 4)
+            {
+                SecondChanceButton.interactable = true;
+            }
+            else if (GameManager.instance.GetPoints() < 4)
+            {
+                SecondChanceButton.interactable = false;
+            }
         }
-        else if (GameManager.instance.GetPoints() < 4)
+        else
         {
-            SecondChanceButton.interactable = false;
+            if (GameManager.instance.GetPoints() >= 2)
+            {
+                SecondChanceButton.interactable = true;
+            }
+            else if (GameManager.instance.GetPoints() < 2)
+            {
+                SecondChanceButton.interactable = false;
+            }
         }
     }
 

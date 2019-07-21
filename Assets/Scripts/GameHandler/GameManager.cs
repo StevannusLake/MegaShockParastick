@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public int totalPlay;
     public int totalPoints;
     public int totalSpin;
+    public int secondChanceDiscount = 0;
 
     public bool isDragging = false;
 
@@ -199,6 +200,7 @@ public class GameManager : MonoBehaviour
             }
         }
         LoadTotalValue();
+        secondChanceDiscount = PlayerPrefs.GetInt("secondDiscount");
         coin = PlayerPrefs.GetInt("Coin", 0);
         spinCount = PlayerPrefs.GetInt("Spin", 0);
         points = PlayerPrefs.GetInt("Points", 0);

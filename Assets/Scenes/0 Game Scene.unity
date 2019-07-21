@@ -5592,10 +5592,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849341914}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.35, y: -0.45}
-  m_AnchorMax: {x: 0.65, y: -0.4}
+  m_AnchorMin: {x: 0.35, y: 0.92}
+  m_AnchorMax: {x: 0.65, y: 0.97}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12082,10 +12082,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849341914}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.35, y: 0.35}
-  m_AnchorMax: {x: 0.65, y: 0.4}
+  m_AnchorMin: {x: 0.35, y: -0.3}
+  m_AnchorMax: {x: 0.65, y: -0.25}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13825,6 +13825,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 25
   watchCount: 0
+  notUnlockable: 1
 --- !u!114 &693302361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15701,8 +15702,8 @@ RectTransform:
   m_Father: {fileID: 940239292}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: -0.8}
-  m_AnchorMax: {x: 0.9, y: -0.65}
+  m_AnchorMin: {x: 0.1, y: 0.45}
+  m_AnchorMax: {x: 0.9, y: 0.7}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15745,7 +15746,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 793623119}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1170094497}
+        m_MethodName: StarterPack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &793623119
@@ -17944,10 +17956,10 @@ RectTransform:
   - {fileID: 793623117}
   - {fileID: 1307902796}
   m_Father: {fileID: 1849341914}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.43}
+  m_AnchorMax: {x: 1, y: 0.91}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -25758,6 +25770,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 25
   watchCount: 0
+  notUnlockable: 1
 --- !u!114 &1155790115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26034,6 +26047,7 @@ MonoBehaviour:
   totalPlay: 0
   totalPoints: 0
   totalSpin: 0
+  secondChanceDiscount: 0
   isDragging: 0
 --- !u!4 &1170094495
 Transform:
@@ -29266,8 +29280,8 @@ RectTransform:
   m_Father: {fileID: 940239292}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: -1}
-  m_AnchorMax: {x: 0.9, y: -0.85}
+  m_AnchorMin: {x: 0.1, y: 0.15}
+  m_AnchorMax: {x: 0.9, y: 0.4}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29310,7 +29324,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1307902798}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1170094497}
+        m_MethodName: ProPack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1307902798
@@ -36527,10 +36552,10 @@ RectTransform:
   m_Father: {fileID: 940239292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: -0.6}
-  m_AnchorMax: {x: 0.9, y: -0.45}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.1, y: 0.75}
+  m_AnchorMax: {x: 0.9, y: 1}
+  m_AnchoredPosition: {x: 0, y: -4}
+  m_SizeDelta: {x: 0, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650086663
 MonoBehaviour:
@@ -36571,7 +36596,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1650086664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1170094497}
+        m_MethodName: RemoveAds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1650086664
@@ -40424,18 +40460,18 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 284412638}
+  - {fileID: 940239292}
   - {fileID: 1980786829}
   - {fileID: 1969588804132319040}
   - {fileID: 566870636}
   - {fileID: 1853572661}
-  - {fileID: 284412638}
-  - {fileID: 940239292}
   m_Father: {fileID: 790706062}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: -0.2}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 21}
+  m_AnchoredPosition: {x: 0, y: 9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1849341915
@@ -40452,7 +40488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parasiteBottomObject: {fileID: 0}
   placeBottomObject: {fileID: 0}
-  coinsBottomObject: {fileID: 1307902796}
+  coinsBottomObject: {fileID: 1604824483}
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
@@ -40570,10 +40606,10 @@ RectTransform:
   - {fileID: 116612962}
   - {fileID: 1604824483}
   m_Father: {fileID: 1849341914}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: -0.32}
-  m_AnchorMax: {x: 0.9, y: 0.35}
+  m_AnchorMin: {x: 0.1, y: -0.85}
+  m_AnchorMax: {x: 0.9, y: -0.35}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -43342,10 +43378,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849341914}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.35, y: 0.92}
-  m_AnchorMax: {x: 0.65, y: 0.97}
+  m_AnchorMin: {x: 0.35, y: 0.4}
+  m_AnchorMax: {x: 0.65, y: 0.45}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -53439,6 +53475,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53542,6 +53579,7 @@ MonoBehaviour:
   abilityDescription: Skin 3 ability
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53819,6 +53857,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54263,6 +54302,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54404,6 +54444,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54545,6 +54586,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54789,7 +54831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 2500
+  price: 2147483647
   skinImage: {fileID: 0}
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -54800,6 +54842,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 1
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54949,6 +54992,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55274,6 +55318,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55497,6 +55542,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55630,6 +55676,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55897,6 +55944,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56105,6 +56153,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56254,6 +56303,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56699,6 +56749,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56915,6 +56966,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57174,6 +57226,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -57217,6 +57270,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57458,6 +57512,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57518,6 +57573,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57659,6 +57715,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57929,6 +57986,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 25
   watchCount: 0
+  notUnlockable: 1
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58070,6 +58128,7 @@ MonoBehaviour:
   abilityDescription: Skin 2 ability
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58219,6 +58278,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58562,6 +58622,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58622,6 +58683,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58881,6 +58943,7 @@ MonoBehaviour:
   abilityDescription: Skin 1 ability
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58985,6 +59048,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59045,6 +59109,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59194,6 +59259,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59365,6 +59431,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59506,6 +59573,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60566,10 +60634,10 @@ RectTransform:
   - {fileID: 392005435}
   - {fileID: 1423131742}
   m_Father: {fileID: 1849341914}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.25}
-  m_AnchorMax: {x: 0.9, y: 0.92}
+  m_AnchorMin: {x: 0.1, y: -0.2}
+  m_AnchorMax: {x: 0.9, y: 0.35}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -60850,6 +60918,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61032,6 +61101,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 1
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61321,6 +61391,7 @@ MonoBehaviour:
   abilityDescription: Default ability
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62047,6 +62118,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -64186,6 +64258,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65374,6 +65447,7 @@ MonoBehaviour:
   abilityDescription: 
   watchNeeded: 0
   watchCount: 0
+  notUnlockable: 0
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0
@@ -66270,7 +66344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &6522928434281435617
 SpriteRenderer:
   m_ObjectHideFlags: 0

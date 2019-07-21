@@ -152,5 +152,32 @@ public class ShopButtonController : MonoBehaviour
         GameManager.instance.numOfSkinCollected++;
         Shop.instance.CheckIsBought();
         GameManager.instance.SaveSkin();
+        PlayerPrefs.SetInt("secondDiscount", 1);
+    }
+
+    public void StarterPack()
+    {
+        GameManager.instance.AddCoin(250);
+        GameManager.instance.AddPoints(20);
+        Shop.instance.skinSelecting = Shop.instance.skinList[11];
+        GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+        GameManager.instance.numOfSkinCollected++;
+        Shop.instance.CheckIsBought();
+        GameManager.instance.SaveSkin();
+    }
+
+    public void ProPack()
+    {
+        GameManager.instance.AddCoin(1000);
+        GameManager.instance.AddPoints(100);
+        // Player Skin
+        Shop.instance.skinSelecting = Shop.instance.skinList[32];
+        GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+        GameManager.instance.numOfSkinCollected++;
+        Shop.instance.CheckIsBought();
+        // Environment
+        Shop.instance.skinSelecting = Shop.instance.environmentSkin[3];
+        PlayerPrefs.SetInt(Shop.instance.skinSelecting.name, 1);
+        Shop.instance.CheckEnvironmentBought();
     }
 }

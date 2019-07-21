@@ -318,29 +318,32 @@ public class Shop : MonoBehaviour
     //For button OnClick() function
     public void Buy()
     {
-        if(skinSelecting.GetComponent<Skin>().skinType == Skin.SkinType.player)
+        if(!skinSelecting.GetComponent<Skin>().notUnlockable)
         {
-            if (skinSelecting.GetComponent<Skin>().priceType == Skin.PriceType.coin)
+            if (skinSelecting.GetComponent<Skin>().skinType == Skin.SkinType.player)
             {
-                GameManager.instance.DecreaseCoin(skinSelecting.GetComponent<Skin>().price);
+                if (skinSelecting.GetComponent<Skin>().priceType == Skin.PriceType.coin)
+                {
+                    GameManager.instance.DecreaseCoin(skinSelecting.GetComponent<Skin>().price);
+                }
+                else
+                {
+                    GameManager.instance.DecreasePoints(skinSelecting.GetComponent<Skin>().price);
+                }
+                GameManager.instance.skinCollected.Add(skinSelecting.gameObject);
+                GameManager.instance.numOfSkinCollected++;
+                CheckIsBought();
+                // close the buy confirmation menu
+                mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
+                GameManager.instance.SaveSkin();
             }
             else
             {
-                GameManager.instance.DecreasePoints(skinSelecting.GetComponent<Skin>().price);
+                PlayerPrefs.SetInt(skinSelecting.name, 1);
+                CheckEnvironmentBought();
+                mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
             }
-            GameManager.instance.skinCollected.Add(skinSelecting.gameObject);
-            GameManager.instance.numOfSkinCollected++;
-            CheckIsBought();
-            // close the buy confirmation menu
-            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
-            GameManager.instance.SaveSkin();
-        }
-        else
-        {
-            PlayerPrefs.SetInt(skinSelecting.name, 1);
-            CheckEnvironmentBought();
-            mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(false);
-        }
+        }      
     }
 
     //For button OnClick() function

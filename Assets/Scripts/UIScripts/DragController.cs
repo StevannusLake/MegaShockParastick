@@ -184,7 +184,7 @@ public class DragController : MonoBehaviour
                 }
             }
         }
-        else if(UIManager.Instance.ChallengesMenu.activeInHierarchy)
+        else if(UIManager.Instance.ChallengesMenu.activeInHierarchy || UIManager.Instance.CreditsMenu.activeInHierarchy)
         {
             if (rawD.y > 0)
             {
