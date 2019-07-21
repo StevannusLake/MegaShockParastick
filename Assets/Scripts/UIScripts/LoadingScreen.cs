@@ -13,6 +13,11 @@ public class LoadingScreen : MonoBehaviour
 
     void Start()
     {
+        Invoke("LoadingBar", 0.4f);
+    }
+
+    void LoadingBar()
+    {
         StartCoroutine(LoadScene());
     }
 
@@ -29,11 +34,11 @@ public class LoadingScreen : MonoBehaviour
         while (!asyncOperation.isDone)
         {   
             //Vector3 endPos = new Vector3(Mathf.Abs(endParasite.position.x * (asyncOperation.progress+0.1f)), endParasite.position.y);
-            parasite.position = Vector3.Lerp(parasite.position, endParasite.position, 2f * Time.deltaTime);
-            float targetRotation = 360f / (asyncOperation.progress + 0.1f);
+            parasite.position = Vector3.Lerp(parasite.position, endParasite.position, 1.0f * Time.deltaTime);
+            float targetRotation = 720f / (asyncOperation.progress + 0.1f);
             if(zRotation<targetRotation)
             {
-                zRotation += 1.5f;
+                zRotation += 4f;
             }
             parasite.transform.eulerAngles = new Vector3(0, 0, -zRotation);
             greenFill.GetComponent<Image>().fillAmount = parasite.transform.position.x / endParasite.transform.position.x;

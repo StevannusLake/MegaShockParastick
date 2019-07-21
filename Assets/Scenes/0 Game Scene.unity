@@ -766,6 +766,7 @@ MonoBehaviour:
   waterMovingSpeed: 1
   MainMenu: {fileID: 1354248950}
   SecondChanceMenu: {fileID: 1700775326}
+  movement: {fileID: 0}
 --- !u!1 &37286296
 GameObject:
   m_ObjectHideFlags: 0
@@ -34002,6 +34003,7 @@ MonoBehaviour:
   waterMovingSpeed: 1
   MainMenu: {fileID: 0}
   SecondChanceMenu: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!212 &1508091937
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -34324,7 +34326,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 140a456c93337f74db6441a849087c7d, type: 2}
   m_Color: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.3529412}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -50009,7 +50011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &2092232754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50052,6 +50054,7 @@ MonoBehaviour:
   waterMovingSpeed: 1
   MainMenu: {fileID: 1354248950}
   SecondChanceMenu: {fileID: 1700775326}
+  movement: {fileID: 1968270234}
 --- !u!212 &2092232756
 SpriteRenderer:
   m_ObjectHideFlags: 0
