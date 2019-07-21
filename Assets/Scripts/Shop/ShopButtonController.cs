@@ -10,6 +10,8 @@ public class ShopButtonController : MonoBehaviour
     public GameObject coinsMenu;
     public GameObject notEnoughMenu;
     public GameObject buyConfirmationMenu;
+    public GameObject buyButton;
+    public Text priceText;
     public GameObject luckySpinMenu;
     public Text coin;
     public GameObject abilityWindowDefault;

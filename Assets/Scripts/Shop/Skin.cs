@@ -68,32 +68,8 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                 {
                     if (rarity != Rarity.Mission && rarity != Rarity.Video)
                     {
-                        if (priceType == PriceType.coin)
-                        {
-                            if (CheckCoinEnough())
-                            {
-                                // Shows Confirmation Menu
-                                mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                                Shop.instance.skinSelecting = this.gameObject;
-                            }
-                            else
-                            {
-                                // Shows Not Enough coin
-                                mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
-                            }
-                        }
-                        else if (priceType == PriceType.opal)
-                        {
-                            if (GameManager.instance.GetPoints() >= price)
-                            {
-                                mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                                Shop.instance.skinSelecting = this.gameObject;
-                            }
-                            else
-                            {
-                                mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
-                            }
-                        }
+                        Shop.instance.skinSelecting = this.gameObject;
+                        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
                     }   
                     else if(rarity == Rarity.Video)
                     {
@@ -183,15 +159,17 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             {
                 if (!isBought)
                 {
-                    if (GameManager.instance.GetPoints() >= price)
-                    {
-                        mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                        Shop.instance.skinSelecting = this.gameObject;
-                    }
-                    else
-                    {
-                        mainCamera.GetComponent<ShopButtonController>().ShowNotEnough();
-                    }
+                    Shop.instance.skinSelecting = this.gameObject;
+                    mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);                  
+                    //mainCamera.GetComponent<ShopButtonController>().priceText.text = price + " Opals";
+                    //if (GameManager.instance.GetPoints() >= price)
+                    //{
+                    //    mainCamera.GetComponent<ShopButtonController>().buyButton.GetComponent<Button>().interactable = true;
+                    //}
+                    //else
+                    //{
+                    //    mainCamera.GetComponent<ShopButtonController>().buyButton.GetComponent<Button>().interactable = false;
+                    //}
                 }
                 else
                 {

@@ -158,7 +158,7 @@ public class DragController : MonoBehaviour
             }
         }
         rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 1f);
-        Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
+        //Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
     }
 
     void MoveByDrag(Vector3 rawD)
