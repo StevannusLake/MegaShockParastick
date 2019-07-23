@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour
     public GameObject ChallengesMenu;
     public Button[] missionClaimButton;
     public Sprite claimButtonSprite;
+    public Sprite notClaimedButtonSprite;
     public int questCompleted;
     public GameObject missionCompleteNotic;
     public Text CoinCount;
@@ -30,7 +31,7 @@ public class MissionManager : MonoBehaviour
     }
 
     void Start()
-    {
+    {   
         if (PlayerPrefs.GetInt("Mission1") == 0)
         {
             missionListId[0] = 1;
@@ -520,7 +521,8 @@ public class MissionManager : MonoBehaviour
     public void NextMission()
     {
          PlayerPrefs.SetInt("Mission" + (questCompleted + 1) + "Progress", 0);
-         missionListId[questCompleted] = missions[questCompleted].nextId;
+        missionClaimButton[questCompleted].image.sprite = notClaimedButtonSprite;
+        missionListId[questCompleted] = missions[questCompleted].nextId;
          var tempItem = new Missions(missionListId[questCompleted]);
          missions[questCompleted] = tempItem;
         for (int i = 0; i < 5; i++)
