@@ -22,6 +22,19 @@ public class FreeCurrency1 : MonoBehaviour
     private DateTime sincePressedTime;
     private DateTime sincePressedTime2;
     private DateTime sincePressedTime3;
+    private TimeSpan differenceForMinutes;
+    private TimeSpan differenceForMinutes2;
+    private TimeSpan differenceForMinutes3;
+    private TimeSpan differenceForMinutesQ;
+    private TimeSpan differenceForMinutesQ2;
+    private TimeSpan differenceForMinutesQ3;
+    private DateTime leaveDateTime;
+    private bool isQuit = false;
+    private bool isQuit2 = false;
+    private bool isQuit3 = false;
+    public bool isPressed = false;
+    public bool isPressed2 = false;
+    public bool isPressed3 = false;
 
     public int freeCurrencyTime;
     public int freeCurrencyTime2;
@@ -126,17 +139,19 @@ public class FreeCurrency1 : MonoBehaviour
                 Debug.Log(myLocation + "2 Hours Not Passed");
             }
 
-            if (difference.Minutes >= 1)
+            long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
+
+            DateTime oldDate = DateTime.FromBinary(temp4);
+
+            differenceForMinutesQ = currentTime.Subtract(oldDate);
+
+            if (differenceForMinutesQ.Minutes >= 1)
             {
                 canGetFree = true;
             }
-            if (difference.Minutes < 1)
-            {
-                canGetFree = false;
-            }
         }
 
-        if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
+        if (PlayerPrefs.GetString(myLocation2 + "lastLoginTime2") == "")
         {
             oldTime2 = DateTime.Now;
         }
@@ -148,7 +163,7 @@ public class FreeCurrency1 : MonoBehaviour
             print(myLocation2 + "oldTime: " + oldTime2);
 
             // find differene 
-            TimeSpan difference2 = currentTime.Subtract(oldTime2);
+            TimeSpan difference2 = currentTime2.Subtract(oldTime2);
             print(myLocation2 + "Difference: " + difference2);
             Debug.Log(difference2);
             if (difference2.Hours >= 2)
@@ -167,13 +182,15 @@ public class FreeCurrency1 : MonoBehaviour
                 Debug.Log(myLocation2 + "2 Hours Not Passed");
             }
 
-            if (difference2.Minutes >= 1)
+            long temp5 = Convert.ToInt64(PlayerPrefs.GetString("sysString2"));
+
+            DateTime oldDate = DateTime.FromBinary(temp5);
+
+            differenceForMinutesQ2 = currentTime2.Subtract(oldDate);
+
+            if (differenceForMinutesQ2.Minutes >= 1)
             {
-                canGetFree = true;
-            }
-            if (difference2.Minutes < 1)
-            {
-                canGetFree = false;
+                canGetFree2 = true;
             }
         }
 
@@ -208,14 +225,37 @@ public class FreeCurrency1 : MonoBehaviour
                 Debug.Log(myLocation3 + "2 Hours Not Passed");
             }
 
-            if (difference3.Minutes >= 1)
+            long temp6 = Convert.ToInt64(PlayerPrefs.GetString("sysString3"));
+
+            DateTime oldDate = DateTime.FromBinary(temp6);
+
+            differenceForMinutesQ3 = currentTime2.Subtract(oldDate);
+
+            if (differenceForMinutesQ3.Minutes >= 1)
             {
                 canGetFree3 = true;
             }
-            if (difference3.Minutes < 1)
-            {
-                canGetFree3 = false;
-            }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (isQuit == false)
+        {
+            PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
+            isQuit = true;
+        }
+
+        if (isQuit2 == false)
+        {
+            PlayerPrefs.SetString("sysString2", System.DateTime.Now.ToBinary().ToString());
+            isQuit2 = true;
+        }
+
+        if (isQuit3 == false)
+        {
+            PlayerPrefs.SetString("sysString3", System.DateTime.Now.ToBinary().ToString());
+            isQuit3 = true;
         }
     }
 
@@ -242,9 +282,7 @@ public class FreeCurrency1 : MonoBehaviour
         {
             Debug.Log(myLocation + "2 Hours Not Passed");
         }
-        Debug.Log(difference);
-        Debug.Log(difference2);
-        Debug.Log(difference3);
+
         if (difference2.Hours >= 2)
         {
             canGetFree2 = true;
@@ -279,15 +317,62 @@ public class FreeCurrency1 : MonoBehaviour
             Debug.Log(myLocation3 + "2 Hours Not Passed");
         }
 
+        if (isPressed == true)
+        {
+            isQuit = false;
+        }
+        else
+        {
+            isQuit = true;
+        }
+
+        if (isPressed2 == true)
+        {
+            isQuit2 = false;
+        }
+        else
+        {
+            isQuit2 = true;
+        }
+
+        if (isPressed3 == true)
+        {
+            isQuit3 = false;
+        }
+        else
+        {
+            isQuit3 = true;
+        }
+
+        long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "PressButtonTime"));
+        buttonPressedTime = DateTime.FromBinary(tempTime);
+
+        long tempTime2 = Convert.ToInt64(PlayerPrefs.GetString(myLocation2 + "PressButtonTime2"));
+        buttonPressedTime2 = DateTime.FromBinary(tempTime2);
+
+        long tempTime3 = Convert.ToInt64(PlayerPrefs.GetString(myLocation3 + "PressButtonTime3"));
+        buttonPressedTime3 = DateTime.FromBinary(tempTime3);
+
         // cache current time
         sincePressedTime = DateTime.Now;
         sincePressedTime2 = DateTime.Now;
         sincePressedTime3 = DateTime.Now;
 
         // get difference between last pressed (buttonPressedTime) and current time ()
-        TimeSpan differenceForMinutes = sincePressedTime.Subtract(buttonPressedTime);
-        TimeSpan differenceForMinutes2 = sincePressedTime2.Subtract(buttonPressedTime2);
-        TimeSpan differenceForMinutes3 = sincePressedTime3.Subtract(buttonPressedTime3);
+        if (isPressed == true)
+        {
+            differenceForMinutes = sincePressedTime.Subtract(buttonPressedTime);
+        }
+
+        if (isPressed2 == true)
+        {
+            differenceForMinutes2 = sincePressedTime2.Subtract(buttonPressedTime2);
+        }
+
+        if (isPressed3 == true)
+        {
+            differenceForMinutes3 = sincePressedTime3.Subtract(buttonPressedTime3);
+        }
 
         if (differenceForMinutes.Minutes >= 1)
         {
@@ -318,11 +403,11 @@ public class FreeCurrency1 : MonoBehaviour
             }
 
             canGetFree = false;
+            isPressed = true;
 
             // button pressed, save and set press button time to buttonPressedTime
             PlayerPrefs.SetString(myLocation + "PressButtonTime", System.DateTime.Now.ToBinary().ToString());
-            long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "PressButtonTime"));
-            buttonPressedTime = DateTime.FromBinary(tempTime);
+            
 
             freeCurrencyTime++;
             PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrencyTime);
@@ -350,11 +435,11 @@ public class FreeCurrency1 : MonoBehaviour
             }
 
             canGetFree2 = false;
+            isPressed2 = true;
 
             // button pressed, save and set press button time to buttonPressedTime
             PlayerPrefs.SetString(myLocation2 + "PressButtonTime2", System.DateTime.Now.ToBinary().ToString());
-            long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation2 + "PressButtonTime2"));
-            buttonPressedTime2 = DateTime.FromBinary(tempTime);
+            
 
             freeCurrencyTime2++;
             PlayerPrefs.SetInt(myLocation2 + "LoginTime2", freeCurrencyTime2);
@@ -385,6 +470,7 @@ public class FreeCurrency1 : MonoBehaviour
             }
 
             canGetFree3 = false;
+            isPressed3 = true;
 
             // button pressed, save and set press button time to buttonPressedTime
             PlayerPrefs.SetString(myLocation3 + "PressButtonTime3", System.DateTime.Now.ToBinary().ToString());
