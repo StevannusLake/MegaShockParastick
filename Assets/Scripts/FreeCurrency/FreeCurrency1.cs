@@ -47,6 +47,7 @@ public class FreeCurrency1 : MonoBehaviour
     public bool canGetFree;
     public bool canGetFree2;
     public bool canGetFree3;
+    private bool isStart = false;
 
     public GameObject image1;
     public GameObject image2;
@@ -236,6 +237,7 @@ public class FreeCurrency1 : MonoBehaviour
                 canGetFree3 = true;
             }
         }
+        isStart = true;
     }
 
     private void OnApplicationQuit()
@@ -342,6 +344,45 @@ public class FreeCurrency1 : MonoBehaviour
         else
         {
             isQuit3 = true;
+        }
+
+        long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
+
+        DateTime oldDate = DateTime.FromBinary(temp4);
+
+        differenceForMinutesQ = sincePressedTime2.Subtract(oldDate);
+
+        if (differenceForMinutesQ.Minutes >= 1 && isStart == true)
+        {
+            canGetFree = true;
+            PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
+            isStart = false;
+        }
+
+        long temp5 = Convert.ToInt64(PlayerPrefs.GetString("sysString2"));
+
+        DateTime oldDate2 = DateTime.FromBinary(temp5);
+
+        differenceForMinutesQ2 = sincePressedTime2.Subtract(oldDate2);
+
+        if (differenceForMinutesQ2.Minutes >= 1 && isStart == true)
+        {
+            canGetFree2 = true;
+            PlayerPrefs.SetString("sysString2", System.DateTime.Now.ToBinary().ToString());
+            isStart = false;
+        }
+
+        long temp6 = Convert.ToInt64(PlayerPrefs.GetString("sysString3"));
+
+        DateTime oldDate3 = DateTime.FromBinary(temp6);
+
+        differenceForMinutesQ2 = sincePressedTime2.Subtract(oldDate3);
+
+        if (differenceForMinutesQ3.Minutes >= 1 && isStart == true)
+        {
+            canGetFree3 = true;
+            PlayerPrefs.SetString("sysString3", System.DateTime.Now.ToBinary().ToString());
+            isStart = false;
         }
 
         long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "PressButtonTime"));
