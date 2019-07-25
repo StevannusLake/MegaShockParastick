@@ -146,6 +146,8 @@ public class Movement : MonoBehaviour
     public bool isSticking = false;
     private float ripplePeriod;
 
+    private Vector2 distToSmallCol;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -807,6 +809,9 @@ public class Movement : MonoBehaviour
         {
             myEmotion.EmoteIdle();
         }
+
+        
+
     }
 
     // use stay to check collision after super finished
@@ -905,6 +910,7 @@ public class Movement : MonoBehaviour
                 playerJustDied = false;
             }
         }
+
         
 
     }
@@ -917,6 +923,10 @@ public class Movement : MonoBehaviour
             ChangeSize(false);
             // this.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.0f);
             transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
+            
+            //! To Move Player Towards Platform, So there is no gap because of Sucking Behaviour
+            distToSmallCol = Vector2.LerpUnclamped(transform.position, other.transform.position, 0.02f);
+            transform.position = Vector2.MoveTowards(transform.position, distToSmallCol, 0.5f);
         }
 
         if (other.CompareTag(bigCollider))
