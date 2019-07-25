@@ -16,16 +16,24 @@ public class DailyRewards : MonoBehaviour
     public bool isShowed = false;
     public GameObject exclamationMark;
 
+    public bool activateBlocker;
+    public GameObject dailyRewardBlocker;
+
     // Start is called before the first frame update
     void Start()
     {   
         //CheckDate();
         //CheckGreenTick();
         anim = GetComponent<Animator>();
+
+        activateBlocker = false;
+        
     }
 
     private void Update()
     {
+        CheckBlocker();
+
         long temp = Convert.ToInt64(PlayerPrefs.GetString("lastLogin"));
         oldDate = DateTime.FromBinary(temp);
 
@@ -36,6 +44,20 @@ public class DailyRewards : MonoBehaviour
             exclamationMark.SetActive(true);
         }
         else exclamationMark.SetActive(false);
+
+        
+    }
+
+    void CheckBlocker()
+    {
+        if(activateBlocker)
+        {
+            dailyRewardBlocker.SetActive(true);
+        }
+        else
+        {
+            dailyRewardBlocker.SetActive(false);
+        }
     }
 
     public void CheckDate()
@@ -173,11 +195,15 @@ public class DailyRewards : MonoBehaviour
             anim.Play("DailyRewards");
             CheckDate();
             CheckGreenTick();
+
+            activateBlocker = true;
         }
         else
         {
             anim.Play("DailyRewardsOff");
             isShowed = false;
+
+            activateBlocker = false;
         }
             
     }
