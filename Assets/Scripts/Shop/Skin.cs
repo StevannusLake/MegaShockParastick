@@ -23,6 +23,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public int watchNeeded;
     public int watchCount;
     public bool notUnlockable;
+    public string unlockRequirement;
 
     void Awake()
     {   
@@ -42,14 +43,28 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     }
 
     public bool CheckCoinEnough()
-    {
-        if (GameManager.instance.GetCoin() >= price)
+    {   
+        if(priceType == PriceType.coin)
         {
-            return true;
+            if (GameManager.instance.GetCoin() >= price)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
-            return false;
+            if (GameManager.instance.GetPoints() >= price)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
@@ -66,25 +81,24 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             {
                 if (!isBought)
                 {
-                    if (rarity != Rarity.Mission && rarity != Rarity.Video)
-                    {
+                   
                         Shop.instance.skinSelecting = this.gameObject;
                         mainCamera.GetComponent<ShopButtonController>().buyConfirmationMenu.SetActive(true);
-                    }   
-                    else if(rarity == Rarity.Video)
-                    {
-                        watchCount += 1;
-                        PlayerPrefs.SetInt(gameObject.name + "WatchCount", watchCount);
-                        // Show ads here
-                        if(watchCount >= watchNeeded)
-                        {
-                            Shop.instance.skinSelecting = this.gameObject;
-                            GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
-                            GameManager.instance.numOfSkinCollected++;
-                            Shop.instance.CheckIsBought();
-                            GameManager.instance.SaveSkin();
-                        }
-                    }
+                      
+                    //else if(rarity == Rarity.Video)
+                    //{
+                    //    watchCount += 1;
+                    //    PlayerPrefs.SetInt(gameObject.name + "WatchCount", watchCount);
+                    //    // Show ads here
+                    //    if(watchCount >= watchNeeded)
+                    //    {
+                    //        Shop.instance.skinSelecting = this.gameObject;
+                    //        GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+                    //        GameManager.instance.numOfSkinCollected++;
+                    //        Shop.instance.CheckIsBought();
+                    //        GameManager.instance.SaveSkin();
+                    //    }
+                    //}
                 }
                 else
                 {

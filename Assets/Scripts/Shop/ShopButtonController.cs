@@ -182,4 +182,19 @@ public class ShopButtonController : MonoBehaviour
         PlayerPrefs.SetInt(Shop.instance.skinSelecting.name, 1);
         Shop.instance.CheckEnvironmentBought();
     }
+
+    public void WatchVideoSkin()
+    {
+        Shop.instance.skinSelecting.GetComponent<Skin>().watchCount += 1;
+        PlayerPrefs.SetInt(gameObject.name + "WatchCount", Shop.instance.skinSelecting.GetComponent<Skin>().watchCount);
+        // Show ads here
+        if(Shop.instance.skinSelecting.GetComponent<Skin>().watchCount >= Shop.instance.skinSelecting.GetComponent<Skin>().watchNeeded)
+        {
+            Shop.instance.skinSelecting = this.gameObject;
+            GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+            GameManager.instance.numOfSkinCollected++;
+            Shop.instance.CheckIsBought();
+            GameManager.instance.SaveSkin();
+        }
+    }
 }
