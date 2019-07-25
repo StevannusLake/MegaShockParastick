@@ -925,7 +925,7 @@ public class Movement : MonoBehaviour
             transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
             
             //! To Move Player Towards Platform, So there is no gap because of Sucking Behaviour
-            distToSmallCol = Vector2.LerpUnclamped(transform.position, other.transform.position, 0.005f);
+            distToSmallCol = Vector2.LerpUnclamped(transform.position, other.transform.position, 0.02f);
             transform.position = Vector2.MoveTowards(transform.position, distToSmallCol, 0.5f);
         }
 
