@@ -31,8 +31,15 @@ public class MyBackground : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         CheckPlayerPos();
+        for (int i = 0; i < listOfBackgroundPrefabs.Count; i++)
+        {
+            for (int j = 0; j < listOfBackgroundPrefabs[i].transform.childCount; j++)
+            {
+                listOfBackgroundPrefabs[i].transform.GetChild(j).GetComponent<SpriteRenderer>().sprite = Shop.instance.environmentUsing.GetComponent<Skin>().backGroundImage;
+            }
+        }
     }
 
     void CheckPlayerPos()

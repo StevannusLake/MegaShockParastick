@@ -149,38 +149,50 @@ public class ShopButtonController : MonoBehaviour
 
     public void RemoveAds()
     {
-        Shop.instance.skinSelecting = Shop.instance.skinList[34];
-        GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
-        GameManager.instance.numOfSkinCollected++;
-        Shop.instance.CheckIsBought();
-        GameManager.instance.SaveSkin();
-        PlayerPrefs.SetInt("secondDiscount", 1);
+        if(PlayerPrefs.GetInt("RemoveAds") == 0)
+        {
+            Shop.instance.skinSelecting = Shop.instance.skinList[34];
+            GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+            GameManager.instance.numOfSkinCollected++;
+            Shop.instance.CheckIsBought();
+            GameManager.instance.SaveSkin();
+            PlayerPrefs.SetInt("secondDiscount", 1);
+            PlayerPrefs.SetInt("RemoveAds", 1);
+        }     
     }
 
     public void StarterPack()
     {
-        GameManager.instance.AddCoin(250);
-        GameManager.instance.AddPoints(20);
-        Shop.instance.skinSelecting = Shop.instance.skinList[11];
-        GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
-        GameManager.instance.numOfSkinCollected++;
-        Shop.instance.CheckIsBought();
-        GameManager.instance.SaveSkin();
+        if (PlayerPrefs.GetInt("StarterPack") == 0)
+        {
+            GameManager.instance.AddCoin(250);
+            GameManager.instance.AddPoints(20);
+            Shop.instance.skinSelecting = Shop.instance.skinList[11];
+            GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+            GameManager.instance.numOfSkinCollected++;
+            Shop.instance.CheckIsBought();
+            GameManager.instance.SaveSkin();
+            PlayerPrefs.SetInt("StarterPack", 1);
+        }           
     }
 
     public void ProPack()
     {
-        GameManager.instance.AddCoin(1000);
-        GameManager.instance.AddPoints(100);
-        // Player Skin
-        Shop.instance.skinSelecting = Shop.instance.skinList[32];
-        GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
-        GameManager.instance.numOfSkinCollected++;
-        Shop.instance.CheckIsBought();
-        // Environment
-        Shop.instance.skinSelecting = Shop.instance.environmentSkin[4];
-        PlayerPrefs.SetInt(Shop.instance.skinSelecting.name, 1);
-        Shop.instance.CheckEnvironmentBought();
+        if(PlayerPrefs.GetInt("ProPack") == 0)
+        {
+            GameManager.instance.AddCoin(1000);
+            GameManager.instance.AddPoints(100);
+            // Player Skin
+            Shop.instance.skinSelecting = Shop.instance.skinList[32];
+            GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
+            GameManager.instance.numOfSkinCollected++;
+            Shop.instance.CheckIsBought();
+            // Environment
+            Shop.instance.skinSelecting = Shop.instance.environmentSkin[4];
+            PlayerPrefs.SetInt(Shop.instance.skinSelecting.name, 1);
+            Shop.instance.CheckEnvironmentBought();
+            PlayerPrefs.SetInt("ProPack", 1);
+        }        
     }
 
     public void WatchVideoSkin()

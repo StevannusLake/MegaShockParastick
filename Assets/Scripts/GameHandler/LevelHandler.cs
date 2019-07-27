@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 public enum CurrentDirection {UP,RIGHT,LEFT}
 public enum LevelDifficulty {A,B,C,D,E,F}
-public enum LevelType {TYPE1,TYPE2,TYPE3,TYPE4 }
+public enum LevelType {TYPE1,TYPE2,TYPE3,TYPE4,TYPE5,TYPE6 }
 public class LevelHandler : MonoBehaviour
 {
     [SerializeField]

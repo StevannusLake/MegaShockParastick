@@ -32,6 +32,12 @@ public class Shop : MonoBehaviour
     public GameObject deathSprite;
     private Movement movement;
     private Animator anim;
+    public Sprite[] environmentType1;
+    public Sprite[] environmentType2;
+    public Sprite[] environmentType3;
+    public Sprite[] environmentType4;
+    public Sprite[] environmentType5;
+    public Sprite[] environmentType6;
 
     public static Shop instance;
     void Awake()
@@ -254,7 +260,7 @@ public class Shop : MonoBehaviour
             environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
             for(int i =0;i<environmentLockedMask.Length;i++)
             {
-                if(environmentLockedMask[i].GetComponent<Skin>().isBought)
+                if(environmentSkin[i].GetComponent<Skin>().isBought)
                 environmentLockedMask[i].GetComponent<Image>().sprite = TransparentMask;
             }
         }

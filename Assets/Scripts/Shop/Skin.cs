@@ -9,6 +9,8 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public int price;
     //public string skinName;
     public Sprite skinImage;
+    public Sprite backGroundImage;
+    public int environmentType;
     public GameObject confirmationMenu;
     public GameObject mainCamera;
     public bool isBought = false;
