@@ -120,7 +120,6 @@ public class UIManager : MonoBehaviour
     private Animator PauseMenuAnim;
 
     public Button PauseButton;
-    
 
     private void Awake()
     {
@@ -585,9 +584,12 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
+        
+
         PauseMenu.SetActive(true);
         Invoke("TimeScale0", 0.5f);
 
+        
         playerMovement.enabled = false;
         playerColliderConroller.enabled = false;
     }
@@ -600,7 +602,10 @@ public class UIManager : MonoBehaviour
         Invoke("TurnOffPauseMenu", 0.5f);
 
         playerMovement.enabled = true;
+        
         playerColliderConroller.enabled = true;
+
+        
     }
 
     void TurnOffPauseMenu()

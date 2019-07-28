@@ -523,7 +523,7 @@ public class Movement : MonoBehaviour
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
     }
 
-    void CancelSlingShot()
+    public void CancelSlingShot()
     {
         Vector2 currentMousePos = Input.mousePosition;
         //currentMousePos = Camera.main.ScreenToWorldPoint(currentMousePos);
