@@ -30,6 +30,7 @@ public class GameAssets : MonoBehaviour
         [Range(0,1)]  public float minPitch = 1;
         [Range(0,1)] public float maxPitch = 1;
         [Range(0, 1)] public float volume = 1;
+        public bool Loop = false;
     }
 
     public static SoundAudioClip GetAudio(AudioManager.Sound sound)

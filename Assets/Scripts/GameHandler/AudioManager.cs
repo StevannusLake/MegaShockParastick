@@ -45,7 +45,20 @@ public static class AudioManager
                 AudioSource source = audioSource.GetComponent<AudioSource>();
                 source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
                 source.volume = GetAudioClipVolume(sound);
-                source.PlayOneShot(GetAudioClip(sound));
+
+                source.loop = GetAudioLoop(sound);
+                if(source.loop)
+                {
+                    if (!source.isPlaying)
+                    {
+                        source.PlayOneShot(GetAudioClip(sound));
+                    }
+                }
+                else
+                {
+                    source.PlayOneShot(GetAudioClip(sound));
+                }
+                
                 DoCustomization(sound, source);
 
 
@@ -60,7 +73,20 @@ public static class AudioManager
                 AudioSource source = soundSourceGO.GetComponent<AudioSource>();
                 source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
                 source.volume= GetAudioClipVolume(sound);
-                source.PlayOneShot(GetAudioClip(sound));
+
+                source.loop = GetAudioLoop(sound);
+                if (source.loop)
+                {
+                    if (!source.isPlaying)
+                    {
+                        source.PlayOneShot(GetAudioClip(sound));
+                    }
+                }
+                else
+                {
+                    source.PlayOneShot(GetAudioClip(sound));
+                }
+
                 DoCustomization(sound, source);
             }
 
@@ -212,6 +238,18 @@ public static void Play3DSound(Sound sound,AudioSource selfAudio)
         }
         Debug.LogError("Sound" + sound + "wasnt found!");
         return 0;
+    }
+    public static bool GetAudioLoop(Sound sound)
+    {
+        foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
+        {
+            if (soundAudioClip.sound == sound)
+            {
+                return soundAudioClip.Loop;
+            }
+        }
+        Debug.LogError("Sound" + sound + "wasnt found!");
+        return false;
     }
     #endregion
 
