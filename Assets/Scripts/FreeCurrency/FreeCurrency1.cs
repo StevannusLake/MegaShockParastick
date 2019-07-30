@@ -60,8 +60,9 @@ public class FreeCurrency1 : MonoBehaviour
     public GameObject button3;
 
     public GameObject gameManager;
-
-
+    public Text timerText;
+    public Text timerText2;
+    public Text timerText3;
     private int addValue;
 
     private void Start()
@@ -303,7 +304,7 @@ public class FreeCurrency1 : MonoBehaviour
         TimeSpan difference = currentTime.Subtract(oldTime);
         TimeSpan difference2 = currentTime2.Subtract(oldTime2);
         TimeSpan difference3 = currentTime3.Subtract(oldTime3);
-
+        
         if (difference.Hours >= 2)
         {
             canGetFree = true;
@@ -441,7 +442,7 @@ public class FreeCurrency1 : MonoBehaviour
            // PlayerPrefs.SetString("sysString3", System.DateTime.Now.ToBinary().ToString());
             isStart3 = false;
         }
-        Debug.Log(differenceForMinutesQ2);
+        
         long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "PressButtonTime"));
         buttonPressedTime = DateTime.FromBinary(tempTime);
 
@@ -471,7 +472,7 @@ public class FreeCurrency1 : MonoBehaviour
         {
             differenceForMinutes3 = sincePressedTime3.Subtract(buttonPressedTime3);
         }
-        Debug.Log(differenceForMinutes2);
+        
         if (differenceForMinutes.Minutes >= 1)
         {
             canGetFree = true;
@@ -496,6 +497,11 @@ public class FreeCurrency1 : MonoBehaviour
                 button3.GetComponent<Button>().interactable = true;
             }
         }
+
+        timerText.GetComponent<Text>().text = differenceForMinutesQ.ToString();
+        timerText2.GetComponent<Text>().text = differenceForMinutesQ2.ToString();
+        timerText3.GetComponent<Text>().text = differenceForMinutesQ3.ToString();
+
     }
 
     public void GetFreeButtonS()
