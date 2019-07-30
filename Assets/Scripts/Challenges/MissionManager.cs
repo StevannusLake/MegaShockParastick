@@ -23,6 +23,8 @@ public class MissionManager : MonoBehaviour
     public Text[] achievementText;
     public int[] achievementCount;
     public GameObject exclamationMark;
+    public GameObject missionsMoving; // for ALl completed
+    public GameObject allCompleteImage;
 
     void Awake()
     {
@@ -82,12 +84,22 @@ public class MissionManager : MonoBehaviour
     {
         if(ChallengesMenu.activeInHierarchy)
         {
-            ShowMissionObjective();
-            CheckCompleted();
-            CoinCount.text = ""+GameManager.instance.GetCoin();
-            OpalCount.text = ""+GameManager.instance.GetPoints();
-            CheckMissionProgressUI();
+            CoinCount.text = "" + GameManager.instance.GetCoin();
+            OpalCount.text = "" + GameManager.instance.GetPoints();
             ShowAchievements();
+            if (CheckAllCompleted())
+            {
+                allCompleteImage.SetActive(true);
+                missionsMoving.SetActive(false);
+                return;
+            }
+            ShowMissionObjective();
+            CheckCompleted();            
+            CheckMissionProgressUI();          
+        }
+        if (CheckAllCompleted())
+        {
+            return;
         }
         CheckMissionInGame(missions);
         for (int i = 0; i < missions.Length; i++)
@@ -156,6 +168,24 @@ public class MissionManager : MonoBehaviour
         {
             MissionTabs[i].transform.Find("Text").GetComponent<Text>().text = missions[i].description;
         }
+    }
+
+    bool CheckAllCompleted()
+    {
+        bool isCompleted = false;
+        for(int i =0;i<5;i++)
+        {
+            if(!missions[i].nextQuest && missions[i].isClaimed)
+            {
+                isCompleted = true;
+            }
+            else
+            {
+                isCompleted = false;
+                break;
+            }
+        }
+        return isCompleted;
     }
 
     private void OnApplicationQuit()

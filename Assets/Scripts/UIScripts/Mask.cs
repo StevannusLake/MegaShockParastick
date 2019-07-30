@@ -14,7 +14,7 @@ public class Mask : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(UIManager.Instance.ShopMenu.activeInHierarchy || UIManager.Instance.CreditsMenu.activeInHierarchy)
+        if(UIManager.Instance.ShopMenu.activeInHierarchy || UIManager.Instance.CreditsMenu.activeInHierarchy || UIManager.Instance.ChallengesMenu.activeInHierarchy)
         {
             spriteMask.enabled = false;
         }
