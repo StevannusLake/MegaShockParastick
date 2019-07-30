@@ -26,6 +26,9 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public int watchCount;
     public bool notUnlockable;
     public string unlockRequirement;
+    public Material doubleSlingShotMat;
+    public Sprite tradectoryDotsSprite;
+    public Material trailMat;
 
     void Awake()
     {   

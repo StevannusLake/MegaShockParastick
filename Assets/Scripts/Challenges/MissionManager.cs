@@ -595,6 +595,14 @@ public class MissionManager : MonoBehaviour
                 {
                     progressBar[i].fillAmount = GameManager.instance.totalDistanceTravelled / missions[i].distanceObj;
                 }
+                else if(missions[i].missionType == Missions.MissionType.Distance)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.playerDistanceTraveled / missions[i].distanceObj;
+                }
+                else if(missions[i].missionType == Missions.MissionType.Bounce)
+                {
+                    progressBar[i].fillAmount = GameManager.instance.bounceCounterInAGame / missions[i].bounceObj;
+                }
                 else
                 progressBar[i].fillAmount = missions[i].completeNum / missions[i].completeObj;
             }

@@ -180,6 +180,7 @@ public class Movement : MonoBehaviour
         for(int i=0; i<numDots; i++)
         {
             dots[i] = trajectoryDots[i].GetComponent<Dot>();
+            dots[i].mySR.sprite = Shop.instance.skinUsing.GetComponent<Skin>().tradectoryDotsSprite;
         }
 
         screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
@@ -189,6 +190,8 @@ public class Movement : MonoBehaviour
         {
             hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
         }
+        myParticleSystem.myParticleSystem.GetComponent<ParticleSystemRenderer>().material = Shop.instance.skinUsing.GetComponent<Skin>().doubleSlingShotMat;
+        myTrailRenderer.material = Shop.instance.skinUsing.GetComponent<Skin>().trailMat;
     }
     
     // Update is called once per frame

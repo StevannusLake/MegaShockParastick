@@ -1265,6 +1265,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &48493736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7785,6 +7788,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &352599151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14498,6 +14504,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &693302361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26533,6 +26542,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1155790115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41441,6 +41453,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1807879608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55565,6 +55580,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "SUPER FINISHER" Award
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55673,6 +55691,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55954,6 +55976,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56402,6 +56427,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56547,6 +56575,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "PLATFORM CHAMPION" Award
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56692,6 +56723,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56951,6 +56985,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57104,6 +57142,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57433,6 +57474,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57660,6 +57704,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "BEST BOUNCER" Award
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57797,6 +57844,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58068,6 +58118,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58280,6 +58334,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58433,6 +58490,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58883,6 +58944,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59103,6 +59168,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59366,6 +59434,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -59413,6 +59484,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59658,6 +59732,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59722,6 +59800,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59867,6 +59949,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60141,6 +60226,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60286,6 +60374,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60439,6 +60531,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "PARASITE OF THE YEAR" Award
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60786,6 +60881,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60850,6 +60948,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61113,6 +61215,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61221,6 +61327,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "COLLECTOR MASTER" Award
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61285,6 +61394,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61438,6 +61551,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Complete "Collect 500 Opals" Mission
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61613,6 +61729,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61758,6 +61877,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63125,6 +63248,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63311,6 +63437,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63604,6 +63733,10 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 2100000, guid: a887587e2bec4664886059a3dde70b96, type: 2}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 61658ad6183f7d74baac24b23a75fe7c,
+    type: 3}
+  trailMat: {fileID: 2100000, guid: 05b281f03e39f8c4aa6b27c12ca9d5b4, type: 2}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64334,6 +64467,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -66405,6 +66541,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67527,6 +67666,9 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
+  doubleSlingShotMat: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 0}
+  trailMat: {fileID: 0}
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0
