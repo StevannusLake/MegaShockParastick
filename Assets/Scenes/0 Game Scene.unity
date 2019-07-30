@@ -11658,6 +11658,7 @@ MonoBehaviour:
   button1: {fileID: 1969588803001665757}
   button2: {fileID: 230340974}
   button3: {fileID: 923495450}
+  gameManager: {fileID: 1170094491}
 --- !u!1 &514261383
 GameObject:
   m_ObjectHideFlags: 0
@@ -27044,6 +27045,7 @@ MonoBehaviour:
   button1: {fileID: 1969588803001665757}
   button2: {fileID: 230340974}
   button3: {fileID: 923495450}
+  isConnect: 0
 --- !u!1 &1170484583
 GameObject:
   m_ObjectHideFlags: 0
