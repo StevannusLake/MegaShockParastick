@@ -53,6 +53,10 @@ public class FreeCurrency1 : MonoBehaviour
     public GameObject image2;
     public GameObject image3;
 
+    public GameObject button1;
+    public GameObject button2;
+    public GameObject button3;
+
     private int addValue;
 
     private void Start()
@@ -149,6 +153,11 @@ public class FreeCurrency1 : MonoBehaviour
             if (differenceForMinutesQ.Minutes >= 1)
             {
                 canGetFree = true;
+                button1.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                button1.GetComponent<Button>().interactable = false;
             }
         }
 
@@ -188,10 +197,15 @@ public class FreeCurrency1 : MonoBehaviour
             DateTime oldDate = DateTime.FromBinary(temp5);
 
             differenceForMinutesQ2 = currentTime2.Subtract(oldDate);
-
+            Debug.Log(differenceForMinutesQ2);
             if (differenceForMinutesQ2.Minutes >= 1)
             {
                 canGetFree2 = true;
+                button2.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                button2.GetComponent<Button>().interactable = false;
             }
         }
 
@@ -235,6 +249,11 @@ public class FreeCurrency1 : MonoBehaviour
             if (differenceForMinutesQ3.Minutes >= 1)
             {
                 canGetFree3 = true;
+                button3.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                button3.GetComponent<Button>().interactable = false;
             }
         }
         isStart = true;
@@ -272,7 +291,7 @@ public class FreeCurrency1 : MonoBehaviour
         {
             canGetFree = true;
             freeCurrencyTime = 0;
-
+            button1.GetComponent<Button>().interactable = true;
             PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrencyTime);
             if (currentTime > oldTime)
             {
@@ -289,7 +308,7 @@ public class FreeCurrency1 : MonoBehaviour
         {
             canGetFree2 = true;
             freeCurrencyTime2 = 0;
-
+            button2.GetComponent<Button>().interactable = true;
             PlayerPrefs.SetInt(myLocation2 + "LoginTime2", freeCurrencyTime2);
             if (currentTime2 > oldTime2)
             {
@@ -306,7 +325,7 @@ public class FreeCurrency1 : MonoBehaviour
         {
             canGetFree3 = true;
             freeCurrencyTime3 = 0;
-
+            button3.GetComponent<Button>().interactable = true;
             PlayerPrefs.SetInt(myLocation3 + "LoginTime3", freeCurrencyTime3);
             if (currentTime3 > oldTime3)
             {
@@ -414,18 +433,21 @@ public class FreeCurrency1 : MonoBehaviour
         {
             differenceForMinutes3 = sincePressedTime3.Subtract(buttonPressedTime3);
         }
-
+        
         if (differenceForMinutes.Minutes >= 1)
         {
             canGetFree = true;
+            button1.GetComponent<Button>().interactable = true;
         }
         if (differenceForMinutes2.Minutes >= 1)
         {
             canGetFree2 = true;
+            button2.GetComponent<Button>().interactable = true;
         }
         if (differenceForMinutes3.Minutes >= 1)
         {
             canGetFree3 = true;
+            button3.GetComponent<Button>().interactable = true;
         }
     }
 
@@ -439,10 +461,10 @@ public class FreeCurrency1 : MonoBehaviour
                 NotificationManager.Cancel(61);
                 TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
                 // schedule without icon
-                NotificationManager.Send(61, delayNotifyTime, "💎OPALS💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+                NotificationManager.Send(61, delayNotifyTime, "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
                 Debug.Log(delayNotifyTime);
             }
-
+            button1.GetComponent<Button>().interactable = false;
             canGetFree = false;
             isPressed = true;
 
@@ -472,9 +494,9 @@ public class FreeCurrency1 : MonoBehaviour
                 NotificationManager.Cancel(61);
                 TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
                 // schedule without icon
-                NotificationManager.Send(61, delayNotifyTime, "Parastick", "Collect Free Opals Now and SHOW OFF your skins!", Color.red, NotificationIcon.Heart);
+                NotificationManager.Send(61, delayNotifyTime, "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
             }
-
+            button2.GetComponent<Button>().interactable = false;
             canGetFree2 = false;
             isPressed2 = true;
 
@@ -507,9 +529,9 @@ public class FreeCurrency1 : MonoBehaviour
                 NotificationManager.Cancel(61);
                 TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
                 // schedule without icon
-                NotificationManager.Send(61, delayNotifyTime, "Parastick", "Collect Free Opals Now and SHOW OFF your skins!", Color.red, NotificationIcon.Heart);
+                NotificationManager.Send(61, delayNotifyTime, "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
             }
-
+            button3.GetComponent<Button>().interactable = false;
             canGetFree3 = false;
             isPressed3 = true;
 

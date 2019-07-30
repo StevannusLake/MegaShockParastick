@@ -11573,6 +11573,9 @@ MonoBehaviour:
   image1: {fileID: 1319176134}
   image2: {fileID: 1971541954}
   image3: {fileID: 118845073}
+  button1: {fileID: 0}
+  button2: {fileID: 230340974}
+  button3: {fileID: 0}
 --- !u!1 &514261383
 GameObject:
   m_ObjectHideFlags: 0
@@ -67918,7 +67921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &6522928434281435617
 SpriteRenderer:
   m_ObjectHideFlags: 0

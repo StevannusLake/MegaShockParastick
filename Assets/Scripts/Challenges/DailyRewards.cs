@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using Assets.SimpleAndroidNotifications;
 
 public class DailyRewards : MonoBehaviour
 {
@@ -45,7 +46,10 @@ public class DailyRewards : MonoBehaviour
         }
         else exclamationMark.SetActive(false);
 
-        
+        NotificationManager.Cancel(60);
+        TimeSpan delayNotifyTime = new TimeSpan(24, 0, 0);
+        // schedule without icon
+        NotificationManager.Send(60, delayNotifyTime, "🎁IT'S YOURS!🎁", "🤑Don't miss out your DAILY REWARD!!💸", Color.red, NotificationIcon.Heart);
     }
 
     void CheckBlocker()

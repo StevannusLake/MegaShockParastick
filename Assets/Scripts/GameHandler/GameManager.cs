@@ -73,11 +73,15 @@ public class GameManager : MonoBehaviour
         NotificationManager.Cancel(60);
         TimeSpan delayNotifyTime = new TimeSpan(1, 0, 0);
         // schedule without icon
-        NotificationManager.Send(60, delayNotifyTime, "🏆ACHIEVER🏆", "🧗You know you can achieve more than this!🧗‍♀️", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(60, delayNotifyTime, "🏆HEY ACHIEVER!🏆", "🧗You know you can achieve more than this!🧗‍♀️", Color.red, NotificationIcon.Heart);
 
         NotificationManager.Cancel(62);
         TimeSpan delayNotifyTime2 = new TimeSpan(5, 0, 0);
         NotificationManager.Send(62, delayNotifyTime2, "🏁FAR FAR AWAY🏁", "🎯Reach so far away until nobody can beat you!🥇", Color.red, NotificationIcon.Heart);
+
+        NotificationManager.Cancel(63);
+        TimeSpan delayNotifyTime3 = new TimeSpan(48, 0, 0);
+        NotificationManager.Send(62, delayNotifyTime3, "👑OUR LEGEND👑", "🤴LEGEND NEVER STOP! Are you the LEGEND we are looking for?🤔", Color.red, NotificationIcon.Heart);
     }
 
 
