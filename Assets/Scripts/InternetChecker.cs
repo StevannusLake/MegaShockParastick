@@ -11,7 +11,7 @@ public class InternetChecker : MonoBehaviour
     public GameObject button1;
     public GameObject button2;
     public GameObject button3;
-
+    public bool isConnect = false;
     private Ping ping;
     private float pingStartTime;
 
@@ -66,10 +66,12 @@ public class InternetChecker : MonoBehaviour
         button1.GetComponent<Button>().interactable = false;
         button2.GetComponent<Button>().interactable = false;
         button3.GetComponent<Button>().interactable = false;
+        isConnect = false;
     }
 
     private void InternetAvailable()
     {
         Debug.Log("Internet is available! ;)");
+        isConnect = true;
     }
 }

@@ -59,6 +59,9 @@ public class FreeCurrency1 : MonoBehaviour
     public GameObject button2;
     public GameObject button3;
 
+    public GameObject gameManager;
+
+
     private int addValue;
 
     private void Start()
@@ -155,7 +158,11 @@ public class FreeCurrency1 : MonoBehaviour
             if (differenceForMinutesQ.Minutes >= 1)
             {
                 canGetFree = true;
-                button1.GetComponent<Button>().interactable = true;
+
+                if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+                {
+                    button1.GetComponent<Button>().interactable = true;
+                }
             }
             else
             {
@@ -204,7 +211,10 @@ public class FreeCurrency1 : MonoBehaviour
             if (differenceForMinutesQ2.Minutes >= 1)
             {
                 canGetFree2 = true;
-                button2.GetComponent<Button>().interactable = true;
+                if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+                {
+                    button2.GetComponent<Button>().interactable = true;
+                }
             }
             else
             {
@@ -253,7 +263,10 @@ public class FreeCurrency1 : MonoBehaviour
             if (differenceForMinutesQ3.Minutes >= 1)
             {
                 canGetFree3 = true;
-                button3.GetComponent<Button>().interactable = true;
+                if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+                {
+                    button3.GetComponent<Button>().interactable = true;
+                }
             }
             else
             {
@@ -295,7 +308,10 @@ public class FreeCurrency1 : MonoBehaviour
         {
             canGetFree = true;
             freeCurrencyTime = 0;
-            button1.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button1.GetComponent<Button>().interactable = true;
+            }
             PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrencyTime);
             if (currentTime > oldTime)
             {
@@ -312,7 +328,10 @@ public class FreeCurrency1 : MonoBehaviour
         {
             canGetFree2 = true;
             freeCurrencyTime2 = 0;
-            button2.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button2.GetComponent<Button>().interactable = true;
+            }
             PlayerPrefs.SetInt(myLocation2 + "LoginTime2", freeCurrencyTime2);
             if (currentTime2 > oldTime2)
             {
@@ -329,7 +348,10 @@ public class FreeCurrency1 : MonoBehaviour
         {
             canGetFree3 = true;
             freeCurrencyTime3 = 0;
-            button3.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button3.GetComponent<Button>().interactable = true;
+            }
             PlayerPrefs.SetInt(myLocation3 + "LoginTime3", freeCurrencyTime3);
             if (currentTime3 > oldTime3)
             {
@@ -378,7 +400,10 @@ public class FreeCurrency1 : MonoBehaviour
         if (differenceForMinutesQ.Minutes >= 1 && isStart == true)
         {
             canGetFree = true;
-            button1.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button1.GetComponent<Button>().interactable = true;
+            }
          //   PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
             isStart = false;
         }
@@ -392,7 +417,10 @@ public class FreeCurrency1 : MonoBehaviour
         if (differenceForMinutesQ2.Minutes >= 1 && isStart2 == true)
         {
             canGetFree2 = true;
-            button2.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button2.GetComponent<Button>().interactable = true;
+            }
           //  PlayerPrefs.SetString("sysString2", System.DateTime.Now.ToBinary().ToString());
             isStart2 = false;
         }
@@ -406,7 +434,10 @@ public class FreeCurrency1 : MonoBehaviour
         if (differenceForMinutesQ3.Minutes >= 1 && isStart3 == true)
         {
             canGetFree3 = true;
-            button3.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button3.GetComponent<Button>().interactable = true;
+            }
            // PlayerPrefs.SetString("sysString3", System.DateTime.Now.ToBinary().ToString());
             isStart3 = false;
         }
@@ -444,17 +475,26 @@ public class FreeCurrency1 : MonoBehaviour
         if (differenceForMinutes.Minutes >= 1)
         {
             canGetFree = true;
-            button1.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button1.GetComponent<Button>().interactable = true;
+            }
         }
         if (differenceForMinutes2.Minutes >= 1)
         {
             canGetFree2 = true;
-            button2.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button2.GetComponent<Button>().interactable = true;
+            }
         }
         if (differenceForMinutes3.Minutes >= 1)
         {
             canGetFree3 = true;
-            button3.GetComponent<Button>().interactable = true;
+            if (gameManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                button3.GetComponent<Button>().interactable = true;
+            }
         }
     }
 
