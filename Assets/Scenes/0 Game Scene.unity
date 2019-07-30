@@ -11570,12 +11570,15 @@ MonoBehaviour:
   canGetFree: 0
   canGetFree2: 0
   canGetFree3: 0
+  isStart: 0
+  isStart2: 0
+  isStart3: 0
   image1: {fileID: 1319176134}
   image2: {fileID: 1971541954}
   image3: {fileID: 118845073}
-  button1: {fileID: 0}
+  button1: {fileID: 1969588803001665757}
   button2: {fileID: 230340974}
-  button3: {fileID: 0}
+  button3: {fileID: 923495450}
 --- !u!1 &514261383
 GameObject:
   m_ObjectHideFlags: 0
@@ -26564,6 +26567,7 @@ GameObject:
   - component: {fileID: 1170094494}
   - component: {fileID: 1170094493}
   - component: {fileID: 1170094492}
+  - component: {fileID: 1170094500}
   - component: {fileID: 1170094496}
   - component: {fileID: 1170094498}
   - component: {fileID: 1170094497}
@@ -26944,6 +26948,21 @@ MonoBehaviour:
   TurnCost: 250
   reward: 0
   rewardWindow: {fileID: 1186203909758139396}
+--- !u!114 &1170094500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170094491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83293b4656b102349aa99234c23be425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button1: {fileID: 1969588803001665757}
+  button2: {fileID: 230340974}
+  button3: {fileID: 923495450}
 --- !u!1 &1170484583
 GameObject:
   m_ObjectHideFlags: 0
@@ -58165,7 +58184,7 @@ GameObject:
   - component: {fileID: 1969588803001665752}
   - component: {fileID: 1969588803001665755}
   m_Layer: 5
-  m_Name: VideoButton
+  m_Name: VideoButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67921,7 +67940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &6522928434281435617
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -47,7 +47,9 @@ public class FreeCurrency1 : MonoBehaviour
     public bool canGetFree;
     public bool canGetFree2;
     public bool canGetFree3;
-    private bool isStart = false;
+    public bool isStart = false;
+    public bool isStart2 = false;
+    public bool isStart3 = false;
 
     public GameObject image1;
     public GameObject image2;
@@ -159,6 +161,7 @@ public class FreeCurrency1 : MonoBehaviour
             {
                 button1.GetComponent<Button>().interactable = false;
             }
+            isStart = true;
         }
 
         if (PlayerPrefs.GetString(myLocation2 + "lastLoginTime2") == "")
@@ -207,6 +210,7 @@ public class FreeCurrency1 : MonoBehaviour
             {
                 button2.GetComponent<Button>().interactable = false;
             }
+            isStart2 = true;
         }
 
         if (PlayerPrefs.GetString(myLocation3 + "lastLoginTime3") == "")
@@ -256,7 +260,7 @@ public class FreeCurrency1 : MonoBehaviour
                 button3.GetComponent<Button>().interactable = false;
             }
         }
-        isStart = true;
+        isStart3 = true;
     }
 
     private void OnApplicationQuit()
@@ -374,7 +378,8 @@ public class FreeCurrency1 : MonoBehaviour
         if (differenceForMinutesQ.Minutes >= 1 && isStart == true)
         {
             canGetFree = true;
-            PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
+            button1.GetComponent<Button>().interactable = true;
+         //   PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
             isStart = false;
         }
 
@@ -384,26 +389,28 @@ public class FreeCurrency1 : MonoBehaviour
 
         differenceForMinutesQ2 = sincePressedTime2.Subtract(oldDate2);
 
-        if (differenceForMinutesQ2.Minutes >= 1 && isStart == true)
+        if (differenceForMinutesQ2.Minutes >= 1 && isStart2 == true)
         {
             canGetFree2 = true;
-            PlayerPrefs.SetString("sysString2", System.DateTime.Now.ToBinary().ToString());
-            isStart = false;
+            button2.GetComponent<Button>().interactable = true;
+          //  PlayerPrefs.SetString("sysString2", System.DateTime.Now.ToBinary().ToString());
+            isStart2 = false;
         }
 
         long temp6 = Convert.ToInt64(PlayerPrefs.GetString("sysString3"));
 
         DateTime oldDate3 = DateTime.FromBinary(temp6);
 
-        differenceForMinutesQ2 = sincePressedTime2.Subtract(oldDate3);
+        differenceForMinutesQ3 = sincePressedTime2.Subtract(oldDate3);
 
-        if (differenceForMinutesQ3.Minutes >= 1 && isStart == true)
+        if (differenceForMinutesQ3.Minutes >= 1 && isStart3 == true)
         {
             canGetFree3 = true;
-            PlayerPrefs.SetString("sysString3", System.DateTime.Now.ToBinary().ToString());
-            isStart = false;
+            button3.GetComponent<Button>().interactable = true;
+           // PlayerPrefs.SetString("sysString3", System.DateTime.Now.ToBinary().ToString());
+            isStart3 = false;
         }
-
+        Debug.Log(differenceForMinutesQ2);
         long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "PressButtonTime"));
         buttonPressedTime = DateTime.FromBinary(tempTime);
 
@@ -433,7 +440,7 @@ public class FreeCurrency1 : MonoBehaviour
         {
             differenceForMinutes3 = sincePressedTime3.Subtract(buttonPressedTime3);
         }
-        
+        Debug.Log(differenceForMinutes2);
         if (differenceForMinutes.Minutes >= 1)
         {
             canGetFree = true;
