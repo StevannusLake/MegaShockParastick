@@ -9,6 +9,7 @@ public class MyBackground : MonoBehaviour
     public Movement movementScript;
     private float distanceOfNewBackground;
     private float distanceOfOldBackground;
+    private float rangeOfRemovingOldBackground;
 
     public List<GameObject> listOfBackgroundPrefabs;
     private int newBackground;
@@ -16,13 +17,16 @@ public class MyBackground : MonoBehaviour
 
     public bool justSpawned = false;
 
+    public float tempExtraDistance;
+
     // Start is called before the first frame update
     void Start()
     {
         listOfBackgroundPrefabs.Add(initialBackgroundPos);
-
+        
         distanceOfNewBackground = 3;
         distanceOfOldBackground = 15;
+        rangeOfRemovingOldBackground = 10;
         newBackground = 1; //! 1 is because of initialBackgroundPos that has been placed before start
         oldBackground = 0; //! Always set to 0 because of always removing the last one
 
@@ -44,7 +48,7 @@ public class MyBackground : MonoBehaviour
 
     void CheckPlayerPos()
     {
-        if(movementScript.distanceCounter > distanceOfNewBackground)
+        if((movementScript.distanceCounter - tempExtraDistance) > distanceOfNewBackground)
         {
             listOfBackgroundPrefabs.Add(Instantiate(backgroundPackPrefab, new Vector2(initialBackgroundPos.transform.position.x, initialBackgroundPos.transform.position.y + 21.6f), Quaternion.identity, gameObject.transform));
 
@@ -56,7 +60,7 @@ public class MyBackground : MonoBehaviour
             distanceOfNewBackground = distanceOfNewBackground + movementScript.distanceCounter;
         }
 
-        if(movementScript.distanceCounter - distanceOfOldBackground > 10 && justSpawned)
+        if(((movementScript.distanceCounter - distanceOfOldBackground) - tempExtraDistance) > rangeOfRemovingOldBackground && justSpawned)
         {
             Destroy(listOfBackgroundPrefabs[oldBackground]);
             listOfBackgroundPrefabs.Remove(listOfBackgroundPrefabs[oldBackground]);
