@@ -219,6 +219,7 @@ public class Movement : MonoBehaviour
                 myCollider.isTrigger = false;
             }
             SlingShot();
+
             DotsSpawner();
             if (myMoveStick == MoveState.FLYING)
             {
