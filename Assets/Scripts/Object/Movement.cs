@@ -148,6 +148,8 @@ public class Movement : MonoBehaviour
 
     private Vector2 distToSmallCol;
 
+    public MyBackground myBackground;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -171,6 +173,7 @@ public class Movement : MonoBehaviour
         transform.localScale = baseScale * 1;
         scale = baseScale * 1;
         playerDistance = ButtonManager.instance.TempScore;
+        myBackground.tempExtraDistance = playerDistance;
         distanceCounterText.text = playerDistance.ToString("F1") + " mm";
 
         //distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";

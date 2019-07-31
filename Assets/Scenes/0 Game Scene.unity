@@ -5307,6 +5307,7 @@ MonoBehaviour:
   movementScript: {fileID: 1968270234}
   listOfBackgroundPrefabs: []
   justSpawned: 0
+  tempExtraDistance: 0
 --- !u!4 &243787348
 Transform:
   m_ObjectHideFlags: 0
@@ -44610,6 +44611,7 @@ MonoBehaviour:
   scale: {x: 0, y: 0, z: 0}
   doubleSlingshotCharge: 0
   isSticking: 0
+  myBackground: {fileID: 243787347}
 --- !u!50 &1968270235
 Rigidbody2D:
   serializedVersion: 4
