@@ -27204,11 +27204,17 @@ MonoBehaviour:
   - {fileID: 3634520116433162103}
   - {fileID: 1626678717}
   - {fileID: 2117300184}
+  waterSkin: []
+  waterLockedSkin: []
   defaultEnvironment: {fileID: 1969588803250794202}
   environmentDefaultMask: {fileID: 3634520116176675727}
+  defaultWater: {fileID: 0}
+  waterDefaultMask: {fileID: 0}
+  waterUsing: {fileID: 0}
   environmentUsing: {fileID: 0}
   InUseEnvironmentMask: {fileID: 21300000, guid: 454ec841f901348419bef4c110f2ce34,
     type: 3}
+  inUseWaterMask: {fileID: 0}
   TransparentMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   deathSprite: {fileID: 313264215}
   environmentType1:

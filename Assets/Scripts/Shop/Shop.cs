@@ -23,10 +23,16 @@ public class Shop : MonoBehaviour
     public Sprite lastHolder;
     public GameObject[] environmentSkin;
     public GameObject[] environmentLockedMask;
+    public GameObject[] waterSkin;
+    public GameObject[] waterLockedSkin;
     public GameObject defaultEnvironment;
     public GameObject environmentDefaultMask;
+    public GameObject defaultWater;
+    public GameObject waterDefaultMask;
+    public GameObject waterUsing;
     public GameObject environmentUsing;
     public Sprite InUseEnvironmentMask;
+    public Sprite inUseWaterMask;
     public Sprite TransparentMask;
     private GameObject player;
     public GameObject deathSprite;
@@ -81,6 +87,7 @@ public class Shop : MonoBehaviour
         }
 
         CheckEnvironmentBought();
+        CheckWaterBought();
 
         if (PlayerPrefs.HasKey("EnvironmentUsing"))
         {
@@ -106,6 +113,32 @@ public class Shop : MonoBehaviour
         {
             environmentUsing = defaultEnvironment;
             environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
+        }
+
+        if (PlayerPrefs.HasKey("WaterUsing"))
+        {
+            if (PlayerPrefs.GetString("WaterUsing") == waterUsing.name)
+            {
+                waterUsing = defaultWater;
+                waterDefaultMask.GetComponent<Image>().sprite = inUseWaterMask;
+            }
+            else
+            {
+                for (int i = 0; i < waterSkin.Length; i++)
+                {
+                    if (PlayerPrefs.GetString("WaterUsing") == waterSkin[i].name)
+                    {
+                        waterUsing = waterSkin[i];
+                        waterLockedSkin[i].GetComponent<Image>().sprite = inUseWaterMask;
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            waterUsing = defaultWater;
+          //  waterDefaultMask.GetComponent<Image>().sprite = inUseWaterMask;
         }
 
         if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Default)
@@ -227,6 +260,19 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void CheckWaterBought()
+    {
+        //check environment
+        for (int i = 0; i < waterSkin.Length; i++)
+        {
+            if (PlayerPrefs.GetInt(waterSkin[i].name) == 1)
+            {
+                waterSkin[i].GetComponent<Skin>().isBought = true;
+                waterLockedSkin[i].GetComponent<Image>().sprite = TransparentMask;
+            }
+        }
+    }
+
     public void ResetInUseHolder()
     {
         if (lastHolder != null)
@@ -258,7 +304,7 @@ public class Shop : MonoBehaviour
         if (environmentUsing == defaultEnvironment)
         {
             environmentDefaultMask.GetComponent<Image>().sprite = InUseEnvironmentMask;
-            for(int i =0;i<environmentLockedMask.Length;i++)
+            for(int i = 0; i < environmentLockedMask.Length; i++)
             {
                 if(environmentSkin[i].GetComponent<Skin>().isBought)
                 environmentLockedMask[i].GetComponent<Image>().sprite = TransparentMask;
@@ -282,6 +328,37 @@ public class Shop : MonoBehaviour
                 }
             }
         }        
+    }
+
+    public void ChangeWaterSkin()
+    {
+        if (waterUsing == defaultWater)
+        {
+            waterDefaultMask.GetComponent<Image>().sprite = inUseWaterMask;
+            for (int i = 0; i < waterLockedSkin.Length; i++)
+            {
+                if (waterSkin[i].GetComponent<Skin>().isBought)
+                    waterLockedSkin[i].GetComponent<Image>().sprite = TransparentMask;
+            }
+        }
+        else
+        {
+            waterDefaultMask.GetComponent<Image>().sprite = TransparentMask;
+            for (int i = 0; i < waterSkin.Length; i++)
+            {
+                if (environmentUsing == waterSkin[i])
+                {
+                    waterLockedSkin[i].GetComponent<Image>().sprite = inUseWaterMask;
+                }
+                else
+                {
+                    if (waterSkin[i].GetComponent<Skin>().isBought)
+                    {
+                        waterLockedSkin[i].GetComponent<Image>().sprite = TransparentMask;
+                    }
+                }
+            }
+        }
     }
 
     public void ChangeSkin()
@@ -325,6 +402,7 @@ public class Shop : MonoBehaviour
     {
         PlayerPrefs.SetString("SkinUsing", skinUsing.name);
         PlayerPrefs.SetString("EnvironmentUsing", environmentUsing.name);
+        PlayerPrefs.SetString("WaterUsing", waterUsing.name);
     }
 
     //For button OnClick() function
