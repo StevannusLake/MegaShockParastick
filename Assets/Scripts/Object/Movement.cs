@@ -432,7 +432,7 @@ public class Movement : MonoBehaviour
 
                 // myAnimation.PlayJump();
                 myEmotion.EmoteFlying();
-
+                isSticking = false;
                 AudioManager.PlaySound(AudioManager.Sound.PlayerUnstick);
 
                 //========== 20/5 ====================================================================================== 
@@ -459,7 +459,7 @@ public class Movement : MonoBehaviour
                 screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
             }
-            isSticking = false;
+            
             // use mouse to test movement without concerning control
             if (Input.GetMouseButtonDown(0))
             {
@@ -724,10 +724,10 @@ public class Movement : MonoBehaviour
                 {
                     isBounceRecover = true;
                     bounceCounter++;
-                  //  maxBounceCounterBar--;
+                    Debug.Log("RUn");
                     GameManager.instance.bounceCounterInAGame++;
                 }
-
+                
                 if (isSticking == false)
                 {
                     doubleSlingshotCharge += INCREMENTSLINGSHOT;
