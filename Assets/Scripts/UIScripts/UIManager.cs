@@ -55,6 +55,14 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region Challenges Screen
+    
+    private Animator challengesScreenAnim;
+
+    #endregion
+
+    private Animator shopMenuAnim;
+
     public GameObject FirstInitialPlatform;
     public GameObject SecondLifeInitialPlatform;
 
@@ -149,6 +157,14 @@ public class UIManager : MonoBehaviour
         settingsScreenAnim = SettingsScreen.GetComponent<Animator>();
 
         #endregion
+
+        #region Challenges Screen
+
+        challengesScreenAnim = ChallengesMenu.GetComponent<Animator>();
+
+        #endregion
+
+        shopMenuAnim = ShopMenu.GetComponent<Animator>();
 
         PauseMenu.SetActive(false);
 
@@ -875,6 +891,19 @@ public class UIManager : MonoBehaviour
         ShopMenu.SetActive(true);
     }
 
+    public void CloseShopMenu()
+    {
+        shopMenuAnim.SetBool("OpenShop", false);
+        //MainMenu.SetActive(true);
+
+        Invoke("TurnOffShopMenu", 1.2f);
+    }
+
+    void TurnOffShopMenu()
+    {
+        ShopMenu.SetActive(false);
+    }
+
     public void ShowChallengesMenu()
     {
         ChallengesMenu.SetActive(true);
@@ -882,11 +911,16 @@ public class UIManager : MonoBehaviour
 
     public void CloseChallengesMenu()
     {
+        challengesScreenAnim.SetBool("OpenChallenges", false);
+        //MainMenu.SetActive(true);
+
+        Invoke("TurnOffChallengesScreen", 1.2f);
+    }
+
+    void TurnOffChallengesScreen()
+    {
         ChallengesMenu.SetActive(false);
     }
 
-    public void CloseShopMenu()
-    {
-        ShopMenu.SetActive(false);
-    }
+    
 }

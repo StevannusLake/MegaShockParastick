@@ -21,6 +21,8 @@ public class ShopButtonController : MonoBehaviour
     public GameObject abilityWindowSecret;
     public GameObject abilityWindowLegendary;
 
+    private Animator luckySpinAnim;
+
     private void Update()
     {
         coin.text = ""+GameManager.instance.GetCoin();
@@ -31,6 +33,8 @@ public class ShopButtonController : MonoBehaviour
         Shop.instance.shopState = Shop.ShopState.parasite;
         placeMenu.SetActive(false);
         coinsMenu.SetActive(false);
+
+        luckySpinAnim = luckySpinMenu.GetComponent<Animator>();
     }
 
     public void ShowParasiteMenu()
@@ -83,6 +87,14 @@ public class ShopButtonController : MonoBehaviour
     }
 
     public void CloseLuckySpinMenu()
+    {
+        luckySpinAnim.SetBool("OpenLuckyMenu", false);
+        //MainMenu.SetActive(true);
+
+        Invoke("TurnOffLuckySpinMenu", 1.2f);
+    }
+
+    void TurnOffLuckySpinMenu()
     {
         luckySpinMenu.SetActive(false);
     }
