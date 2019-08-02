@@ -129,6 +129,8 @@ public class UIManager : MonoBehaviour
 
     public Button PauseButton;
 
+    public Animator dailyRewardsAnim;
+
     private void Awake()
     {
         if(instance == null)
@@ -466,6 +468,8 @@ public class UIManager : MonoBehaviour
 
     public void CloseMainMenu()
     {
+        dailyRewardsAnim.Play("DailyRewardsButtonClose");
+
         MainMenuAnim.SetBool("CloseMenu",true);
         LevelHandler.instance.cameraController.gameObject.GetComponent<MixingCameraController>().enabled = true;
         Invoke("CallClosingMainMenu", 1.2f);
@@ -911,10 +915,17 @@ public class UIManager : MonoBehaviour
 
     public void CloseChallengesMenu()
     {
-        challengesScreenAnim.SetBool("OpenChallenges", false);
-        //MainMenu.SetActive(true);
+        if (PauseMenu.activeSelf)
+        {
+            ChallengesMenu.SetActive(false);
+        }
+        else
+        {
+            challengesScreenAnim.SetBool("OpenChallenges", false);
+            //MainMenu.SetActive(true);
 
-        Invoke("TurnOffChallengesScreen", 1.2f);
+            Invoke("TurnOffChallengesScreen", 1.2f);
+        }
     }
 
     void TurnOffChallengesScreen()

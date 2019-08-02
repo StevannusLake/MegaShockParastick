@@ -211,4 +211,9 @@ public class DailyRewards : MonoBehaviour
         }
             
     }
+
+    public void SlideDailyRewardOff()
+    {
+        anim.Play("DailyRewardsButtonClose");
+    }
 }

@@ -34,7 +34,10 @@ public class ShopButtonController : MonoBehaviour
         placeMenu.SetActive(false);
         coinsMenu.SetActive(false);
 
-        luckySpinAnim = luckySpinMenu.GetComponent<Animator>();
+        if (luckySpinMenu != null)
+        {
+            luckySpinAnim = luckySpinMenu.GetComponent<Animator>();
+        }
     }
 
     public void ShowParasiteMenu()

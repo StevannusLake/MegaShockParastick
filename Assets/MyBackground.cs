@@ -7,9 +7,9 @@ public class MyBackground : MonoBehaviour
     public GameObject initialBackgroundPos;
     public GameObject backgroundPackPrefab;
     public Movement movementScript;
-    private float distanceOfNewBackground;
-    private float distanceOfOldBackground;
-    private float rangeOfRemovingOldBackground;
+    public float distanceOfNewBackground;
+    public float distanceOfOldBackground;
+    public float rangeOfRemovingOldBackground;
 
     public List<GameObject> listOfBackgroundPrefabs;
     private int newBackground;
@@ -57,7 +57,7 @@ public class MyBackground : MonoBehaviour
 
             justSpawned = true;
 
-            distanceOfNewBackground = distanceOfNewBackground + movementScript.distanceCounter;
+            distanceOfNewBackground = 10 + distanceOfNewBackground;
         }
 
         if(((movementScript.distanceCounter - distanceOfOldBackground) - tempExtraDistance) > rangeOfRemovingOldBackground && justSpawned)
@@ -69,7 +69,7 @@ public class MyBackground : MonoBehaviour
 
             justSpawned = false;
 
-            distanceOfOldBackground = distanceOfOldBackground + movementScript.distanceCounter;
+            distanceOfOldBackground = 20 + distanceOfOldBackground + movementScript.distanceCounter;
         }
     }
 }
