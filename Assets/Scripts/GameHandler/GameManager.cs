@@ -58,7 +58,10 @@ public class GameManager : MonoBehaviour
         }
         LoadData();
         soundSourcesCreated = new List<string>();
-        AudioManager.PlaySound(AudioManager.Sound.InGameBGM);
+
+
+        
+
         //Refrences to Player
         playerMovement = player.GetComponent<Movement>();
         playerColliderController = player.GetComponent<ColliderController>();

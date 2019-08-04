@@ -18,6 +18,9 @@ public static class AudioManager
         Reborn,
         InGameBGM,
         Water,
+        MainMenuBGM,
+        ShopChallengesBGM,
+        LoseMenuBGM,
 
     }
 
@@ -100,6 +103,52 @@ public static class AudioManager
 
       
   
+    }
+
+    public static void StopSound(Sound sound)
+    {
+        if (CanPlaySound(sound))
+        {
+            string soundName = sound.ToString();
+            if (GameManager.instance.soundSourcesCreated.Contains(soundName))
+            {
+                GameObject audioSource = GameManager.instance.audioSourcePlayer.transform.Find(soundName.ToString()).gameObject;
+                AudioSource source = audioSource.GetComponent<AudioSource>();
+                source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
+                source.volume = GetAudioClipVolume(sound);
+                source.Stop();
+                
+                if(source.isPlaying)
+                {
+                    source.Stop();
+                    source.mute = true;
+                }
+                
+                //source.PlayOneShot(GetAudioClip(sound));
+                //DoCustomization(sound, source);
+            }
+
+            else if (!GameManager.instance.soundSourcesCreated.Contains(soundName))
+            {
+                GameManager.instance.soundSourcesCreated.Add(soundName);
+                GameObject soundSourceGO = new GameObject(soundName);
+                soundSourceGO.transform.SetParent(GameManager.instance.audioSourcePlayer.transform);
+                soundSourceGO.AddComponent<AudioSource>();
+                AudioSource source = soundSourceGO.GetComponent<AudioSource>();
+                source.pitch = Random.Range(GetAudioClipMinPitch(sound), GetAudioClipMaxPitch(sound));
+                source.volume = GetAudioClipVolume(sound);
+                source.Stop();
+
+                if (source.isPlaying)
+                {
+                    source.Stop();
+                    source.mute = true;
+                }
+
+                //source.PlayOneShot(GetAudioClip(sound));
+                //DoCustomization(sound, source);
+            }
+        }
     }
 
 

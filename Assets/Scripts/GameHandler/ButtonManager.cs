@@ -25,6 +25,9 @@ public class ButtonManager : MonoBehaviour
 
         if(tryagain)
         {
+            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+            AudioManager.StopSound(AudioManager.Sound.LoseMenuBGM);
+
             UIManager.Instance.CloseMainMenu();
 
             tryagain = false;
@@ -38,6 +41,8 @@ public class ButtonManager : MonoBehaviour
 
         if(secondlife)
         {
+            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+
             UIManager.Instance.CloseMainMenu();
 
             secondlife = false;

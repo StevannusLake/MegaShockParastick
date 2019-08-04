@@ -215,6 +215,14 @@ public class UIManager : MonoBehaviour
         CoinCounterSelfOpen();
         OpalCounterTransitionOpen();
         OpalEffectTransitionOpen();
+
+        //AudioManager.StopSound(AudioManager.Sound.LoseMenuBGM);
+        //AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+
+        if (MainMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("GameTitleAnim") && !LoseMenu.activeSelf)
+        {
+            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+        }
     }
 
     private void Update()
@@ -343,6 +351,8 @@ public class UIManager : MonoBehaviour
         CheckOpalUIAnimation();
 
         CheckPauseButton();
+
+        CheckBGMs();
     }
 
     void AndroidEscapeButtonCheck()
@@ -397,7 +407,7 @@ public class UIManager : MonoBehaviour
 
         secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
 
-        AudioManager.PlaySound(AudioManager.Sound.Lose);
+        //AudioManager.PlaySound(AudioManager.Sound.Lose);
         closingSecondChanceMenu = true;
         //callSecondChanceMenu = false;
         
@@ -423,6 +433,10 @@ public class UIManager : MonoBehaviour
         ClosingInGameUI();
 
         Invoke("TurnOffSecondChanceMenuToLoseMenu", 1.2f);
+
+        AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+        AudioManager.PlaySound(AudioManager.Sound.LoseMenuBGM);
     }
 
     void TurnOffSecondChanceMenuToLoseMenu()
@@ -468,6 +482,11 @@ public class UIManager : MonoBehaviour
 
     public void CloseMainMenu()
     {
+        if (!LoseMenu.activeSelf)
+        {
+            AudioManager.PlaySound(AudioManager.Sound.InGameBGM);
+        }
+
         dailyRewardsAnim.Play("DailyRewardsButtonClose");
 
         MainMenuAnim.SetBool("CloseMenu",true);
@@ -481,11 +500,53 @@ public class UIManager : MonoBehaviour
         //CoinCounterSelfClose();
         OpalCounterTransitionBack();
         OpalEffectTransitionBack();
+    }
 
+    void CheckBGMs()
+    {
+        //! STOPPING SOUND
+        if (secondChanceMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("SecondChanceAnimClose"))
+        {
+            AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+        }
+
+        if (LoseMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("LoseScreenAnim"))
+        {
+            AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+        }
+
+        if (MainMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("GameTitleAnimClosing"))
+        {
+            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        }
+
+        if (shopMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("ShopMenuAnim"))
+        {
+            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        }
+
+        if (challengesScreenAnim.GetCurrentAnimatorStateInfo(0).IsName("ChallengesMenuAnim"))
+        {
+            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //! PLAYING SOUND
+        if (shopMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("ShopMenuClose"))
+        {
+            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+        }
+
+        if (challengesScreenAnim.GetCurrentAnimatorStateInfo(0).IsName("ChallengesMenuClose"))
+        {
+            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+        }
     }
 
     void CallClosingMainMenu()
     {
+        
         MainMenu.SetActive(false);
         
         //! CALL ANIMATOR BOOLEAN BACK
@@ -547,7 +608,9 @@ public class UIManager : MonoBehaviour
 
             ClosingGarage();
             Invoke("TurnOffSecondChanceMenu", 1.2f);
-       }
+
+            
+        }
     }
 
     void TurnOffSecondChanceMenu()
@@ -892,11 +955,17 @@ public class UIManager : MonoBehaviour
 
     public void ShowShopMenu()
     {
+        AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
+
         ShopMenu.SetActive(true);
     }
 
     public void CloseShopMenu()
     {
+        AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
+        AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+
         shopMenuAnim.SetBool("OpenShop", false);
         //MainMenu.SetActive(true);
 
@@ -910,6 +979,13 @@ public class UIManager : MonoBehaviour
 
     public void ShowChallengesMenu()
     {
+        AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+
+        if (!PauseMenu.activeSelf)
+        {
+            AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
+        }
+
         ChallengesMenu.SetActive(true);
     }
 
@@ -925,6 +1001,9 @@ public class UIManager : MonoBehaviour
             //MainMenu.SetActive(true);
 
             Invoke("TurnOffChallengesScreen", 1.2f);
+            
+            AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
+            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
         }
     }
 
