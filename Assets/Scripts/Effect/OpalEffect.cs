@@ -48,8 +48,7 @@ public class OpalEffect : MonoBehaviour
 
             if (!dieBool)
             {
-                AudioManager.PlaySound(AudioManager.Sound.CollectCoin);
-                AudioManager.PlaySound(AudioManager.Sound.CollectCoinMain);
+                AudioManager.PlaySound(AudioManager.Sound.CollectOpal);
 
                 //GameManager.instance.AddPoints(1);
 

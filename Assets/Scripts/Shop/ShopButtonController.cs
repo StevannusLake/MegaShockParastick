@@ -86,11 +86,17 @@ public class ShopButtonController : MonoBehaviour
 
     public void ShowLuckySpinMenu()
     {
+        AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
+        AudioManager.PlaySound(AudioManager.Sound.LuckySpinBGM);
+
         luckySpinMenu.SetActive(true);
     }
 
     public void CloseLuckySpinMenu()
     {
+        AudioManager.StopSound(AudioManager.Sound.LuckySpinBGM);
+        AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
+
         luckySpinAnim.SetBool("OpenLuckyMenu", false);
         //MainMenu.SetActive(true);
 

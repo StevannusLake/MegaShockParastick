@@ -131,6 +131,23 @@ public class UIManager : MonoBehaviour
 
     public Animator dailyRewardsAnim;
 
+    #region Buttons Disabling
+    [Header("ButtonsDisabling")]
+    public Button PlayButton;
+    public Button ShopButton;
+    public Button ChallengesButton;
+    public Button LeaderboardButton;
+    public Button FreeOpalsMainMenuButton;
+    public Button RateUsButton;
+    public Button CreditsButton;
+    public Button SettingsButton;
+    public Button DailyRewardsButton;
+    public Button CurrenciesMainMenuButton;
+
+    #endregion
+
+    public RippleEffect rippleEffect;
+
     private void Awake()
     {
         if(instance == null)
@@ -145,6 +162,10 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        EnableMenuButtons();
+
+        rippleEffect.enabled = true;
+
         ShopMenu.SetActive(false);
 
         highScoreInMainMenu.text = PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
@@ -227,6 +248,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        CheckBGMs();
+
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
 
         //GameManager.instance.SaveData();
@@ -352,7 +375,35 @@ public class UIManager : MonoBehaviour
 
         CheckPauseButton();
 
-        CheckBGMs();
+        
+    }
+
+    public void DisableMenuButtons()
+    {
+        PlayButton.interactable = false;
+        ShopButton.interactable = false;
+        ChallengesButton.interactable = false;
+        LeaderboardButton.interactable = false;
+        FreeOpalsMainMenuButton.interactable = false;
+        RateUsButton.interactable = false;
+        CreditsButton.interactable = false;
+        SettingsButton.interactable = false;
+        DailyRewardsButton.interactable = false;
+        CurrenciesMainMenuButton.interactable = false;
+    }
+
+    public void EnableMenuButtons()
+    {
+        PlayButton.interactable = true;
+        ShopButton.interactable = true;
+        ChallengesButton.interactable = true;
+        LeaderboardButton.interactable = true;
+        FreeOpalsMainMenuButton.interactable = true;
+        RateUsButton.interactable = true;
+        CreditsButton.interactable = true;
+        SettingsButton.interactable = true;
+        DailyRewardsButton.interactable = true;
+        CurrenciesMainMenuButton.interactable = true;
     }
 
     void AndroidEscapeButtonCheck()
@@ -463,6 +514,8 @@ public class UIManager : MonoBehaviour
 
     public void CallMainMenu()
     {
+        rippleEffect.enabled = true;
+
         Time.timeScale = 1f;
 
         //MainMenu.SetActive(true);
@@ -500,6 +553,8 @@ public class UIManager : MonoBehaviour
         //CoinCounterSelfClose();
         OpalCounterTransitionBack();
         OpalEffectTransitionBack();
+
+        DisableMenuButtons();
     }
 
     void CheckBGMs()
@@ -511,6 +566,11 @@ public class UIManager : MonoBehaviour
         }
 
         if (LoseMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("LoseScreenAnim"))
+        {
+            AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+        }
+
+        if (coinMultiplyPanelAnim.GetCurrentAnimatorStateInfo(0).IsName("CoinMultiplyAnim"))
         {
             AudioManager.StopSound(AudioManager.Sound.InGameBGM);
         }
@@ -667,7 +727,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
-        
+        rippleEffect.enabled = false;
 
         PauseMenu.SetActive(true);
         Invoke("TimeScale0", 0.5f);
@@ -679,6 +739,8 @@ public class UIManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        rippleEffect.enabled = true;
+
         PauseMenuAnim.SetBool("OpenPauseMenu", false);
         Time.timeScale = 1f;
 
@@ -712,12 +774,16 @@ public class UIManager : MonoBehaviour
 
     public void OpenSettingsScreen()
     {
+        DisableMenuButtons();
+
         SettingsScreen.SetActive(true);
         //MainMenu.SetActive(false);
     }
 
     public void CloseSettingsScreen()
     {
+        EnableMenuButtons();
+
         settingsScreenAnim.SetBool("OpenSettings", false);
         //MainMenu.SetActive(true);
 
@@ -891,11 +957,15 @@ public class UIManager : MonoBehaviour
 
     public void OpenCreditsMenu()
     {
+        DisableMenuButtons();
+
         CreditsMenu.SetActive(true);
     }
 
     public void CloseCreditsMenu()
     {
+        EnableMenuButtons();
+
         creditsMenuAnim.SetBool("OpenCredits",false);
         Invoke("TurnOffCreditsMenu", 1.2f);
     }
@@ -955,6 +1025,8 @@ public class UIManager : MonoBehaviour
 
     public void ShowShopMenu()
     {
+        DisableMenuButtons();
+
         AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
         AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
 
@@ -963,6 +1035,8 @@ public class UIManager : MonoBehaviour
 
     public void CloseShopMenu()
     {
+        EnableMenuButtons();
+
         AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
         AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
 
@@ -979,6 +1053,8 @@ public class UIManager : MonoBehaviour
 
     public void ShowChallengesMenu()
     {
+        DisableMenuButtons();
+
         AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
 
         if (!PauseMenu.activeSelf)
@@ -991,6 +1067,8 @@ public class UIManager : MonoBehaviour
 
     public void CloseChallengesMenu()
     {
+        EnableMenuButtons();
+
         if (PauseMenu.activeSelf)
         {
             ChallengesMenu.SetActive(false);

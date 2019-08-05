@@ -21,6 +21,9 @@ public static class AudioManager
         MainMenuBGM,
         ShopChallengesBGM,
         LoseMenuBGM,
+        LuckySpinBGM,
+        CollectCoinSec,
+        CollectOpal,
 
     }
 

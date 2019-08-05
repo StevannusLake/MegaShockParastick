@@ -11762,6 +11762,17 @@ MonoBehaviour:
   InGameUI: {fileID: 946061137}
   PauseButton: {fileID: 1504117186}
   dailyRewardsAnim: {fileID: 8833761058197826600}
+  PlayButton: {fileID: 1714404130}
+  ShopButton: {fileID: 46953469}
+  ChallengesButton: {fileID: 1728409041}
+  LeaderboardButton: {fileID: 711530265}
+  FreeOpalsMainMenuButton: {fileID: 230340976}
+  RateUsButton: {fileID: 232242681}
+  CreditsButton: {fileID: 1094560}
+  SettingsButton: {fileID: 1661204015}
+  DailyRewardsButton: {fileID: 981551831}
+  CurrenciesMainMenuButton: {fileID: 1098685416}
+  rippleEffect: {fileID: 365027987}
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69253,7 +69264,7 @@ PrefabInstance:
     - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
         type: 3}
       propertyPath: soundAudioClipArray.Array.size
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
         type: 3}
@@ -69572,6 +69583,101 @@ PrefabInstance:
         type: 3}
       propertyPath: soundAudioClipArray.Array.data[13].Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[14].sound
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[14].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f75883f90ff7ad448b8045a8def50662, type: 3}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[14].minPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[14].maxPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[14].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[14].Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[10].Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d8989fb46899c6a4bb80969edb3673f5, type: 3}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[15].sound
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[15].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bbe28723228236843ac65fe93874a3b3, type: 3}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[15].minPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[15].maxPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[15].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[15].Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[16].sound
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[16].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1cc2950983000e040be747f93db1d551, type: 3}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[16].minPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[16].maxPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250350674794035957, guid: 97a9781b656b8cf49a10c29c02bc8f42,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[16].volume
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a9781b656b8cf49a10c29c02bc8f42, type: 3}
