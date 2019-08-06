@@ -11,6 +11,7 @@ public class GameAssets : MonoBehaviour
 
     void Awake()
     {
+        
         if (i == null) i = this;
         else if (i != this) Destroy(gameObject);
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class AudioManager 
+public static class AudioManager
 {
     
     public enum Sound
@@ -26,7 +26,6 @@ public static class AudioManager
         CollectOpal,
 
     }
-
     
     private static Dictionary<Sound, float> soundTimerDictionary;
     public static void Initialize()
@@ -35,8 +34,6 @@ public static class AudioManager
         soundTimerDictionary[Sound.PlayerUnstick] = 0;
         
     }
-
-   
 
     //Use to play sound from any script (AudioManager.PlaySound(AudioManager.Sound.PlayerJump))'
     //Play a universal audio regardless of object position and audiosource
@@ -53,18 +50,25 @@ public static class AudioManager
                 source.volume = GetAudioClipVolume(sound);
 
                 source.loop = GetAudioLoop(sound);
-                if(source.loop)
+                //source.PlayOneShot(GetAudioClip(sound));
+
+                //source.Play();
+
+                if (source.loop)
                 {
                     if (!source.isPlaying)
                     {
                         source.PlayOneShot(GetAudioClip(sound));
+                        //Debug.Log("THIS IS LOOPING1");
                     }
                 }
                 else
                 {
                     source.PlayOneShot(GetAudioClip(sound));
+
+                    //Debug.Log("NOPE LOOPING1");
                 }
-                
+
                 DoCustomization(sound, source);
 
 
@@ -81,16 +85,24 @@ public static class AudioManager
                 source.volume= GetAudioClipVolume(sound);
 
                 source.loop = GetAudioLoop(sound);
+                //source.PlayOneShot(GetAudioClip(sound));
+
+                //source.Play();
+
                 if (source.loop)
                 {
                     if (!source.isPlaying)
                     {
                         source.PlayOneShot(GetAudioClip(sound));
+                        //source.Play();
+                        //Debug.Log("THIS IS LOOPING2");
                     }
                 }
                 else
                 {
                     source.PlayOneShot(GetAudioClip(sound));
+                    //source.Play();
+                    //Debug.Log("NOPE LOOPING2");
                 }
 
                 DoCustomization(sound, source);
@@ -157,12 +169,12 @@ public static class AudioManager
 
     static void DoCustomization(Sound sound,AudioSource source)
     {
-        switch (sound)
-        {
-            case Sound.InGameBGM:
-                source.loop = true;
-                break;
-        }
+        //switch (sound)
+        //{
+            //case Sound.Water:
+            //    source.loop = true;
+            //    break;
+        //}
     }
 
     public static void PlaySoundCustom(Sound sound, float volume, float pitch , bool shouldLoop)

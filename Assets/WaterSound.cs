@@ -13,9 +13,4 @@ public class WaterSound : MonoBehaviour
     {
         AudioManager.PlaySoundCustom(AudioManager.Sound.Water, AudioManager.GetAudioClipVolume(AudioManager.Sound.Water), AudioManager.GetAudioClipMaxPitch(AudioManager.Sound.Water), true);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
