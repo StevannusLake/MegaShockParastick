@@ -4,7 +4,6 @@ using UnityEngine;
 
 public static class AudioManager
 {
-    
     public enum Sound
     {
         PlayerUnstick,
