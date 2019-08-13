@@ -11,8 +11,8 @@ public class CustomAudioHandler : MonoBehaviour
     System.Array AudioSoundType;
     public float defultCoinPitch;
     private float coinPitch ;
-    private AudioManager.Sound[] soundEffectList;
-    private AudioManager.Sound[] bgmList;
+    public AudioManager.Sound[] soundEffectList;
+    public AudioManager.Sound[] bgmList;
     public List<float> prevVolumes;
     bool isMuteOrUnmuting = false;
 

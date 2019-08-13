@@ -13950,12 +13950,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78877e7b31bc418488aa733687f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
   parasiteBottomObject: {fileID: 0}
   placeBottomObject: {fileID: 0}
   coinsBottomObject: {fileID: 0}
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 1716115517}
+  duration: 2
 --- !u!1 &650212108
 GameObject:
   m_ObjectHideFlags: 0
@@ -37139,12 +37141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78877e7b31bc418488aa733687f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
   parasiteBottomObject: {fileID: 0}
   placeBottomObject: {fileID: 0}
   coinsBottomObject: {fileID: 0}
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 296541149}
   creditsBottom: {fileID: 0}
+  duration: 0
 --- !u!1 &1603673442
 GameObject:
   m_ObjectHideFlags: 0
@@ -42649,12 +42653,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78877e7b31bc418488aa733687f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
   parasiteBottomObject: {fileID: 0}
   placeBottomObject: {fileID: 0}
   coinsBottomObject: {fileID: 1604824483}
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
+  duration: 0
 --- !u!1 &1851329939
 GameObject:
   m_ObjectHideFlags: 0
@@ -58784,12 +58790,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78877e7b31bc418488aa733687f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
   parasiteBottomObject: {fileID: 2229326514480360375}
   placeBottomObject: {fileID: 0}
   coinsBottomObject: {fileID: 0}
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
+  duration: 2
 --- !u!1 &1969588802960080406
 GameObject:
   m_ObjectHideFlags: 0
@@ -67486,12 +67494,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78877e7b31bc418488aa733687f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
   parasiteBottomObject: {fileID: 0}
   placeBottomObject: {fileID: 1807879606}
   coinsBottomObject: {fileID: 0}
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
+  duration: 0
 --- !u!222 &3634520117646798696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -69106,7 +69116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &6355159385966173444
 Animator:
   serializedVersion: 3
@@ -70159,12 +70169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78877e7b31bc418488aa733687f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
   parasiteBottomObject: {fileID: 0}
   placeBottomObject: {fileID: 0}
   coinsBottomObject: {fileID: 0}
   challengesBottom: {fileID: 8833761059199708337}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
+  duration: 1.5
 --- !u!1 &8833761058148535491
 GameObject:
   m_ObjectHideFlags: 0

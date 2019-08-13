@@ -78,39 +78,39 @@ public class LuckySpinManager : MonoBehaviour
             #region //RandomAngle
             if (reward == RewardType.twoFreeSpins)
             {
-                randomFinalAngle = Random.Range(1f,39f);
+                randomFinalAngle = Random.Range(1f,22f);
             }
             else if(reward == RewardType.twentyFivePoints)
             {
-                randomFinalAngle = Random.Range(41f, 79f);
+                randomFinalAngle = Random.Range(32f, 59f);
             }
             else if(reward == RewardType.fiftyPoints)
             {
-                randomFinalAngle = Random.Range(81f, 119f);
+                randomFinalAngle = Random.Range(72f, 101f);
             }
             else if(reward == RewardType.oneThousandPoints)
             {
-                randomFinalAngle = Random.Range(121f, 159f);
+                randomFinalAngle = Random.Range(115f, 143f);
             }
             else if(reward == RewardType.zonk)
             {
-                randomFinalAngle = Random.Range(161f, 199f);
+                randomFinalAngle = Random.Range(161f, 184f);
             }
             else if(reward == RewardType.fiveHundredPoints)
             {
-                randomFinalAngle = Random.Range(201f, 239f);
+                randomFinalAngle = Random.Range(193f, 222f);
             }
             else if(reward == RewardType.fivePoints)
             {
-                randomFinalAngle = Random.Range(241f, 279f);
+                randomFinalAngle = Random.Range(235f, 262f);
             }
             else if(reward == RewardType.oneHundredPoints)
             {
-                randomFinalAngle = Random.Range(281f, 319f);
+                randomFinalAngle = Random.Range(271f, 304f);
             }
             else if(reward == RewardType.tenPoints)
             {
-                randomFinalAngle = Random.Range(321f, 359f);
+                randomFinalAngle = Random.Range(320f, 339f);
             }
             #endregion
             //_sectorsAngles = new float[] { 351,32 };

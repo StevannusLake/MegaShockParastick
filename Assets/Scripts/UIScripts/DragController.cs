@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DragController : MonoBehaviour
 {
     private Vector3 rawDelta = Vector3.zero;
-    private Vector3 initPos;
+    public Vector3 initPos;
     private bool isDragging = false;
     public Transform parasiteBottomObject;
     public Transform placeBottomObject;
@@ -16,6 +16,8 @@ public class DragController : MonoBehaviour
     public Transform challengesBottom;
     public Transform achievementBottom;
     public Transform creditsBottom;
+    private float timer;
+    public float duration;
 
     // Start is called before the first frame update
     void Start()
@@ -30,135 +32,143 @@ public class DragController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(UIManager.Instance.ShopMenu.activeInHierarchy)
-        {
-            if (Shop.instance.shopState == Shop.ShopState.parasite)
-            {
-                bottomObject = parasiteBottomObject;
-            }
-            else if (Shop.instance.shopState == Shop.ShopState.place)
-            {
-                bottomObject = placeBottomObject;
-            }
-            else if (Shop.instance.shopState == Shop.ShopState.coins)
-            {
-                bottomObject = coinsBottomObject;
-            }            
-        }
-        else if(UIManager.Instance.ChallengesMenu.activeInHierarchy)
-        {
-            if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
-                bottomObject = challengesBottom;
-            else bottomObject = achievementBottom;
-        }
-        else if(UIManager.Instance.CreditsMenu.activeInHierarchy)
-        {
-            bottomObject = creditsBottom;
-        }
-        if (Input.touchCount > 0)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                rawDelta = Input.GetTouch(0).deltaPosition * 0.01f;
-                //Debug.Log(Input.GetTouch(0).deltaPosition.magnitude);
-                if(Input.GetTouch(0).deltaPosition.magnitude > 4f)
-                {
-                    GameManager.instance.isDragging = true;
-                }
-                isDragging = true;
-            }
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                GameManager.instance.isDragging = false;
-                isDragging = false;
-            }
-        }
-        MoveByDrag(rawDelta);
-        if (!isDragging)
+        if(timer >= duration)
         {
             if (UIManager.Instance.ShopMenu.activeInHierarchy)
             {
                 if (Shop.instance.shopState == Shop.ShopState.parasite)
                 {
-                    if (transform.position.y < initPos.y)
-                    {
-                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
-                    }
-                    else if (bottomObject.position.y > initPos.y + 1f)
-                    {
-                        rawDelta.y = 0f;
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 26.7f, transform.position.z), 3f * Time.deltaTime);
-                    }
+                    bottomObject = parasiteBottomObject;
                 }
-                else if(Shop.instance.shopState == Shop.ShopState.place)
+                else if (Shop.instance.shopState == Shop.ShopState.place)
                 {
-                    if (transform.position.y < initPos.y)
-                    {
-                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
-                    }
-                    else if (bottomObject.position.y > initPos.y - 1f)
-                    {
-                        rawDelta.y = 0f;
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 10.9f, transform.position.z), 3f * Time.deltaTime);
-                    }
+                    bottomObject = placeBottomObject;
                 }
-                else if(Shop.instance.shopState == Shop.ShopState.coins)
+                else if (Shop.instance.shopState == Shop.ShopState.coins)
                 {
-                    if (transform.position.y < initPos.y)
-                    {
-                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
-                    }
-                    else if (bottomObject.position.y > initPos.y - 1f)
-                    {
-                        //rawDelta.y = 0f;
-                        //this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 10.9f, transform.position.z), 3f * Time.deltaTime);
-                    }
+                    bottomObject = coinsBottomObject;
                 }
             }
             else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
-            {   
-                if(MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
-                {
-                    if (transform.position.y < initPos.y)
-                    {
-                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
-                    }
-                    else if (bottomObject.position.y > initPos.y - 2f)
-                    {
-                        rawDelta.y = 0f;
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -0.9f, transform.position.z), 3f * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    if (transform.position.y < initPos.y)
-                    {
-                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
-                    }
-                    else if (bottomObject.position.y > initPos.y - 2f)
-                    {
-                        rawDelta.y = 0f;
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 15f, transform.position.z), 3f * Time.deltaTime);
-                    }
-                }
-            }
-            else if(UIManager.Instance.CreditsMenu.activeInHierarchy)
             {
-                if (transform.position.y < initPos.y)
+                if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
+                    bottomObject = challengesBottom;
+                else bottomObject = achievementBottom;
+            }
+            else if (UIManager.Instance.CreditsMenu.activeInHierarchy)
+            {
+                bottomObject = creditsBottom;
+            }
+            if (Input.touchCount > 0)
+            {
+                if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
-                    this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
-                    Debug.Log("too hight");
+                    rawDelta = Input.GetTouch(0).deltaPosition * 0.01f;
+                    //Debug.Log(Input.GetTouch(0).deltaPosition.magnitude);
+                    if (Input.GetTouch(0).deltaPosition.magnitude > 4f)
+                    {
+                        GameManager.instance.isDragging = true;
+                    }
+                    isDragging = true;
                 }
-                else if (bottomObject.position.y > initPos.y - 2f)
+                if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
-                    rawDelta.y = 0f;
-                    this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 5.2f, transform.position.z), 3f * Time.deltaTime);
-                    Debug.Log("too low");
+                    GameManager.instance.isDragging = false;
+                    isDragging = false;
                 }
             }
+            MoveByDrag(rawDelta);
+            if (!isDragging)
+            {
+                if (UIManager.Instance.ShopMenu.activeInHierarchy)
+                {
+                    if (Shop.instance.shopState == Shop.ShopState.parasite)
+                    {
+                        if (transform.position.y < initPos.y)
+                        {
+                            this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.unscaledDeltaTime);
+                        }
+                        else if (bottomObject.position.y > initPos.y + 1f)
+                        {
+                            rawDelta.y = 0f;
+                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 26.7f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                        }
+                        Debug.Log("CurrentPos:" + transform.position);
+                    }
+                    else if (Shop.instance.shopState == Shop.ShopState.place)
+                    {
+                        if (transform.position.y < initPos.y)
+                        {
+                            this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                        }
+                        else if (bottomObject.position.y > initPos.y - 1f)
+                        {
+                            rawDelta.y = 0f;
+                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 10.9f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                        }
+                    }
+                    else if (Shop.instance.shopState == Shop.ShopState.coins)
+                    {
+                        if (transform.position.y < initPos.y)
+                        {
+                            this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.unscaledDeltaTime);
+                        }
+                        else if (bottomObject.position.y > initPos.y - 1f)
+                        {
+                            //rawDelta.y = 0f;
+                            //this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 10.9f, transform.position.z), 3f * Time.deltaTime);
+                        }
+                    }
+                }
+                else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
+                {
+                    if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
+                    {
+                        if (transform.position.y < initPos.y)
+                        {
+                            this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.unscaledDeltaTime);
+                        }
+                        else if (bottomObject.position.y > initPos.y - 2f)
+                        {
+                            rawDelta.y = 0f;
+                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -0.9f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                        }
+                    }
+                    else
+                    {
+                        if (transform.position.y < initPos.y)
+                        {
+                            this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.unscaledDeltaTime);
+                        }
+                        else if (bottomObject.position.y > initPos.y - 2f)
+                        {
+                            rawDelta.y = 0f;
+                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 15f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                        }
+                    }
+                }
+                else if (UIManager.Instance.CreditsMenu.activeInHierarchy)
+                {
+                    if (transform.position.y < initPos.y)
+                    {
+                        this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.unscaledDeltaTime);
+                        Debug.Log("too hight");
+                    }
+                    else if (bottomObject.position.y > initPos.y - 2f)
+                    {
+                        rawDelta.y = 0f;
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 5.2f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                        Debug.Log("too low");
+                    }
+                }
+            }
+            rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.unscaledDeltaTime * 1f);
+            //Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
         }
-        rawDelta = Vector3.Lerp(rawDelta, Vector3.zero, Time.deltaTime * 1f);
-        //Debug.Log("This Pos: " + transform.position + " InitPos: " + initPos + " BottomPos: " + bottomObject.position);
+        else
+        {
+            duration += Time.unscaledDeltaTime;
+        }
     }
 
     void MoveByDrag(Vector3 rawD)
