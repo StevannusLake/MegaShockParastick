@@ -143,7 +143,7 @@ public class Shop : MonoBehaviour
 
         if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Default)
         {
-            movement.maxBounceCounter = 2;
+            movement.maxBounceCounter = 3;
             movement.doubleSlingshotCounter = 3;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 3;
@@ -153,7 +153,7 @@ public class Shop : MonoBehaviour
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Special)
         {
-            movement.maxBounceCounter = 2;
+            movement.maxBounceCounter = 3;
             movement.doubleSlingshotCounter = 15;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 15;
@@ -163,7 +163,7 @@ public class Shop : MonoBehaviour
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Mission)
         {
-            movement.maxBounceCounter = 3;
+            movement.maxBounceCounter = 4;
             movement.doubleSlingshotCounter = 9;
             movement.INCREMENTSLINGSHOT = 2;
             movement.MAXSLINGSHOT = 9;
@@ -173,7 +173,7 @@ public class Shop : MonoBehaviour
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Video)
         {
-            movement.maxBounceCounter = 3;
+            movement.maxBounceCounter = 4;
             movement.doubleSlingshotCounter = 9;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 9;
@@ -183,7 +183,7 @@ public class Shop : MonoBehaviour
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Secret)
         {
-            movement.maxBounceCounter = 5;
+            movement.maxBounceCounter = 6;
             movement.doubleSlingshotCounter = 12;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 12;
@@ -193,7 +193,7 @@ public class Shop : MonoBehaviour
         }
         else if (skinUsing.GetComponent<Skin>().rarity == Skin.Rarity.Legendary)
         {
-            movement.maxBounceCounter = 4;
+            movement.maxBounceCounter = 5;
             movement.doubleSlingshotCounter = 12;
             movement.INCREMENTSLINGSHOT = 1;
             movement.MAXSLINGSHOT = 12;

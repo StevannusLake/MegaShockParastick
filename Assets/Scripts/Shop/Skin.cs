@@ -114,7 +114,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
                     if (rarity == Rarity.Default)
                     {
-                        player.GetComponent<Movement>().maxBounceCounter = 2;
+                        player.GetComponent<Movement>().maxBounceCounter = 3;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 3;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = false;
@@ -124,7 +124,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                     }
                     else if (rarity == Rarity.Special)
                     {
-                        player.GetComponent<Movement>().maxBounceCounter = 2;
+                        player.GetComponent<Movement>().maxBounceCounter = 3;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 15;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = false;
@@ -134,7 +134,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                     }
                     else if (rarity == Rarity.Mission)
                     {
-                        player.GetComponent<Movement>().maxBounceCounter = 3;
+                        player.GetComponent<Movement>().maxBounceCounter = 4;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 9;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 2;
                         player.GetComponent<Movement>().isRareSkin = false;
@@ -144,7 +144,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                     }
                     else if (rarity == Rarity.Video)
                     {
-                        player.GetComponent<Movement>().maxBounceCounter = 3;
+                        player.GetComponent<Movement>().maxBounceCounter = 4;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 9;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = true;
@@ -154,7 +154,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                     }
                     else if (rarity == Rarity.Secret)
                     {
-                        player.GetComponent<Movement>().maxBounceCounter = 5;
+                        player.GetComponent<Movement>().maxBounceCounter = 6;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 12;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = true;
@@ -164,7 +164,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                     }
                     else if (rarity == Rarity.Legendary)
                     {
-                        player.GetComponent<Movement>().maxBounceCounter = 4;
+                        player.GetComponent<Movement>().maxBounceCounter = 5;
                         player.GetComponent<Movement>().doubleSlingshotCounter = 12;
                         player.GetComponent<Movement>().INCREMENTSLINGSHOT = 1;
                         player.GetComponent<Movement>().isRareSkin = true;
