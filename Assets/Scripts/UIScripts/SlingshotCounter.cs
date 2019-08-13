@@ -62,22 +62,22 @@ public class SlingshotCounter : MonoBehaviour
             {
                 slingshotCounters[4].sprite = OnColor;
             }
-            if (playerMovementScript.doubleSlingshotCharge == 6)
-            {
-                slingshotCounters[3].sprite = OnColor;
-            }
-            if (playerMovementScript.doubleSlingshotCharge == 7)
-            {
-                slingshotCounters[2].sprite = OnColor;
-            }
-            if (playerMovementScript.doubleSlingshotCharge == 8)
-            {
-                slingshotCounters[1].sprite = OnColor;
-            }
-            if (playerMovementScript.doubleSlingshotCharge == 9)
-            {
-                slingshotCounters[0].sprite = OnColor;
-            }
+            //if (playerMovementScript.doubleSlingshotCharge == 6)
+            //{
+            //    slingshotCounters[3].sprite = OnColor;
+            //}
+            //if (playerMovementScript.doubleSlingshotCharge == 7)
+            //{
+            //    slingshotCounters[2].sprite = OnColor;
+            //}
+            //if (playerMovementScript.doubleSlingshotCharge == 8)
+            //{
+            //    slingshotCounters[1].sprite = OnColor;
+            //}
+            //if (playerMovementScript.doubleSlingshotCharge == 9)
+            //{
+            //    slingshotCounters[0].sprite = OnColor;
+            //}
             
             if(playerMovementScript.doubleSlingshotCharge == 0)
             {
