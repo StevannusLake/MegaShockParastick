@@ -148,6 +148,8 @@ public class UIManager : MonoBehaviour
 
     public RippleEffect rippleEffect;
 
+    public GameObject ShopMenuBlocker;
+
     private void Awake()
     {
         if(instance == null)
@@ -1037,6 +1039,8 @@ public class UIManager : MonoBehaviour
     {
         EnableMenuButtons();
 
+        ShopMenuBlocker.SetActive(true);
+
         AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
         AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
 
@@ -1048,6 +1052,8 @@ public class UIManager : MonoBehaviour
 
     void TurnOffShopMenu()
     {
+        ShopMenuBlocker.SetActive(false);
+
         ShopMenu.SetActive(false);
     }
 

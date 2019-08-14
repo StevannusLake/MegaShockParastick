@@ -20,6 +20,10 @@ public class LuckySpinManager : MonoBehaviour
     public RewardType reward;
     public GameObject rewardWindow;
 
+    public Button LuckySpinBackButton;
+    public Button LuckySpinBuyButton;
+    public GameObject rewardBlocker;
+
     private void Start()
     {
         spinText.text = "" + GameManager.instance.GetSpin();
@@ -125,6 +129,9 @@ public class LuckySpinManager : MonoBehaviour
             GameManager.instance.DecreaseSpin(1);
             spinText.text = ""+GameManager.instance.GetSpin();
             GameManager.instance.totalSpin += 1;
+
+            LuckySpinBackButton.interactable = false;
+            LuckySpinBuyButton.interactable = false;
         }
     }
 
@@ -202,6 +209,11 @@ public class LuckySpinManager : MonoBehaviour
             coinText.text = "Coin : " + GameManager.instance.GetCoin();
             pointText.text = "Point : " + GameManager.instance.GetPoints();
             rewardWindow.SetActive(true);
+
+            rewardBlocker.SetActive(true);
+
+            LuckySpinBackButton.interactable = true;
+            LuckySpinBuyButton.interactable = true;
         }
 
         // Calculate current position using linear interpolation
@@ -228,6 +240,10 @@ public class LuckySpinManager : MonoBehaviour
 
     public void CloseRewardWindow()
     {
+        LuckySpinBackButton.interactable = true;
+        LuckySpinBuyButton.interactable = true;
+
         rewardWindow.SetActive(false);
+        rewardBlocker.SetActive(false);
     }
 }

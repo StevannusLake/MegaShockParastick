@@ -23,6 +23,8 @@ public class ShopButtonController : MonoBehaviour
 
     private Animator luckySpinAnim;
 
+    public GameObject LuckySpinBlocker;
+
     private void Update()
     {
         coin.text = ""+GameManager.instance.GetCoin();
@@ -38,6 +40,8 @@ public class ShopButtonController : MonoBehaviour
         {
             luckySpinAnim = luckySpinMenu.GetComponent<Animator>();
         }
+
+        LuckySpinBlocker.SetActive(false);
     }
 
     public void ShowParasiteMenu()
@@ -89,6 +93,8 @@ public class ShopButtonController : MonoBehaviour
         AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
         AudioManager.PlaySound(AudioManager.Sound.LuckySpinBGM);
 
+        LuckySpinBlocker.SetActive(true);
+
         luckySpinMenu.SetActive(true);
     }
 
@@ -105,6 +111,8 @@ public class ShopButtonController : MonoBehaviour
 
     void TurnOffLuckySpinMenu()
     {
+        LuckySpinBlocker.SetActive(false);
+
         luckySpinMenu.SetActive(false);
     }
 
