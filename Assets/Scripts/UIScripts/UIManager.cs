@@ -244,8 +244,10 @@ public class UIManager : MonoBehaviour
 
         if (MainMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("GameTitleAnim") && !LoseMenu.activeSelf)
         {
-            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            //AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            FindObjectOfType<BGMAudioManager>().Play("MainMenuBGM");
         }
+        
     }
 
     private void Update()
@@ -487,9 +489,12 @@ public class UIManager : MonoBehaviour
 
         Invoke("TurnOffSecondChanceMenuToLoseMenu", 1.2f);
 
-        AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
-        AudioManager.StopSound(AudioManager.Sound.InGameBGM);
-        AudioManager.PlaySound(AudioManager.Sound.LoseMenuBGM);
+        //AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        FindObjectOfType<BGMAudioManager>().Stop("MainMenuBGM");
+        //AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+        FindObjectOfType<BGMAudioManager>().Stop("InGameBGM");
+        //AudioManager.PlaySound(AudioManager.Sound.LoseMenuBGM);
+        FindObjectOfType<BGMAudioManager>().Play("LoseMenuBGM");
     }
 
     void TurnOffSecondChanceMenuToLoseMenu()
@@ -539,7 +544,10 @@ public class UIManager : MonoBehaviour
     {
         if (!LoseMenu.activeSelf)
         {
-            AudioManager.PlaySound(AudioManager.Sound.InGameBGM);
+            //AudioManager.PlaySound(AudioManager.Sound.InGameBGM);
+            FindObjectOfType<BGMAudioManager>().Play("InGameBGM");
+            FindObjectOfType<BGMAudioManager>().Play("WaterBGM");
+            Debug.Log("NewWaterJustIN!");
         }
 
         dailyRewardsAnim.Play("DailyRewardsButtonClose");
@@ -564,46 +572,59 @@ public class UIManager : MonoBehaviour
         //! STOPPING SOUND
         if (secondChanceMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("SecondChanceAnimClose"))
         {
-            AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+            //AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+            FindObjectOfType<BGMAudioManager>().Stop("InGameBGM");
         }
 
         if (LoseMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("LoseScreenAnim"))
         {
-            AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+            //AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+            FindObjectOfType<BGMAudioManager>().Stop("InGameBGM");
         }
 
         if (coinMultiplyPanelAnim.GetCurrentAnimatorStateInfo(0).IsName("CoinMultiplyAnim"))
         {
-            AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+            //AudioManager.StopSound(AudioManager.Sound.InGameBGM);
+            FindObjectOfType<BGMAudioManager>().Stop("InGameBGM");
         }
 
+        
         if (MainMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("GameTitleAnimClosing"))
         {
-            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+            //AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+            FindObjectOfType<BGMAudioManager>().Stop("MainMenuBGM");
         }
 
+        /*
         if (shopMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("ShopMenuAnim"))
         {
-            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+            //AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+            FindObjectOfType<BGMAudioManager>().Stop("MainMenuBGM");
         }
 
         if (challengesScreenAnim.GetCurrentAnimatorStateInfo(0).IsName("ChallengesMenuAnim"))
         {
-            AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+            //AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+            FindObjectOfType<BGMAudioManager>().Stop("MainMenuBGM");
         }
-
+        */
+        
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        /*
         //! PLAYING SOUND
         if (shopMenuAnim.GetCurrentAnimatorStateInfo(0).IsName("ShopMenuClose"))
         {
-            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            //AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            FindObjectOfType<BGMAudioManager>().Play("MainMenuBGM");
         }
 
         if (challengesScreenAnim.GetCurrentAnimatorStateInfo(0).IsName("ChallengesMenuClose"))
         {
-            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            //AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            FindObjectOfType<BGMAudioManager>().Play("MainMenuBGM");
         }
+        */
     }
 
     void CallClosingMainMenu()
@@ -1029,8 +1050,10 @@ public class UIManager : MonoBehaviour
     {
         DisableMenuButtons();
 
-        AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
-        AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
+        //AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        FindObjectOfType<BGMAudioManager>().Stop("MainMenuBGM");
+        //AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
+        FindObjectOfType<BGMAudioManager>().Play("ShopChallengesBGM");
 
         ShopMenu.SetActive(true);
     }
@@ -1041,8 +1064,10 @@ public class UIManager : MonoBehaviour
 
         ShopMenuBlocker.SetActive(true);
 
-        AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
-        AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+        //AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
+        FindObjectOfType<BGMAudioManager>().Stop("ShopChallengesBGM");
+        //AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+        FindObjectOfType<BGMAudioManager>().Play("MainMenuBGM");
 
         shopMenuAnim.SetBool("OpenShop", false);
         //MainMenu.SetActive(true);
@@ -1061,11 +1086,13 @@ public class UIManager : MonoBehaviour
     {
         DisableMenuButtons();
 
-        AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        //AudioManager.StopSound(AudioManager.Sound.MainMenuBGM);
+        FindObjectOfType<BGMAudioManager>().Stop("MainMenuBGM");
 
         if (!PauseMenu.activeSelf)
         {
-            AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
+            //AudioManager.PlaySound(AudioManager.Sound.ShopChallengesBGM);
+            FindObjectOfType<BGMAudioManager>().Play("ShopChallengesBGM");
         }
 
         ChallengesMenu.SetActive(true);
@@ -1086,8 +1113,10 @@ public class UIManager : MonoBehaviour
 
             Invoke("TurnOffChallengesScreen", 1.2f);
             
-            AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
-            AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            //AudioManager.StopSound(AudioManager.Sound.ShopChallengesBGM);
+            FindObjectOfType<BGMAudioManager>().Stop("ShopChallengesBGM");
+            //AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
+            FindObjectOfType<BGMAudioManager>().Play("MainMenuBGM");
         }
     }
 
@@ -1096,5 +1125,10 @@ public class UIManager : MonoBehaviour
         ChallengesMenu.SetActive(false);
     }
 
+    public void GarageClosingSound()
+    {
+        FindObjectOfType<BGMAudioManager>().Stop("InGameBGM");
+        AudioManager.PlaySound(AudioManager.Sound.Reborn);
+    }
     
 }

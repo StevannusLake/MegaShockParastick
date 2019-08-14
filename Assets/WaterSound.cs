@@ -12,5 +12,6 @@ public class WaterSound : MonoBehaviour
     void PlayWaterSound()
     {
         AudioManager.PlaySoundCustom(AudioManager.Sound.Water, AudioManager.GetAudioClipVolume(AudioManager.Sound.Water), AudioManager.GetAudioClipMaxPitch(AudioManager.Sound.Water), true);
+        Debug.Log("OldWaterStillAlive");
     }
 }
