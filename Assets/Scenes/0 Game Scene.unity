@@ -32199,6 +32199,7 @@ GameObject:
   - component: {fileID: 1354248953}
   - component: {fileID: 1354248952}
   - component: {fileID: 1354248951}
+  - component: {fileID: 1354248956}
   - component: {fileID: 1354248955}
   - component: {fileID: 1354248954}
   m_Layer: 5
@@ -32307,6 +32308,19 @@ PlayableDirector:
     value: {fileID: 1354248954}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1354248956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354248950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11af2ae44e38b724bbc8150203151277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDrag: 0
 --- !u!1 &1371127077
 GameObject:
   m_ObjectHideFlags: 0
@@ -45206,6 +45220,7 @@ MonoBehaviour:
   scale: {x: 0, y: 0, z: 0}
   doubleSlingshotCharge: 0
   isSticking: 0
+  mainMenu: {fileID: 1354248950}
   myBackground: {fileID: 243787347}
 --- !u!50 &1968270235
 Rigidbody2D:
