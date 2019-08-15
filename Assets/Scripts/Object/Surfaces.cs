@@ -27,7 +27,7 @@ public class Surfaces : MonoBehaviour
     string nSurfaceTag = "NSurface";
     private Transform[] pingpongObjects;
     public Transform platformPlacementTransform;
-    private float aboutToDieTimer = 0;
+    public float aboutToDieTimer = 0;
     GameObject player;
     CircleCollider2D playerCollider;
     
@@ -36,6 +36,7 @@ public class Surfaces : MonoBehaviour
     public bool OnRotation = false;
     DangerType[] dangers = new DangerType[] { DangerType.FADE, DangerType.FAST };
     private Animator anim;
+    private bool stopTimer;
 
     // Start is called before the first frame update
 
@@ -316,7 +317,7 @@ public class Surfaces : MonoBehaviour
 
     void FadeOutAndDie()
     {
-
+        
         bool createRandomSpeed = false;
         if(!createRandomSpeed)
         {
@@ -336,9 +337,13 @@ public class Surfaces : MonoBehaviour
                         {
                             anim.SetBool("AboutToDie", true);
                         }
-                        if (aboutToDieTimer >= 4f)
+                        if (aboutToDieTimer >= 4f && stopTimer == false)
                         {
                             stickCount = 3;
+                            player.transform.parent = null;
+                            player.GetComponent<Rigidbody2D>().gravityScale = 1;
+                            stopTimer = true;
+                            aboutToDieTimer = 0;
                         }
                         break;
                 }
