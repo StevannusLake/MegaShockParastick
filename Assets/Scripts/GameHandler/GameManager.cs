@@ -40,13 +40,13 @@ public class GameManager : MonoBehaviour
     public Vector3 parasiteInitPos = Vector3.zero;
     public Vector3 placeInitPos = Vector3.zero;
     public Vector3 coinInitPos = Vector3.zero;
-    public Vector3 achievementInitPos = Vector3.zero;
-    public Vector3 missionInitPos = Vector3.zero;
     public GameObject ParasiteMenu;
     public GameObject PlaceMenu;
     public GameObject CoinMenu;
     public GameObject achievementMenu;
     public GameObject missionMenu;
+    public GameObject achievementPos;
+    public GameObject missionPos;
 
     public bool isDragging = false;
 

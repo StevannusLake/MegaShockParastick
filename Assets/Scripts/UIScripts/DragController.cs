@@ -28,7 +28,6 @@ public class DragController : MonoBehaviour
         }
         else
         {
-            initPos = transform.position;
             if (UIManager.Instance.ShopMenu.activeInHierarchy)
             {
                 if (Shop.instance.shopState == Shop.ShopState.parasite)
@@ -50,23 +49,6 @@ public class DragController : MonoBehaviour
                     if(GameManager.instance.coinInitPos == Vector3.zero)
                     {
                         GameManager.instance.coinInitPos = initPos;
-                    }
-                }
-            }
-            if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
-            {
-                if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
-                {
-                    if (GameManager.instance.missionInitPos == Vector3.zero)
-                    {
-                        GameManager.instance.missionInitPos = initPos;
-                    }
-                }
-                else
-                {
-                    if (GameManager.instance.achievementInitPos == Vector3.zero)
-                    {
-                        GameManager.instance.achievementInitPos = initPos;
                     }
                 }
             }
@@ -168,6 +150,7 @@ public class DragController : MonoBehaviour
                 }
                 else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
                 {
+                    Debug.Log("CurrentPos:" + transform.position);
                     if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
                     {
                         if (transform.position.y < initPos.y)
@@ -285,11 +268,11 @@ public class DragController : MonoBehaviour
         {
             if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
             {
-                 transform.position = GameManager.instance.missionInitPos;
+                 transform.localPosition = GameManager.instance.achievementPos.transform.localPosition;
             }
             else
             {    
-                 transform.position = GameManager.instance.achievementInitPos;              
+                 transform.localPosition = GameManager.instance.achievementPos.transform.localPosition;
             }
         }
     }

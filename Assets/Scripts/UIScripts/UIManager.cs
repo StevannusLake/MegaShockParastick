@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     public Text coinCounterInGame;
     public Text pointCounterInGame;
     public Text pointCounterInSecondChance;
+    public bool isPaused = false;
 
     //private float delayTimer = 0f;
     //private bool isPaused = false;
@@ -563,7 +564,7 @@ public class UIManager : MonoBehaviour
         //CoinCounterSelfClose();
         OpalCounterTransitionBack();
         OpalEffectTransitionBack();
-
+        
         DisableMenuButtons();
     }
 
@@ -755,7 +756,7 @@ public class UIManager : MonoBehaviour
         PauseMenu.SetActive(true);
         Invoke("TimeScale0", 0.5f);
 
-        
+        isPaused = true;
         playerMovement.enabled = false;
         playerColliderConroller.enabled = false;
     }
@@ -769,6 +770,7 @@ public class UIManager : MonoBehaviour
 
         Invoke("TurnOffPauseMenu", 0.5f);
 
+        isPaused = false;
         playerMovement.enabled = true;
         
         playerColliderConroller.enabled = true;
@@ -1096,6 +1098,8 @@ public class UIManager : MonoBehaviour
         }
 
         ChallengesMenu.SetActive(true);
+        GameManager.instance.achievementMenu.GetComponent<DragController>().initPos = GameManager.instance.achievementMenu.transform.position;
+        GameManager.instance.missionMenu.GetComponent<DragController>().initPos = GameManager.instance.missionMenu.transform.position;
     }
 
     public void CloseChallengesMenu()
