@@ -1071,7 +1071,7 @@ public class UIManager : MonoBehaviour
 
         shopMenuAnim.SetBool("OpenShop", false);
         //MainMenu.SetActive(true);
-
+        
         Invoke("TurnOffShopMenu", 1.2f);
     }
 

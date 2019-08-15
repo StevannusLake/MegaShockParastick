@@ -14035,6 +14035,7 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 1716115517}
+  timer: 0
   duration: 2
 --- !u!1 &650212108
 GameObject:
@@ -27294,6 +27295,12 @@ MonoBehaviour:
   totalPoints: 0
   totalSpin: 0
   secondChanceDiscount: 0
+  parasiteInitPos: {x: 0, y: 0, z: 0}
+  placeInitPos: {x: 0, y: 0, z: 0}
+  coinInitPos: {x: 0, y: 0, z: 0}
+  ParasiteMenu: {fileID: 1969588802960080406}
+  PlaceMenu: {fileID: 3634520117580375761}
+  CoinMenu: {fileID: 1849341913}
   isDragging: 0
 --- !u!4 &1170094495
 Transform:
@@ -37315,6 +37322,7 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 296541149}
   creditsBottom: {fileID: 0}
+  timer: 0
   duration: 0
 --- !u!1 &1603673442
 GameObject:
@@ -42901,7 +42909,8 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
-  duration: 0
+  timer: 0
+  duration: 1.5
 --- !u!1 &1851329939
 GameObject:
   m_ObjectHideFlags: 0
@@ -59121,7 +59130,8 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
-  duration: 2
+  timer: 0
+  duration: 1.5
 --- !u!1 &1969588802960080406
 GameObject:
   m_ObjectHideFlags: 0
@@ -67827,7 +67837,8 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
-  duration: 0
+  timer: 0
+  duration: 1.5
 --- !u!222 &3634520117646798696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -70502,6 +70513,7 @@ MonoBehaviour:
   challengesBottom: {fileID: 8833761059199708337}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
+  timer: 0
   duration: 1.5
 --- !u!1 &8833761058148535491
 GameObject:

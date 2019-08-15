@@ -16,8 +16,8 @@ public class DragController : MonoBehaviour
     public Transform challengesBottom;
     public Transform achievementBottom;
     public Transform creditsBottom;
-    private float timer;
-    public float duration;
+    public float timer;
+    public float duration = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,53 @@ public class DragController : MonoBehaviour
         {
             initPos = new Vector3(transform.position.x, -1f, transform.position.z);
         }
-        else initPos = transform.position;
+        else
+        {
+            initPos = transform.position;
+            if (UIManager.Instance.ShopMenu.activeInHierarchy)
+            {
+                if (Shop.instance.shopState == Shop.ShopState.parasite)
+                {
+                    if(GameManager.instance.parasiteInitPos == Vector3.zero)
+                    {
+                        GameManager.instance.parasiteInitPos = initPos;
+                    }
+                }
+                else if (Shop.instance.shopState == Shop.ShopState.place)
+                {
+                    if (GameManager.instance.placeInitPos == Vector3.zero)
+                    {
+                        GameManager.instance.placeInitPos = initPos;
+                    }
+                }
+                else if (Shop.instance.shopState == Shop.ShopState.coins)
+                {
+                    if(GameManager.instance.coinInitPos == Vector3.zero)
+                    {
+                        GameManager.instance.coinInitPos = initPos;
+                    }
+                }
+            }
+            if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
+            {
+                if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
+                {
+                    if (GameManager.instance.missionInitPos == Vector3.zero)
+                    {
+                        GameManager.instance.missionInitPos = initPos;
+                    }
+                }
+                else
+                {
+                    if (GameManager.instance.achievementInitPos == Vector3.zero)
+                    {
+                        GameManager.instance.achievementInitPos = initPos;
+                    }
+                }
+            }
+        }
+
+        timer = 0f;
     }
 
     // Update is called once per frame
@@ -99,7 +145,7 @@ public class DragController : MonoBehaviour
                     {
                         if (transform.position.y < initPos.y)
                         {
-                            this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.deltaTime);
+                            this.transform.position = Vector3.Lerp(transform.position, initPos, 3f * Time.unscaledDeltaTime);
                         }
                         else if (bottomObject.position.y > initPos.y - 1f)
                         {
@@ -167,7 +213,8 @@ public class DragController : MonoBehaviour
         }
         else
         {
-            duration += Time.unscaledDeltaTime;
+            timer += Time.unscaledDeltaTime;
+            ResetPosition();
         }
     }
 
@@ -213,6 +260,36 @@ public class DragController : MonoBehaviour
                     moveDirection.y = rawD.y;
                     this.transform.Translate(moveDirection, Space.World);
                 }
+            }
+        }
+    }
+
+    public void ResetPosition()
+    {
+        if (UIManager.Instance.ShopMenu.activeInHierarchy)
+        {
+            if (Shop.instance.shopState == Shop.ShopState.parasite)
+            {
+                transform.position = GameManager.instance.parasiteInitPos;
+            }
+            else if (Shop.instance.shopState == Shop.ShopState.place)
+            {
+                transform.position = GameManager.instance.placeInitPos;
+            }
+            else if (Shop.instance.shopState == Shop.ShopState.coins)
+            {
+                transform.position = GameManager.instance.coinInitPos;
+            }           
+        }
+        else if (UIManager.Instance.ChallengesMenu.activeInHierarchy)
+        {
+            if (MissionManager.instance.challengeState == MissionManager.ChallengeState.Missions)
+            {
+                 transform.position = GameManager.instance.missionInitPos;
+            }
+            else
+            {    
+                 transform.position = GameManager.instance.achievementInitPos;              
             }
         }
     }

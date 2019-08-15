@@ -37,6 +37,16 @@ public class GameManager : MonoBehaviour
     public int totalPoints;
     public int totalSpin;
     public int secondChanceDiscount = 0;
+    public Vector3 parasiteInitPos = Vector3.zero;
+    public Vector3 placeInitPos = Vector3.zero;
+    public Vector3 coinInitPos = Vector3.zero;
+    public Vector3 achievementInitPos = Vector3.zero;
+    public Vector3 missionInitPos = Vector3.zero;
+    public GameObject ParasiteMenu;
+    public GameObject PlaceMenu;
+    public GameObject CoinMenu;
+    public GameObject achievementMenu;
+    public GameObject missionMenu;
 
     public bool isDragging = false;
 
@@ -85,6 +95,8 @@ public class GameManager : MonoBehaviour
         NotificationManager.Cancel(63);
         TimeSpan delayNotifyTime3 = new TimeSpan(48, 0, 0);
         NotificationManager.Send(62, delayNotifyTime3, "👑OUR LEGEND👑", "🤴LEGEND NEVER STOP! Are you the LEGEND we are looking for?🤔", Color.red, NotificationIcon.Heart);
+
+        ResetDragTimer();
     }
 
 
@@ -258,5 +270,25 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ResetDragTimer()
+    {   
+        if(!UIManager.Instance.ShopMenu.activeInHierarchy)
+        {
+            if (ParasiteMenu.GetComponent<DragController>().timer != 0f)
+                ParasiteMenu.GetComponent<DragController>().timer = 0f;
+            if (PlaceMenu.GetComponent<DragController>().timer != 0f)
+                PlaceMenu.GetComponent<DragController>().timer = 0f;
+            if (CoinMenu.GetComponent<DragController>().timer != 0f)
+                CoinMenu.GetComponent<DragController>().timer = 0f;
+        }      
+        if(!UIManager.Instance.ChallengesMenu.activeInHierarchy)
+        {
+            if (achievementMenu.GetComponent<DragController>().timer != 0f)
+                achievementMenu.GetComponent<DragController>().timer = 0f;
+            if (missionMenu.GetComponent<DragController>().timer != 0f)
+                missionMenu.GetComponent<DragController>().timer = 0f;
+        }
     }
 }
