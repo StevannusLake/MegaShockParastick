@@ -37,16 +37,21 @@ public class GameManager : MonoBehaviour
     public int totalPoints;
     public int totalSpin;
     public int secondChanceDiscount = 0;
-    public Vector3 parasiteInitPos = Vector3.zero;
-    public Vector3 placeInitPos = Vector3.zero;
-    public Vector3 coinInitPos = Vector3.zero;
     public GameObject ParasiteMenu;
     public GameObject PlaceMenu;
     public GameObject CoinMenu;
     public GameObject achievementMenu;
     public GameObject missionMenu;
-    public GameObject achievementPos;
+    public GameObject achievementPos; //position object
     public GameObject missionPos;
+    public Vector3 challengesPos;
+    public GameObject parasitePosObject; //position object
+    public GameObject placePosObject; // position object
+    public GameObject coinPosObject; // position object
+    public Vector3 parasitePos;
+    public Vector3 placePos;
+    public Vector3 coinPos;
+
 
     public bool isDragging = false;
 
@@ -70,7 +75,10 @@ public class GameManager : MonoBehaviour
         soundSourcesCreated = new List<string>();
 
 
-        
+        challengesPos = achievementPos.transform.position;
+        parasitePos = parasitePosObject.transform.position;
+        placePos = placePosObject.transform.position;
+        coinPos = coinPosObject.transform.position;
 
         //Refrences to Player
         playerMovement = player.GetComponent<Movement>();
