@@ -150,6 +150,9 @@ public class Movement : MonoBehaviour
 
     public MyBackground myBackground;
 
+    float period = 0;
+    float delay = 0.3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -436,6 +439,8 @@ public class Movement : MonoBehaviour
                     spawnDot = false;
                     myEmotion.EmoteIdle();
 
+                    
+
                     cancelIndicator.SetActive(false);
                 }
             }
@@ -516,6 +521,7 @@ public class Movement : MonoBehaviour
         FindObjectOfType<RippleEffect>().waveSpeed = 1.0f;
         FindObjectOfType<RippleEffect>().dropInterval = 0.3f;
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+
     }
 
     public void CancelSlingShot()
@@ -732,6 +738,8 @@ public class Movement : MonoBehaviour
                 angle *= Mathf.Rad2Deg;
                 angle += 90;
                 mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+                
+                FindObjectOfType<BGMAudioManager>().Play("WallBouncing");
                 // ===================================================================================================================================
 
 
@@ -1377,19 +1385,35 @@ public class Movement : MonoBehaviour
             if(Time.timeScale == 1 && !doubleSSEffect)
             {
                 myTrailRenderer.enabled = true;
+
+
             }
             else
             {
                 doubleSSEffect = true;
                 myTrailRenderer.enabled = false;
                 myParticleSystem.DoubleSlingshotEffect();
-
+                
                 if (ripplePeriod > 0.1f)
                 {
                     Ripple();
                     ripplePeriod = 0;
                 }
+
                 ripplePeriod += Time.deltaTime;
+
+                
+
+                if (period > delay)
+                {
+                    FindObjectOfType<BGMAudioManager>().Play("DoubleSlingshot");
+
+                    period = 0;
+                }
+
+                period += Time.deltaTime;
+
+                
             }
         }
 

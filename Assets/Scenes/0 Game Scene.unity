@@ -47290,6 +47290,18 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: WallBouncing
+    clip: {fileID: 8300000, guid: 48749567a39ef4f46b913b3f4a31976d, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoubleSlingshot
+    clip: {fileID: 8300000, guid: ac3e2f008bbaed44286b6372550ef076, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &2066983663
 Transform:
   m_ObjectHideFlags: 0
