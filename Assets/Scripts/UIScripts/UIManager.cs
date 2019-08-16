@@ -171,6 +171,8 @@ public class UIManager : MonoBehaviour
 
         ShopMenu.SetActive(false);
 
+        ChallengesMenu.SetActive(false);
+
         highScoreInMainMenu.text = PlayerPrefs.GetFloat("HighScore", 0).ToString("F1") + " mm";
 
         TutorialScreen.SetActive(false);
