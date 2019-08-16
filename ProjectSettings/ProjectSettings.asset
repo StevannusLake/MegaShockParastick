@@ -690,10 +690,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 6e1248b2-dd4b-46ce-a7b5-502a517ddbe6
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: Mega Shock
-  organizationId: stevannuslake
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
