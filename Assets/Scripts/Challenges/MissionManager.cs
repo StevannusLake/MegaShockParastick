@@ -311,15 +311,7 @@ public class MissionManager : MonoBehaviour
                 }
                 #endregion
                 #region Other
-                else if (missions[i].missionType == Missions.MissionType.Play)
-                {   
-                    if(GameManager.instance.totalPlay >= missions[i].playObj)
-                    {
-                        missions[i].isCompleted = true;
-                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
-                        achievementCount[4] += 1;
-                    }
-                }
+                
                 #endregion
                 SaveAchievements();
             }
@@ -406,6 +398,15 @@ public class MissionManager : MonoBehaviour
                 }
                 #endregion
                 #region Other
+                else if (missions[i].missionType == Missions.MissionType.Play)
+                {
+                    if (GameManager.instance.totalPlay >= missions[i].playObj)
+                    {
+                        missions[i].isCompleted = true;
+                        missionCompleteNotic.GetComponent<Animator>().Play("MissionNotic");
+                        achievementCount[4] += 1;
+                    }
+                }
                 else if(missions[i].missionType == Missions.MissionType.PlayLuckySpin)
                 {
                     if(GameManager.instance.totalSpin >= missions[i].spinObj)
@@ -569,42 +570,42 @@ public class MissionManager : MonoBehaviour
             {
                 if(missions[i].missionType == Missions.MissionType.Play)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.totalPlay / missions[i].playObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.totalPlay / (float)missions[i].playObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.StickTotal)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.totalStick / missions[i].stickObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.totalStick / (float)missions[i].stickObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.PlayLuckySpin)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.totalSpin / missions[i].spinObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.totalSpin / (float)missions[i].spinObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.Point)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.totalPoints / missions[i].pointObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.totalPoints / (float)missions[i].pointObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.BounceTotal)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.totalBounce / missions[i].bounceObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.totalBounce / (float)missions[i].bounceObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.CoinTotal)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.totalCoinCollected / missions[i].coinObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.totalCoinCollected / (float)missions[i].coinObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.DistanceTotal)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.totalDistanceTravelled / missions[i].distanceObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.totalDistanceTravelled / (float)missions[i].distanceObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.Distance)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.playerDistanceTraveled / missions[i].distanceObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.playerDistanceTraveled / (float)missions[i].distanceObj;
                 }
                 else if(missions[i].missionType == Missions.MissionType.Bounce)
                 {
-                    progressBar[i].fillAmount = GameManager.instance.bounceCounterInAGame / missions[i].bounceObj;
+                    progressBar[i].fillAmount = (float)GameManager.instance.bounceCounterInAGame / (float)missions[i].bounceObj;
                 }
                 else
-                progressBar[i].fillAmount = missions[i].completeNum / missions[i].completeObj;
+                progressBar[i].fillAmount = (float)missions[i].completeNum / (float)missions[i].completeObj;
             }
             else
             {
@@ -1180,7 +1181,7 @@ public class Missions
                 pointObj = 500;
                 missionType = MissionType.Point;
                 completeObj = 1;
-                description = "Collect 100 Points";
+                description = "Collect 500 Points";
                 nextId = 50;
                 rewardType = RewardType.skins;
                 skinReward = 17;

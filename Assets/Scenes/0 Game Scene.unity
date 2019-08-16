@@ -2057,6 +2057,7 @@ MonoBehaviour:
   rotationSpeedRandom: 0
   stickCount: 1
   platformPlacementTransform: {fileID: 0}
+  aboutToDieTimer: 0
   alreadyRespawnedCoin: 0
   OnRotation: 0
 --- !u!212 &90208362
@@ -5214,6 +5215,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1593671497}
+  - {fileID: 2027129600}
   m_Father: {fileID: 348243104}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7745,6 +7747,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7537a70c92f2db74fa0e82612624bd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &347508237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347508238}
+  m_Layer: 5
+  m_Name: MissionPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &347508238
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347508237}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1616045950}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -31.999817}
+  m_SizeDelta: {x: 0, y: 116.06555}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &347962133
 GameObject:
   m_ObjectHideFlags: 0
@@ -11021,6 +11058,7 @@ MonoBehaviour:
   rotationSpeedRandom: 0
   stickCount: 1
   platformPlacementTransform: {fileID: 0}
+  aboutToDieTimer: 0
   alreadyRespawnedCoin: 0
   OnRotation: 0
 --- !u!50 &486306797
@@ -11786,6 +11824,7 @@ MonoBehaviour:
   coinCounterInGame: {fileID: 1859935335}
   pointCounterInGame: {fileID: 655657460}
   pointCounterInSecondChance: {fileID: 206701900}
+  isPaused: 0
   TutorialScreen: {fileID: 896214596}
   SecondChanceButton: {fileID: 91207462}
   secondChanceCalled: 0
@@ -14033,6 +14072,7 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 1716115517}
+  timer: 0
   duration: 2
 --- !u!1 &650212108
 GameObject:
@@ -27292,6 +27332,16 @@ MonoBehaviour:
   totalPoints: 0
   totalSpin: 0
   secondChanceDiscount: 0
+  parasiteInitPos: {x: 0, y: 0, z: 0}
+  placeInitPos: {x: 0, y: 0, z: 0}
+  coinInitPos: {x: 0, y: 0, z: 0}
+  ParasiteMenu: {fileID: 1969588802960080406}
+  PlaceMenu: {fileID: 3634520117580375761}
+  CoinMenu: {fileID: 1849341913}
+  achievementMenu: {fileID: 1593671496}
+  missionMenu: {fileID: 8833761057996522979}
+  achievementPos: {fileID: 2027129599}
+  missionPos: {fileID: 347508237}
   isDragging: 0
 --- !u!4 &1170094495
 Transform:
@@ -32197,6 +32247,7 @@ GameObject:
   - component: {fileID: 1354248953}
   - component: {fileID: 1354248952}
   - component: {fileID: 1354248951}
+  - component: {fileID: 1354248956}
   - component: {fileID: 1354248955}
   - component: {fileID: 1354248954}
   m_Layer: 5
@@ -32305,6 +32356,19 @@ PlayableDirector:
     value: {fileID: 1354248954}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1354248956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354248950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11af2ae44e38b724bbc8150203151277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDrag: 0
 --- !u!1 &1371127077
 GameObject:
   m_ObjectHideFlags: 0
@@ -37311,9 +37375,10 @@ MonoBehaviour:
   placeBottomObject: {fileID: 0}
   coinsBottomObject: {fileID: 0}
   challengesBottom: {fileID: 0}
-  achievementBottom: {fileID: 296541149}
+  achievementBottom: {fileID: 2104210218}
   creditsBottom: {fileID: 0}
-  duration: 0
+  timer: 0
+  duration: 1.5
 --- !u!1 &1603673442
 GameObject:
   m_ObjectHideFlags: 0
@@ -37707,6 +37772,7 @@ RectTransform:
   m_Children:
   - {fileID: 8833761057996522980}
   - {fileID: 2086317207}
+  - {fileID: 347508238}
   m_Father: {fileID: 8833761058991919728}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42225,6 +42291,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1842531690}
     m_Modifications:
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42284,16 +42360,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -42899,7 +42965,8 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
-  duration: 0
+  timer: 0
+  duration: 1.5
 --- !u!1 &1851329939
 GameObject:
   m_ObjectHideFlags: 0
@@ -45204,6 +45271,7 @@ MonoBehaviour:
   scale: {x: 0, y: 0, z: 0}
   doubleSlingshotCharge: 0
   isSticking: 0
+  mainMenu: {fileID: 1354248950}
   myBackground: {fileID: 243787347}
 --- !u!50 &1968270235
 Rigidbody2D:
@@ -46731,6 +46799,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024336552}
   m_CullTransparentMesh: 0
+--- !u!1 &2027129599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027129600}
+  m_Layer: 5
+  m_Name: Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2027129600
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027129599}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 242385669}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -31.999817}
+  m_SizeDelta: {x: 0, y: 116.06555}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2028853249
 GameObject:
   m_ObjectHideFlags: 0
@@ -59119,7 +59222,8 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
-  duration: 2
+  timer: 0
+  duration: 1.5
 --- !u!1 &1969588802960080406
 GameObject:
   m_ObjectHideFlags: 0
@@ -65087,6 +65191,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5854354032655373907}
     m_Modifications:
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -65156,16 +65270,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -67825,7 +67929,8 @@ MonoBehaviour:
   challengesBottom: {fileID: 0}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
-  duration: 0
+  timer: 0
+  duration: 1.5
 --- !u!222 &3634520117646798696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -68779,6 +68884,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5854354032655373907}
     m_Modifications:
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -68848,16 +68963,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -70189,6 +70294,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1842531690}
     m_Modifications:
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5061965430741836217, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -70243,16 +70358,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Mask
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143490729806792282, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861443419674373658, guid: dc81e0f621d6d314eafd7cc6721fe6dc,
         type: 3}
@@ -70500,6 +70605,7 @@ MonoBehaviour:
   challengesBottom: {fileID: 8833761059199708337}
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
+  timer: 0
   duration: 1.5
 --- !u!1 &8833761058148535491
 GameObject:
