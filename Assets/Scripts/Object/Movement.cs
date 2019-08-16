@@ -153,6 +153,8 @@ public class Movement : MonoBehaviour
     float period = 0;
     float delay = 0.3f;
 
+    public ParticleSystem flyingParticleSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -198,11 +200,15 @@ public class Movement : MonoBehaviour
         }
         myParticleSystem.myParticleSystem.GetComponent<ParticleSystemRenderer>().material = Shop.instance.skinUsing.GetComponent<Skin>().doubleSlingShotMat;
         myTrailRenderer.material = Shop.instance.skinUsing.GetComponent<Skin>().trailMat;
+
+        flyingParticleSystem.Stop();
     }
     
     // Update is called once per frame
     void Update()
     {
+        TrailSizing();
+
         currentVelocity = myRigidBody.velocity;
         if (!UIManager.Instance.LoseMenu.activeSelf && deadState == 0) // && !MainMenu.activeSelf 
         {
@@ -1369,6 +1375,11 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void TrailSizing()
+    {
+        myTrailRenderer.widthMultiplier = transform.localScale.x;
+    }
+
     void ConfigureTrail()
     {
         if(myMoveStick == MoveState.STICK || deadState != 0)
@@ -1376,6 +1387,8 @@ public class Movement : MonoBehaviour
             myTrailRenderer.enabled = false;
             myParticleSystem.OffParticleSystem();
             doubleSSEffect = false;
+
+            flyingParticleSystem.Stop();
 
             FindObjectOfType<RippleEffect>().refractionStrength = 0.4f;
 
@@ -1386,6 +1399,8 @@ public class Movement : MonoBehaviour
             {
                 myTrailRenderer.enabled = true;
 
+                flyingParticleSystem.Play();
+
 
             }
             else
@@ -1393,7 +1408,9 @@ public class Movement : MonoBehaviour
                 doubleSSEffect = true;
                 myTrailRenderer.enabled = false;
                 myParticleSystem.DoubleSlingshotEffect();
-                
+
+                flyingParticleSystem.Stop();
+
                 if (ripplePeriod > 0.1f)
                 {
                     Ripple();
