@@ -15,6 +15,8 @@ public class InternetChecker : MonoBehaviour
     private Ping ping;
     private float pingStartTime;
     public Text timerText;
+    public Text timerText2;
+    public Text timerText3;
 
     public void Start()
     {
@@ -69,6 +71,8 @@ public class InternetChecker : MonoBehaviour
         button3.GetComponent<Button>().interactable = false;
         isConnect = false;
         timerText.GetComponent<Text>().text = "Offline";
+        timerText2.GetComponent<Text>().text = "Offline";
+        timerText3.GetComponent<Text>().text = "Offline";
     }
 
     private void InternetAvailable()

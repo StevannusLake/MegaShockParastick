@@ -32434,6 +32434,8 @@ MonoBehaviour:
   button3: {fileID: 923495450}
   isConnect: 0
   timerText: {fileID: 676477073}
+  timerText2: {fileID: 1867867896}
+  timerText3: {fileID: 1543670038}
 --- !u!1 &1170484583
 GameObject:
   m_ObjectHideFlags: 0
