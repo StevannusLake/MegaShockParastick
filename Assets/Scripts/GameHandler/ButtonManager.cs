@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Assets.SimpleAndroidNotifications;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -57,6 +58,10 @@ public class ButtonManager : MonoBehaviour
     private void Update()
     {
         //CheckMainMenu();
+
+        NotificationManager.Cancel(62);
+        TimeSpan delayNotifyTime2 = new TimeSpan(5, 0, 0);
+        NotificationManager.Send(62, delayNotifyTime2, "🏁FAR FAR AWAY🏁", "🎯Reach so far away until nobody can beat you!🥇", Color.red, NotificationIcon.Heart);
     }
 
     public void TryAgain()

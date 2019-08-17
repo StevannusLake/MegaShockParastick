@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Assets.SimpleAndroidNotifications;
+using System;
 
 public class Shop : MonoBehaviour
 {
@@ -229,6 +231,10 @@ public class Shop : MonoBehaviour
         {
             anim.SetBool("IsNearDeath", false);
         }
+
+        NotificationManager.Cancel(63);
+        TimeSpan delayNotifyTime3 = new TimeSpan(48, 0, 0);
+        NotificationManager.Send(62, delayNotifyTime3, "👑OUR LEGEND👑", "🤴LEGEND NEVER STOP! Are you the LEGEND we are looking for?🤔", Color.red, NotificationIcon.Heart);
     }
 
     public void CheckIsBought()
