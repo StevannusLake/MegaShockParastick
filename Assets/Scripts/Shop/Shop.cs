@@ -234,7 +234,7 @@ public class Shop : MonoBehaviour
 
         NotificationManager.Cancel(63);
         TimeSpan delayNotifyTime3 = new TimeSpan(48, 0, 0);
-        NotificationManager.Send(62, delayNotifyTime3, "👑OUR LEGEND👑", "🤴LEGEND NEVER STOP! Are you the LEGEND we are looking for?🤔", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(63, delayNotifyTime3, "👑OUR LEGEND👑", "🤴LEGEND NEVER STOP! Are you the LEGEND we are looking for?🤔", Color.red, NotificationIcon.Heart);
     }
 
     public void CheckIsBought()

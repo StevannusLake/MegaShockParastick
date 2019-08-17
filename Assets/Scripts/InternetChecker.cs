@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.SimpleAndroidNotifications;
+using System;
 
 public class InternetChecker : MonoBehaviour
 {
@@ -61,6 +63,11 @@ public class InternetChecker : MonoBehaviour
             if (stopCheck)
                 ping = null;
         }
+
+        NotificationManager.Cancel(62);
+        TimeSpan delayNotifyTime = new TimeSpan(5, 0, 0);
+        // schedule without icon
+        NotificationManager.Send(62, delayNotifyTime, "🏁FAR FAR AWAY🏁", "🎯Reach so far away until nobody can beat you!🥇", Color.red, NotificationIcon.Heart);
     }
 
     private void InternetIsNotAvailable()

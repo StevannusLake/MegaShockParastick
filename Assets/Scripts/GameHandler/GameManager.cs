@@ -91,10 +91,10 @@ public class GameManager : MonoBehaviour
         
         //=============================================================================================================
 
-        NotificationManager.Cancel(60);
+        NotificationManager.Cancel(61);
         TimeSpan delayNotifyTime = new TimeSpan(1, 0, 0);
         // schedule without icon
-        NotificationManager.Send(60, delayNotifyTime, "🏆HEY ACHIEVER!🏆", "🧗You know you can achieve more than this!🧗‍♀️", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(61, delayNotifyTime, "🏆HEY ACHIEVER!🏆", "🧗You know you can achieve more than this!🧗‍♀️", Color.red, NotificationIcon.Heart);
 
        
 
