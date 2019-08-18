@@ -18,7 +18,7 @@ public class MissionManager : MonoBehaviour
     public Text CoinCount;
     public Text OpalCount;
     public Image[] progressBar;
-    public enum ChallengeState { Achievements, Missions};
+    public enum ChallengeState { Achievements, Missions };
     public ChallengeState challengeState;
     public Text[] achievementText;
     public int[] achievementCount;
@@ -33,7 +33,7 @@ public class MissionManager : MonoBehaviour
     }
 
     void Start()
-    {   
+    {
         if (PlayerPrefs.GetInt("Mission1") == 0)
         {
             missionListId[0] = 1;
@@ -50,10 +50,10 @@ public class MissionManager : MonoBehaviour
             }
         }
 
-        missions = new Missions[5];   
+        missions = new Missions[5];
 
         // Load mission
-        for (int i=0;i<5;i++)
+        for (int i = 0; i < 5; i++)
         {
             var tempItem = new Missions(missionListId[i]);
             missions[i] = tempItem;
@@ -82,7 +82,7 @@ public class MissionManager : MonoBehaviour
 
     private void Update()
     {
-        if(ChallengesMenu.activeInHierarchy)
+        if (ChallengesMenu.activeInHierarchy)
         {
             CoinCount.text = "" + GameManager.instance.GetCoin();
             OpalCount.text = "" + GameManager.instance.GetPoints();
@@ -94,14 +94,15 @@ public class MissionManager : MonoBehaviour
                 return;
             }
             ShowMissionObjective();
-            CheckCompleted();            
-            CheckMissionProgressUI();          
+            CheckCompleted();
+            CheckMissionProgressUI();
         }
         if (CheckAllCompleted())
         {
             return;
         }
         CheckMissionInGame(missions);
+        SaveInGameProgress();
         for (int i = 0; i < missions.Length; i++)
         {
             if (missions[i].isCompleted)
@@ -115,9 +116,9 @@ public class MissionManager : MonoBehaviour
 
     void SaveCompletion()
     {
-        for(int i=0;i<5;i++)
+        for (int i = 0; i < 5; i++)
         {
-            if(missions[i].isCompleted)
+            if (missions[i].isCompleted)
             {
                 PlayerPrefs.SetInt("Mission" + (i + 1) + "Completed", 1);
             }
@@ -134,7 +135,7 @@ public class MissionManager : MonoBehaviour
                 PlayerPrefs.SetInt("Mission" + (i + 1) + "Claimed", 0);
             }
 
-            if(missions[i].missionType == Missions.MissionType.DistanceBetween || missions[i].missionType == Missions.MissionType.Coin
+            if (missions[i].missionType == Missions.MissionType.DistanceBetween || missions[i].missionType == Missions.MissionType.Coin
                 || missions[i].missionType == Missions.MissionType.BounceExact || missions[i].missionType == Missions.MissionType.Stick)
             {
                 PlayerPrefs.SetInt("Mission" + (i + 1) + "Progress", missions[i].completeNum);
@@ -145,7 +146,7 @@ public class MissionManager : MonoBehaviour
     void CheckCompleted() //for buttons
     {
         for (int i = 0; i < missions.Length; i++)
-        {   
+        {
             if (missions[i].isCompleted)
             {
                 missionClaimButton[i].interactable = true;
@@ -155,7 +156,7 @@ public class MissionManager : MonoBehaviour
                 missionClaimButton[i].interactable = false;
             }
 
-            if(missions[i].isClaimed)
+            if (missions[i].isClaimed)
             {
                 missionClaimButton[i].image.sprite = claimButtonSprite;
             }
@@ -164,7 +165,7 @@ public class MissionManager : MonoBehaviour
 
     void ShowMissionObjective()
     {
-        for(int i=0;i<MissionTabs.Length;i++)
+        for (int i = 0; i < MissionTabs.Length; i++)
         {
             MissionTabs[i].transform.Find("Text").GetComponent<Text>().text = missions[i].description;
         }
@@ -173,9 +174,9 @@ public class MissionManager : MonoBehaviour
     bool CheckAllCompleted()
     {
         bool isCompleted = false;
-        for(int i =0;i<5;i++)
+        for (int i = 0; i < 5; i++)
         {
-            if(!missions[i].nextQuest && missions[i].isClaimed)
+            if (!missions[i].nextQuest && missions[i].isClaimed)
             {
                 isCompleted = true;
             }
@@ -190,7 +191,7 @@ public class MissionManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        for(int i=0;i < 5;i++)
+        for (int i = 0; i < 5; i++)
         {
             PlayerPrefs.SetInt("Mission" + (i + 1), missionListId[i]);
         }
@@ -200,13 +201,13 @@ public class MissionManager : MonoBehaviour
 
     public void CheckMissionEnd(Missions[] missions)
     {
-        for(int i=0;i<5;i++)
+        for (int i = 0; i < 5; i++)
         {
-            if(!missions[i].isCompleted)
+            if (!missions[i].isCompleted)
             {
                 #region Distance
                 if (missions[i].missionType == Missions.MissionType.DistanceBetween)
-                {
+                {                   
                     if (GameManager.instance.playerDistanceTraveled >= missions[i].minDistance && GameManager.instance.playerDistanceTraveled <= missions[i].maxDistance)
                     {
                         missions[i].completeNum++;
@@ -241,6 +242,7 @@ public class MissionManager : MonoBehaviour
                 }
                 else if (missions[i].missionType == Missions.MissionType.Coin)
                 {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.coinCollectedInAGame); //revent second chance reload
                     if (GameManager.instance.coinCollectedInAGame >= missions[i].coinObj)
                     {
                         missions[i].completeNum++;
@@ -310,13 +312,127 @@ public class MissionManager : MonoBehaviour
                     }
                 }
                 #endregion
-                #region Other
-                
-                #endregion
+
                 SaveAchievements();
             }
         }
         SaveCompletion();
+    }
+
+    public void SaveInGameProgress()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (!missions[i].isCompleted)
+            {
+                #region Distance
+                if (missions[i].missionType == Missions.MissionType.DistanceBetween)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.playerDistanceTraveled); //revent second chance reload
+                }
+                #endregion
+                #region Coin
+                else if (missions[i].missionType == Missions.MissionType.CoinBetween)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.coinCollectedInAGame); //revent second chance reload
+                }
+                else if (missions[i].missionType == Missions.MissionType.CoinExact)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.coinCollectedInAGame); //revent second chance reload
+                }
+                else if (missions[i].missionType == Missions.MissionType.Coin)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.coinCollectedInAGame); //revent second chance reload
+                }
+                #endregion
+                #region Bounce
+                else if (missions[i].missionType == Missions.MissionType.BounceBetween)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.bounceCounterInAGame); //revent second chance reload
+                }
+                else if (missions[i].missionType == Missions.MissionType.BounceExact)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.bounceCounterInAGame); //revent second chance reload
+                }
+                #endregion
+                #region Stick
+                else if (missions[i].missionType == Missions.MissionType.Stick)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.stickCounterInAGame); //revent second chance reload
+                }
+                else if (missions[i].missionType == Missions.MissionType.StickBetween)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.stickCounterInAGame); //revent second chance reload
+                }
+                else if (missions[i].missionType == Missions.MissionType.StickExact)
+                {
+                    PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", GameManager.instance.stickCounterInAGame); //revent second chance reload
+                }
+                #endregion
+            }
+        }
+    }
+    public void LoadInGameProgress()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (!missions[i].isCompleted)
+            {
+                #region Distance
+                if (missions[i].missionType == Missions.MissionType.DistanceBetween)
+                {
+                    GameManager.instance.playerDistanceTraveled = PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                #endregion
+                #region Coin
+                else if (missions[i].missionType == Missions.MissionType.CoinBetween)
+                {
+                    GameManager.instance.coinCollectedInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                else if (missions[i].missionType == Missions.MissionType.CoinExact)
+                {
+                    GameManager.instance.coinCollectedInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                else if (missions[i].missionType == Missions.MissionType.Coin)
+                {
+                    GameManager.instance.coinCollectedInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                #endregion
+                #region Bounce
+                else if (missions[i].missionType == Missions.MissionType.BounceBetween)
+                {
+                    GameManager.instance.bounceCounterInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                else if (missions[i].missionType == Missions.MissionType.BounceExact)
+                {
+                    GameManager.instance.bounceCounterInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                #endregion
+                #region Stick
+                else if (missions[i].missionType == Missions.MissionType.Stick)
+                {
+                    GameManager.instance.stickCounterInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                else if (missions[i].missionType == Missions.MissionType.StickBetween)
+                {
+                    GameManager.instance.stickCounterInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                else if (missions[i].missionType == Missions.MissionType.StickExact)
+                {
+                    GameManager.instance.stickCounterInAGame = (int)PlayerPrefs.GetFloat("Mission" + i + "InGameProgress");
+                }
+                #endregion
+            }
+        }
+    }
+
+    public void ResetInGameProgress()
+    {
+        Debug.Log("ResetInGameProgress");
+        for (int i = 0; i < 5; i++)
+        {
+            PlayerPrefs.SetFloat("Mission" + i + "InGameProgress", 0f);
+        }
     }
 
     public void CheckMissionInGame(Missions[] missions)
