@@ -78,6 +78,8 @@ public class FreeCurrency1 : MonoBehaviour
     private void Update()
     {
         UpdatePassedTime();
+
+        timerText2.GetComponent<Text>().text = freeCurrencyTime2.ToString();
     }
 
     void CheckDate()
@@ -520,7 +522,7 @@ public class FreeCurrency1 : MonoBehaviour
         }
 
         timerText.GetComponent<Text>().text = differenceForMinutesQ.ToString();
-        timerText2.GetComponent<Text>().text = differenceForMinutesQ2.ToString();
+       // timerText2.GetComponent<Text>().text = differenceForMinutesQ2.ToString();
         timerText3.GetComponent<Text>().text = differenceForMinutesQ3.ToString();
     }
 
