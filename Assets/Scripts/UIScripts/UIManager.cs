@@ -151,6 +151,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject ShopMenuBlocker;
 
+    public Text timerText;
+
     private void Awake()
     {
         if(instance == null)
@@ -262,6 +264,8 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.SaveData();
 
         //CheckSecondChanceButton();
+
+       // timerText.text = this.gameObject.GetComponent<FreeCurrency1>().differenceForMinutesQ2.ToString();
 
         coinCounterInGame.text = "" + GameManager.instance.GetCoin();
         pointCounterInGame.text = "" + GameManager.instance.GetPoints();
@@ -912,7 +916,7 @@ public class UIManager : MonoBehaviour
         if (OnVibrateButton.GetComponent<Image>().sprite != OnPressedVibrateButton)
         {
             Debug.Log("vibrate testing");
-            playerMovement.VibrateNow();
+           // playerMovement.VibrateNow();
         }
 
         TurnOnVibration = true;
