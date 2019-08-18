@@ -47879,7 +47879,7 @@ MonoBehaviour:
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
   timer: 0
-  duration: 1.5
+  duration: 1.8
 --- !u!1 &1851329939
 GameObject:
   m_ObjectHideFlags: 0
@@ -64186,7 +64186,7 @@ MonoBehaviour:
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
   timer: 0
-  duration: 1.5
+  duration: 1.8
 --- !u!1 &1969588802960080406
 GameObject:
   m_ObjectHideFlags: 0
@@ -72894,7 +72894,7 @@ MonoBehaviour:
   achievementBottom: {fileID: 0}
   creditsBottom: {fileID: 0}
   timer: 0
-  duration: 1.5
+  duration: 1.8
 --- !u!222 &3634520117646798696
 CanvasRenderer:
   m_ObjectHideFlags: 0

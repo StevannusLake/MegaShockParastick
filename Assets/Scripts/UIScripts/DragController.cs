@@ -118,7 +118,8 @@ public class DragController : MonoBehaviour
                         {
                             rawDelta.y = 0f;
                             this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 26.7f, transform.position.z), 3f * Time.unscaledDeltaTime);
-                        } 
+                        }
+                        Debug.Log("CurrentPos:" + transform.position);
                     }
                     else if (Shop.instance.shopState == Shop.ShopState.place)
                     {
