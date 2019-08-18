@@ -19,6 +19,7 @@ public class LuckySpinManager : MonoBehaviour
     public enum RewardType {twoFreeSpins, twentyFivePoints, fiftyPoints, oneThousandPoints, zonk, fiveHundredPoints, fivePoints, oneHundredPoints,tenPoints };
     public RewardType reward;
     public GameObject rewardWindow;
+    public Text rewardText;
 
     public Button LuckySpinBackButton;
     public Button LuckySpinBuyButton;
@@ -26,9 +27,7 @@ public class LuckySpinManager : MonoBehaviour
 
     private void Start()
     {
-        spinText.text = "" + GameManager.instance.GetSpin();
-        coinText.text = "Coin : " + GameManager.instance.GetCoin();
-        pointText.text = "Point : " + GameManager.instance.GetPoints();
+        
     }
 
     public void TurnWheel()
@@ -178,6 +177,39 @@ public class LuckySpinManager : MonoBehaviour
 
     void Update()
     {
+        spinText.text = "" + GameManager.instance.GetSpin();
+        coinText.text = "Coin : " + GameManager.instance.GetCoin();
+        pointText.text = "Point : " + GameManager.instance.GetPoints();
+        switch ((int)reward)
+        {
+            case 0:
+                rewardText.text = "Two Spins";
+                break;
+            case 1:
+                rewardText.text = "25 Opals";
+                break;
+            case 2:
+                rewardText.text = "50 Opals";
+                break;
+            case 3:
+                rewardText.text = "1000 Opals";
+                break;
+            case 4: // zonk
+                rewardText.text = "Zonk";
+                break;
+            case 5:
+                rewardText.text = "500 Opals";
+                break;
+            case 6:
+                rewardText.text = "5 Opals";
+                break;
+            case 7:
+                rewardText.text = "100 Opals";
+                break;
+            default:
+                rewardText.text = "10 Opals";
+                break;
+        }
         MissionManager.instance.CheckMissionInGame(MissionManager.instance.missions);
         // Make turn button non interactable if user has not enough money for the turn
         if (_isStarted || GameManager.instance.GetSpin() < 1)
