@@ -441,112 +441,130 @@ public class MissionManager : MonoBehaviour
     }
 
     public void Mission1Claim()
-    {   
-        if(missions[0].isCompleted)
+    {
+        if (!missions[0].isClaimed)
         {
-            if (missions[0].rewardType == Missions.RewardType.coins)
+            if (missions[0].isCompleted)
             {
-                GameManager.instance.AddCoin(missions[0].coinReward);
-                GameManager.instance.totalCoinCollected += missions[0].coinReward;
-                missionClaimButton[0].image.sprite = claimButtonSprite;
-                missions[0].isClaimed = true;
-                questCompleted = 0;
-                if(missions[0].nextQuest)
+                if (missions[0].rewardType == Missions.RewardType.coins)
                 {
-                    MissionTabs[0].GetComponent<Animator>().Play("NextMission");
+                    GameManager.instance.AddCoin(missions[0].coinReward);
+                    GameManager.instance.totalCoinCollected += missions[0].coinReward;
+                    missionClaimButton[0].image.sprite = claimButtonSprite;
+                    missions[0].isClaimed = true;
+                    questCompleted = 0;
+                    if (missions[0].nextQuest)
+                    {
+                        MissionTabs[0].GetComponent<Animator>().Play("NextMission");
+                    }
+                }
+                else
+                {
+                    GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[0].skinReward - 1]);
+                    GameManager.instance.numOfSkinCollected++;
+                    Shop.instance.CheckIsBought();
+                }
+            }
+        }
+    }
+    public void Mission2Claim()
+    {
+        if (!missions[1].isClaimed)
+        {
+            if (missions[1].rewardType == Missions.RewardType.coins)
+            {
+                GameManager.instance.AddCoin(missions[1].coinReward);
+                GameManager.instance.totalCoinCollected += missions[1].coinReward;
+                missions[1].isClaimed = true;
+                missionClaimButton[1].image.sprite = claimButtonSprite;
+                questCompleted = 1;
+                if (missions[1].nextQuest)
+                {
+                    MissionTabs[1].GetComponent<Animator>().Play("NextMission");
                 }
             }
             else
             {
-                GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[0].skinReward-1]);
+                GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[1].skinReward - 1]);
                 GameManager.instance.numOfSkinCollected++;
                 Shop.instance.CheckIsBought();
             }
-        }      
-    }
-    public void Mission2Claim()
-    {
-        if (missions[1].rewardType == Missions.RewardType.coins)
-        {
-            GameManager.instance.AddCoin(missions[1].coinReward);
-            GameManager.instance.totalCoinCollected += missions[1].coinReward;
-            missions[1].isClaimed = true;
-            missionClaimButton[1].image.sprite = claimButtonSprite;
-            questCompleted = 1;
-            if (missions[1].nextQuest)
-            {
-                MissionTabs[1].GetComponent<Animator>().Play("NextMission");
-            }
-        }
-        else
-        {
-            GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[1].skinReward-1]);
-            GameManager.instance.numOfSkinCollected++;
-            Shop.instance.CheckIsBought();
         }
     }
     public void Mission3Claim()
     {
-        if (missions[2].rewardType == Missions.RewardType.coins)
+        if (!missions[2].isClaimed)
         {
-            GameManager.instance.AddCoin(missions[2].coinReward);
-            GameManager.instance.totalCoinCollected += missions[2].coinReward;
-            missionClaimButton[2].image.sprite = claimButtonSprite;
-            missions[2].isClaimed = true;
-            questCompleted = 2;
-            if (missions[2].nextQuest)
+            if (missions[2].rewardType == Missions.RewardType.coins)
             {
-                MissionTabs[2].GetComponent<Animator>().Play("NextMission");
+                GameManager.instance.AddCoin(missions[2].coinReward);
+                GameManager.instance.totalCoinCollected += missions[2].coinReward;
+                missionClaimButton[2].image.sprite = claimButtonSprite;
+                missions[2].isClaimed = true;
+                questCompleted = 2;
+                if (missions[2].nextQuest)
+                {
+                    MissionTabs[2].GetComponent<Animator>().Play("NextMission");
+                }
             }
-        }
-        else
-        {
-            GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[1].skinReward - 1]);
-            GameManager.instance.numOfSkinCollected++;
-            Shop.instance.CheckIsBought();
+            else
+            {
+                GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[1].skinReward - 1]);
+                GameManager.instance.numOfSkinCollected++;
+                Shop.instance.CheckIsBought();
+            }
         }
     }
     public void Mission4Claim()
     {
-        if (missions[3].rewardType == Missions.RewardType.coins)
+        if (!missions[3].isClaimed)
         {
-            GameManager.instance.AddCoin(missions[3].coinReward);
-            GameManager.instance.totalCoinCollected += missions[3].coinReward;
-            missionClaimButton[3].image.sprite = claimButtonSprite;
-            missions[3].isClaimed = true;
-            questCompleted = 3;
-            if (missions[3].nextQuest)
+            if (missions[3].rewardType == Missions.RewardType.coins)
             {
-                MissionTabs[3].GetComponent<Animator>().Play("NextMission");
+                GameManager.instance.AddCoin(missions[3].coinReward);
+                GameManager.instance.totalCoinCollected += missions[3].coinReward;
+                missionClaimButton[3].image.sprite = claimButtonSprite;
+                missions[3].isClaimed = true;
+                questCompleted = 3;
+                if (missions[3].nextQuest)
+                {
+                    MissionTabs[3].GetComponent<Animator>().Play("NextMission");
+                }
             }
-        }
-        else
-        {
-            GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[1].skinReward - 1]);
-            GameManager.instance.numOfSkinCollected++;
-            Shop.instance.CheckIsBought();
+            else
+            {
+                GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[1].skinReward - 1]);
+                GameManager.instance.numOfSkinCollected++;
+                Shop.instance.CheckIsBought();
+            }
         }
     }
     public void Mission5Claim()
-    {
-        if (missions[4].rewardType == Missions.RewardType.coins)
+    {   
+        if(!missions[4].isClaimed)
         {
-            GameManager.instance.AddCoin(missions[4].coinReward);
-            GameManager.instance.totalCoinCollected += missions[4].coinReward;
-            missionClaimButton[4].image.sprite = claimButtonSprite;
-            missions[4].isClaimed = true;
-            questCompleted = 4;
-            if (missions[4].nextQuest)
+            if (missions[4].rewardType == Missions.RewardType.coins)
             {
-                MissionTabs[4].GetComponent<Animator>().Play("NextMission");
+                GameManager.instance.AddCoin(missions[4].coinReward);
+                GameManager.instance.totalCoinCollected += missions[4].coinReward;
+                missionClaimButton[4].image.sprite = claimButtonSprite;
+                missions[4].isClaimed = true;
+                questCompleted = 4;
+                if (missions[4].nextQuest)
+                {
+                    MissionTabs[4].GetComponent<Animator>().Play("NextMission");
+                }
             }
-        }
-        else
-        {
-            GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[1].skinReward - 1]);
-            GameManager.instance.numOfSkinCollected++;
-            Shop.instance.CheckIsBought();
-        }
+            else
+            {
+                missionClaimButton[4].image.sprite = claimButtonSprite;
+                missions[4].isClaimed = true;
+                questCompleted = 4;
+                GameManager.instance.skinCollected.Add(Shop.instance.skinList[missions[4].skinReward - 1]);
+                GameManager.instance.numOfSkinCollected++;
+                Shop.instance.CheckIsBought();
+            }
+        }       
     }
 
     public void NextMission()
@@ -568,7 +586,8 @@ public class MissionManager : MonoBehaviour
         {
             if (!missions[i].isCompleted)
             {
-                if(missions[i].missionType == Missions.MissionType.Play)
+                progressBar[i].color = new Color32(255, 199, 0, 1);
+                if (missions[i].missionType == Missions.MissionType.Play)
                 {
                     progressBar[i].fillAmount = (float)GameManager.instance.totalPlay / (float)missions[i].playObj;
                 }
