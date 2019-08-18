@@ -635,7 +635,7 @@ public class FreeCurrency1 : MonoBehaviour
     //}
 
     private DateTime currentTime;
-    private DateTime oldTime;
+    public DateTime oldTime;
     private DateTime sincePressedTime;
     private DateTime buttonPressedTime;
     public TimeSpan differenceForMin;

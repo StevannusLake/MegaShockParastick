@@ -265,7 +265,7 @@ public class UIManager : MonoBehaviour
 
         //CheckSecondChanceButton();
 
-        timerText.text = this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.ToString();
+        timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
 
         coinCounterInGame.text = "" + GameManager.instance.GetCoin();
         pointCounterInGame.text = "" + GameManager.instance.GetPoints();
