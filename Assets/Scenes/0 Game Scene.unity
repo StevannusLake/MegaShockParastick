@@ -11920,6 +11920,7 @@ MonoBehaviour:
   canGetFree: 0
   isPressed: 0
   image1: {fileID: 1319176134}
+  timerText: {fileID: 2101338836}
 --- !u!1 &514261383
 GameObject:
   m_ObjectHideFlags: 0

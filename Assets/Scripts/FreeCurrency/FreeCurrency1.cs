@@ -648,6 +648,7 @@ public class FreeCurrency1 : MonoBehaviour
     public bool isPressed = false;
     public GameObject image1;
     private int addValue;
+    public Text timerText;
 
     void Start()
     {
@@ -657,6 +658,8 @@ public class FreeCurrency1 : MonoBehaviour
     private void Update()
     {
         UpdatePassedTime();
+
+        
     }
 
     void CheckDate()
@@ -689,7 +692,7 @@ public class FreeCurrency1 : MonoBehaviour
             // find differene 
             TimeSpan difference = currentTime.Subtract(oldTime);
             print(myLocation + "Difference: " + difference);
-
+            timerText.text = difference.ToString();
             if (difference.Hours >= 2)
             {
                 freeCurrency = 0;
@@ -724,6 +727,7 @@ public class FreeCurrency1 : MonoBehaviour
                 canGetFree = true;
             }
         }
+        
     }
 
     void UpdatePassedTime()
