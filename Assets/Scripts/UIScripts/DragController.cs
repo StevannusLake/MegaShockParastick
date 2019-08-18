@@ -163,7 +163,7 @@ public class DragController : MonoBehaviour
                         else if (bottomObject.position.y > initPos.y - 2f)
                         {
                             rawDelta.y = 0f;
-                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -0.9f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, initPos.y + 2.3f, transform.position.z), 3f * Time.unscaledDeltaTime);
                         }
                     }
                     else
@@ -175,7 +175,7 @@ public class DragController : MonoBehaviour
                         else if (bottomObject.position.y > initPos.y - 2f)
                         {
                             rawDelta.y = 0f;
-                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 15f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, initPos.y + 17f, transform.position.z), 3f * Time.unscaledDeltaTime);
                         }
                     }
                 }
