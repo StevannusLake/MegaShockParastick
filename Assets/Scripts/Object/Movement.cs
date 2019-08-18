@@ -261,7 +261,7 @@ public class Movement : MonoBehaviour
             {
                 if (GameManager.instance.uiManager.TurnOnVibration)
                 {
-                    VibrateNow();
+                    //VibrateNow();
                     //Invoke("CancelVibration", 0.2f);
                 }
                 playerJustDied = true;
@@ -1285,6 +1285,8 @@ public class Movement : MonoBehaviour
     {
         tempCurrentDistance = this.gameObject.transform.position.y;
 
+        
+
         if (tempCurrentDistance > initialPosition)
         {
             playerDistance += (tempCurrentDistance - initialPosition);
@@ -1357,15 +1359,15 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void VibrateNow()
-    {
-        Vibrator.Vibrate(200);
-    }
+    //public void VibrateNow()
+    //{
+    //    Vibrator.Vibrate(200);
+    //}
 
-    void CancelVibration()
-    {
-        Vibrator.Cancel();
-    }
+    //void CancelVibration()
+    //{
+    //    Vibrator.Cancel();
+    //}
 
     void Falling()
     {
