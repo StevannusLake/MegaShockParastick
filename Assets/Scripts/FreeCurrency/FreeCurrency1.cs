@@ -689,12 +689,12 @@ public class FreeCurrency1 : MonoBehaviour
 
         currentTime = DateTime.Now;
 
-        //if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
-        //{
-        //    oldTime = DateTime.Now;
-        //}
-        //else
-        //{
+        if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
+        {
+            oldTime = DateTime.Now;
+        }
+        else
+        {
             long temp = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "lastLoginTime"));
             oldTime = DateTime.FromBinary(temp);
 
@@ -738,7 +738,7 @@ public class FreeCurrency1 : MonoBehaviour
                 canGetFree = true;
             }
             stopTimer = true;
-       // }
+        }
     }
 
     void UpdatePassedTime()
@@ -823,6 +823,12 @@ public class FreeCurrency1 : MonoBehaviour
 
             GameManager.instance.AddPoints(addValue);
             GameManager.instance.SavePoints();
+            image1.SetActive(true);
         }
+    }
+
+    public void CloseAds1()
+    {
+        image1.SetActive(false);
     }
 }
