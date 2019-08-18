@@ -202,6 +202,8 @@ public class Movement : MonoBehaviour
         myTrailRenderer.material = Shop.instance.skinUsing.GetComponent<Skin>().trailMat;
 
         flyingParticleSystem.Stop();
+
+        MissionManager.instance.LoadInGameProgress();
     }
     
     // Update is called once per frame

@@ -502,6 +502,8 @@ public class UIManager : MonoBehaviour
         FindObjectOfType<BGMAudioManager>().Stop("InGameBGM");
         //AudioManager.PlaySound(AudioManager.Sound.LoseMenuBGM);
         FindObjectOfType<BGMAudioManager>().Play("LoseMenuBGM");
+
+        MissionManager.instance.ResetInGameProgress();
     }
 
     void TurnOffSecondChanceMenuToLoseMenu()

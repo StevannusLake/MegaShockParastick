@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
     public Vector3 placePos;
     public Vector3 coinPos;
 
-
     public bool isDragging = false;
 
     void Awake()
@@ -95,10 +94,6 @@ public class GameManager : MonoBehaviour
         TimeSpan delayNotifyTime = new TimeSpan(1, 0, 0);
         // schedule without icon
         NotificationManager.Send(61, delayNotifyTime, "🏆HEY ACHIEVER!🏆", "🧗You know you can achieve more than this!🧗‍♀️", Color.red, NotificationIcon.Heart);
-
-       
-
-       
 
         ResetDragTimer();
     }
