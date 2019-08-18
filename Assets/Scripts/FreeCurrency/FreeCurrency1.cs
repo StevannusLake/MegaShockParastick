@@ -638,17 +638,20 @@ public class FreeCurrency1 : MonoBehaviour
     private DateTime oldTime;
     private DateTime sincePressedTime;
     private DateTime buttonPressedTime;
-    private TimeSpan differenceForMin;
-    private TimeSpan differenceForMinQ;
+    public TimeSpan differenceForMin;
+    public TimeSpan differenceForMinQ;
 
     public int freeCurrency;
     public string myLocation;
 
     public bool canGetFree = false;
     public bool isPressed = false;
+    public bool isQuit = false;
+    public bool stopTimer = false;
     public GameObject image1;
     private int addValue;
     public Text timerText;
+    public TimeSpan difference;
 
     void Start()
     {
@@ -658,8 +661,17 @@ public class FreeCurrency1 : MonoBehaviour
     private void Update()
     {
         UpdatePassedTime();
-
         
+        Debug.Log(differenceForMinQ);
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (isQuit == false)
+        {
+            PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
+            isQuit = true;
+        }
     }
 
     void CheckDate()
@@ -676,27 +688,26 @@ public class FreeCurrency1 : MonoBehaviour
         }
 
         currentTime = DateTime.Now;
-        canGetFree = true;
 
-        if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
-        {
-            oldTime = DateTime.Now;
-        }
-        else
-        {
+        //if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
+        //{
+        //    oldTime = DateTime.Now;
+        //}
+        //else
+        //{
             long temp = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "lastLoginTime"));
             oldTime = DateTime.FromBinary(temp);
 
             print(myLocation + "oldTime: " + oldTime);
 
             // find differene 
-            TimeSpan difference = currentTime.Subtract(oldTime);
+            difference = currentTime.Subtract(oldTime);
             print(myLocation + "Difference: " + difference);
-            timerText.text = difference.ToString();
+            
             if (difference.Hours >= 2)
             {
                 freeCurrency = 0;
-                canGetFree = true;
+               // canGetFree = true;
                 PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrency);
                 if (currentTime > oldTime)
                 {
@@ -726,17 +737,17 @@ public class FreeCurrency1 : MonoBehaviour
             {
                 canGetFree = true;
             }
-        }
-        
+            stopTimer = true;
+       // }
     }
 
     void UpdatePassedTime()
     {
         TimeSpan difference = currentTime.Subtract(oldTime);
-
+        
         if (difference.Hours >= 2)
         {
-            canGetFree = true;
+            //canGetFree = true;
             freeCurrency = 0;
 
             PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrency);
@@ -759,6 +770,11 @@ public class FreeCurrency1 : MonoBehaviour
         if(isPressed == true)
         {
             differenceForMin = sincePressedTime.Subtract(buttonPressedTime);
+            isQuit = false;
+        }
+        else
+        {
+            isQuit = true;
         }
 
         if (differenceForMin.Minutes >= 1)
@@ -766,7 +782,17 @@ public class FreeCurrency1 : MonoBehaviour
             canGetFree = true;
         }
 
-        Debug.Log(differenceForMin);
+        long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
+
+        DateTime oldDate = DateTime.FromBinary(temp4);
+
+        differenceForMinQ = sincePressedTime.Subtract(oldDate);
+
+        if (differenceForMinQ.Minutes >= 1 && stopTimer == true)
+        {
+            canGetFree = true;
+            stopTimer = false;
+        }
     }
 
     public void GetFreeOpalMainMenu()
@@ -784,7 +810,7 @@ public class FreeCurrency1 : MonoBehaviour
 
             // button pressed, save and set press button time to buttonPressedTime
             PlayerPrefs.SetString(myLocation + "PressButtonTime", System.DateTime.Now.ToBinary().ToString());
-
+            PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
 
             freeCurrency++;
             PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrency);
