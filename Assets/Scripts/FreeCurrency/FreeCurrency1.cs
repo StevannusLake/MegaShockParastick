@@ -174,7 +174,7 @@ public class FreeCurrency1 : MonoBehaviour
             }
             else
             {
-                button1.GetComponent<Button>().interactable = false;
+             //   button1.GetComponent<Button>().interactable = false;
             }
             isStart = true;
         }
@@ -233,7 +233,7 @@ public class FreeCurrency1 : MonoBehaviour
             }
             else
             {
-                button2.GetComponent<Button>().interactable = false;
+             //   button2.GetComponent<Button>().interactable = false;
             }
             isStart2 = true;
         }
@@ -292,7 +292,7 @@ public class FreeCurrency1 : MonoBehaviour
             }
             else
             {
-                button3.GetComponent<Button>().interactable = false;
+               // button3.GetComponent<Button>().interactable = false;
             }
         }
         isStart3 = true;
