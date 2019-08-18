@@ -197,7 +197,7 @@ public class DragController : MonoBehaviour
                     else if (bottomObject.position.y > initPos.y - 2f)
                     {
                         rawDelta.y = 0f;
-                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 5.2f, transform.position.z), 3f * Time.unscaledDeltaTime);
+                        this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 5f, transform.position.z), 3f * Time.unscaledDeltaTime);
                         Debug.Log("too low");
                     }
                 }
@@ -239,6 +239,7 @@ public class DragController : MonoBehaviour
         {
             if (rawD.y > 0)
             {
+                isTouchingCredit = true;
                 if (bottomObject.position.y < initPos.y-2f)
                 {
                     Vector3 moveDirection = Vector3.zero;
@@ -246,8 +247,9 @@ public class DragController : MonoBehaviour
                     this.transform.Translate(moveDirection, Space.World);
                 }
             }
-            else
+            else if(rawD.y < 0)
             {
+                isTouchingCredit = true;
                 if (transform.position.y >= initPos.y)
                 {
                     Vector3 moveDirection = Vector3.zero;
