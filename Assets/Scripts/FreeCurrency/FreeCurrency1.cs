@@ -658,16 +658,17 @@ public class FreeCurrency1 : MonoBehaviour
     {
         CheckDate();
 
-        if (isFirst = (PlayerPrefs.GetInt("GetFreeCurrency") == 0))
+        if (isFirst = (PlayerPrefs.GetInt("GetFreeCurrency2") == 0))
         {
             canGetFree = true;
+            PlayerPrefs.SetString(myLocation + "lastLoginTime", System.DateTime.Now.ToBinary().ToString());
         }
     }
 
     private void Update()
     {
         UpdatePassedTime();
-        
+
         Debug.Log(differenceForMinQ);
     }
 
@@ -709,7 +710,7 @@ public class FreeCurrency1 : MonoBehaviour
             // find differene 
             difference = currentTime.Subtract(oldTime);
             print(myLocation + "Difference: " + difference);
-            
+
             if (difference.Hours >= 2)
             {
                 freeCurrency = 0;
@@ -811,7 +812,7 @@ public class FreeCurrency1 : MonoBehaviour
             // schedule without icon
             NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
 
-            PlayerPrefs.SetInt("GetFreeCurrency", (isFirst ? 1 : 0));
+            PlayerPrefs.SetInt("GetFreeCurrency2", (isFirst ? 1 : 0));
             canGetFree = false;
             isPressed = true;
 
