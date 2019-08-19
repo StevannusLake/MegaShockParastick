@@ -315,8 +315,8 @@ public class Movement : MonoBehaviour
             dpsEmission = myDeadParticleSystem.emission;
             dpsEmission.enabled = true;
 
-            GetComponent<SpriteRenderer>().enabled = false;
-            emotionSpriteRend.enabled = false;
+            //GetComponent<SpriteRenderer>().enabled = false;
+            //emotionSpriteRend.enabled = false;
             
 
             //reset
