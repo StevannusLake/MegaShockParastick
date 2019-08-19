@@ -648,6 +648,7 @@ public class FreeCurrency1 : MonoBehaviour
     public bool isPressed = false;
     public bool isQuit = false;
     public bool stopTimer = false;
+    public bool isFirst = false;
     public GameObject image1;
     private int addValue;
     public Text timerText;
@@ -656,6 +657,11 @@ public class FreeCurrency1 : MonoBehaviour
     void Start()
     {
         CheckDate();
+
+        if (isFirst = (PlayerPrefs.GetInt("GetFreeCurrency") == 0))
+        {
+            canGetFree = true;
+        }
     }
 
     private void Update()
@@ -805,6 +811,7 @@ public class FreeCurrency1 : MonoBehaviour
             // schedule without icon
             NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
 
+            PlayerPrefs.SetInt("GetFreeCurrency", (isFirst ? 1 : 0));
             canGetFree = false;
             isPressed = true;
 
