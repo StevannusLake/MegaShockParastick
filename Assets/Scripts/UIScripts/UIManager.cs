@@ -152,6 +152,10 @@ public class UIManager : MonoBehaviour
     public GameObject ShopMenuBlocker;
 
     public Text timerText;
+    public Text timerText2;
+    public Text timerText3;
+    public Text timerText4;
+    public Text timerText5;
 
     private void Awake()
     {
@@ -266,6 +270,10 @@ public class UIManager : MonoBehaviour
         //CheckSecondChanceButton();
 
         timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
+        timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
+        timerText3.text = this.gameObject.GetComponent<FreeCurrency1>().difference.ToString();
+        timerText4.text = this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.ToString();
+        timerText5.text = this.gameObject.GetComponent<FreeCurrency1>().freeCurrency.ToString();
 
         coinCounterInGame.text = "" + GameManager.instance.GetCoin();
         pointCounterInGame.text = "" + GameManager.instance.GetPoints();

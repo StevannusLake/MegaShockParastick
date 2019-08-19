@@ -634,7 +634,7 @@ public class FreeCurrency1 : MonoBehaviour
     //    image3.SetActive(false);
     //}
 
-    private DateTime currentTime;
+    public DateTime currentTime;
     public DateTime oldTime;
     private DateTime sincePressedTime;
     private DateTime buttonPressedTime;
