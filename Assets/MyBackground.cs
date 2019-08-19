@@ -26,7 +26,7 @@ public class MyBackground : MonoBehaviour
         
         distanceOfNewBackground = 3;
         distanceOfOldBackground = 15;
-        rangeOfRemovingOldBackground = 10;
+        rangeOfRemovingOldBackground = 30;
         newBackground = 1; //! 1 is because of initialBackgroundPos that has been placed before start
         oldBackground = 0; //! Always set to 0 because of always removing the last one
 

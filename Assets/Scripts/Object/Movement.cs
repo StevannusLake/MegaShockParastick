@@ -173,7 +173,7 @@ public class Movement : MonoBehaviour
         facingVector = (Vector2)myTransform.right;
         //maxBounceCounterBar = maxBounceCounter;
         initialPosition = this.gameObject.transform.position.y;
-        curScale = 1;
+        curScale = 0.1f;
         baseScale = transform.localScale;
         transform.localScale = baseScale * 1;
         scale = baseScale * 1;
@@ -962,15 +962,15 @@ public class Movement : MonoBehaviour
     {
         if (bigger == true)
         {
-            curScale++;
+            curScale = curScale + (0.1f * Time.deltaTime);
         }
         
         if(bigger == false)
         {
-            curScale--;
+            curScale = curScale - (0.1f * Time.deltaTime);
         }
 
-        curScale = Mathf.Clamp(curScale, 0.2f, 0.5f);
+        curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
 
         scale = baseScale * curScale;
     }
