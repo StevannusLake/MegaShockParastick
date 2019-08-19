@@ -155,6 +155,9 @@ public class Movement : MonoBehaviour
 
     public ParticleSystem flyingParticleSystem;
 
+    public SpriteRenderer emotionSpriteRend;
+    public ParticleSystem deadEffect2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -204,6 +207,10 @@ public class Movement : MonoBehaviour
         flyingParticleSystem.Stop();
 
         MissionManager.instance.LoadInGameProgress();
+
+        GetComponent<SpriteRenderer>().enabled = true;
+        emotionSpriteRend.enabled = true;
+        deadEffect2.Stop();
     }
     
     // Update is called once per frame
@@ -239,6 +246,11 @@ public class Movement : MonoBehaviour
             dpsEmission = myDeadParticleSystem.emission;
             dpsEmission.enabled = false;
             myDeadParticleSystem.Stop();
+
+            GetComponent<SpriteRenderer>().enabled = true;
+            emotionSpriteRend.enabled = true;
+
+            deadEffect2.Stop();
         }
         else if (!UIManager.Instance.LoseMenu.activeSelf && !MainMenu.activeSelf && !SecondChanceMenu.activeSelf && deadState == 1)
         {
@@ -302,7 +314,11 @@ public class Movement : MonoBehaviour
             // off dead particle system
             dpsEmission = myDeadParticleSystem.emission;
             dpsEmission.enabled = true;
+
+            GetComponent<SpriteRenderer>().enabled = false;
+            emotionSpriteRend.enabled = false;
             
+
             //reset
             deadState = 0;
             myRigidBody.velocity = Vector2.zero;
@@ -697,6 +713,11 @@ public class Movement : MonoBehaviour
                     dpsEmission = myDeadParticleSystem.emission;
                     dpsEmission.enabled = true;
 
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    emotionSpriteRend.enabled = false;
+
+                    deadEffect2.Play();
+
                     //==================================================================================================
                     deadState = 1;
                
@@ -916,6 +937,15 @@ public class Movement : MonoBehaviour
             //UIManager.Instance.CallSecondChanceMenu();
             if (deadState == 0)
             {
+                myDeadParticleSystem.Play();
+                dpsEmission = myDeadParticleSystem.emission;
+                dpsEmission.enabled = true;
+
+                GetComponent<SpriteRenderer>().enabled = false;
+                emotionSpriteRend.enabled = false;
+
+                deadEffect2.Play();
+
                 deadState = 1;
 
                 playerJustDied = false;
@@ -1338,6 +1368,15 @@ public class Movement : MonoBehaviour
         {
             if (deadState == 0)
             {
+                myDeadParticleSystem.Play();
+                dpsEmission = myDeadParticleSystem.emission;
+                dpsEmission.enabled = true;
+
+                GetComponent<SpriteRenderer>().enabled = false;
+                emotionSpriteRend.enabled = false;
+
+                deadEffect2.Play();
+
                 myRigidBody.velocity = Vector2.zero;
                 deadState = 1;
                 deadFix = true;
