@@ -351,6 +351,15 @@ public class Movement : MonoBehaviour
 
         if(deadState == 0 && bounceCounter >= maxBounceCounter)
         {
+            myDeadParticleSystem.Play();
+            dpsEmission = myDeadParticleSystem.emission;
+            dpsEmission.enabled = true;
+
+            GetComponent<SpriteRenderer>().enabled = false;
+            emotionSpriteRend.enabled = false;
+
+            deadEffect2.Play();
+
             deadState = 1;
             
             playerJustDied = false;
