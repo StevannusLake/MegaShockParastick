@@ -17764,7 +17764,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MohammadReza Heidari
+  m_Text: Mohammadreza Heidari
 --- !u!222 &542906311
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33567,7 +33567,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Erick Rithcer Lim
+  m_Text: Erick Ritcher Lim
 --- !u!222 &1173127415
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35635,7 +35635,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reeza
+  m_Text: 'Reezal Rosli
+
+'
 --- !u!222 &1290472280
 CanvasRenderer:
   m_ObjectHideFlags: 0
