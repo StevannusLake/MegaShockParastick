@@ -12283,7 +12283,7 @@ MonoBehaviour:
   isPressed: 0
   isQuit: 0
   stopTimer: 0
-  image1: {fileID: 1319176134}
+  image1: {fileID: 1971541954}
   timerText: {fileID: 2101338836}
 --- !u!1 &514261383
 GameObject:
