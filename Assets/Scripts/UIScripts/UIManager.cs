@@ -279,6 +279,8 @@ public class UIManager : MonoBehaviour
         timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
         timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
         timerText3.text = this.gameObject.GetComponent<FreeCurrency1>().difference.ToString();
+
+
         timerText4.text = time.ToString();
         timerText5.text = this.gameObject.GetComponent<FreeCurrency1>().freeCurrency.ToString();
 

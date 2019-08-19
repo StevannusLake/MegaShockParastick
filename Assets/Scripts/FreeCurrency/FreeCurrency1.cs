@@ -648,20 +648,31 @@ public class FreeCurrency1 : MonoBehaviour
     public bool isPressed = false;
     public bool isQuit = false;
     public bool stopTimer = false;
-    public bool isFirst = false;
+    public bool isFirst;
+    private bool isRunOnce = false;
+    public bool stopCountdown = false;
     public GameObject image1;
     private int addValue;
     public Text timerText;
     public TimeSpan difference;
+    public GameObject button;
+    public GameObject button2;
 
     void Start()
     {
         CheckDate();
 
-        if (isFirst = (PlayerPrefs.GetInt("GetFreeCurrency2") == 0))
+        if (isFirst = (PlayerPrefs.GetInt("GetFreeCurrency9") == 0))
         {
+            button.SetActive(true);
             canGetFree = true;
+            Debug.Log("LLL");
             PlayerPrefs.SetString(myLocation + "lastLoginTime", System.DateTime.Now.ToBinary().ToString());
+        }
+        else
+        {
+            button.SetActive(false);
+            button2.SetActive(true);
         }
     }
 
@@ -734,16 +745,44 @@ public class FreeCurrency1 : MonoBehaviour
                 Debug.Log(myLocation + "2 Hours Not Passed");
             }
 
-            long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
+            //long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
 
-            DateTime oldDate = DateTime.FromBinary(temp4);
+            //DateTime oldDate = DateTime.FromBinary(temp4);
 
-            differenceForMinQ = currentTime.Subtract(oldDate);
+            //differenceForMinQ = currentTime.Subtract(oldDate);
 
-            if (differenceForMinQ.Minutes >= 1)
-            {
-                canGetFree = true;
-            }
+            //if (differenceForMinQ.Minutes >= 1)
+            //{
+            //    canGetFree = true;
+            //}
+
+            //long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
+
+            //DateTime oldDate = DateTime.FromBinary(temp4);
+
+            //oldDate = oldDate.AddMinutes(1);
+
+            //if (stopCountdown == false)
+            //{
+            //    differenceForMinQ = oldDate.Subtract(sincePressedTime);
+            //}
+
+            //if (differenceForMinQ.Seconds < 1)
+            //{
+            //    stopTimer = true;
+            //}
+
+            //if (differenceForMinQ.Seconds >= 1 && stopTimer == true)
+            //{
+            //    canGetFree = true;
+            //    Debug.Log("Run");
+            //    stopTimer = false;
+            //}
+
+            //if (stopTimer == true)
+            //{
+            //    stopCountdown = true;
+            //}
             stopTimer = true;
         }
     }
@@ -786,7 +825,7 @@ public class FreeCurrency1 : MonoBehaviour
 
         if (differenceForMin.Minutes >= 1)
         {
-            canGetFree = true;
+            //canGetFree = true;
         }
 
         long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
@@ -795,12 +834,20 @@ public class FreeCurrency1 : MonoBehaviour
 
         oldDate = oldDate.AddMinutes(1);
 
-        differenceForMinQ = oldDate.Subtract(sincePressedTime);
+        if (stopCountdown == false)
+        {
+            differenceForMinQ = oldDate.Subtract(sincePressedTime);
+        }
 
-        if (differenceForMinQ.Minutes >= 0 && stopTimer == true)
+        if (differenceForMinQ.Seconds < 1 && stopTimer == true)
         {
             canGetFree = true;
             stopTimer = false;
+        }
+
+        if (stopTimer == false)
+        {
+            stopCountdown = true;
         }
     }
 
@@ -813,10 +860,11 @@ public class FreeCurrency1 : MonoBehaviour
             TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
             // schedule without icon
             NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
-
-            PlayerPrefs.SetInt("GetFreeCurrency2", (isFirst ? 1 : 0));
+            
             canGetFree = false;
             isPressed = true;
+            stopCountdown = false;
+            stopTimer = true;
 
             // button pressed, save and set press button time to buttonPressedTime
             PlayerPrefs.SetString(myLocation + "PressButtonTime", System.DateTime.Now.ToBinary().ToString());
@@ -835,6 +883,13 @@ public class FreeCurrency1 : MonoBehaviour
             GameManager.instance.SavePoints();
             image1.SetActive(true);
         }
+    }
+
+    public void RunOnce()
+    {
+        PlayerPrefs.SetInt("GetFreeCurrency9", (isFirst ? 1 : 0));
+        button2.SetActive(true);
+        button.SetActive(false);
     }
 
     public void CloseAds1()
