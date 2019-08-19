@@ -269,7 +269,12 @@ public class UIManager : MonoBehaviour
 
         //CheckSecondChanceButton();
 
+        //System.DateTime datevalue1 = new System.DateTime(2019, 08, 20, 00, 00, 00);
+        //System.DateTime datevalue2 = System.DateTime.Now;
+        //System.TimeSpan timeDifference = datevalue1 - datevalue2;
+
         string time = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Ticks).ToString("HH:mm:ss");
+       // string time = new System.DateTime(timeDifference.Ticks).ToString("HH:mm:ss");
         
         timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
         timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();

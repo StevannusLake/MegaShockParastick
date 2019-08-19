@@ -793,9 +793,11 @@ public class FreeCurrency1 : MonoBehaviour
 
         DateTime oldDate = DateTime.FromBinary(temp4);
 
-        differenceForMinQ = sincePressedTime.Subtract(oldDate);
+        oldDate = oldDate.AddMinutes(1);
 
-        if (differenceForMinQ.Minutes >= 1 && stopTimer == true)
+        differenceForMinQ = oldDate.Subtract(sincePressedTime);
+
+        if (differenceForMinQ.Minutes >= 0 && stopTimer == true)
         {
             canGetFree = true;
             stopTimer = false;
