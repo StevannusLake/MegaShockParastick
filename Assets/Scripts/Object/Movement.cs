@@ -1009,8 +1009,6 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //if (tutorialManager.isTutorial == false && tutorialManager != null)
-        //{
             if (other.CompareTag(smallCollider))
             {
                 Debug.Log("Small");
@@ -1030,7 +1028,6 @@ public class Movement : MonoBehaviour
                 //this.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.0f);
                 transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
             }
-        //}
         
 
         // If you don't want an eased scaling, replace the above line with the following line
@@ -1055,29 +1052,32 @@ public class Movement : MonoBehaviour
 
     void ChangeSize(bool bigger)
     {
-        if (bigger == true)
+        if (tutorialManager.isTutorial == false)
         {
-            curScale = curScale + (0.1f * Time.deltaTime);
-
-            if (transform.localScale.x < 0.69f)
+            if (bigger == true)
             {
-                absorbBiggerEffect.Play();
-            }
-        }
-        
-        if(bigger == false)
-        {
-            curScale = curScale - (0.1f * Time.deltaTime);
+                curScale = curScale + (0.1f * Time.deltaTime);
 
-            if (transform.localScale.x > 0.21f)
+                if (transform.localScale.x < 0.69f)
+                {
+                    absorbBiggerEffect.Play();
+                }
+            }
+
+            if (bigger == false)
             {
-                absorbSmallerEffect.Play();
+                curScale = curScale - (0.1f * Time.deltaTime);
+
+                if (transform.localScale.x > 0.21f)
+                {
+                    absorbSmallerEffect.Play();
+                }
             }
+
+            curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
+
+            scale = baseScale * curScale;
         }
-
-        curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
-
-        scale = baseScale * curScale;
 
         CheckScaling();
     }

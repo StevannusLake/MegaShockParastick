@@ -681,7 +681,7 @@ public class FreeCurrency1 : MonoBehaviour
     {
         UpdatePassedTime();
 
-       // Debug.Log(differenceForMinQ);
+        Debug.Log(differenceForMinQ);
     }
 
     private void OnApplicationQuit()

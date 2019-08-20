@@ -363,8 +363,9 @@ public class UIManager : MonoBehaviour
             else
             {
                 timerText4.text = "Free!";
+                
             }
-
+           
             if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency == 3)
             {
                 timerText4.text = time2.ToString();
