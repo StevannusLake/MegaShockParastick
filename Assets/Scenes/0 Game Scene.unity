@@ -1742,7 +1742,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -6651,7 +6651,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -8015,7 +8015,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -26016,7 +26016,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -38040,7 +38040,7 @@ MonoBehaviour:
   CoinMenu: {fileID: 1849341913}
   achievementMenu: {fileID: 1593671496}
   missionMenu: {fileID: 8833761057996522979}
-  creditsMenu: {fileID: 0}
+  creditsMenu: {fileID: 649396955}
   achievementPos: {fileID: 2027129599}
   missionPos: {fileID: 347508237}
   challengesPos: {x: 0, y: 0, z: 0}
@@ -55898,7 +55898,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -56965,7 +56965,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 57dc17b866dc5fc4ba466e0e10a455bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7e1a0631cc9b24408cd9646312336b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
