@@ -158,6 +158,10 @@ public class Movement : MonoBehaviour
     public SpriteRenderer emotionSpriteRend;
     public ParticleSystem deadEffect2;
 
+    public GameObject inGameMenu;
+    private TutorialManager tutorialManager;
+    public int stick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -183,6 +187,7 @@ public class Movement : MonoBehaviour
         playerDistance = ButtonManager.instance.TempScore;
         myBackground.tempExtraDistance = playerDistance;
         distanceCounterText.text = playerDistance.ToString("F1") + " mm";
+        tutorialManager = inGameMenu.GetComponent<TutorialManager>();
 
         //distanceCounterText.text = PlayerPrefs.GetFloat("TempScore", ButtonManager.instance.TempScore).ToString("F1") + " mm";
 
@@ -733,7 +738,7 @@ public class Movement : MonoBehaviour
 
                     //==================================================================================================
                     deadState = 1;
-               
+
                     playerJustDied = false;
                 }
             }
@@ -742,7 +747,7 @@ public class Movement : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
                 isSticking = true;
-
+                stick++;
                 if (isRareSkin == true)
                 {
                     doubleSlingshotCounter += INCREMENTSLINGSHOT;
@@ -752,6 +757,30 @@ public class Movement : MonoBehaviour
                 if (doubleSlingshot != 2)
                 {
                     doubleSlingshot = 0;
+                }
+
+                if (tutorialManager.isTutorial == true)
+                {
+                    if (stick == 1)
+                    {
+                        tutorialManager.ShowTutorial2();
+                    }
+                    else if (stick == 2)
+                    {
+                        tutorialManager.ShowTutorial3();
+                    }
+                    else if (stick == 3)
+                    {
+                        tutorialManager.ShowTutorial4();
+                    }
+                    else if (stick == 4)
+                    {
+                        tutorialManager.ShowTutorial5();
+                    }
+                    else
+                    {
+                        tutorialManager.ShowTutorial6();
+                    }
                 }
             }
             else if (collision.collider.CompareTag(horizontalWall))
@@ -926,7 +955,6 @@ public class Movement : MonoBehaviour
         {
             surfaceStickCount = 2;
             collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
-            
             // myAnimation.PlayIdle();
             myEmotion.EmoteIdle();
            // LevelHandler.instance.cameraController.cameraState = CameraFollowingState.NORMAL;
@@ -971,26 +999,28 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag(smallCollider))
+        if (tutorialManager.isTutorial == false)
         {
-            Debug.Log("Small");
-            ChangeSize(false);
-            // this.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.0f);
-            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
-            
-            //! To Move Player Towards Platform, So there is no gap because of Sucking Behaviour
-            distToSmallCol = Vector2.LerpUnclamped(transform.position, other.transform.position, 0.02f);
-            transform.position = Vector2.MoveTowards(transform.position, distToSmallCol, 0.5f);
-        }
+            if (other.CompareTag(smallCollider))
+            {
+                Debug.Log("Small");
+                ChangeSize(false);
+                // this.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.0f);
+                transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
 
-        if (other.CompareTag(bigCollider))
-        {
-            Debug.Log("Big");
-            ChangeSize(true);
-            //this.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.0f);
-            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
-        }
+                //! To Move Player Towards Platform, So there is no gap because of Sucking Behaviour
+                distToSmallCol = Vector2.LerpUnclamped(transform.position, other.transform.position, 0.02f);
+                transform.position = Vector2.MoveTowards(transform.position, distToSmallCol, 0.5f);
+            }
 
+            if (other.CompareTag(bigCollider))
+            {
+                Debug.Log("Big");
+                ChangeSize(true);
+                //this.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.0f);
+                transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
+            }
+        }
         
 
         // If you don't want an eased scaling, replace the above line with the following line
