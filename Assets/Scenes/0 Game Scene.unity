@@ -17092,6 +17092,7 @@ MonoBehaviour:
   timerText4: {fileID: 811890146}
   timerText5: {fileID: 1401513366}
   SecondChanceBlocker: {fileID: 421351177}
+  bgmAudioManager: {fileID: 2066983662}
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59050,6 +59051,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  prevVolumes: []
 --- !u!4 &2066983663
 Transform:
   m_ObjectHideFlags: 0

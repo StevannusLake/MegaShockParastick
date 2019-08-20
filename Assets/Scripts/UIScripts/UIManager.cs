@@ -159,6 +159,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject SecondChanceBlocker;
 
+    public BGMAudioManager bgmAudioManager;
+
     private void Awake()
     {
         if(instance == null)
@@ -864,11 +866,17 @@ public class UIManager : MonoBehaviour
         {
             OnSoundButton.GetComponent<Image>().sprite = OnPressedSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffIdleSoundButton;
+
+            CustomAudioHandler.instance.Unmute();
+            bgmAudioManager.Unmute();
         }
         else if(!TurnOnSound)
         {
             OnSoundButton.GetComponent<Image>().sprite = OnIdleSoundButton;
             OffSoundButton.GetComponent<Image>().sprite = OffPressedSoundButton;
+
+            CustomAudioHandler.instance.Mute();
+            bgmAudioManager.Mute();
         }
 
         if (TurnOnVibration)
@@ -886,7 +894,10 @@ public class UIManager : MonoBehaviour
     public void ActivateSound()
     {
         TurnOnSound = true;
+
         CustomAudioHandler.instance.Unmute();
+        bgmAudioManager.Unmute();
+
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
     }
@@ -894,7 +905,10 @@ public class UIManager : MonoBehaviour
     public void DeactivateSound()
     {
         TurnOnSound = false;
+
         CustomAudioHandler.instance.Mute();
+        bgmAudioManager.Mute();
+
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TurnOnSound", TurnOnSound ? 1 : 0);
     }
