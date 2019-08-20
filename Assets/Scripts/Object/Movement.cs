@@ -1001,7 +1001,7 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (tutorialManager.isTutorial == false)
+        if (tutorialManager.isTutorial == false && tutorialManager != null)
         {
             if (other.CompareTag(smallCollider))
             {
