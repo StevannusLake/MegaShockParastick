@@ -269,7 +269,7 @@ public class UIManager : MonoBehaviour
 
         //CheckSecondChanceButton();
 
-        
+
 
         coinCounterInGame.text = "" + GameManager.instance.GetCoin();
         pointCounterInGame.text = "" + GameManager.instance.GetPoints();
@@ -304,7 +304,7 @@ public class UIManager : MonoBehaviour
 
             CallLoseMenu();
         }
-        
+
 
         if (secondChanceCalled)
         {
@@ -344,24 +344,33 @@ public class UIManager : MonoBehaviour
         CheckPauseButton();
 
         //! OOI FREE CURRENCY 
-
-        //System.DateTime datevalue1 = new System.DateTime(2019, 08, 20, 00, 00, 00);
-        //System.DateTime datevalue2 = System.DateTime.Now;
-        //System.TimeSpan timeDifference = datevalue1 - datevalue2;
-
-
         string time = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Ticks).ToString("HH:mm:ss");
-        // string time = new System.DateTime(timeDifference.Ticks).ToString("HH:mm:ss");
+        string time2 = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Ticks).ToString("HH:mm:ss");
 
-        timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
-        timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
-        timerText3.text = this.gameObject.GetComponent<FreeCurrency1>().difference.ToString();
+        //timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
+        //timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
+        // timerText3.text = this.gameObject.GetComponent<FreeCurrency1>().difference.ToString();
 
+        if (this.gameObject.GetComponent<InternetChecker>().isConnect == true)
+        {
+            if (this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Seconds > 1)
+            {
+                timerText4.text = time.ToString();
+            }
+            else
+            {
+                timerText4.text = "Free!";
+            }
 
-        timerText4.text = time.ToString();
-        timerText5.text = this.gameObject.GetComponent<FreeCurrency1>().freeCurrency.ToString();
-
-
+            if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency == 3)
+            {
+                timerText4.text = time2.ToString();
+            }
+            else
+            {
+                timerText4.text = "Free!";
+            }
+        }
     }
 
     public void DisableMenuButtons()
