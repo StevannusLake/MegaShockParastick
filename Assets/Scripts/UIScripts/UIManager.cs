@@ -157,6 +157,8 @@ public class UIManager : MonoBehaviour
     public Text timerText4;
     public Text timerText5;
 
+    public GameObject SecondChanceBlocker;
+
     private void Awake()
     {
         if(instance == null)
@@ -256,7 +258,8 @@ public class UIManager : MonoBehaviour
             //AudioManager.PlaySound(AudioManager.Sound.MainMenuBGM);
             FindObjectOfType<BGMAudioManager>().Play("MainMenuBGM");
         }
-        
+
+        SecondChanceBlocker.SetActive(false);
     }
 
     private void Update()
@@ -283,12 +286,10 @@ public class UIManager : MonoBehaviour
 
         if (ContinueFill.activeInHierarchy)
         {
-            Debug.LogWarning("FILL IS ON! 1");
 
             continueFillTimer -= Time.deltaTime;
             ContinueFill.GetComponent<Image>().fillAmount = continueFillTimer / continueFillDuration;
-
-            Debug.LogWarning("FILL IS ON! 2");
+            
         }
         else
         {
@@ -449,6 +450,8 @@ public class UIManager : MonoBehaviour
 
     public void CallLoseMenu()
     {
+        SecondChanceBlocker.SetActive(true);
+
         CoinCounterSelfClose();
 
         secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
@@ -660,8 +663,9 @@ public class UIManager : MonoBehaviour
 
     public void CloseSecondChanceMenu()
     {
-            if (GameManager.instance.GetPoints() >= 4)
+        if (GameManager.instance.GetPoints() >= 4)
         {
+            SecondChanceBlocker.SetActive(true);
 
             secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
 
@@ -684,8 +688,6 @@ public class UIManager : MonoBehaviour
 
             ClosingGarage();
             Invoke("TurnOffSecondChanceMenu", 1.2f);
-
-            
         }
     }
 

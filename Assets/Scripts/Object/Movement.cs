@@ -216,6 +216,8 @@ public class Movement : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
         emotionSpriteRend.enabled = true;
         deadEffect2.Stop();
+
+        GetComponent<SpriteRenderer>().sprite = Shop.instance.skinUsing.GetComponent<Skin>().skinImage;
     }
     
     // Update is called once per frame
@@ -394,8 +396,8 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
         }
-
-        curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
+        
+        CheckScaling();
     }
 
     void SlingShot()
@@ -1044,6 +1046,14 @@ public class Movement : MonoBehaviour
         curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
 
         scale = baseScale * curScale;
+    }
+
+    void CheckScaling()
+    {
+        if (transform.localScale.x < 0.2f)
+        {
+            transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
     }
 
     private void DotsSpawner()
