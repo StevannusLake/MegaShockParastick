@@ -655,6 +655,7 @@ public class FreeCurrency1 : MonoBehaviour
     private int addValue;
     public Text timerText;
     public TimeSpan difference;
+    public TimeSpan differenceQ;
     public GameObject button;
     public GameObject button2;
 
@@ -680,14 +681,14 @@ public class FreeCurrency1 : MonoBehaviour
     {
         UpdatePassedTime();
 
-        Debug.Log(differenceForMinQ);
+       // Debug.Log(differenceForMinQ);
     }
 
     private void OnApplicationQuit()
     {
         if (isQuit == false)
         {
-            PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
+          //  PlayerPrefs.SetString("sysString1", System.DateTime.Now.ToBinary().ToString());
             isQuit = true;
         }
     }
@@ -725,7 +726,7 @@ public class FreeCurrency1 : MonoBehaviour
             if (difference.Hours >= 2)
             {
                 freeCurrency = 0;
-               // canGetFree = true;
+                canGetFree = true;
                 PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrency);
                 if (currentTime > oldTime)
                 {
@@ -744,58 +745,23 @@ public class FreeCurrency1 : MonoBehaviour
             {
                 Debug.Log(myLocation + "2 Hours Not Passed");
             }
-
-            //long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
-
-            //DateTime oldDate = DateTime.FromBinary(temp4);
-
-            //differenceForMinQ = currentTime.Subtract(oldDate);
-
-            //if (differenceForMinQ.Minutes >= 1)
-            //{
-            //    canGetFree = true;
-            //}
-
-            //long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
-
-            //DateTime oldDate = DateTime.FromBinary(temp4);
-
-            //oldDate = oldDate.AddMinutes(1);
-
-            //if (stopCountdown == false)
-            //{
-            //    differenceForMinQ = oldDate.Subtract(sincePressedTime);
-            //}
-
-            //if (differenceForMinQ.Seconds < 1)
-            //{
-            //    stopTimer = true;
-            //}
-
-            //if (differenceForMinQ.Seconds >= 1 && stopTimer == true)
-            //{
-            //    canGetFree = true;
-            //    Debug.Log("Run");
-            //    stopTimer = false;
-            //}
-
-            //if (stopTimer == true)
-            //{
-            //    stopCountdown = true;
-            //}
             stopTimer = true;
         }
     }
 
     void UpdatePassedTime()
     {
-        TimeSpan difference = currentTime.Subtract(oldTime);
-        
-        if (difference.Hours >= 2)
-        {
-            //canGetFree = true;
-            freeCurrency = 0;
+        sincePressedTime = DateTime.Now;
 
+        long temp = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "lastLoginTime"));
+        oldTime = DateTime.FromBinary(temp);
+
+        differenceQ = sincePressedTime.Subtract(oldTime);
+        
+        if (differenceQ.Hours >= 2)
+        {
+            freeCurrency = 0;
+            canGetFree = true;
             PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrency);
             if (currentTime > oldTime)
             {
@@ -808,24 +774,13 @@ public class FreeCurrency1 : MonoBehaviour
             Debug.Log(myLocation + "2 Hours Not Passed");
         }
 
-        long tempTime = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "PressButtonTime"));
-        buttonPressedTime = DateTime.FromBinary(tempTime);
-
-        sincePressedTime = DateTime.Now;
-
         if(isPressed == true)
         {
-            differenceForMin = sincePressedTime.Subtract(buttonPressedTime);
             isQuit = false;
         }
         else
         {
             isQuit = true;
-        }
-
-        if (differenceForMin.Minutes >= 1)
-        {
-            //canGetFree = true;
         }
 
         long temp4 = Convert.ToInt64(PlayerPrefs.GetString("sysString1"));
@@ -834,7 +789,7 @@ public class FreeCurrency1 : MonoBehaviour
 
         oldDate = oldDate.AddMinutes(1);
 
-        if (stopCountdown == false)
+        if (stopCountdown == false && freeCurrency != 3)
         {
             differenceForMinQ = oldDate.Subtract(sincePressedTime);
         }
