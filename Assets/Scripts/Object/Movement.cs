@@ -389,6 +389,8 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
         }
+
+        curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
     }
 
     void SlingShot()

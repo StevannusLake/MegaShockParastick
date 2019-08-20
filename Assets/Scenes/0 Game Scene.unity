@@ -42163,7 +42163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2777811b37ab462498a4f0a1f00434b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fbb34b44e56ec24f8fda3608699ebc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -42186,11 +42186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79075de4ca66274dbd97612746c1344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeforeFlying: {fileID: 21300000, guid: 760984f21f0da2047968377330395474, type: 3}
-  Flying: {fileID: 21300000, guid: e708281cadff9704090f25c107ed3b16, type: 3}
-  Death: {fileID: 21300000, guid: e40a714eddedf744ebd5755782437f10, type: 3}
-  Idle: {fileID: 21300000, guid: 2777811b37ab462498a4f0a1f00434b5, type: 3}
-  Stuck: {fileID: 21300000, guid: 80243b6b3ecdfa240ac0cb8d703e246f, type: 3}
+  BeforeFlying: {fileID: 21300000, guid: 71f62598dbb851f4c93c9d2f27df7219, type: 3}
+  Flying: {fileID: 21300000, guid: a580e83306058f3488f6dcf703c9ad1d, type: 3}
+  Death: {fileID: 21300000, guid: 48cdf678339b3214fa881681477e3aaa, type: 3}
+  Idle: {fileID: 21300000, guid: 8fbb34b44e56ec24f8fda3608699ebc2, type: 3}
+  Stuck: {fileID: 21300000, guid: c245319f66c203645a6804bec739d9b4, type: 3}
 --- !u!1 &1328600481
 GameObject:
   m_ObjectHideFlags: 0
@@ -56926,7 +56926,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c297c4385054793488f737ad0c9519cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7e1a0631cc9b24408cd9646312336b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
