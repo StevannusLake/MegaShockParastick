@@ -269,20 +269,7 @@ public class UIManager : MonoBehaviour
 
         //CheckSecondChanceButton();
 
-        //System.DateTime datevalue1 = new System.DateTime(2019, 08, 20, 00, 00, 00);
-        //System.DateTime datevalue2 = System.DateTime.Now;
-        //System.TimeSpan timeDifference = datevalue1 - datevalue2;
-
-        string time = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Ticks).ToString("HH:mm:ss");
-       // string time = new System.DateTime(timeDifference.Ticks).ToString("HH:mm:ss");
         
-        timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
-        timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
-        timerText3.text = this.gameObject.GetComponent<FreeCurrency1>().difference.ToString();
-
-
-        timerText4.text = time.ToString();
-        timerText5.text = this.gameObject.GetComponent<FreeCurrency1>().freeCurrency.ToString();
 
         coinCounterInGame.text = "" + GameManager.instance.GetCoin();
         pointCounterInGame.text = "" + GameManager.instance.GetPoints();
@@ -294,7 +281,7 @@ public class UIManager : MonoBehaviour
 
         ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
 
-        if(ContinueFill.activeInHierarchy)
+        if (ContinueFill.activeInHierarchy)
         {
             Debug.LogWarning("FILL IS ON! 1");
 
@@ -305,70 +292,19 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            if(continueFillTimer != continueFillDuration)
+            if (continueFillTimer != continueFillDuration)
             {
                 continueFillTimer = continueFillDuration;
             }
         }
 
-        if(continueFillTimer <= 0f)
+        if (continueFillTimer <= 0f)
         {
             //closingSecondChanceMenu = true;
 
             CallLoseMenu();
         }
-
-        //if (callSecondChanceMenu)
-        //{
-        //    for (int i = 0; i < ContinueUI.Length; i++)
-        //    {
-        //        ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, new Vector3(Screen.width/2f,Screen.height/2f,0f), 4f * Time.deltaTime);
-        //    }
-        //    if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 10f)
-        //    {
-        //        for (int i = 0; i < ContinueUI.Length; i++)
-        //        {
-        //            ContinueUI[i].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
-        //        }
-        //        callSecondChanceMenu = false;
-        //    }
-        //}
-
-        //if (closingSecondChanceMenu)
-        //{
-        //    for (int i = 0; i < ContinueUI.Length; i++)
-        //    {
-        //        ContinueUI[i].GetComponent<RectTransform>().position = Vector3.Lerp(ContinueUI[i].GetComponent<RectTransform>().position, ContinueUI[i].GetComponent<UITransition>().startPos, 4f * Time.deltaTime);
-        //    }
-        //    if (Vector3.Distance(ContinueUI[0].GetComponent<RectTransform>().position, ContinueUI[0].GetComponent<UITransition>().startPos) < 13f)
-        //    {
-        //        for (int i = 0; i < ContinueUI.Length; i++)
-        //        {
-        //            ContinueUI[i].GetComponent<RectTransform>().position = ContinueUI[i].GetComponent<UITransition>().startPos;
-        //        }
-        //        closingSecondChanceMenu = false;
-        //        if (ButtonManager.instance.secondlife == true)
-        //        {
-        //            SecondChanceMenu.SetActive(false);
-        //            ReloadScene();
-        //        }
-        //        else
-        //        {
-        //            SecondChanceMenu.SetActive(false);
-        //            callLoseMenu = true;
-        //        }
-        //    }
-        //}
-
-        //if(callLoseMenu)
-        //{
-        //    LoseUI[0].GetComponent<RectTransform>().position = Vector3.Lerp(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), 4f * Time.deltaTime);
-        //    if(Vector3.Distance(LoseUI[0].GetComponent<RectTransform>().position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)) < 8f)
-        //    {
-        //        LoseUI[0].GetComponent<RectTransform>().position = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
-        //        callLoseMenu = false;
-        //    }
-        //}
+        
 
         if (secondChanceCalled)
         {
@@ -407,7 +343,25 @@ public class UIManager : MonoBehaviour
 
         CheckPauseButton();
 
-        
+        //! OOI FREE CURRENCY 
+
+        //System.DateTime datevalue1 = new System.DateTime(2019, 08, 20, 00, 00, 00);
+        //System.DateTime datevalue2 = System.DateTime.Now;
+        //System.TimeSpan timeDifference = datevalue1 - datevalue2;
+
+
+        string time = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Ticks).ToString("HH:mm:ss");
+        // string time = new System.DateTime(timeDifference.Ticks).ToString("HH:mm:ss");
+
+        timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
+        timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
+        timerText3.text = this.gameObject.GetComponent<FreeCurrency1>().difference.ToString();
+
+
+        timerText4.text = time.ToString();
+        timerText5.text = this.gameObject.GetComponent<FreeCurrency1>().freeCurrency.ToString();
+
+
     }
 
     public void DisableMenuButtons()
