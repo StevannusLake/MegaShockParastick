@@ -163,6 +163,9 @@ public class Movement : MonoBehaviour
     public int stick;
 
     public ParticleSystem absorbBiggerEffect;
+    private ParticleSystem.ShapeModule absorbBiggerShape;
+    public ParticleSystem absorbSmallerEffect;
+    private ParticleSystem.ShapeModule absorbSmallerShape;
 
     // Start is called before the first frame update
     void Start()
@@ -220,6 +223,11 @@ public class Movement : MonoBehaviour
         deadEffect2.Stop();
 
         GetComponent<SpriteRenderer>().sprite = Shop.instance.skinUsing.GetComponent<Skin>().skinImage;
+
+        absorbBiggerEffect.Stop();
+        absorbBiggerShape = absorbBiggerEffect.shape;
+        absorbSmallerEffect.Stop();
+        absorbSmallerShape = absorbSmallerEffect.shape;
     }
     
     // Update is called once per frame
@@ -1030,25 +1038,48 @@ public class Movement : MonoBehaviour
         // transform.localScale = Vector3.MoveTowards (transform.localScale, targetScale, speed * Time.deltaTime);
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(smallCollider))
+        {
+            absorbSmallerEffect.Stop();
+            transform.localScale = new Vector2 (transform.localScale.x,transform.localScale.y);
+        }
+
+        if (collision.CompareTag(bigCollider))
+        {
+            absorbBiggerEffect.Stop();
+            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+        }
+    }
+
     void ChangeSize(bool bigger)
     {
         if (bigger == true)
         {
             curScale = curScale + (0.1f * Time.deltaTime);
 
-            absorbBiggerEffect.Play();
+            if (transform.localScale.x < 0.69f)
+            {
+                absorbBiggerEffect.Play();
+            }
         }
         
         if(bigger == false)
         {
             curScale = curScale - (0.1f * Time.deltaTime);
 
-            
+            if (transform.localScale.x > 0.21f)
+            {
+                absorbSmallerEffect.Play();
+            }
         }
 
         curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
 
         scale = baseScale * curScale;
+
+        CheckScaling();
     }
 
     void CheckScaling()
@@ -1056,12 +1087,17 @@ public class Movement : MonoBehaviour
         if (transform.localScale.x < 0.2f)
         {
             transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
+            absorbSmallerEffect.Stop();
         }
 
         if(transform.localScale.x > 0.7f)
         {
             absorbBiggerEffect.Stop();
         }
+        
+        absorbBiggerShape.radius = transform.localScale.x;
+        absorbSmallerShape.radius = transform.localScale.x;
     }
 
     private void DotsSpawner()

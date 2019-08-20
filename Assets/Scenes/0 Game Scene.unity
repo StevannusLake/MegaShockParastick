@@ -46923,7 +46923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1465057541
 Transform:
   m_ObjectHideFlags: 0
@@ -46932,7 +46932,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465057540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.14, y: 2.89, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1968270232}
@@ -54593,7 +54593,7 @@ GameObject:
   - component: {fileID: 1589701809}
   - component: {fileID: 1589701808}
   m_Layer: 0
-  m_Name: AbsorbBiggerEffect1
+  m_Name: AbsorbBiggerEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55243,7 +55243,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 200
+    maxNumParticles: 50
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -55508,7 +55508,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 50
       minScalar: 500
       maxCurve:
         serializedVersion: 2
@@ -68035,6 +68035,7 @@ MonoBehaviour:
   inGameMenu: {fileID: 946061137}
   stick: 0
   absorbBiggerEffect: {fileID: 1589701809}
+  absorbSmallerEffect: {fileID: 1465057543}
 --- !u!50 &1968270235
 Rigidbody2D:
   serializedVersion: 4
@@ -92560,7 +92561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &6355159385966173444
 Animator:
   serializedVersion: 3
@@ -93268,7 +93269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8646306001157498754
 MonoBehaviour:
   m_ObjectHideFlags: 0
