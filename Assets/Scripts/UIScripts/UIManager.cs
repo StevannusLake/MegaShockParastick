@@ -366,10 +366,10 @@ public class UIManager : MonoBehaviour
             {
                 timerText4.text = time2.ToString();
             }
-            else
-            {
-                timerText4.text = "Free!";
-            }
+            //else
+            //{
+            //    timerText4.text = "Free!";
+            //}
         }
     }
 
