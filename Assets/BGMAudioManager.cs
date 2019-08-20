@@ -1,5 +1,6 @@
 ﻿using UnityEngine.Audio;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BGMAudioManager : MonoBehaviour
@@ -42,5 +43,21 @@ public class BGMAudioManager : MonoBehaviour
         }
 
         s.source.Stop();
+    }
+
+    public void Mute()
+    {
+        foreach (BGMSound s in sounds)
+        {
+            s.source.mute = true;
+        }
+    }
+
+    public void Unmute()
+    {
+        foreach (BGMSound s in sounds)
+        {
+            s.source.mute = false;
+        }
     }
 }

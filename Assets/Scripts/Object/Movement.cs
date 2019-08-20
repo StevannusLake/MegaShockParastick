@@ -162,6 +162,8 @@ public class Movement : MonoBehaviour
     private TutorialManager tutorialManager;
     public int stick;
 
+    public ParticleSystem absorbBiggerEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -1026,9 +1028,6 @@ public class Movement : MonoBehaviour
         // If you don't want an eased scaling, replace the above line with the following line
         //   and change speed to suit:
         // transform.localScale = Vector3.MoveTowards (transform.localScale, targetScale, speed * Time.deltaTime);
-
-            
-            
     }
 
     void ChangeSize(bool bigger)
@@ -1036,11 +1035,15 @@ public class Movement : MonoBehaviour
         if (bigger == true)
         {
             curScale = curScale + (0.1f * Time.deltaTime);
+
+            absorbBiggerEffect.Play();
         }
         
         if(bigger == false)
         {
             curScale = curScale - (0.1f * Time.deltaTime);
+
+            
         }
 
         curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
@@ -1053,6 +1056,11 @@ public class Movement : MonoBehaviour
         if (transform.localScale.x < 0.2f)
         {
             transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
+
+        if(transform.localScale.x > 0.7f)
+        {
+            absorbBiggerEffect.Stop();
         }
     }
 
