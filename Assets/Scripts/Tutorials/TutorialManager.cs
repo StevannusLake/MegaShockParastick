@@ -29,7 +29,7 @@ public class TutorialManager : MonoBehaviour
         movement = player.GetComponent<Movement>();
         water = waterObject.GetComponent<Water>();
 
-        if (isTutorial = (PlayerPrefs.GetInt("Tutorial") == 0))
+        if (isTutorial = (PlayerPrefs.GetInt("Tutorials") == 0))
         {
             isTutorial = true;
         }
@@ -154,7 +154,7 @@ public class TutorialManager : MonoBehaviour
 
     public void CloseTutorial6()
     {
-        PlayerPrefs.SetInt("Tutorial", (isTutorial ? 1 : 0));
+        PlayerPrefs.SetInt("Tutorials", (isTutorial ? 1 : 0));
         tutorialImage6.SetActive(false);
         uiManager.GetComponent<UIManager>().rippleEffect.enabled = true;
         movement.enabled = true;
