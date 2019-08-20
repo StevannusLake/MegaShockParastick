@@ -1001,8 +1001,8 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (tutorialManager.isTutorial == false && tutorialManager != null)
-        {
+        //if (tutorialManager.isTutorial == false && tutorialManager != null)
+        //{
             if (other.CompareTag(smallCollider))
             {
                 Debug.Log("Small");
@@ -1022,7 +1022,7 @@ public class Movement : MonoBehaviour
                 //this.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.0f);
                 transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 2.0f * Time.deltaTime);
             }
-        }
+        //}
         
 
         // If you don't want an eased scaling, replace the above line with the following line
