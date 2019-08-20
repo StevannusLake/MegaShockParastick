@@ -283,12 +283,10 @@ public class UIManager : MonoBehaviour
 
         if (ContinueFill.activeInHierarchy)
         {
-            Debug.LogWarning("FILL IS ON! 1");
 
             continueFillTimer -= Time.deltaTime;
             ContinueFill.GetComponent<Image>().fillAmount = continueFillTimer / continueFillDuration;
-
-            Debug.LogWarning("FILL IS ON! 2");
+            
         }
         else
         {
