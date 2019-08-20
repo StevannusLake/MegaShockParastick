@@ -347,8 +347,10 @@ public class UIManager : MonoBehaviour
         CheckPauseButton();
 
         //! OOI FREE CURRENCY 
-        string time = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Ticks).ToString("HH:mm:ss");
-        string time2 = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Ticks).ToString("HH:mm:ss");
+        //string time = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Ticks).ToString("HH:mm:ss");
+        //string time2 = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Ticks).ToString("HH:mm:ss");
+        string timeText = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Seconds);
+        string timeText2 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Seconds);
 
         //timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
         //timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
@@ -358,7 +360,7 @@ public class UIManager : MonoBehaviour
         {
             if (this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Seconds > 1)
             {
-                timerText4.text = time.ToString();
+                timerText4.text = timeText;
             }
             else
             {
@@ -368,12 +370,8 @@ public class UIManager : MonoBehaviour
            
             if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency == 3)
             {
-                timerText4.text = time2.ToString();
+                timerText4.text = timeText2;
             }
-            //else
-            //{
-            //    timerText4.text = "Free!";
-            //}
         }
     }
 
