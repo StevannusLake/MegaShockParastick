@@ -1030,22 +1030,6 @@ public class Movement : MonoBehaviour
         // transform.localScale = Vector3.MoveTowards (transform.localScale, targetScale, speed * Time.deltaTime);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (tutorialManager.isTutorial == false)
-        {
-            if (collision.gameObject.CompareTag(smallCollider))
-            {
-
-            }
-
-            if (collision.gameObject.CompareTag(bigCollider))
-            {
-                absorbBiggerEffect.Stop();
-            }
-        }
-    }
-
     void ChangeSize(bool bigger)
     {
         if (bigger == true)

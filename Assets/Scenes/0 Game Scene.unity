@@ -61744,7 +61744,7 @@ MonoBehaviour:
   flyingParticleSystem: {fileID: 532311908}
   emotionSpriteRend: {fileID: 1326374545}
   deadEffect2: {fileID: 458542904}
-  inGameMenu: {fileID: 0}
+  inGameMenu: {fileID: 946061137}
   stick: 0
   absorbBiggerEffect: {fileID: 906819110}
 --- !u!50 &1968270235
