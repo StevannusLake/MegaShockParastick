@@ -24026,6 +24026,7 @@ MonoBehaviour:
   timer: 0
   duration: 2
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &650212108
 GameObject:
   m_ObjectHideFlags: 0
@@ -38039,6 +38040,7 @@ MonoBehaviour:
   CoinMenu: {fileID: 1849341913}
   achievementMenu: {fileID: 1593671496}
   missionMenu: {fileID: 8833761057996522979}
+  creditsMenu: {fileID: 0}
   achievementPos: {fileID: 2027129599}
   missionPos: {fileID: 347508237}
   challengesPos: {x: 0, y: 0, z: 0}
@@ -48660,6 +48662,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.5
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &1603673442
 GameObject:
   m_ObjectHideFlags: 0
@@ -54403,6 +54406,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.8
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &1851329939
 GameObject:
   m_ObjectHideFlags: 0
@@ -56961,7 +56965,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e7e1a0631cc9b24408cd9646312336b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57dc17b866dc5fc4ba466e0e10a455bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -70961,6 +70965,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.8
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &1969588802960080406
 GameObject:
   m_ObjectHideFlags: 0
@@ -79670,6 +79675,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.8
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!222 &3634520117646798696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -82348,6 +82354,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.5
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &8833761058148535491
 GameObject:
   m_ObjectHideFlags: 0
