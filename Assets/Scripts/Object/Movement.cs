@@ -211,6 +211,8 @@ public class Movement : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
         emotionSpriteRend.enabled = true;
         deadEffect2.Stop();
+
+        GetComponent<SpriteRenderer>().sprite = Shop.instance.skinUsing.GetComponent<Skin>().skinImage;
     }
     
     // Update is called once per frame

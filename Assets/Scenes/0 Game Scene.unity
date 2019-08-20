@@ -8256,7 +8256,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &352599151
 MonoBehaviour:
@@ -8320,7 +8321,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 1a58bdf1abb18b14bbb87fa3d7774fea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24675,7 +24676,8 @@ MonoBehaviour:
   notUnlockable: 1
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &693302361
 MonoBehaviour:
@@ -24739,7 +24741,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7e5e575f82efcf34b96af027755eca59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37774,7 +37776,8 @@ MonoBehaviour:
   notUnlockable: 1
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1155790115
 MonoBehaviour:
@@ -37838,7 +37841,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2180129aab194a44aab6ad598982d04f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -68292,7 +68295,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: Win "SUPER FINISHER" Award
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802007421214
 MonoBehaviour:
@@ -68314,7 +68318,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7f2c9972e92bb1f40924e5431b0a2d64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6153597be03aecd479df038abda93bd5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -68426,7 +68430,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 95c7d927f08fbf840a2c0b4a826173f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -68688,7 +68692,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802202944466
 MonoBehaviour:
@@ -68752,7 +68757,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6f82c05df5e0df3458eb77cca72f4456, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -69139,7 +69144,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802325472082
 MonoBehaviour:
@@ -69203,7 +69209,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: aa623a314397735448a56cf62503a26c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -69287,7 +69293,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: Win "PLATFORM CHAMPION" Award
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802340291762
 MonoBehaviour:
@@ -69351,7 +69358,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fdc78fe733746e641afeb802b4e5c3ad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be5fce2c4d1284c41bc45a6a8cf0bd83, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -69435,7 +69442,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802363271850
 MonoBehaviour:
@@ -69499,7 +69507,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b2895841bef4d654cb53dd21ba6d7e0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b68bd403faec43b4ab278482e3107ffd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -69697,7 +69705,7 @@ MonoBehaviour:
   notUnlockable: 1
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+  tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588802605092278
@@ -69720,7 +69728,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7af418de09d1238419f46d1b9d433846, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1052731d67f6e674681aee65d9b3b606, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -69854,7 +69862,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802627638556
 MonoBehaviour:
@@ -69918,7 +69927,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3a00a6edee3227f41b052292d1b7894a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70186,7 +70195,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802783224432
 MonoBehaviour:
@@ -70208,7 +70218,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: b2d000d5829eabc41bde13c45eb600fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70416,7 +70426,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: Win "BEST BOUNCER" Award
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802838879656
 MonoBehaviour:
@@ -70480,7 +70491,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4d5f3d29f2caf45449727cdc43d637ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27b17e847e8f3d44aa444cfa22a1a2cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70556,7 +70567,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802844179762
 MonoBehaviour:
@@ -70578,7 +70590,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9aa1c3a18a668e64b80a99d14d2df369, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc668a2b184f7414b9010e5ae3d852c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70895,7 +70907,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5770a203226eebb408f99adb56036631, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -71051,7 +71063,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588802963215848
 MonoBehaviour:
@@ -71073,7 +71086,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2ff559685696d994fa452e128513a133, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -71207,7 +71220,7 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+  tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588802976075578
@@ -71272,7 +71285,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 995679e0ca17fac499342491dfd51d4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 802867710ca7241488658d798982e651, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -71726,7 +71739,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 79617d7c819b9724db4acd5f803c5f9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -72067,7 +72080,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2a6c907e5f7a86a4398fb1505c76ea69, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -72151,7 +72164,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!1 &1969588803345681121
 GameObject:
@@ -72201,7 +72215,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803345681148
 MonoBehaviour:
@@ -72223,7 +72238,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3c9742aada464e9499b451eccc6860f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -72472,7 +72487,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 994069034519f9144a9d4eaff718873f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -72540,7 +72555,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 63e6306afb34a67499c49eb399e5a124, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -72666,7 +72681,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803452839786
 MonoBehaviour:
@@ -72688,7 +72704,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 74c1338498618e14b8228c80414d7ae2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -72943,7 +72959,8 @@ MonoBehaviour:
   notUnlockable: 1
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803473701010
 MonoBehaviour:
@@ -72965,7 +72982,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e7e1a0631cc9b24408cd9646312336b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -73114,7 +73131,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a347e6661bd37f9469dc239fbc32dd90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -73248,7 +73265,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: Win "PARASITE OF THE YEAR" Award
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803482912236
 MonoBehaviour:
@@ -73312,7 +73330,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6f0770ef44aaab04ca6bc08e3366e25b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89bd9ce53e7b684419482f6368b3cd92, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -73598,7 +73616,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803493644846
 MonoBehaviour:
@@ -73620,7 +73639,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d2b5d3a2a0cde5240a07674c6c8b026a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57dc17b866dc5fc4ba466e0e10a455bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -73665,7 +73684,7 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: e3db9c825f04e2743b2f90e2f79864eb,
+  tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
 --- !u!114 &1969588803499466610
@@ -73688,7 +73707,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c8504cb96c963f6499d550f7ed698ddd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7a7309898b586945a95ee081ea693ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -73848,7 +73867,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 593d015a9b2dcbf4ebbc5db45c53817e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74044,7 +74063,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: Win "COLLECTOR MASTER" Award
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803554714222
 MonoBehaviour:
@@ -74066,7 +74086,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3b60e84cb5f07154ca0d166732fde563, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8bd568f96921f5459b82f3cbe8224f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74134,7 +74154,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 64f3fa4a9e5a31a4fa5b44ae1aebf7d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74268,7 +74288,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: Complete "Collect 500 Opals" Mission
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803603830260
 MonoBehaviour:
@@ -74332,7 +74353,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6f78801f4b9959c45b3acb3ed87432e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 417ef0270f1c5a14ab2333098c3a5aef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74446,7 +74467,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &1969588803664916026
 MonoBehaviour:
@@ -74468,7 +74490,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4e10cb6dabd4745419196fab59c4fcd0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74617,7 +74639,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5e156ae7b6757c64e9ff158b3168aca5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75965,7 +75987,8 @@ MonoBehaviour:
   notUnlockable: 0
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &2229326514213486028
 MonoBehaviour:
@@ -76029,7 +76052,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e36bd4fe8b351744cb59322b808be2c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76154,7 +76177,8 @@ MonoBehaviour:
   notUnlockable: 1
   unlockRequirement: 
   doubleSlingShotMat: {fileID: 0}
-  tradectoryDotsSprite: {fileID: 0}
+  tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
+    type: 3}
   trailMat: {fileID: 0}
 --- !u!114 &2229326514480360393
 MonoBehaviour:
@@ -76218,7 +76242,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: c0f2747d30fcc9140ad5b242762d7984, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76515,7 +76539,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a1996501e775d384d82d601f95578fee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c6dc3053d947ac47934ba3d024e4072, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
