@@ -1742,7 +1742,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -6651,7 +6651,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -8015,7 +8015,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -23071,6 +23071,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 649396956}
+  - {fileID: 1937130985}
   m_Father: {fileID: 392875411}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24045,6 +24046,7 @@ MonoBehaviour:
   timer: 0
   duration: 2
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &650212108
 GameObject:
   m_ObjectHideFlags: 0
@@ -26034,7 +26036,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -38057,12 +38059,14 @@ MonoBehaviour:
   CoinMenu: {fileID: 1849341913}
   achievementMenu: {fileID: 1593671496}
   missionMenu: {fileID: 8833761057996522979}
+  creditsMenu: {fileID: 649396955}
   achievementPos: {fileID: 2027129599}
   missionPos: {fileID: 347508237}
   challengesPos: {x: 0, y: 0, z: 0}
   parasitePosObject: {fileID: 1430451087}
   placePosObject: {fileID: 2016677791}
   coinPosObject: {fileID: 1634895901}
+  creditsPosObject: {fileID: 1937130984}
   parasitePos: {x: 0, y: 0, z: 0}
   placePos: {x: 0, y: 0, z: 0}
   coinPos: {x: 0, y: 0, z: 0}
@@ -40611,9 +40615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Reezal Rosli
-
-'
+  m_Text: Reezal Rosli
 --- !u!222 &1290472280
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42163,7 +42165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2777811b37ab462498a4f0a1f00434b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fbb34b44e56ec24f8fda3608699ebc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -42186,11 +42188,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79075de4ca66274dbd97612746c1344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeforeFlying: {fileID: 21300000, guid: 760984f21f0da2047968377330395474, type: 3}
-  Flying: {fileID: 21300000, guid: e708281cadff9704090f25c107ed3b16, type: 3}
-  Death: {fileID: 21300000, guid: e40a714eddedf744ebd5755782437f10, type: 3}
-  Idle: {fileID: 21300000, guid: 2777811b37ab462498a4f0a1f00434b5, type: 3}
-  Stuck: {fileID: 21300000, guid: 80243b6b3ecdfa240ac0cb8d703e246f, type: 3}
+  BeforeFlying: {fileID: 21300000, guid: 71f62598dbb851f4c93c9d2f27df7219, type: 3}
+  Flying: {fileID: 21300000, guid: a580e83306058f3488f6dcf703c9ad1d, type: 3}
+  Death: {fileID: 21300000, guid: 48cdf678339b3214fa881681477e3aaa, type: 3}
+  Idle: {fileID: 21300000, guid: 8fbb34b44e56ec24f8fda3608699ebc2, type: 3}
+  Stuck: {fileID: 21300000, guid: c245319f66c203645a6804bec739d9b4, type: 3}
 --- !u!1 &1328600481
 GameObject:
   m_ObjectHideFlags: 0
@@ -48660,6 +48662,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.5
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &1603673442
 GameObject:
   m_ObjectHideFlags: 0
@@ -54403,6 +54406,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.8
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &1851329939
 GameObject:
   m_ObjectHideFlags: 0
@@ -55894,7 +55898,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ead36d1a37a22c48b8bd77ae16ff143, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -56120,6 +56124,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935836561}
   m_CullTransparentMesh: 0
+--- !u!1 &1937130984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1937130985}
+  m_Layer: 5
+  m_Name: CreditPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1937130985
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937130984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 571976088}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -49}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1939570437
 GameObject:
   m_ObjectHideFlags: 0
@@ -56926,7 +56965,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c297c4385054793488f737ad0c9519cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7e1a0631cc9b24408cd9646312336b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -70926,6 +70965,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.8
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &1969588802960080406
 GameObject:
   m_ObjectHideFlags: 0
@@ -79635,6 +79675,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.8
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!222 &3634520117646798696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -81250,7 +81291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &6355159385966173444
 Animator:
   serializedVersion: 3
@@ -81958,7 +81999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8646306001157498754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82313,6 +82354,7 @@ MonoBehaviour:
   timer: 0
   duration: 1.5
   isTouchingCredit: 0
+  dragTimer: 0
 --- !u!1 &8833761058148535491
 GameObject:
   m_ObjectHideFlags: 0
