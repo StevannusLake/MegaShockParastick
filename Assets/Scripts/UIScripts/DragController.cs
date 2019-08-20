@@ -19,6 +19,8 @@ public class DragController : MonoBehaviour
     public float timer;
     public float duration = 1.5f;
     public bool isTouchingCredit = false;
+    public float dragTimer = 0f;
+    private float dragDuration = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -210,6 +212,16 @@ public class DragController : MonoBehaviour
             timer += Time.unscaledDeltaTime;
             ResetPosition();
         }
+
+        if(isTouchingCredit)
+        {
+            dragTimer += Time.deltaTime;
+            if (dragTimer >= dragDuration)
+            {
+                isTouchingCredit = false;
+                dragTimer = 0f;
+            }
+        }       
     }
 
     void MoveByDrag(Vector3 rawD)
@@ -239,6 +251,7 @@ public class DragController : MonoBehaviour
         {
             if (rawD.y > 0)
             {
+                dragTimer = 0f;
                 isTouchingCredit = true;
                 if (bottomObject.position.y < initPos.y-2f)
                 {
@@ -249,6 +262,7 @@ public class DragController : MonoBehaviour
             }
             else if(rawD.y < 0)
             {
+                dragTimer = 0f;
                 isTouchingCredit = true;
                 if (transform.position.y >= initPos.y)
                 {
@@ -287,6 +301,10 @@ public class DragController : MonoBehaviour
             {    
                  transform.position = GameManager.instance.achievementPos.transform.position;
             }
+        }
+        else if(UIManager.Instance.CreditsMenu.activeInHierarchy)
+        {
+            transform.position = GameManager.instance.creditsPosObject.transform.position;
         }
     }
 }

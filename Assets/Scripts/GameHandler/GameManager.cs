@@ -42,12 +42,14 @@ public class GameManager : MonoBehaviour
     public GameObject CoinMenu;
     public GameObject achievementMenu;
     public GameObject missionMenu;
+    public GameObject creditsMenu;
     public GameObject achievementPos; //position object
     public GameObject missionPos;
     public Vector3 challengesPos;
     public GameObject parasitePosObject; //position object
     public GameObject placePosObject; // position object
     public GameObject coinPosObject; // position object
+    public GameObject creditsPosObject; // position object
     public Vector3 parasitePos;
     public Vector3 placePos;
     public Vector3 coinPos;
@@ -288,6 +290,13 @@ public class GameManager : MonoBehaviour
                 achievementMenu.GetComponent<DragController>().timer = 0f;
             if (missionMenu.GetComponent<DragController>().timer != 0f)
                 missionMenu.GetComponent<DragController>().timer = 0f;
+        }
+        if(!UIManager.Instance.CreditsMenu.activeInHierarchy)
+        {
+            if (creditsMenu.GetComponent<DragController>().timer != 0f)
+                creditsMenu.GetComponent<DragController>().timer = 0f;
+            if(creditsMenu.GetComponent<DragController>().dragTimer != 0f)
+                creditsMenu.GetComponent<DragController>().dragTimer = 0f;
         }
     }
 }
