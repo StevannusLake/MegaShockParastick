@@ -17429,6 +17429,7 @@ MonoBehaviour:
   timerText4: {fileID: 811890146}
   timerText5: {fileID: 1401513366}
   SecondChanceBlocker: {fileID: 421351177}
+  bgmAudioManager: {fileID: 2066983662}
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58635,6 +58636,7 @@ MonoBehaviour:
   deadEffect2: {fileID: 458542904}
   inGameMenu: {fileID: 946061137}
   stick: 0
+  absorbBiggerEffect: {fileID: 458542904}
 --- !u!50 &1968270235
 Rigidbody2D:
   serializedVersion: 4
