@@ -6,7 +6,6 @@ using UnityEngine;
 public class BGMAudioManager : MonoBehaviour
 {
     public BGMSound[] sounds;
-    public List<float> prevVolumes;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,11 +19,6 @@ public class BGMAudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-    }
-
-    private void Start()
-    {
-        CapturePrevAudioVolumes();
     }
 
     public void Play(string name)
@@ -49,14 +43,6 @@ public class BGMAudioManager : MonoBehaviour
         }
 
         s.source.Stop();
-    }
-
-    void CapturePrevAudioVolumes()
-    {
-        foreach (BGMSound s in sounds)
-        {
-            prevVolumes.Add(s.source.volume);
-        }
     }
 
     public void Mute()
