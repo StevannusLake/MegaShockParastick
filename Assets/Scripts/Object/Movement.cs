@@ -170,6 +170,7 @@ public class Movement : MonoBehaviour
     public ParticleSystem StickOnStaticSafePlatformEffect;
     public ParticleSystem StickOnMovingSafePlatformEffect;
     public ParticleSystem UnstickFromStaticSafePlatformEffect;
+    public ParticleSystem UnstickFromMovingSafePlatformEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -956,6 +957,7 @@ public class Movement : MonoBehaviour
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
                 mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle, "MovingPlatform"); */
+                UnstickFromMovingSafePlatformEffect.Play();
             }
             // ===================================================================================================================================
         }
