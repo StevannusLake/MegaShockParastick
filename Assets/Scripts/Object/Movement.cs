@@ -167,6 +167,9 @@ public class Movement : MonoBehaviour
     public ParticleSystem absorbSmallerEffect;
     private ParticleSystem.ShapeModule absorbSmallerShape;
 
+    public ParticleSystem StickOnStaticSafePlatformEffect;
+    public ParticleSystem StickOnMovingSafePlatformEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -858,17 +861,22 @@ public class Movement : MonoBehaviour
                 
                 if(currentSurface.thisType == Surfaces.SurfaceTypes.Safe)
                 {
+                    /*
                     float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
-                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 1, angle, "SafePlatform");
+                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 1, angle, "SafePlatform"); */
+                    StickOnStaticSafePlatformEffect.Play();
                 }
                 else if(currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
                 {
+                    /*
                     float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
-                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle, "MovingPlatform");
+                    mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle, "MovingPlatform"); */
+                    StickOnMovingSafePlatformEffect.Play();
+
                    LevelHandler.instance.cameraController.currentSurface = currentSurface.gameObject;
                  //  LevelHandler.instance.cameraController.cameraState = CameraFollowingState.ONMOVINGPLATFORM;
                 }
@@ -933,18 +941,20 @@ public class Movement : MonoBehaviour
             Surfaces currentSurface = collision.collider.gameObject.GetComponent<Surfaces>();
             if (currentSurface.thisType == Surfaces.SurfaceTypes.Safe)
             {
+                /*
                 float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
-                mySmokeEffect.SpawnSmoke(myTransform.position, 1, angle, "SafePlatform");
+                //mySmokeEffect.SpawnSmoke(myTransform.position, 1, angle, "SafePlatform"); */
                 
             }
             else if (currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
             {
+                /*
                 float angle = Mathf.Atan2(currentSurface.gameObject.transform.position.y - myTransform.position.y, currentSurface.gameObject.transform.position.x - myTransform.position.x);
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
-                mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle, "MovingPlatform");
+                mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle, "MovingPlatform"); */
             }
             // ===================================================================================================================================
         }
