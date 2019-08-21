@@ -347,18 +347,14 @@ public class UIManager : MonoBehaviour
         CheckPauseButton();
 
         //! OOI FREE CURRENCY 
-        //string time = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Ticks).ToString("HH:mm:ss");
-        //string time2 = new System.DateTime(this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Ticks).ToString("HH:mm:ss");
         string timeText = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Seconds);
         string timeText2 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Seconds);
-
-        //timerText.text = this.gameObject.GetComponent<FreeCurrency1>().oldTime.ToString();
-        //timerText2.text = this.gameObject.GetComponent<FreeCurrency1>().currentTime.ToString();
-        // timerText3.text = this.gameObject.GetComponent<FreeCurrency1>().difference.ToString();
+        string timeText3 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ2.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ2.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ2.Seconds);
+        string timeText4 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceQ2.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceQ2.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceQ2.Seconds);
 
         if (this.gameObject.GetComponent<InternetChecker>().isConnect == true)
         {
-            if (this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Seconds > 1)
+            if (this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ.Seconds > 0)
             {
                 timerText4.text = timeText;
             }
@@ -371,6 +367,22 @@ public class UIManager : MonoBehaviour
             if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency == 3)
             {
                 timerText4.text = timeText2;
+            }
+
+            /////////////////////////////////////////////////
+
+            if (this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ2.Seconds > 0)
+            {
+                timerText3.text = timeText3;
+            }
+            else
+            {
+                timerText3.text = "Free!";
+            }
+
+            if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency2 == 3)
+            {
+                timerText3.text = timeText4;
             }
         }
     }
