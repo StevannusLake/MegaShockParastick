@@ -172,6 +172,8 @@ public class Movement : MonoBehaviour
     public ParticleSystem UnstickFromStaticSafePlatformEffect;
     public ParticleSystem UnstickFromMovingSafePlatformEffect;
 
+    private bool enableInput = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -233,12 +235,19 @@ public class Movement : MonoBehaviour
         absorbBiggerShape = absorbBiggerEffect.shape;
         absorbSmallerEffect.Stop();
         absorbSmallerShape = absorbSmallerEffect.shape;
+
+        enableInput = false;
     }
     
     // Update is called once per frame
     void Update()
     {
         TrailSizing();
+
+        if(inGameMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("InGameOpen") && !mainMenu.activeSelf)
+        {
+            enableInput = true;
+        }
 
         currentVelocity = myRigidBody.velocity;
         if (!UIManager.Instance.LoseMenu.activeSelf && deadState == 0) // && !MainMenu.activeSelf 
@@ -442,7 +451,7 @@ public class Movement : MonoBehaviour
                 }
 
                 // use mouse to test movement without concerning control
-                if (Input.GetMouseButtonDown(0) && !PauseScreen.activeInHierarchy)
+                if (Input.GetMouseButtonDown(0) && !PauseScreen.activeInHierarchy && enableInput)
                 {
                     initialInputPosition = (Vector2)Input.mousePosition;
                     //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
@@ -462,7 +471,7 @@ public class Movement : MonoBehaviour
                     CancelSlingShot();
                 }
 
-                if (Input.GetMouseButtonUp(0) && !isCancel)
+                if (Input.GetMouseButtonUp(0) && !isCancel && enableInput)
                 {
                     finalInputPosition = (Vector2)Input.mousePosition;
                     //finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
@@ -511,7 +520,7 @@ public class Movement : MonoBehaviour
                 }
 
                 // use mouse to test movement without concerning control
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && enableInput)
                 {
                     initialInputPosition = (Vector2)Input.mousePosition;
                     //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
