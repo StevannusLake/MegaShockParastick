@@ -1056,7 +1056,7 @@ public class Movement : MonoBehaviour
         {
             if (bigger == true)
             {
-                curScale = curScale + (0.1f * Time.deltaTime);
+                curScale = curScale + (0.5f * Time.deltaTime);
 
                 if (transform.localScale.x < 0.69f)
                 {
@@ -1066,7 +1066,7 @@ public class Movement : MonoBehaviour
 
             if (bigger == false)
             {
-                curScale = curScale - (0.1f * Time.deltaTime);
+                curScale = curScale - (0.5f * Time.deltaTime);
 
                 if (transform.localScale.x > 0.21f)
                 {
@@ -1084,14 +1084,12 @@ public class Movement : MonoBehaviour
 
     void CheckScaling()
     {
-        if (transform.localScale.x < 0.2f)
+        if (transform.localScale.x < 0.21f)
         {
-            transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-
             absorbSmallerEffect.Stop();
         }
 
-        if(transform.localScale.x > 0.7f)
+        if(transform.localScale.x > 0.69f)
         {
             absorbBiggerEffect.Stop();
         }
