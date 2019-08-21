@@ -244,21 +244,34 @@ public class Movement : MonoBehaviour
     {
         TrailSizing();
 
-        if(inGameMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("InGameOpen") && !mainMenu.activeSelf)
+        if(inGameMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("InGameOpen") && !mainMenu.activeSelf && !Input.GetMouseButton(0))
         {
             enableInput = true;
         }
 
+        if(!enableInput)
+        {
+            isCancel = true;
+        }
+
         currentVelocity = myRigidBody.velocity;
+
         if (!UIManager.Instance.LoseMenu.activeSelf && deadState == 0) // && !MainMenu.activeSelf 
         {
             if (myCollider.isTrigger)
             {
                 myCollider.isTrigger = false;
             }
-            SlingShot();
 
-            DotsSpawner();
+            if (enableInput)
+            {
+                SlingShot();
+
+                DotsSpawner();
+
+                Debug.LogError("CHECKING SLINGSHOT!");
+            }
+
             if (myMoveStick == MoveState.FLYING)
             {
                 myTransform.rotation = Quaternion.Euler(0, 0, 0);
@@ -435,144 +448,154 @@ public class Movement : MonoBehaviour
             doubleSlingshot = 0;
         }
 
-        if (mainMenu.GetComponent<AnimationEvent>().canDrag == true)
+        if (enableInput)
         {
-            if (myMoveStick == MoveState.STICK)
+            if (mainMenu.GetComponent<AnimationEvent>().canDrag == true)
             {
-                if (Time.timeScale != 1)
+                if (myMoveStick == MoveState.STICK)
                 {
-                    Time.timeScale = 1;
-                }
-
-                if (bounceCounter != 0 && deadState == 0)
-                {
-                    bounceCounter = 0;
-                    //maxBounceCounterBar = maxBounceCounter;
-                }
-
-                // use mouse to test movement without concerning control
-                if (Input.GetMouseButtonDown(0) && !PauseScreen.activeInHierarchy && enableInput)
-                {
-                    initialInputPosition = (Vector2)Input.mousePosition;
-                    //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
-                    spawnDot = true;
-                    //isCancel = true;
-                    mousePressed = true;
-
-                    // myAnimation.PlayHold();
-                    myEmotion.EmoteBeforeFlying();
-
-                    cancelIndicator.GetComponent<CancelIndicator>().screenPos = initialInputPosition;
-                    cancelIndicator.SetActive(true);
-                }
-
-                if (mousePressed)
-                {
-                    CancelSlingShot();
-                }
-
-                if (Input.GetMouseButtonUp(0) && !isCancel && enableInput)
-                {
-                    finalInputPosition = (Vector2)Input.mousePosition;
-                    //finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
-                    slingshotVelocity = SlingshotVelocityCalculation();
-
-                    myRigidBody.velocity = slingshotVelocity;
-
-                    myMoveStick = MoveState.FLYING;
-
-                    // reset gravity
-                    myTransform.SetParent(null);
-                    myRigidBody.gravityScale = 1;
-                    spawnDot = false;
-                    isCancel = false;
-
-                    // myAnimation.PlayJump();
-                    myEmotion.EmoteFlying();
-                    isSticking = false;
-                    AudioManager.PlaySound(AudioManager.Sound.PlayerUnstick);
-
-                    //========== 20/5 ====================================================================================== 
-                    if (hand != null && HandTutorial.tutorialCounter == 0)
+                    if (Time.timeScale != 1)
                     {
-                        hand.OffTutorial();
+                        Time.timeScale = 1;
+                    }
+
+                    if (bounceCounter != 0 && deadState == 0)
+                    {
+                        bounceCounter = 0;
+                        //maxBounceCounterBar = maxBounceCounter;
+                    }
+
+                    // use mouse to test movement without concerning control
+                    if (enableInput)
+                    {
+                        if (Input.GetMouseButtonDown(0) && !PauseScreen.activeInHierarchy) //&& enableInput
+                        {
+                            initialInputPosition = (Vector2)Input.mousePosition;
+                            //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
+                            spawnDot = true;
+                            //isCancel = true;
+                            mousePressed = true;
+
+                            // myAnimation.PlayHold();
+                            myEmotion.EmoteBeforeFlying();
+
+                            cancelIndicator.GetComponent<CancelIndicator>().screenPos = initialInputPosition;
+                            cancelIndicator.SetActive(true);
+                        }
+
+                        if (mousePressed)
+                        {
+                            CancelSlingShot();
+                        }
+
+                        if (Input.GetMouseButtonUp(0) && !isCancel) // && enableInput
+                        {
+                            finalInputPosition = (Vector2)Input.mousePosition;
+                            //finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
+                            slingshotVelocity = SlingshotVelocityCalculation();
+
+                            myRigidBody.velocity = slingshotVelocity;
+
+                            myMoveStick = MoveState.FLYING;
+
+                            // reset gravity
+                            myTransform.SetParent(null);
+                            myRigidBody.gravityScale = 1;
+                            spawnDot = false;
+                            isCancel = false;
+
+                            // myAnimation.PlayJump();
+                            myEmotion.EmoteFlying();
+                            isSticking = false;
+                            AudioManager.PlaySound(AudioManager.Sound.PlayerUnstick);
+
+                            //========== 20/5 ====================================================================================== 
+                            if (hand != null && HandTutorial.tutorialCounter == 0)
+                            {
+                                hand.OffTutorial();
+                            }
+                        }
+
+                        if (Input.GetMouseButtonUp(0))
+                        {
+                            mousePressed = false;
+                            spawnDot = false;
+                            myEmotion.EmoteIdle();
+
+
+
+                            cancelIndicator.SetActive(false);
+                        }
+
                     }
                 }
-
-                if (Input.GetMouseButtonUp(0))
+                else if (myMoveStick == MoveState.FLYING && doubleSlingshot == 0)
                 {
-                    mousePressed = false;
-                    spawnDot = false;
-                    myEmotion.EmoteIdle();
-
-                    
-
-                    cancelIndicator.SetActive(false);
-                }
-            }
-            else if (myMoveStick == MoveState.FLYING && doubleSlingshot == 0)
-            {
-                //========== 20/5 ====================================================================================== 
-                if (hand != null)
-                {
-                    screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
-                    hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
-                }
-
-                // use mouse to test movement without concerning control
-                if (Input.GetMouseButtonDown(0) && enableInput)
-                {
-                    initialInputPosition = (Vector2)Input.mousePosition;
-                    //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
-                    spawnDot = true;
-                    //isCancel = true;
-                    mousePressed = true;
-
-                    cancelIndicator.transform.position = initialInputPosition;
-                    cancelIndicator.SetActive(true);
-
-                    Time.timeScale = 0.4f;
-                }
-
-                if (mousePressed)
-                {
-                    CancelSlingShot();
-                }
-
-                if (Input.GetMouseButtonUp(0) && !isCancel)
-                {
-                    finalInputPosition = (Vector2)Input.mousePosition;
-                    //finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
-                    slingshotVelocity = SlingshotVelocityCalculation();
-
-                    myRigidBody.velocity = slingshotVelocity;
-
-                    // reset gravity
-                    myTransform.SetParent(null);
-                    myRigidBody.gravityScale = 1;
-                    spawnDot = false;
-                    isCancel = false;
-
-                    // slingshot once
-                    doubleSlingshot = 1;
-                    doubleSlingshotCounter -= DECREMENTSLINGSHOT;
-
-
-
                     //========== 20/5 ====================================================================================== 
-                    if (HandTutorial.tutorialCounter < 2)
+                    if (hand != null)
                     {
-                        hand.OffTutorial();
+                        screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
+                        hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
                     }
-                }
 
-                if (Input.GetMouseButtonUp(0))
-                {
-                    mousePressed = false;
-                    spawnDot = false;
+                    // use mouse to test movement without concerning control
+                    if (enableInput)
+                    {
+                        if (Input.GetMouseButtonDown(0)) // && enableInput
+                        {
+                            initialInputPosition = (Vector2)Input.mousePosition;
+                            //initialInputPosition = Camera.main.ScreenToWorldPoint(initialInputPosition);
+                            spawnDot = true;
+                            //isCancel = true;
+                            mousePressed = true;
 
-                    cancelIndicator.SetActive(false);
-                    Time.timeScale = 1.0f;
+                            cancelIndicator.transform.position = initialInputPosition;
+                            cancelIndicator.SetActive(true);
+
+                            Time.timeScale = 0.4f;
+                        }
+
+                        if (mousePressed)
+                        {
+                            CancelSlingShot();
+                        }
+
+                        if (Input.GetMouseButtonUp(0) && !isCancel)
+                        {
+                            finalInputPosition = (Vector2)Input.mousePosition;
+                            //finalInputPosition = Camera.main.ScreenToWorldPoint(finalInputPosition);
+                            slingshotVelocity = SlingshotVelocityCalculation();
+
+                            myRigidBody.velocity = slingshotVelocity;
+
+                            // reset gravity
+                            myTransform.SetParent(null);
+                            myRigidBody.gravityScale = 1;
+                            spawnDot = false;
+                            isCancel = false;
+
+                            // slingshot once
+                            doubleSlingshot = 1;
+                            doubleSlingshotCounter -= DECREMENTSLINGSHOT;
+
+
+
+                            //========== 20/5 ====================================================================================== 
+                            if (HandTutorial.tutorialCounter < 2)
+                            {
+                                hand.OffTutorial();
+                            }
+                        }
+
+                        if (Input.GetMouseButtonUp(0))
+                        {
+                            mousePressed = false;
+                            spawnDot = false;
+
+                            cancelIndicator.SetActive(false);
+                            Time.timeScale = 1.0f;
+                        }
+                    }
                 }
             }
         }
