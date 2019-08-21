@@ -868,6 +868,7 @@ public class Movement : MonoBehaviour
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
                     mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 1, angle, "SafePlatform"); */
+                    StickOnStaticSafePlatformEffect.Simulate(0);
                     StickOnStaticSafePlatformEffect.Play();
                 }
                 else if(currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
@@ -877,6 +878,7 @@ public class Movement : MonoBehaviour
                     angle *= Mathf.Rad2Deg;
                     angle += 90;
                     mySmokeEffect.SpawnSmoke(collision.GetContact(0).point, 2, angle, "MovingPlatform"); */
+                    StickOnMovingSafePlatformEffect.Simulate(0);
                     StickOnMovingSafePlatformEffect.Play();
 
                    LevelHandler.instance.cameraController.currentSurface = currentSurface.gameObject;
@@ -948,6 +950,7 @@ public class Movement : MonoBehaviour
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
                 //mySmokeEffect.SpawnSmoke(myTransform.position, 1, angle, "SafePlatform"); */
+                UnstickFromStaticSafePlatformEffect.Simulate(0);
                 UnstickFromStaticSafePlatformEffect.Play();
             }
             else if (currentSurface.thisType == Surfaces.SurfaceTypes.Moving)
@@ -957,6 +960,7 @@ public class Movement : MonoBehaviour
                 angle *= Mathf.Rad2Deg;
                 angle -= 90;
                 mySmokeEffect.SpawnSmoke(myTransform.position, 2, angle, "MovingPlatform"); */
+                UnstickFromMovingSafePlatformEffect.Simulate(0);
                 UnstickFromMovingSafePlatformEffect.Play();
             }
             // ===================================================================================================================================

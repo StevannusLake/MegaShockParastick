@@ -9292,7 +9292,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -29271,7 +29271,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10
+    maxNumParticles: 15
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -29646,7 +29646,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -29696,8 +29696,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 1
-      repeatInterval: 0.02
+      cycleCount: 0
+      repeatInterval: 0.01
       probability: 1
   SizeModule:
     enabled: 1
@@ -74862,7 +74862,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 5
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -82285,6 +82285,7 @@ MonoBehaviour:
   StickOnStaticSafePlatformEffect: {fileID: 1788031345}
   StickOnMovingSafePlatformEffect: {fileID: 339767369}
   UnstickFromStaticSafePlatformEffect: {fileID: 595137321}
+  UnstickFromMovingSafePlatformEffect: {fileID: 2008689120}
 --- !u!50 &1968270235
 Rigidbody2D:
   serializedVersion: 4
@@ -84178,7 +84179,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10
+    maxNumParticles: 45
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -84553,7 +84554,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 45
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -84603,8 +84604,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 1
-      repeatInterval: 0.02
+      cycleCount: 0
+      repeatInterval: 0.01
       probability: 1
   SizeModule:
     enabled: 1
