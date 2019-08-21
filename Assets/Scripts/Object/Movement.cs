@@ -1058,7 +1058,7 @@ public class Movement : MonoBehaviour
             {
                 curScale = curScale + (0.5f * Time.deltaTime);
 
-                if (transform.localScale.x < 0.69f)
+                if (transform.localScale.x < 2.69f)
                 {
                     absorbBiggerEffect.Play();
                 }
@@ -1068,13 +1068,13 @@ public class Movement : MonoBehaviour
             {
                 curScale = curScale - (0.5f * Time.deltaTime);
 
-                if (transform.localScale.x > 0.21f)
+                if (transform.localScale.x > 0.81f)
                 {
                     absorbSmallerEffect.Play();
                 }
             }
 
-            curScale = Mathf.Clamp(curScale, 0.2f, 0.7f);
+            curScale = Mathf.Clamp(curScale, 0.8f, 2.7f);
 
             scale = baseScale * curScale;
         }
@@ -1084,18 +1084,18 @@ public class Movement : MonoBehaviour
 
     void CheckScaling()
     {
-        if (transform.localScale.x < 0.21f)
+        if (transform.localScale.x < 0.81f)
         {
             absorbSmallerEffect.Stop();
         }
 
-        if(transform.localScale.x > 0.69f)
+        if(transform.localScale.x > 2.69f)
         {
             absorbBiggerEffect.Stop();
         }
         
-        absorbBiggerShape.radius = transform.localScale.x;
-        absorbSmallerShape.radius = transform.localScale.x;
+        absorbBiggerShape.radius = transform.localScale.x * 0.22f;
+        absorbSmallerShape.radius = transform.localScale.x * 0.22f;
     }
 
     private void DotsSpawner()
