@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
     public Text pointCounterInGame;
     public Text pointCounterInSecondChance;
     public bool isPaused = false;
+    public Button msFbLinkButton;
+    public Button msInstaLinkButton;
 
     //private float delayTimer = 0f;
     //private bool isPaused = false;
@@ -384,6 +386,16 @@ public class UIManager : MonoBehaviour
             {
                 timerText3.text = timeText4;
             }
+        }
+
+        if(PlayerPrefs.GetInt("MSFB") == 1)
+        {
+            msFbLinkButton.interactable = false;
+        }
+
+        if(PlayerPrefs.GetInt("MSIG") == 1)
+        {
+            msInstaLinkButton.interactable = false;
         }
     }
 
