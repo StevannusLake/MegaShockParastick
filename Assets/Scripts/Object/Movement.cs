@@ -824,9 +824,13 @@ public class Movement : MonoBehaviour
                     {
                         tutorialManager.ShowTutorial5();
                     }
-                    else
+                    else if (stick == 5)
                     {
                         tutorialManager.ShowTutorial6();
+                    }
+                    else
+                    {
+                        tutorialManager.ShowTutorial7();
                     }
                 }
             }
