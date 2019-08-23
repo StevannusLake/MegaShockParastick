@@ -29,8 +29,8 @@ public class UIManager : MonoBehaviour
     public Text pointCounterInGame;
     public Text pointCounterInSecondChance;
     public bool isPaused = false;
-    public Button msFbLinkButton;
-    public Button msInstaLinkButton;
+    public GameObject mgFbCoin;
+    public GameObject mgInstaCoin;
 
     //private float delayTimer = 0f;
     //private bool isPaused = false;
@@ -390,12 +390,12 @@ public class UIManager : MonoBehaviour
 
         if(PlayerPrefs.GetInt("MSFB") == 1)
         {
-            msFbLinkButton.interactable = false;
+            mgFbCoin.SetActive(false);
         }
 
         if(PlayerPrefs.GetInt("MSIG") == 1)
         {
-            msInstaLinkButton.interactable = false;
+            mgInstaCoin.SetActive(false);
         }
     }
 
