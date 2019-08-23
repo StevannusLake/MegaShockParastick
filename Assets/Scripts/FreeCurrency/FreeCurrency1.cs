@@ -637,41 +637,51 @@ public class FreeCurrency1 : MonoBehaviour
     public DateTime currentTime;
     public DateTime oldTime;
     public DateTime oldTime2;
+    public DateTime oldTime3;
     private DateTime sincePressedTime;
-    public TimeSpan differenceForMin;
     public TimeSpan differenceForMinQ;
     public TimeSpan differenceForMinQ2;
+    public TimeSpan differenceForMinQ3;
 
     public int freeCurrency;
     public int freeCurrency2;
+    public int freeCurrency3;
     public string myLocation;
     public string myLocation2;
+    public string myLocation3;
 
     public bool canGetFree = false;
     public bool canGetFree2 = false;
+    public bool canGetFree3 = false;
     public bool stopTimer = false;
     public bool stopTimer2 = false;
+    public bool stopTimer3 = false;
     public bool isFirst;
     public bool isFirst2;
-    public bool stopCountDown = false;
-    public bool stopCountDown2 = false;
+    public bool isFirst3;
     public GameObject image1;
     public GameObject image2;
+    public GameObject image3;
     private int addValue;
     public TimeSpan difference;
     public TimeSpan difference2;
+    public TimeSpan difference3;
     public TimeSpan differenceQ;
     public TimeSpan differenceQ2;
+    public TimeSpan differenceQ3;
     public GameObject mainButton;
     public GameObject mainButton2;
     public GameObject shopButton;
     public GameObject shopButton2;
+    public GameObject loseButton;
+    public GameObject loseButton2;
 
     void Start()
     {
         CheckDate();
 
         //------------Main Menu----------\\
+
         if (isFirst = (PlayerPrefs.GetInt("GetFreeCurrency9") == 0))
         {
             mainButton.SetActive(true);
@@ -683,13 +693,14 @@ public class FreeCurrency1 : MonoBehaviour
             mainButton.SetActive(false);
             mainButton2.SetActive(true);
         }
+
         //------------Main Menu----------\\
 
         //------------Shop Menu----------\\
 
         if (isFirst2 = (PlayerPrefs.GetInt("GetFreeCurrency4") == 0))
         {
-            mainButton2.SetActive(true);
+            shopButton2.SetActive(true);
             canGetFree2 = true;
             PlayerPrefs.SetString(myLocation2 + "lastLoginTime2", System.DateTime.Now.ToBinary().ToString());
         }
@@ -700,6 +711,22 @@ public class FreeCurrency1 : MonoBehaviour
         }
 
         //------------Shop Menu----------\\
+
+        //------------Lose Menu----------\\
+
+        if (isFirst3 = (PlayerPrefs.GetInt("GetFreeCurrency5") == 0))
+        {
+            loseButton2.SetActive(true);
+            canGetFree3 = true;
+            PlayerPrefs.SetString(myLocation3 + "lastLoginTime3", System.DateTime.Now.ToBinary().ToString());
+        }
+        else
+        {
+            loseButton.SetActive(false);
+            loseButton2.SetActive(true);
+        }
+
+        //------------Lose Menu----------\\
     }
 
     private void Update()
@@ -816,7 +843,63 @@ public class FreeCurrency1 : MonoBehaviour
             }
             stopTimer2 = true;
         }
+
         //------------Shop Menu----------\\
+
+        //------------Lose Menu----------\\
+
+        if (PlayerPrefs.GetInt(myLocation3 + "LoginTime3") < 0)
+        {
+            PlayerPrefs.SetInt(myLocation3 + "LoginTime3", 0);
+            freeCurrency3 = PlayerPrefs.GetInt(myLocation3 + "LoginTime3");
+            PlayerPrefs.SetString(myLocation3 + "lastLoginTime3", System.DateTime.Now.ToBinary().ToString());
+        }
+        else
+        {
+            freeCurrency3 = PlayerPrefs.GetInt(myLocation3 + "LoginTime3");
+        }
+
+        if (PlayerPrefs.GetString(myLocation3 + "lastLoginTime3") == "")
+        {
+            oldTime3 = DateTime.Now;
+        }
+        else
+        {
+            long temp3= Convert.ToInt64(PlayerPrefs.GetString(myLocation3 + "lastLoginTime3"));
+            oldTime3 = DateTime.FromBinary(temp3);
+
+            print(myLocation3 + "oldTime: " + oldTime3);
+
+            // find differene 
+            difference3 = currentTime.Subtract(oldTime3);
+            print(myLocation3 + "Difference: " + difference3);
+
+            if (difference3.Hours >= 2)
+            {
+                freeCurrency3 = 0;
+                canGetFree3 = true;
+                PlayerPrefs.SetInt(myLocation3 + "LoginTime3", freeCurrency3);
+                if (currentTime > oldTime3)
+                {
+                    PlayerPrefs.SetString(myLocation3 + "lastLoginTime3", System.DateTime.Now.ToBinary().ToString());
+                }
+
+                //=============================================================================================================
+                NotificationManager.Cancel(67);
+                TimeSpan delayNotifyTime = new TimeSpan(0, 0, 0);
+                // schedule without icon
+                NotificationManager.Send(67, TimeSpan.FromSeconds(5), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+
+                Debug.Log(myLocation + "2 Hours Has Passed");
+            }
+            else
+            {
+                Debug.Log(myLocation + "2 Hours Not Passed");
+            }
+            stopTimer3 = true;
+        }
+
+        //------------Lose Menu----------\\
     }
 
     void UpdatePassedTime()
@@ -851,10 +934,7 @@ public class FreeCurrency1 : MonoBehaviour
 
         oldDate = oldDate.AddMinutes(1);
 
-        if (stopCountDown == false && freeCurrency != 3)
-        {
-            differenceForMinQ = oldDate.Subtract(sincePressedTime);
-        }
+        differenceForMinQ = oldDate.Subtract(sincePressedTime);
 
         if (differenceForMinQ.Seconds < 1 && stopTimer == true)
         {
@@ -867,10 +947,6 @@ public class FreeCurrency1 : MonoBehaviour
             mainButton2.GetComponent<Button>().interactable = false;
         }
 
-        if (stopTimer == false)
-        {
-            stopCountDown = true;
-        }
         //--------------Main Menu---------------\\
 
         //--------------Shop Menu---------------\\
@@ -902,10 +978,7 @@ public class FreeCurrency1 : MonoBehaviour
 
         oldDate2 = oldDate2.AddMinutes(1);
 
-        if (stopCountDown2 == false && freeCurrency2 != 3)
-        {
-            differenceForMinQ2 = oldDate2.Subtract(sincePressedTime);
-        }
+        differenceForMinQ2 = oldDate2.Subtract(sincePressedTime);
 
         if (differenceForMinQ2.Seconds < 1 && stopTimer2 == true)
         {
@@ -917,12 +990,51 @@ public class FreeCurrency1 : MonoBehaviour
         {
             shopButton2.GetComponent<Button>().interactable = false;
         }
-
-        if (stopTimer2 == false)
-        {
-            stopCountDown2 = true;
-        }
         //--------------Shop Menu---------------\\
+
+        //--------------Lose Menu---------------\\
+
+        long temp3 = Convert.ToInt64(PlayerPrefs.GetString(myLocation3 + "lastLoginTime3"));
+        oldTime3 = DateTime.FromBinary(temp3);
+
+        differenceQ3 = sincePressedTime.Subtract(oldTime3);
+
+        if (differenceQ3.Hours >= 2)
+        {
+            freeCurrency3 = 0;
+            canGetFree3 = true;
+            PlayerPrefs.SetInt(myLocation3 + "LoginTime3", freeCurrency3);
+            if (currentTime > oldTime3)
+            {
+                PlayerPrefs.SetString(myLocation3 + "lastLoginTime3", System.DateTime.Now.ToBinary().ToString());
+            }
+            Debug.Log(myLocation3 + "2 Hours Has Passed");
+        }
+        else
+        {
+            Debug.Log(myLocation3 + "2 Hours Not Passed");
+        }
+
+        long temp6 = Convert.ToInt64(PlayerPrefs.GetString("sysString3"));
+
+        DateTime oldDate3 = DateTime.FromBinary(temp6);
+
+        oldDate3 = oldDate3.AddMinutes(1);
+
+        differenceForMinQ3 = oldDate3.Subtract(sincePressedTime);
+
+        if (differenceForMinQ3.Seconds < 1 && stopTimer3 == true)
+        {
+            loseButton2.GetComponent<Button>().interactable = true;
+            canGetFree3 = true;
+            stopTimer3 = false;
+        }
+        else if (differenceForMinQ3.Seconds > 1)
+        {
+            loseButton2.GetComponent<Button>().interactable = false;
+        }
+
+        //--------------Lose Menu---------------\\
     }
 
     public void GetFreeOpalMainMenu()
@@ -936,7 +1048,6 @@ public class FreeCurrency1 : MonoBehaviour
             NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
             
             canGetFree = false;
-            stopCountDown = false;
             stopTimer = true;
 
             // button pressed, save and set press button time to buttonPressedTime
@@ -958,7 +1069,7 @@ public class FreeCurrency1 : MonoBehaviour
         }
     }
 
-    public void GetFreeOpalShopMenuMenu()
+    public void GetFreeOpalShopMenu()
     {
         if (canGetFree2 == true && freeCurrency2 < 3)
         {
@@ -969,7 +1080,6 @@ public class FreeCurrency1 : MonoBehaviour
             NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
 
             canGetFree2 = false;
-            stopCountDown2 = false;
             stopTimer2 = true;
 
             // button pressed, save and set press button time to buttonPressedTime
@@ -991,6 +1101,38 @@ public class FreeCurrency1 : MonoBehaviour
         }
     }
 
+    public void GetFreeOpalLoseMenu()
+    {
+        if (canGetFree3 == true && freeCurrency3 < 3)
+        {
+            //=============================================================================================================
+            NotificationManager.Cancel(65);
+            TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
+            // schedule without icon
+            NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+
+            canGetFree3 = false;
+            stopTimer3 = true;
+
+            // button pressed, save and set press button time to buttonPressedTime
+            PlayerPrefs.SetString(myLocation3 + "PressButtonTime3", System.DateTime.Now.ToBinary().ToString());
+            PlayerPrefs.SetString("sysString3", System.DateTime.Now.ToBinary().ToString());
+
+            freeCurrency3++;
+            PlayerPrefs.SetInt(myLocation3 + "LoginTime3", freeCurrency3);
+
+            // get free currency code go here
+
+            Debug.Log("Get free2");
+
+            addValue = UnityEngine.Random.Range(1, 5);
+
+            GameManager.instance.AddPoints(addValue);
+            GameManager.instance.SavePoints();
+            image3.SetActive(true);
+        }
+    }
+
     public void RunOnce()
     {
         PlayerPrefs.SetInt("GetFreeCurrency9", (isFirst ? 1 : 0));
@@ -1005,6 +1147,13 @@ public class FreeCurrency1 : MonoBehaviour
         shopButton.SetActive(false);
     }
 
+    public void RunOnce3()
+    {
+        PlayerPrefs.SetInt("GetFreeCurrency5", (isFirst3 ? 1 : 0));
+        loseButton2.SetActive(true);
+        loseButton.SetActive(false);
+    }
+
     public void CloseAds1()
     {
         image1.SetActive(false);
@@ -1013,5 +1162,10 @@ public class FreeCurrency1 : MonoBehaviour
     public void CloseAds2()
     {
         image2.SetActive(false);
+    }
+
+    public void CloseAds3()
+    {
+        image3.SetActive(false);
     }
 }
