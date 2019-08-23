@@ -1555,6 +1555,12 @@ MonoBehaviour:
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 0}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &48493736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3625,6 +3631,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &133083518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7516,6 +7528,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &283756125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14238,6 +14256,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &352599151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16080,6 +16104,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &415677868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22527,6 +22557,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &494662235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23226,8 +23262,8 @@ MonoBehaviour:
   pointCounterInGame: {fileID: 655657460}
   pointCounterInSecondChance: {fileID: 206701900}
   isPaused: 0
-  msFbLinkButton: {fileID: 1505581669}
-  msInstaLinkButton: {fileID: 2083940561}
+  mgFbCoin: {fileID: 773257119}
+  mgInstaCoin: {fileID: 920070026}
   TutorialScreen: {fileID: 896214596}
   SecondChanceButton: {fileID: 91207462}
   secondChanceCalled: 0
@@ -29129,6 +29165,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &543988363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30074,6 +30116,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &587507931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36373,6 +36421,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &670094734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36675,6 +36729,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &693302361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43330,6 +43390,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1013270443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50594,6 +50660,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1155790115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51914,6 +51986,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1202300896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58971,6 +59049,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1462514366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72381,6 +72465,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1619475678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81820,6 +81910,12 @@ MonoBehaviour:
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 0}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1807879608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82068,6 +82164,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1824472168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102300,6 +102402,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102412,6 +102520,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102697,6 +102811,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103149,6 +103269,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103298,6 +103424,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103447,6 +103579,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103709,6 +103847,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103866,6 +104010,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104081,6 +104231,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104312,6 +104468,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104453,6 +104615,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104728,6 +104896,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104949,6 +105123,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105106,6 +105286,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105560,6 +105746,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105783,6 +105975,12 @@ MonoBehaviour:
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 0}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -106050,6 +106248,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -106101,6 +106305,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106348,6 +106558,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106416,6 +106632,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106565,6 +106787,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106843,6 +107071,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106992,6 +107226,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107149,6 +107389,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107371,6 +107617,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107439,6 +107691,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107706,6 +107964,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -107818,6 +108082,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107886,6 +108156,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108043,6 +108319,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108222,6 +108504,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108371,6 +108659,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109742,6 +110036,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109932,6 +110232,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110229,6 +110535,12 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: c0167dff9613f4d48adb3cd699c25463,
     type: 3}
   trailMat: {fileID: 2100000, guid: 05b281f03e39f8c4aa6b27c12ca9d5b4, type: 2}
+  flyingMaxColor: {r: 0.9811321, g: 0.66180134, b: 0.66180134, a: 0}
+  flyingMinColor: {r: 0.8773585, g: 0.84350115, b: 0.15312389, a: 0}
+  absorbBigMaxColor: {r: 1, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 1, g: 1, b: 1, a: 0}
+  absorbSmallMaxColor: {r: 0.20624185, g: 1, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0.83886176, g: 0.9528302, b: 0.0764062, a: 0}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110967,6 +111279,12 @@ MonoBehaviour:
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 0}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -111561,6 +111879,12 @@ MonoBehaviour:
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 0}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112025,6 +112349,12 @@ MonoBehaviour:
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 0}
   trailMat: {fileID: 0}
+  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0
