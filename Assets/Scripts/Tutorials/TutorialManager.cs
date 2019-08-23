@@ -191,6 +191,7 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 1;
         PlayerPrefs.SetInt("Tutorials", (isTutorial ? 1 : 0));
+        isTutorial = false;
         tutorialImage7.SetActive(false);
         uiManager.GetComponent<UIManager>().rippleEffect.enabled = true;
         movement.enabled = true;
