@@ -565,6 +565,8 @@ public class UIManager : MonoBehaviour
 
     public void CallMainMenu()
     {
+        PostRestartDataHolder.instance.secondLifeUsed = false;
+
         rippleEffect.enabled = true;
 
         Time.timeScale = 1f;

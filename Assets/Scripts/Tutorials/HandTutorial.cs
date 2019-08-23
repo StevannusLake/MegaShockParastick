@@ -35,12 +35,15 @@ public class HandTutorial : MonoBehaviour
 
     public void OnTutorial(Vector2 pos)
     {
-        myTransform.position = pos;
-        if(hand != null)
+        if (myTransform.gameObject != null)
         {
-            handSR.enabled = true;
+            myTransform.position = pos;
+            if (hand != null)
+            {
+                handSR.enabled = true;
 
-            handAnim.Play("handTutorial");
+                handAnim.Play("handTutorial");
+            }
         }
     }
     

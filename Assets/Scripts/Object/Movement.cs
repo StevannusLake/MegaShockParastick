@@ -174,6 +174,14 @@ public class Movement : MonoBehaviour
 
     private bool enableInput = false;
 
+    private void Awake()
+    {
+        absorbBiggerShape = absorbBiggerEffect.shape;
+        absorbBiggerEffect.Stop();
+        absorbSmallerShape = absorbSmallerEffect.shape;
+        absorbSmallerEffect.Stop();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -233,10 +241,12 @@ public class Movement : MonoBehaviour
 
         GetComponent<SpriteRenderer>().sprite = Shop.instance.skinUsing.GetComponent<Skin>().skinImage;
 
+        
+        //absorbBiggerShape = absorbBiggerEffect.shape;
         absorbBiggerEffect.Stop();
-        absorbBiggerShape = absorbBiggerEffect.shape;
+        //absorbSmallerShape = absorbSmallerEffect.shape;
         absorbSmallerEffect.Stop();
-        absorbSmallerShape = absorbSmallerEffect.shape;
+        
 
         enableInput = false;
     }
@@ -271,7 +281,7 @@ public class Movement : MonoBehaviour
 
                 DotsSpawner();
 
-                Debug.LogError("CHECKING SLINGSHOT!");
+                //Debug.LogError("CHECKING SLINGSHOT!");
             }
 
             if (myMoveStick == MoveState.FLYING)
@@ -1109,6 +1119,8 @@ public class Movement : MonoBehaviour
     {
         if (tutorialManager.isTutorial == false)
         {
+            CheckScaling();
+
             if (bigger == true)
             {
                 curScale = curScale + (0.5f * Time.deltaTime);
@@ -1133,12 +1145,13 @@ public class Movement : MonoBehaviour
 
             scale = baseScale * curScale;
         }
-
-        CheckScaling();
     }
 
     void CheckScaling()
     {
+        absorbBiggerShape.radius = transform.localScale.x * 0.22f;
+        absorbSmallerShape.radius = transform.localScale.x * 0.22f;
+
         if (transform.localScale.x < 0.81f)
         {
             absorbSmallerEffect.Stop();
@@ -1148,9 +1161,6 @@ public class Movement : MonoBehaviour
         {
             absorbBiggerEffect.Stop();
         }
-        
-        absorbBiggerShape.radius = transform.localScale.x * 0.22f;
-        absorbSmallerShape.radius = transform.localScale.x * 0.22f;
     }
 
     private void DotsSpawner()
