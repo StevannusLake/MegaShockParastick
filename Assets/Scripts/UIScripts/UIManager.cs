@@ -93,8 +93,8 @@ public class UIManager : MonoBehaviour
     public Button OnVibrateButton;
     public Button OffVibrateButton;
     
-    [HideInInspector] public bool TurnOnSound = false;
-    [HideInInspector] public bool TurnOnVibration = false;
+    [HideInInspector] public bool TurnOnSound = true;
+    [HideInInspector] public bool TurnOnVibration = true;
 
     public Sprite OnIdleSoundButton;
     public Sprite OnPressedSoundButton;
@@ -162,12 +162,10 @@ public class UIManager : MonoBehaviour
     public GameObject SecondChanceBlocker;
 
     public BGMAudioManager bgmAudioManager;
+    
 
     private void Awake()
     {
-        TurnOnSound = true;
-        TurnOnVibration = true;
-
         if(instance == null)
         {
             instance = this;
