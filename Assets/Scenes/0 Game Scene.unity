@@ -41802,7 +41802,7 @@ MonoBehaviour:
   tutorialImage7: {fileID: 1537086524}
   uiManager: {fileID: 508106764}
   waterObject: {fileID: 2092232753}
-  isTutorial: 1
+  isTutorial: 0
   isShow: 0
   isShow2: 0
   isShow3: 0
