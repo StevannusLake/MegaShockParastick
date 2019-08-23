@@ -129,7 +129,7 @@ public class TutorialManager : MonoBehaviour
             movement.enabled = false;
             uiManager.GetComponent<UIManager>().rippleEffect.enabled = false;
             water.enabled = false;
-            isShow5 = true;
+            isShow6 = true;
         }
     }
 
