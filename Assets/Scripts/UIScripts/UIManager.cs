@@ -453,6 +453,11 @@ public class UIManager : MonoBehaviour
         {
             CloseChallengesMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.activeSelf)
+        {
+            ResumeGame();
+        }
     }
 
     public void OpenQuitPrompt()
