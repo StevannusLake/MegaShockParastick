@@ -165,6 +165,9 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        TurnOnSound = true;
+        TurnOnVibration = true;
+
         if(instance == null)
         {
             instance = this;
@@ -220,6 +223,7 @@ public class UIManager : MonoBehaviour
         #region Sound & Vibrate Button in Settings Menu
 
         // Get boolean using PlayerPrefs
+        
         TurnOnSound = PlayerPrefs.GetInt("TurnOnSound") == 1 ? true : false;
         TurnOnVibration = PlayerPrefs.GetInt("TurnOnVibration") == 1 ? true : false;
 
