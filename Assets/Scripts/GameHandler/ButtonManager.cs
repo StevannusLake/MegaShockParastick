@@ -66,6 +66,8 @@ public class ButtonManager : MonoBehaviour
 
     public void TryAgain()
     {
+        PostRestartDataHolder.instance.secondLifeUsed = false;
+
         tryagain = true;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("TryAgain", tryagain ? 1 : 0);
@@ -87,6 +89,8 @@ public class ButtonManager : MonoBehaviour
 
     public void MainMenu()
     {
+        PostRestartDataHolder.instance.secondLifeUsed = false;
+
         secondlife = false;
         // Save boolean using PlayerPrefs
         PlayerPrefs.SetInt("SecondLife", secondlife ? 1 : 0);
