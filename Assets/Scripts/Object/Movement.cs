@@ -221,6 +221,8 @@ public class Movement : MonoBehaviour
         myParticleSystem.myParticleSystem.GetComponent<ParticleSystemRenderer>().material = Shop.instance.skinUsing.GetComponent<Skin>().doubleSlingShotMat;
         myTrailRenderer.material = Shop.instance.skinUsing.GetComponent<Skin>().trailMat;
 
+        ChangeParticleColors();
+
         flyingParticleSystem.Stop();
 
         MissionManager.instance.LoadInGameProgress();
@@ -1645,6 +1647,38 @@ public class Movement : MonoBehaviour
                 bounceRecoverCounter += Time.unscaledDeltaTime;
             }
         }
+    }
+
+    void ChangeParticleColors()
+    {
+        ParticleSystem.MinMaxGradient flyGrad = new ParticleSystem.MinMaxGradient();
+        flyGrad.colorMin = Shop.instance.skinUsing.GetComponent<Skin>().flyingMinColor;
+        flyGrad.colorMax = Shop.instance.skinUsing.GetComponent<Skin>().flyingMaxColor;
+        flyGrad.mode = ParticleSystemGradientMode.TwoColors;
+        var main = flyingParticleSystem.main;
+        main.startColor = flyGrad;
+
+        Gradient aborbBigGradient = new Gradient();
+
+        aborbBigGradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().absorbBigMinColor, 0.0f),
+                new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().absorbBigMaxColor, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f),
+                new GradientAlphaKey(1.0f, 1.0f) });
+
+        var main1 = absorbBiggerEffect.main;
+        main1.startColor = aborbBigGradient;
+
+        Gradient aborbSmallGradient = new Gradient();
+
+        aborbSmallGradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().absorbSmallMinColor, 0.0f),
+                new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().absorbSmallMaxColor, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f),
+                new GradientAlphaKey(1.0f, 1.0f) });
+
+        var main2 = absorbSmallerEffect.main;
+        main2.startColor = aborbSmallGradient;
     }
 }
 

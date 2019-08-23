@@ -29,6 +29,12 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public Material doubleSlingShotMat;
     public Sprite tradectoryDotsSprite;
     public Material trailMat;
+    public Color flyingMaxColor; // upper
+    public Color flyingMinColor; // bottom
+    public Color absorbBigMaxColor;
+    public Color absorbBigMinColor;
+    public Color absorbSmallMaxColor;
+    public Color absorbSmallMinColor;
 
     void Awake()
     {   
