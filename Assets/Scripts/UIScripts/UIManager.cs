@@ -353,6 +353,8 @@ public class UIManager : MonoBehaviour
         string timeText2 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceQ.Seconds);
         string timeText3 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ2.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ2.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ2.Seconds);
         string timeText4 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceQ2.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceQ2.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceQ2.Seconds);
+        string timeText5 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ3.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ3.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ3.Seconds);
+        string timeText6 = string.Format("{0:D2}:{1:D2}:{2:D2}", this.gameObject.GetComponent<FreeCurrency1>().differenceQ3.Hours, this.gameObject.GetComponent<FreeCurrency1>().differenceQ3.Minutes, this.gameObject.GetComponent<FreeCurrency1>().differenceQ3.Seconds);
 
         if (this.gameObject.GetComponent<InternetChecker>().isConnect == true)
         {
@@ -385,6 +387,22 @@ public class UIManager : MonoBehaviour
             if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency2 == 3)
             {
                 timerText3.text = timeText4;
+            }
+
+            ////////////////////////////////////////////////////
+
+            if (this.gameObject.GetComponent<FreeCurrency1>().differenceForMinQ3.Seconds > 0)
+            {
+                timerText2.text = timeText5;
+            }
+            else
+            {
+                timerText2.text = "Free!";
+            }
+
+            if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency3 == 3)
+            {
+                timerText2.text = timeText6;
             }
         }
 
