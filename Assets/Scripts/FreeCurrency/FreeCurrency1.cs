@@ -736,6 +736,8 @@ public class FreeCurrency1 : MonoBehaviour
 
     void CheckDate()
     {
+        currentTime = DateTime.Now;
+
         //------------Main Menu----------\\
         if (PlayerPrefs.GetInt(myLocation + "LoginTime") < 0)
         {
@@ -747,8 +749,6 @@ public class FreeCurrency1 : MonoBehaviour
         {
             freeCurrency = PlayerPrefs.GetInt(myLocation + "LoginTime");
         }
-
-        currentTime = DateTime.Now;
 
         if (PlayerPrefs.GetString(myLocation + "lastLoginTime") == "")
         {
@@ -762,15 +762,17 @@ public class FreeCurrency1 : MonoBehaviour
             print(myLocation + "oldTime: " + oldTime);
 
             // find differene 
-            difference = currentTime.Subtract(oldTime);
+
+            oldTime = oldTime.AddHours(2);
+            difference = oldTime.Subtract(currentTime);
             print(myLocation + "Difference: " + difference);
 
-            if (difference.Hours >= 2)
+            if (difference.Hours < 1)
             {
                 freeCurrency = 0;
                 canGetFree = true;
                 PlayerPrefs.SetInt(myLocation + "LoginTime", freeCurrency);
-                if (currentTime > oldTime)
+                if (oldTime > currentTime)
                 {
                     PlayerPrefs.SetString(myLocation + "lastLoginTime", System.DateTime.Now.ToBinary().ToString());
                 }
@@ -816,10 +818,11 @@ public class FreeCurrency1 : MonoBehaviour
             print(myLocation2 + "oldTime: " + oldTime2);
 
             // find differene 
-            difference2 = currentTime.Subtract(oldTime2);
+            oldTime2 = oldTime2.AddHours(2);
+            difference2 = oldTime2.Subtract(currentTime);
             print(myLocation2 + "Difference: " + difference2);
 
-            if (difference2.Hours >= 2)
+            if (difference2.Hours < 1)
             {
                 freeCurrency2 = 0;
                 canGetFree2 = true;
@@ -871,10 +874,11 @@ public class FreeCurrency1 : MonoBehaviour
             print(myLocation3 + "oldTime: " + oldTime3);
 
             // find differene 
-            difference3 = currentTime.Subtract(oldTime3);
+            oldTime3 = oldTime3.AddHours(2);
+            difference3 = oldTime3.Subtract(currentTime);
             print(myLocation3 + "Difference: " + difference3);
 
-            if (difference3.Hours >= 2)
+            if (difference3.Hours < 1)
             {
                 freeCurrency3 = 0;
                 canGetFree3 = true;
@@ -910,9 +914,11 @@ public class FreeCurrency1 : MonoBehaviour
         long temp = Convert.ToInt64(PlayerPrefs.GetString(myLocation + "lastLoginTime"));
         oldTime = DateTime.FromBinary(temp);
 
-        differenceQ = sincePressedTime.Subtract(oldTime);
+        oldTime = oldTime.AddHours(2);
+
+        differenceQ = oldTime.Subtract(sincePressedTime);
         
-        if (differenceQ.Hours >= 2)
+        if (differenceQ.Hours < 1)
         {
             freeCurrency = 0;
             canGetFree = true;
@@ -954,9 +960,11 @@ public class FreeCurrency1 : MonoBehaviour
         long temp2 = Convert.ToInt64(PlayerPrefs.GetString(myLocation2 + "lastLoginTime2"));
         oldTime2 = DateTime.FromBinary(temp2);
 
-        differenceQ2 = sincePressedTime.Subtract(oldTime2);
+        oldTime2 = oldTime2.AddHours(2);
 
-        if (differenceQ2.Hours >= 2)
+        differenceQ2 = oldTime2.Subtract(sincePressedTime);
+
+        if (differenceQ2.Hours < 1)
         {
             freeCurrency2 = 0;
             canGetFree2 = true;
@@ -997,9 +1005,11 @@ public class FreeCurrency1 : MonoBehaviour
         long temp3 = Convert.ToInt64(PlayerPrefs.GetString(myLocation3 + "lastLoginTime3"));
         oldTime3 = DateTime.FromBinary(temp3);
 
-        differenceQ3 = sincePressedTime.Subtract(oldTime3);
+        oldTime3 = oldTime3.AddHours(2);
 
-        if (differenceQ3.Hours >= 2)
+        differenceQ3 = oldTime3.Subtract(sincePressedTime);
+
+        if (differenceQ3.Hours < 1)
         {
             freeCurrency3 = 0;
             canGetFree3 = true;
