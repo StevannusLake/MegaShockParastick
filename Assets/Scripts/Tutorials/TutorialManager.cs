@@ -181,7 +181,7 @@ public class TutorialManager : MonoBehaviour
     public void CloseTutorial6()
     {
         Time.timeScale = 1;
-        tutorialImage5.SetActive(false);
+        tutorialImage6.SetActive(false);
         uiManager.GetComponent<UIManager>().rippleEffect.enabled = true;
         movement.enabled = true;
         water.enabled = true;
@@ -191,7 +191,7 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 1;
         PlayerPrefs.SetInt("Tutorials", (isTutorial ? 1 : 0));
-        tutorialImage6.SetActive(false);
+        tutorialImage7.SetActive(false);
         uiManager.GetComponent<UIManager>().rippleEffect.enabled = true;
         movement.enabled = true;
         water.enabled = true;
