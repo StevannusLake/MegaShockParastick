@@ -41802,7 +41802,7 @@ MonoBehaviour:
   tutorialImage7: {fileID: 1537086524}
   uiManager: {fileID: 508106764}
   waterObject: {fileID: 2092232753}
-  isTutorial: 0
+  isTutorial: 1
   isShow: 0
   isShow2: 0
   isShow3: 0
@@ -51292,7 +51292,7 @@ MonoBehaviour:
   cutScene3: {fileID: 1501556576}
   cutScene4: {fileID: 1965344424}
   cutScene5: {fileID: 1486562898}
-  cutScene6: {fileID: 0}
+  cutScene6: {fileID: 1861099817}
   isLast: 0
 --- !u!1 &1173127412
 GameObject:

@@ -29,39 +29,37 @@ public class CutSceneManager : MonoBehaviour
 
     public void ShowCutScene2()
     {
+        cutScene.SetActive(false);
         cutScene2.SetActive(true);
     }
 
     public void ShowCutScene3()
     {
+        cutScene2.SetActive(false);
         cutScene3.SetActive(true);
     }
 
     public void ShowCutScene4()
     {
+        cutScene3.SetActive(false);
         cutScene4.SetActive(true);
     }
 
     public void ShowCutScene5()
     {
+        cutScene4.SetActive(false);
         cutScene5.SetActive(true);
     }
 
     public void ShowCutScene6()
     {
+        cutScene5.SetActive(false);
         cutScene6.SetActive(true);
     }
-
 
     public void HideCutScene()
     {
         PlayerPrefs.SetInt("CutScene", (isLast ? 1 : 0));
-        cutScene.SetActive(false);
-        cutScene2.SetActive(false);
-        cutScene3.SetActive(false);
-        cutScene4.SetActive(false);
-        cutScene5.SetActive(false);
         cutScene6.SetActive(false);
-
     }
 }
