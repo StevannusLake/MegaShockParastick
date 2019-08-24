@@ -1689,6 +1689,13 @@ public class Movement : MonoBehaviour
 
         var main2 = absorbSmallerEffect.main;
         main2.startColor = aborbSmallGradient;
+
+        var main3 = myDeadParticleSystem.main;
+        main3.startColor = Shop.instance.skinUsing.GetComponent<Skin>().dieEffect1Color;
+
+        var main4 = deadEffect2.main;
+        main4.startColor = Shop.instance.skinUsing.GetComponent<Skin>().dieEffect2Color;
+
     }
 }
 

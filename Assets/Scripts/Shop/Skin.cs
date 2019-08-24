@@ -35,6 +35,8 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public Color absorbBigMinColor;
     public Color absorbSmallMaxColor;
     public Color absorbSmallMinColor;
+    public Color dieEffect1Color;
+    public Color dieEffect2Color;
 
     void Awake()
     {   
