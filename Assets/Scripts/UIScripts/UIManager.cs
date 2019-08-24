@@ -224,7 +224,7 @@ public class UIManager : MonoBehaviour
 
         // Get boolean using PlayerPrefs
         TurnOnSound = PlayerPrefs.GetInt("TurnOnSound",1) == 1 ? true : false;
-        TurnOnVibration = PlayerPrefs.GetInt("TurnOnVibration") == 1 ? true : false;
+        TurnOnVibration = PlayerPrefs.GetInt("TurnOnVibration",1) == 1 ? true : false;
 
         #endregion
 
