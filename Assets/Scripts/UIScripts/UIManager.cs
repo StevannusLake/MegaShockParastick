@@ -162,7 +162,9 @@ public class UIManager : MonoBehaviour
     public GameObject SecondChanceBlocker;
 
     public BGMAudioManager bgmAudioManager;
-    
+
+    public GameObject LuckySpinMenu;
+    public ShopButtonController shopButtonController;
 
     private void Awake()
     {
@@ -465,9 +467,14 @@ public class UIManager : MonoBehaviour
             CloseCreditsMenu();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && ShopMenu.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && ShopMenu.activeSelf && !LuckySpinMenu.activeSelf)
         {
             CloseShopMenu();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && ShopMenu.activeSelf && LuckySpinMenu.activeSelf)
+        {
+            shopButtonController.CloseLuckySpinMenu();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && ChallengesMenu.activeSelf)
