@@ -23385,6 +23385,7 @@ MonoBehaviour:
   shopButton2: {fileID: 1969588803001665757}
   loseButton: {fileID: 1143488924}
   loseButton2: {fileID: 923495450}
+  GUIManager: {fileID: 508106764}
 --- !u!114 &508106772
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -675,6 +675,7 @@ public class FreeCurrency1 : MonoBehaviour
     public GameObject shopButton2;
     public GameObject loseButton;
     public GameObject loseButton2;
+    public GameObject GUIManager;
 
     void Start()
     {
@@ -944,13 +945,19 @@ public class FreeCurrency1 : MonoBehaviour
 
         if (differenceForMinQ.Seconds < 1 && stopTimer == true)
         {
-            mainButton2.GetComponent<Button>().interactable = true;
+            if (GUIManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                mainButton2.GetComponent<Button>().interactable = true;
+            }
             canGetFree = true;
             stopTimer = false;
         }
         else if(differenceForMinQ.Seconds > 1)
         {
-            mainButton2.GetComponent<Button>().interactable = false;
+            if (GUIManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                mainButton2.GetComponent<Button>().interactable = false;
+            }
         }
 
         //--------------Main Menu---------------\\
@@ -990,13 +997,19 @@ public class FreeCurrency1 : MonoBehaviour
 
         if (differenceForMinQ2.Seconds < 1 && stopTimer2 == true)
         {
-            shopButton2.GetComponent<Button>().interactable = true;
+            if (GUIManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                shopButton2.GetComponent<Button>().interactable = true;
+            }
             canGetFree2 = true;
             stopTimer2 = false;
         }
         else if (differenceForMinQ2.Seconds > 1)
         {
-            shopButton2.GetComponent<Button>().interactable = false;
+            if (GUIManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                shopButton2.GetComponent<Button>().interactable = false;
+            }
         }
         //--------------Shop Menu---------------\\
 
@@ -1035,16 +1048,35 @@ public class FreeCurrency1 : MonoBehaviour
 
         if (differenceForMinQ3.Seconds < 1 && stopTimer3 == true)
         {
-            loseButton2.GetComponent<Button>().interactable = true;
+            if (GUIManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                loseButton2.GetComponent<Button>().interactable = true;
+            }
             canGetFree3 = true;
             stopTimer3 = false;
         }
         else if (differenceForMinQ3.Seconds > 1)
         {
-            loseButton2.GetComponent<Button>().interactable = false;
+            if (GUIManager.GetComponent<InternetChecker>().isConnect == true)
+            {
+                loseButton2.GetComponent<Button>().interactable = false;
+            }
         }
 
         //--------------Lose Menu---------------\\
+
+        if(GUIManager.GetComponent<InternetChecker>().isConnect == false)
+        {
+            mainButton2.GetComponent<Button>().interactable = false;
+            loseButton2.GetComponent<Button>().interactable = false;
+            shopButton2.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            mainButton2.GetComponent<Button>().interactable = true;
+            loseButton2.GetComponent<Button>().interactable = true;
+            shopButton2.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void GetFreeOpalMainMenu()
