@@ -223,9 +223,7 @@ public class UIManager : MonoBehaviour
         #region Sound & Vibrate Button in Settings Menu
 
         // Get boolean using PlayerPrefs
-        TurnOnSound = true;
-        TurnOnVibration = true;
-        TurnOnSound = PlayerPrefs.GetInt("TurnOnSound") == 1 ? true : false;
+        TurnOnSound = PlayerPrefs.GetInt("TurnOnSound",1) == 1 ? true : false;
         TurnOnVibration = PlayerPrefs.GetInt("TurnOnVibration") == 1 ? true : false;
 
         #endregion
