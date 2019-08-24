@@ -1561,6 +1561,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &48493736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3213,7 +3215,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '14000 Coins : USD 12.99'
+  m_Text: '5650 Platelets : USD 199.99'
 --- !u!222 &116612964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14100,6 +14102,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &352599151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15442,7 +15446,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '14000 Coins : USD 12.99'
+  m_Text: '14000 Plasmas : USD 12.99'
 --- !u!222 &392005437
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36169,6 +36173,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &693302361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50019,6 +50025,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1155790115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55545,7 +55553,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '500 Coins : USD 0.99'
+  m_Text: '400 Platelets : USD 19.99'
 --- !u!222 &1346751206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56820,7 +56828,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '23500 Coins : USD 19.99'
+  m_Text: '23500 Plasmas : USD 19.99'
 --- !u!222 &1423131744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57708,7 +57716,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '6500 Coins : USD 6.99'
+  m_Text: '6500 Plasmas : USD 6.99'
 --- !u!222 &1433426159
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -71204,7 +71212,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '23500 Coins : USD 19.99'
+  m_Text: '12500 Platelets : USD 379.99'
 --- !u!222 &1604824485
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -74694,7 +74702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '2500 Coins : USD 3.99'
+  m_Text: '2500 Plasmas : USD 3.99'
 --- !u!222 &1731483454
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75556,7 +75564,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '6500 Coins : USD 6.99'
+  m_Text: '1800 Platelets : USD 69.99'
 --- !u!222 &1766944480
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -81026,6 +81034,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1807879608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83521,7 +83531,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '2500 Coins : USD 3.99'
+  m_Text: '850 Platelets : USD 37.99'
 --- !u!222 &1912553373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -101437,6 +101447,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101555,6 +101567,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101846,6 +101860,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102304,6 +102320,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102448,7 +102466,7 @@ MonoBehaviour:
   watchNeeded: 0
   watchCount: 0
   notUnlockable: 0
-  unlockRequirement: Win "PLATFORM CHAMPION" Award
+  unlockRequirement: Win "RED BLOOD CELL CHAMPION" Award
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
@@ -102459,6 +102477,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102614,6 +102634,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102884,6 +102906,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103047,6 +103071,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103268,6 +103294,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103505,6 +103533,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103652,6 +103682,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103933,6 +103965,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104160,6 +104194,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104323,6 +104359,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104783,6 +104821,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105012,6 +105052,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -105285,6 +105327,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -105342,6 +105386,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105595,6 +105641,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105669,6 +105717,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105824,6 +105874,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106108,6 +106160,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106263,6 +106317,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106426,6 +106482,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106654,6 +106712,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106728,6 +106788,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107001,6 +107063,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -107108,7 +107172,7 @@ MonoBehaviour:
   watchNeeded: 0
   watchCount: 0
   notUnlockable: 0
-  unlockRequirement: Win "COLLECTOR MASTER" Award
+  unlockRequirement: Win "PLASMA MASTER" Award
   doubleSlingShotMat: {fileID: 0}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
@@ -107119,6 +107183,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107193,6 +107259,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107356,6 +107424,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107541,6 +107611,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107696,6 +107768,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109073,6 +109147,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109269,6 +109345,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109572,6 +109650,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 1, g: 1, b: 1, a: 0}
   absorbSmallMaxColor: {r: 0.20624185, g: 1, b: 0, a: 0}
   absorbSmallMinColor: {r: 0.83886176, g: 0.9528302, b: 0.0764062, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110314,6 +110394,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -110914,6 +110996,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111384,6 +111468,8 @@ MonoBehaviour:
   absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
+  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0
@@ -111727,7 +111813,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '500 Coins : USD 0.99'
+  m_Text: '500 Plasmas : USD 0.99'
 --- !u!224 &4023160297668499199
 RectTransform:
   m_ObjectHideFlags: 0

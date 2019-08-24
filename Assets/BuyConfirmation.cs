@@ -49,11 +49,11 @@ public class BuyConfirmation : MonoBehaviour
                 }
                 else
                 {
-                    priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Coins";
+                    priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Plasmas";
                 }
             }
             else
-                priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Opals";
+                priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Platelets";
         }
         else if (Shop.instance.skinSelecting.GetComponent<Skin>().rarity == Skin.Rarity.Video)
         {

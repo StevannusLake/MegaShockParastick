@@ -136,46 +136,45 @@ public class DailyRewards : MonoBehaviour
         {
             GameManager.instance.AddCoin(5);
             GameManager.instance.totalCoinCollected += 5;
-            notificationText.text = "You Received 5 coins!";
+            notificationText.text = "You Received 10 Plasmas!";
         }
         else if(day == 2)
         {
             GameManager.instance.AddCoin(10);
             GameManager.instance.totalCoinCollected += 10;
-            notificationText.text = "You Received 10 coins!";
+            notificationText.text = "You Received 15 Plasmas!";
         }
         else if (day == 3)
         {
             GameManager.instance.AddCoin(15);
             GameManager.instance.totalCoinCollected += 15;
-            notificationText.text = "You Received 15 coins!";
+            notificationText.text = "You Received 30 Plasmas!";
         }
         else if (day == 4)
         {
             GameManager.instance.AddCoin(20);
             GameManager.instance.totalCoinCollected += 20;
-            notificationText.text = "You Received 20 coins!";
+            notificationText.text = "You Received 50 Plasmas!";
         }
         else if (day == 5)
         {
             GameManager.instance.AddCoin(25);
             GameManager.instance.totalCoinCollected += 25;
-            notificationText.text = "You Received 25 coins!";
+            notificationText.text = "You Received 75 Plasmas!";
         }
         else if (day == 6)
         {
             GameManager.instance.AddCoin(30);
             GameManager.instance.totalCoinCollected += 30;
-            notificationText.text = "You Received 30 coins!";
+            notificationText.text = "You Received 100 Plasmas!";
         }
         else if (day == 7)
         {
-            GameManager.instance.AddPoints(5);
-            GameManager.instance.totalPoints += 5;
-            notificationText.text = "You Received 5 points!";
+            GameManager.instance.AddSpin(2);
+            notificationText.text = "You Received 2 Free Lucky Spins!";
         }
         GameManager.instance.SaveCoin();
-        GameManager.instance.SavePoints();
+        GameManager.instance.SaveSpin();
     }
 
     public void CheckGreenTick()

@@ -186,28 +186,28 @@ public class LuckySpinManager : MonoBehaviour
                 rewardText.text = "Two Spins";
                 break;
             case 1:
-                rewardText.text = "25 Opals";
+                rewardText.text = "25 Platelets";
                 break;
             case 2:
-                rewardText.text = "50 Opals";
+                rewardText.text = "50 Platelets";
                 break;
             case 3:
-                rewardText.text = "1000 Opals";
+                rewardText.text = "1000 Platelets";
                 break;
             case 4: // zonk
                 rewardText.text = "Zonk";
                 break;
             case 5:
-                rewardText.text = "500 Opals";
+                rewardText.text = "500 Platelets";
                 break;
             case 6:
-                rewardText.text = "5 Opals";
+                rewardText.text = "5 Platelets";
                 break;
             case 7:
-                rewardText.text = "100 Opals";
+                rewardText.text = "100 Platelets";
                 break;
             default:
-                rewardText.text = "10 Opals";
+                rewardText.text = "10 Platelets";
                 break;
         }
         MissionManager.instance.CheckMissionInGame(MissionManager.instance.missions);
@@ -238,8 +238,8 @@ public class LuckySpinManager : MonoBehaviour
 
             GiveReward();
             spinText.text = ""+GameManager.instance.GetSpin();
-            coinText.text = "Coin : " + GameManager.instance.GetCoin();
-            pointText.text = "Point : " + GameManager.instance.GetPoints();
+            coinText.text = "Plasmas : " + GameManager.instance.GetCoin();
+            pointText.text = "Platelets : " + GameManager.instance.GetPoints();
             rewardWindow.SetActive(true);
 
             rewardBlocker.SetActive(true);
@@ -266,7 +266,7 @@ public class LuckySpinManager : MonoBehaviour
             GameManager.instance.AddSpin(1);
             GameManager.instance.DecreaseCoin(TurnCost);
             spinText.text = ""+GameManager.instance.GetSpin();
-            coinText.text = "Coin : " + GameManager.instance.GetCoin();
+            coinText.text = "Plasmas : " + GameManager.instance.GetCoin();
         }
     }
 

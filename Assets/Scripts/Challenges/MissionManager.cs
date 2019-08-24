@@ -963,7 +963,7 @@ public class Missions
                 maxCoin = 45;
                 missionType = MissionType.CoinBetween;
                 completeObj = 1;
-                description = "Collect between 35 to 45 coins";
+                description = "Collect between 35 to 45 plasmas";
                 nextId = 14;
                 rewardType = RewardType.coins;
                 coinReward = 50;
@@ -973,7 +973,7 @@ public class Missions
                 maxCoin = 95;
                 missionType = MissionType.CoinBetween;
                 completeObj = 1;
-                description = "Collect between 85 to 95 coins";
+                description = "Collect between 85 to 95 plasmas";
                 nextId = 15;
                 rewardType = RewardType.coins;
                 coinReward = 75;
@@ -983,7 +983,7 @@ public class Missions
                 maxCoin = 160;
                 missionType = MissionType.CoinBetween;
                 completeObj = 1;
-                description = "Collect between 150 to 160 coins";
+                description = "Collect between 150 to 160 plasmas";
                 nextId = 16;
                 rewardType = RewardType.coins;
                 coinReward = 100;
@@ -992,7 +992,7 @@ public class Missions
                 coinObj = 25;
                 missionType = MissionType.CoinExact;
                 completeObj = 1;
-                description = "Collect exactly 25 coins in 1 run";
+                description = "Collect exactly 25 plasmas in 1 run";
                 nextId = 17;
                 rewardType = RewardType.coins;
                 coinReward = 75;
@@ -1001,7 +1001,7 @@ public class Missions
                 coinObj = 65;
                 missionType = MissionType.CoinExact;
                 completeObj = 1;
-                description = "Collect exactly 65 coins in 1 run";
+                description = "Collect exactly 65 plasmas in 1 run";
                 nextId = 18;
                 rewardType = RewardType.coins;
                 coinReward = 100;
@@ -1010,7 +1010,7 @@ public class Missions
                 coinObj = 100;
                 missionType = MissionType.CoinExact;
                 completeObj = 1;
-                description = "Collect exactly 100 coins in 1 run";
+                description = "Collect exactly 100 plasmas in 1 run";
                 nextId = 19;
                 rewardType = RewardType.coins;
                 coinReward = 200;
@@ -1019,7 +1019,7 @@ public class Missions
                 coinObj = 50;
                 missionType = MissionType.Coin;
                 completeObj = 3;
-                description = "Collect 50+ coins in 1 run & in a row (" + completeNum + "/" + completeObj + ")";
+                description = "Collect 50+ plasmas in 1 run & in a row (" + completeNum + "/" + completeObj + ")";
                 nextId = 12;
                 rewardType = RewardType.coins;
                 coinReward = 300;
@@ -1028,7 +1028,7 @@ public class Missions
                 coinObj = 75;
                 missionType = MissionType.Coin;
                 completeObj = 3;
-                description = "Collect 75+ coins in 1 run & in a row (" + completeNum + "/" + completeObj + ")";
+                description = "Collect 75+ plasmas in 1 run & in a row (" + completeNum + "/" + completeObj + ")";
                 nextId = 13;
                 rewardType = RewardType.coins;
                 coinReward = 450;
@@ -1037,7 +1037,7 @@ public class Missions
                 coinObj = 100;
                 missionType = MissionType.Coin;
                 completeObj = 3;
-                description = "Collect 100+ coins in 1 run & in a row (" + completeNum + "/" + completeObj + ")";
+                description = "Collect 100+ plasmas in 1 run & in a row (" + completeNum + "/" + completeObj + ")";
                 nextId = 20;
                 rewardType = RewardType.coins;
                 coinReward = 600;
@@ -1046,7 +1046,7 @@ public class Missions
                 coinObj = 5000;
                 missionType = MissionType.CoinTotal;
                 completeObj = 1;
-                description = "Collect 5000 coins in total";
+                description = "Collect 5000 plasmas in total";
                 rewardType = RewardType.skins;
                 skinReward = 14;
                 break;
@@ -1150,7 +1150,7 @@ public class Missions
                 stickObj = 20;
                 missionType = MissionType.Stick;
                 completeObj = 5;
-                description = "Stick on 20+ platforms in 1 run (" + completeNum + "/" + completeObj + ")";
+                description = "Stick on 20+ Red Blood Cells in 1 run (" + completeNum + "/" + completeObj + ")";
                 nextId = 34;
                 rewardType = RewardType.coins;
                 coinReward = 250;
@@ -1159,7 +1159,7 @@ public class Missions
                 stickObj = 50;
                 missionType = MissionType.Stick;
                 completeObj = 5;
-                description = "Stick on 50+ platforms in 1 run (" + completeNum + "/" + completeObj + ")";
+                description = "Stick on 50+ Red Blood Cells in 1 run (" + completeNum + "/" + completeObj + ")";
                 nextId = 35;
                 rewardType = RewardType.coins;
                 coinReward = 500;
@@ -1168,7 +1168,7 @@ public class Missions
                 stickObj = 80;
                 missionType = MissionType.Stick;
                 completeObj = 5;
-                description = "Stick on 80+ platforms in 1 run (" + completeNum + "/" + completeObj + ")";
+                description = "Stick on 80+ Red Blood Cells in 1 run (" + completeNum + "/" + completeObj + ")";
                 nextId = 36;
                 rewardType = RewardType.coins;
                 coinReward = 750;
@@ -1178,7 +1178,7 @@ public class Missions
                 maxStick = 14;
                 missionType = MissionType.StickBetween;
                 completeObj = 1;
-                description = "Stick between 10~14 platforms";
+                description = "Stick between 10~14 Red Blood Cells";
                 nextId = 37;
                 rewardType = RewardType.coins;
                 coinReward = 75;
@@ -1188,7 +1188,7 @@ public class Missions
                 maxStick = 36;
                 missionType = MissionType.StickBetween;
                 completeObj = 1;
-                description = "Stick between 33~36 platforms";
+                description = "Stick between 33~36 Red Blood Cells";
                 nextId = 39;
                 rewardType = RewardType.coins;
                 coinReward = 150;
@@ -1198,7 +1198,7 @@ public class Missions
                 maxStick = 58;
                 missionType = MissionType.StickBetween;
                 completeObj = 1;
-                description = "Stick between 56~58 platforms";
+                description = "Stick between 56~58 Red Blood Cells";
                 nextId = 40;
                 rewardType = RewardType.coins;
                 coinReward = 300;
@@ -1207,7 +1207,7 @@ public class Missions
                 stickObj = 17;
                 missionType = MissionType.StickExact;
                 completeObj = 1;
-                description = "Stick exactly on 17 platforms in 1 run";
+                description = "Stick exactly on 17 Red Blood Cells in 1 run";
                 nextId = 31;
                 rewardType = RewardType.coins;
                 coinReward = 100;
@@ -1216,7 +1216,7 @@ public class Missions
                 stickObj = 35;
                 missionType = MissionType.StickExact;
                 completeObj = 1;
-                description = "Stick exactly on 35 platforms in 1 run";
+                description = "Stick exactly on 35 Red Blood Cells in 1 run";
                 nextId = 32;
                 rewardType = RewardType.coins;
                 coinReward = 200;
@@ -1225,7 +1225,7 @@ public class Missions
                 stickObj = 59;
                 missionType = MissionType.StickExact;
                 completeObj = 1;
-                description = "Stick exactly on 59 platforms in 1 run";
+                description = "Stick exactly on 59 Red Blood Cells in 1 run";
                 nextId = 33;
                 rewardType = RewardType.coins;
                 coinReward = 350;
@@ -1234,7 +1234,7 @@ public class Missions
                 stickObj = 1000;
                 missionType = MissionType.StickTotal;
                 completeObj = 1;
-                description = "Stick on 1000 platforms in total";
+                description = "Stick on 1000 Red Blood Cells in total";
                 rewardType = RewardType.skins;
                 skinReward = 16;
                 break;
@@ -1298,7 +1298,7 @@ public class Missions
                 pointObj = 100;
                 missionType = MissionType.Point;
                 completeObj = 1;
-                description = "Collect 100 Points";
+                description = "Collect 100 Platelets";
                 nextId = 42;
                 rewardType = RewardType.coins;
                 coinReward = 500;
@@ -1307,7 +1307,7 @@ public class Missions
                 pointObj = 300;
                 missionType = MissionType.Point;
                 completeObj = 1;
-                description = "Collect 300 Points";
+                description = "Collect 300 Platelets";
                 nextId = 43;
                 rewardType = RewardType.coins;
                 coinReward = 750;
@@ -1316,7 +1316,7 @@ public class Missions
                 pointObj = 500;
                 missionType = MissionType.Point;
                 completeObj = 1;
-                description = "Collect 500 Points";
+                description = "Collect 500 Platelets";
                 nextId = 50;
                 rewardType = RewardType.skins;
                 skinReward = 17;
