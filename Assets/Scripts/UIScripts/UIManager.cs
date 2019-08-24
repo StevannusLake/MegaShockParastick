@@ -166,6 +166,12 @@ public class UIManager : MonoBehaviour
     public GameObject LuckySpinMenu;
     public ShopButtonController shopButtonController;
 
+    public GameObject HomePanel;
+    private Animator homePanelAnim;
+    public GameObject MainMenuWindowBlocker;
+    public Button homeButton;
+    public GameObject HomePanelBlocker;
+
     private void Awake()
     {
         if(instance == null)
@@ -267,6 +273,10 @@ public class UIManager : MonoBehaviour
         }
 
         SecondChanceBlocker.SetActive(false);
+
+        homePanelAnim = HomePanel.GetComponent<Animator>();
+        MainMenuWindowBlocker.SetActive(false);
+        HomePanelBlocker.SetActive(false);
     }
 
     private void Update()
@@ -484,6 +494,43 @@ public class UIManager : MonoBehaviour
         {
             ResumeGame();
         }
+    }
+
+    public void HomePanelButtonInteraction()
+    {
+        if(homePanelAnim.GetCurrentAnimatorStateInfo(0).IsName("HomePanelClose"))
+        {
+            OpenHomePanel();
+        }
+
+        if (homePanelAnim.GetCurrentAnimatorStateInfo(0).IsName("HomePanelOpen"))
+        {
+            CloseHomePanel();
+        }
+    }
+
+    void OpenHomePanel()
+    {
+        MainMenuWindowBlocker.SetActive(true);
+        homePanelAnim.SetBool("HomeOpen", true);
+        HomePanelBlocker.SetActive(false);
+    }
+
+    void CloseHomePanel()
+    {
+        MainMenuWindowBlocker.SetActive(false);
+        homePanelAnim.SetBool("HomeOpen", false);
+        HomePanelBlocker.SetActive(true);
+    }
+
+    void ActivateHomeButton()
+    {
+        homeButton.interactable = true;
+    }
+
+    void DeactivateHomeButton()
+    {
+        homeButton.interactable = false;
     }
 
     public void OpenQuitPrompt()
