@@ -168,7 +168,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject HomePanel;
     private Animator homePanelAnim;
-    public GameObject MainMenuWindowBlocker;
+    public GameObject MainMenuWindowBlocker1;
+    public GameObject MainMenuWindowBlocker2;
     public Button homeButton;
     public GameObject HomePanelBlocker;
 
@@ -275,7 +276,8 @@ public class UIManager : MonoBehaviour
         SecondChanceBlocker.SetActive(false);
 
         homePanelAnim = HomePanel.GetComponent<Animator>();
-        MainMenuWindowBlocker.SetActive(false);
+        MainMenuWindowBlocker1.SetActive(false);
+        MainMenuWindowBlocker2.SetActive(false);
         HomePanelBlocker.SetActive(false);
     }
 
@@ -442,6 +444,7 @@ public class UIManager : MonoBehaviour
         SettingsButton.interactable = false;
         DailyRewardsButton.interactable = false;
         CurrenciesMainMenuButton.interactable = false;
+        homeButton.interactable = false;
     }
 
     public void EnableMenuButtons()
@@ -456,6 +459,7 @@ public class UIManager : MonoBehaviour
         SettingsButton.interactable = true;
         DailyRewardsButton.interactable = true;
         CurrenciesMainMenuButton.interactable = true;
+        homeButton.interactable = true;
     }
 
     void AndroidEscapeButtonCheck()
@@ -511,26 +515,18 @@ public class UIManager : MonoBehaviour
 
     void OpenHomePanel()
     {
-        MainMenuWindowBlocker.SetActive(true);
+        MainMenuWindowBlocker1.SetActive(true);
+        MainMenuWindowBlocker2.SetActive(true);
         homePanelAnim.SetBool("HomeOpen", true);
         HomePanelBlocker.SetActive(false);
     }
 
     void CloseHomePanel()
     {
-        MainMenuWindowBlocker.SetActive(false);
+        MainMenuWindowBlocker1.SetActive(false);
+        MainMenuWindowBlocker2.SetActive(false);
         homePanelAnim.SetBool("HomeOpen", false);
         HomePanelBlocker.SetActive(true);
-    }
-
-    void ActivateHomeButton()
-    {
-        homeButton.interactable = true;
-    }
-
-    void DeactivateHomeButton()
-    {
-        homeButton.interactable = false;
     }
 
     public void OpenQuitPrompt()
