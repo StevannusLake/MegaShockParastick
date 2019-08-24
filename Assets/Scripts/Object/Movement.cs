@@ -171,6 +171,8 @@ public class Movement : MonoBehaviour
     public ParticleSystem StickOnMovingSafePlatformEffect;
     public ParticleSystem UnstickFromStaticSafePlatformEffect;
     public ParticleSystem UnstickFromMovingSafePlatformEffect;
+    public GameObject almostDieFX;
+    public GameObject slowMoFX;
 
     private bool enableInput = false;
 
@@ -445,6 +447,15 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
         }
+
+        if(bounceCounter == maxBounceCounter - 1)
+        {
+            almostDieFX.SetActive(true);
+        }
+        else
+        {
+            almostDieFX.SetActive(false);
+        }
         
         CheckScaling();
     }
@@ -565,6 +576,7 @@ public class Movement : MonoBehaviour
                             cancelIndicator.SetActive(true);
 
                             Time.timeScale = 0.4f;
+                            slowMoFX.SetActive(true);
                         }
 
                         if (mousePressed)
@@ -805,6 +817,7 @@ public class Movement : MonoBehaviour
             {
                 myRigidBody.velocity = Vector2.zero;
                 surfaceStickCount = collision.gameObject.GetComponent<Surfaces>().stickCount;
+                slowMoFX.SetActive(false);
                 isSticking = true;
                 stick++;
                 if (isRareSkin == true)

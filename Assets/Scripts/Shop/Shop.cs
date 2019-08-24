@@ -37,7 +37,7 @@ public class Shop : MonoBehaviour
     public Sprite inUseWaterMask;
     public Sprite TransparentMask;
     private GameObject player;
-    public GameObject deathSprite;
+   // public GameObject deathSprite;
     private Movement movement;
     private Animator anim;
     public Sprite[] environmentType1;
@@ -59,7 +59,7 @@ public class Shop : MonoBehaviour
         mainCamera = GameObject.FindWithTag("MainCamera");
         player = GameObject.FindWithTag("Player");
         movement = player.GetComponent<Movement>();
-        anim = deathSprite.GetComponent<Animator>();
+       // anim = deathSprite.GetComponent<Animator>();
 
         //Load SkinUsing
         if(PlayerPrefs.HasKey("SkinUsing"))
@@ -223,14 +223,14 @@ public class Shop : MonoBehaviour
             CheckIsBought(); // prevent multiple buying
         }
 
-        if (movement.bounceCounter == movement.maxBounceCounter - 1)
-        {
-            anim.SetBool("IsNearDeath", true);
-        }
-        else
-        {
-            anim.SetBool("IsNearDeath", false);
-        }
+        //if (movement.bounceCounter == movement.maxBounceCounter - 1)
+        //{
+        //    anim.SetBool("IsNearDeath", true);
+        //}
+        //else
+        //{
+        //    anim.SetBool("IsNearDeath", false);
+        //}
 
         NotificationManager.Cancel(63);
         TimeSpan delayNotifyTime3 = new TimeSpan(48, 0, 0);

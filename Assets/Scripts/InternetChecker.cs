@@ -67,7 +67,7 @@ public class InternetChecker : MonoBehaviour
         NotificationManager.Cancel(62);
         TimeSpan delayNotifyTime = new TimeSpan(5, 0, 0);
         // schedule without icon
-        NotificationManager.Send(62, delayNotifyTime, "🏁FAR FAR AWAY🏁", "🎯Reach so far away until nobody can beat you!🥇", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(62, TimeSpan.FromHours(5), "🏁FAR FAR AWAY🏁", "🎯Reach so far away until nobody can beat you!🥇", Color.red, NotificationIcon.Heart);
     }
 
     private void InternetIsNotAvailable()
@@ -77,9 +77,9 @@ public class InternetChecker : MonoBehaviour
         button2.GetComponent<Button>().interactable = false;
         button3.GetComponent<Button>().interactable = false;
         isConnect = false;
-        timerText.GetComponent<Text>().text = "Offline";
-        timerText2.GetComponent<Text>().text = "Offline";
-        timerText3.GetComponent<Text>().text = "Offline";
+        timerText.GetComponent<Text>().text = "OFFLINE";
+        timerText2.GetComponent<Text>().text = "OFFLINE";
+        timerText3.GetComponent<Text>().text = "OFFLINE";
     }
 
     private void InternetAvailable()

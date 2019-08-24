@@ -782,7 +782,7 @@ public class FreeCurrency1 : MonoBehaviour
                 NotificationManager.Cancel(67);
                 TimeSpan delayNotifyTime = new TimeSpan(0, 0, 0);
                 // schedule without icon
-                NotificationManager.Send(67, TimeSpan.FromSeconds(5), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+                NotificationManager.Send(67, TimeSpan.FromSeconds(5), "💎FREE PLATELETS!!💎", "💰Collect Your Free Platelets Now!!😎", Color.red, NotificationIcon.Heart);
 
                 Debug.Log(myLocation + "2 Hours Has Passed");
             }
@@ -837,7 +837,7 @@ public class FreeCurrency1 : MonoBehaviour
                 NotificationManager.Cancel(67);
                 TimeSpan delayNotifyTime = new TimeSpan(0, 0, 0);
                 // schedule without icon
-                NotificationManager.Send(67, TimeSpan.FromSeconds(5), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+                NotificationManager.Send(67, TimeSpan.FromSeconds(5), "💎FREE PLATELETS!!💎", "💰Collect Your Free Platelets Now!!😎", Color.red, NotificationIcon.Heart);
 
                 Debug.Log(myLocation + "2 Hours Has Passed");
             }
@@ -893,7 +893,7 @@ public class FreeCurrency1 : MonoBehaviour
                 NotificationManager.Cancel(67);
                 TimeSpan delayNotifyTime = new TimeSpan(0, 0, 0);
                 // schedule without icon
-                NotificationManager.Send(67, TimeSpan.FromSeconds(5), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+                NotificationManager.Send(67, TimeSpan.FromSeconds(5), "💎FREE PLATELETS!!💎", "💰Collect Your Free Platelets Now!!😎", Color.red, NotificationIcon.Heart);
 
                 Debug.Log(myLocation + "2 Hours Has Passed");
             }
@@ -1087,7 +1087,7 @@ public class FreeCurrency1 : MonoBehaviour
             NotificationManager.Cancel(65);
             TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
             // schedule without icon
-            NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+            NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE PLATELETS!!💎", "💰Collect Your Free Platelets Now!!😎", Color.red, NotificationIcon.Heart);
             
             canGetFree = false;
             stopTimer = true;
@@ -1119,7 +1119,7 @@ public class FreeCurrency1 : MonoBehaviour
             NotificationManager.Cancel(65);
             TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
             // schedule without icon
-            NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+            NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE PLATELETS!!💎", "💰Collect Your Free Platelets Now!!😎", Color.red, NotificationIcon.Heart);
 
             canGetFree2 = false;
             stopTimer2 = true;
@@ -1151,7 +1151,7 @@ public class FreeCurrency1 : MonoBehaviour
             NotificationManager.Cancel(65);
             TimeSpan delayNotifyTime = new TimeSpan(2, 0, 0);
             // schedule without icon
-            NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE OPALS!!💎", "💰Collect Free Opals Now and SHOW OFF your skins!😎", Color.red, NotificationIcon.Heart);
+            NotificationManager.Send(65, TimeSpan.FromHours(2), "💎FREE PLATELETS!!💎", "💰Collect Your Free Platelets Now!!😎", Color.red, NotificationIcon.Heart);
 
             canGetFree3 = false;
             stopTimer3 = true;

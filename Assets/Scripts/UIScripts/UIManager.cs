@@ -377,7 +377,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                timerText4.text = "Free!";
+                timerText4.text = "PREMIUM PLATELETS!!";
                 
             }
            
@@ -394,7 +394,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                timerText3.text = "Free!";
+                timerText3.text = "FREE PLATELETS!!";
             }
 
             if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency2 == 3)
@@ -410,7 +410,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                timerText2.text = "Free!";
+                timerText2.text = "FREE PLATELETS!!";
             }
 
             if (this.gameObject.GetComponent<FreeCurrency1>().freeCurrency3 == 3)
