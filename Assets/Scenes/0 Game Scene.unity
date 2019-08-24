@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2888,7 +2888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3572,8 +3572,6 @@ GameObject:
   - component: {fileID: 133083516}
   - component: {fileID: 133083520}
   - component: {fileID: 133083519}
-  - component: {fileID: 133083518}
-  - component: {fileID: 133083517}
   m_Layer: 5
   m_Name: Skin 12 (1)
   m_TagString: Untagged
@@ -3600,85 +3598,6 @@ RectTransform:
   m_AnchoredPosition: {x: 294.00006, y: -886.30457}
   m_SizeDelta: {x: 215.60004, y: 231.20996}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &133083517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133083515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 2147483647
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 1
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &133083518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133083515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 133083519}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &133083519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3693,7 +3612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4575,7 +4494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5654,7 +5573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5728,7 +5647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5783,7 +5702,7 @@ RectTransform:
   - {fileID: 1969588803746473323}
   - {fileID: 319809930}
   m_Father: {fileID: 2305953268473086875}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.75, y: 0.82}
   m_AnchorMax: {x: 1, y: 0.95}
@@ -6092,7 +6011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7469,8 +7388,6 @@ GameObject:
   - component: {fileID: 283756123}
   - component: {fileID: 283756127}
   - component: {fileID: 283756126}
-  - component: {fileID: 283756125}
-  - component: {fileID: 283756124}
   m_Layer: 5
   m_Name: Skin 11 (1)
   m_TagString: Untagged
@@ -7497,85 +7414,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000014305115, y: -886.30457}
   m_SizeDelta: {x: 215.6, y: 231.20996}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &283756124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283756122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 2500
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &283756125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283756122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 283756126}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &283756126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7590,7 +7428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -15153,7 +14991,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2305953268473086875}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16045,8 +15883,6 @@ GameObject:
   - component: {fileID: 415677866}
   - component: {fileID: 415677870}
   - component: {fileID: 415677869}
-  - component: {fileID: 415677868}
-  - component: {fileID: 415677867}
   m_Layer: 5
   m_Name: Skin 10 (1)
   m_TagString: Untagged
@@ -16073,85 +15909,6 @@ RectTransform:
   m_AnchoredPosition: {x: -294, y: -886.30457}
   m_SizeDelta: {x: 215.59998, y: 231.20996}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &415677867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415677865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 2500
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &415677868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415677865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 415677869}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &415677869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16166,7 +15923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -16579,7 +16336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -16972,7 +16729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -22498,8 +22255,6 @@ GameObject:
   - component: {fileID: 494662233}
   - component: {fileID: 494662237}
   - component: {fileID: 494662236}
-  - component: {fileID: 494662235}
-  - component: {fileID: 494662234}
   m_Layer: 5
   m_Name: Skin 9 (1)
   m_TagString: Untagged
@@ -22526,85 +22281,6 @@ RectTransform:
   m_AnchoredPosition: {x: 294.00006, y: -558.75714}
   m_SizeDelta: {x: 215.60004, y: 231.20987}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &494662234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494662232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1500
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &494662235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494662232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 494662236}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &494662236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22619,7 +22295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -29107,8 +28783,6 @@ GameObject:
   - component: {fileID: 543988361}
   - component: {fileID: 543988365}
   - component: {fileID: 543988364}
-  - component: {fileID: 543988363}
-  - component: {fileID: 543988362}
   m_Layer: 5
   m_Name: Skin 5 (1)
   m_TagString: Untagged
@@ -29135,85 +28809,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000014305115, y: -231.2099}
   m_SizeDelta: {x: 215.6, y: 231.2099}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &543988362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543988360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1000
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &543988363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543988360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 543988364}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &543988364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29228,7 +28823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -30058,8 +29653,6 @@ GameObject:
   - component: {fileID: 587507929}
   - component: {fileID: 587507933}
   - component: {fileID: 587507932}
-  - component: {fileID: 587507931}
-  - component: {fileID: 587507930}
   m_Layer: 5
   m_Name: Skin 3 (1)
   m_TagString: Untagged
@@ -30086,85 +29679,6 @@ RectTransform:
   m_AnchoredPosition: {x: 294.00006, y: 96.33743}
   m_SizeDelta: {x: 215.60004, y: 231.20984}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &587507930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587507928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1000
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: Skin 3 ability
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &587507931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587507928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 587507932}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &587507932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30179,7 +29693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -35839,7 +35353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -36363,8 +35877,6 @@ GameObject:
   - component: {fileID: 670094732}
   - component: {fileID: 670094736}
   - component: {fileID: 670094735}
-  - component: {fileID: 670094734}
-  - component: {fileID: 670094733}
   m_Layer: 5
   m_Name: Skin 7 (1)
   m_TagString: Untagged
@@ -36391,85 +35903,6 @@ RectTransform:
   m_AnchoredPosition: {x: -294, y: -558.75714}
   m_SizeDelta: {x: 215.59998, y: 231.2099}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &670094733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670094731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1500
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &670094734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670094731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 670094735}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &670094735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36484,7 +35917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -38096,7 +37529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -39159,7 +38592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -41578,7 +41011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -42567,7 +42000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -43332,8 +42765,6 @@ GameObject:
   - component: {fileID: 1013270441}
   - component: {fileID: 1013270445}
   - component: {fileID: 1013270444}
-  - component: {fileID: 1013270443}
-  - component: {fileID: 1013270442}
   m_Layer: 5
   m_Name: Skin 6 (1)
   m_TagString: Untagged
@@ -43360,85 +42791,6 @@ RectTransform:
   m_AnchoredPosition: {x: 294.00006, y: -231.2099}
   m_SizeDelta: {x: 215.60004, y: 231.2099}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1013270442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013270440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1000
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &1013270443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013270440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1013270444}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1013270444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43453,7 +42805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -48857,7 +48209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -49684,8 +49036,8 @@ RectTransform:
   m_Children:
   - {fileID: 2140707686}
   - {fileID: 732049262}
-  m_Father: {fileID: 2305953268473086875}
-  m_RootOrder: 12
+  m_Father: {fileID: 1969588802436986950}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.54, y: 0.03}
   m_AnchorMax: {x: 0.88, y: 0.11}
@@ -51425,7 +50777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -51928,8 +51280,6 @@ GameObject:
   - component: {fileID: 1202300894}
   - component: {fileID: 1202300898}
   - component: {fileID: 1202300897}
-  - component: {fileID: 1202300896}
-  - component: {fileID: 1202300895}
   m_Layer: 5
   m_Name: Skin 2 (1)
   m_TagString: Untagged
@@ -51956,85 +51306,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000014305115, y: 96.33743}
   m_SizeDelta: {x: 215.6, y: 231.20984}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1202300895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202300893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1000
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: Skin 2 ability
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &1202300896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202300893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1202300897}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1202300897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52049,7 +51320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -55045,7 +54316,7 @@ RectTransform:
   m_Children:
   - {fileID: 746869021}
   m_Father: {fileID: 2305953268473086875}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -56109,7 +55380,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2305953268473086875}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -58344,7 +57615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -58991,8 +58262,6 @@ GameObject:
   - component: {fileID: 1462514364}
   - component: {fileID: 1462514368}
   - component: {fileID: 1462514367}
-  - component: {fileID: 1462514366}
-  - component: {fileID: 1462514365}
   m_Layer: 5
   m_Name: Skin 8 (1)
   m_TagString: Untagged
@@ -59019,85 +58288,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000014305115, y: -558.75714}
   m_SizeDelta: {x: 215.6, y: 231.2099}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1462514365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462514363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1500
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &1462514366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462514363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1462514367}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1462514367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59112,7 +58302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -72407,8 +71597,6 @@ GameObject:
   - component: {fileID: 1619475676}
   - component: {fileID: 1619475680}
   - component: {fileID: 1619475679}
-  - component: {fileID: 1619475678}
-  - component: {fileID: 1619475677}
   m_Layer: 5
   m_Name: Skin 1 (1)
   m_TagString: Untagged
@@ -72435,85 +71623,6 @@ RectTransform:
   m_AnchoredPosition: {x: -294, y: 96.33743}
   m_SizeDelta: {x: 215.59998, y: 231.20984}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1619475677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619475675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1000
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: Skin 1 ability
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &1619475678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619475675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1619475679}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1619475679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72528,7 +71637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -72681,7 +71790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -76275,7 +75384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -82106,8 +81215,6 @@ GameObject:
   - component: {fileID: 1824472166}
   - component: {fileID: 1824472170}
   - component: {fileID: 1824472169}
-  - component: {fileID: 1824472168}
-  - component: {fileID: 1824472167}
   m_Layer: 5
   m_Name: Skin 4 (1)
   m_TagString: Untagged
@@ -82134,85 +81241,6 @@ RectTransform:
   m_AnchoredPosition: {x: -294, y: -231.2099}
   m_SizeDelta: {x: 215.59998, y: 231.2099}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1824472167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824472165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cbf8df1cea6e742a1d3f971d204f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 1000
-  skinImage: {fileID: 0}
-  backGroundImage: {fileID: 0}
-  environmentType: 0
-  confirmationMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
-  isBought: 0
-  skinType: 0
-  priceType: 0
-  rarity: 1
-  abilityDescription: 
-  watchNeeded: 0
-  watchCount: 0
-  notUnlockable: 0
-  unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
-  tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
-    type: 3}
-  trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
-  flyingMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  flyingMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &1824472168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824472165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1824472169}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1824472169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82227,7 +81255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -82897,7 +81925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -84664,7 +83692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -87278,7 +86306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -93012,7 +92040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -102977,8 +102005,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406812927880782903}
-  m_Father: {fileID: 2305953268473086875}
-  m_RootOrder: 11
+  m_Father: {fileID: 1969588802436986950}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.12, y: 0.03}
   m_AnchorMax: {x: 0.46, y: 0.11}
@@ -103719,6 +102747,8 @@ RectTransform:
   - {fileID: 1422545772}
   - {fileID: 897475024}
   - {fileID: 1328600482}
+  - {fileID: 1969588802212760146}
+  - {fileID: 1123619759}
   m_Father: {fileID: 2305953268473086875}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106446,7 +105476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1969588803406909488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -110669,8 +109699,6 @@ RectTransform:
   - {fileID: 1969588803709082137}
   - {fileID: 1969588802245136582}
   - {fileID: 1969588802677514518}
-  - {fileID: 1969588802212760146}
-  - {fileID: 1123619759}
   - {fileID: 3634520116852450964}
   - {fileID: 218867465}
   - {fileID: 1319176135}
@@ -111753,7 +110781,7 @@ RectTransform:
   m_Children:
   - {fileID: 1645002747}
   m_Father: {fileID: 2305953268473086875}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -113888,7 +112916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8646306001157498754
 MonoBehaviour:
   m_ObjectHideFlags: 0
