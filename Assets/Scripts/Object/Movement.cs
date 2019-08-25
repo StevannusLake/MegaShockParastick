@@ -173,6 +173,7 @@ public class Movement : MonoBehaviour
     public ParticleSystem UnstickFromMovingSafePlatformEffect;
     public GameObject almostDieFX;
     public GameObject slowMoFX;
+    public GameObject dieFX;
 
     private bool enableInput = false;
 
@@ -421,6 +422,7 @@ public class Movement : MonoBehaviour
             deadState = 1;
             
             playerJustDied = false;
+            dieFX.SetActive(true);
         }
         //=======================================================================================================================
         ConfigureTrail();
@@ -1069,7 +1071,7 @@ public class Movement : MonoBehaviour
                 myDeadParticleSystem.Play();
                 dpsEmission = myDeadParticleSystem.emission;
                 dpsEmission.enabled = true;
-
+                dieFX.SetActive(true);
                 GetComponent<SpriteRenderer>().enabled = false;
                 emotionSpriteRend.enabled = false;
 
