@@ -249,7 +249,6 @@ public class Movement : MonoBehaviour
         absorbBiggerEffect.Stop();
         //absorbSmallerShape = absorbSmallerEffect.shape;
         absorbSmallerEffect.Stop();
-        
 
         enableInput = false;
     }
@@ -617,7 +616,7 @@ public class Movement : MonoBehaviour
                         {
                             mousePressed = false;
                             spawnDot = false;
-
+                            slowMoFX.SetActive(false);
                             cancelIndicator.SetActive(false);
                             Time.timeScale = 1.0f;
                         }
