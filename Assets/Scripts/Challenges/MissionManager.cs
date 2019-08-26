@@ -25,6 +25,7 @@ public class MissionManager : MonoBehaviour
     public GameObject exclamationMark;
     public GameObject missionsMoving; // for ALl completed
     public GameObject allCompleteImage;
+    public Text[] rewardText;
 
     void Awake()
     {
@@ -101,6 +102,7 @@ public class MissionManager : MonoBehaviour
         {
             return;
         }
+        ShowRewardText();
         CheckMissionInGame(missions);
         SaveInGameProgress();
         for (int i = 0; i < missions.Length; i++)
@@ -111,6 +113,17 @@ public class MissionManager : MonoBehaviour
                 break;
             }
             else exclamationMark.SetActive(false);
+        }
+    }
+
+    void ShowRewardText()
+    {
+        for(int i=0;i<5;i++)
+        {
+            if (missions[i].rewardType == Missions.RewardType.coins)
+                rewardText[i].text = missions[i].coinReward + "";
+            else
+                rewardText[i].text = "Skin";
         }
     }
 
