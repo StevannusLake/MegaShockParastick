@@ -8352,7 +8352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -51018,7 +51018,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 29c29201fcdab584985b95b5990e38d3, type: 3}
   - {fileID: 21300000, guid: 027e7e2ae718ad24f9a1115f19fb3d00, type: 3}
   - {fileID: 21300000, guid: 5553ed58f89bb6144a4d84434d53d1e4, type: 3}
-  - {fileID: 21300000, guid: 65a075b2e5c8ac1458c3ad97f95e3709, type: 3}
+  - {fileID: 21300000, guid: 1f17e8b9af3b67d4ab530a02a90b4ccf, type: 3}
   environmentType2:
   - {fileID: 21300000, guid: 1f058aa9e9767364ba9108c0ebf1be95, type: 3}
   - {fileID: 21300000, guid: 67c730adb328dfb4dbb8895260b195b8, type: 3}
@@ -56570,7 +56570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -105638,7 +105638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 0
   skinImage: {fileID: 0}
-  backGroundImage: {fileID: 21300000, guid: bc0979f9d316f68408b2d34a415ae854, type: 3}
+  backGroundImage: {fileID: 21300000, guid: 8dfbd269d1adbcf4e99e26b0fe4e0690, type: 3}
   environmentType: 1
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
