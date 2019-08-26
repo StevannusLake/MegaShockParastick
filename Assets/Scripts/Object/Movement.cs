@@ -249,7 +249,6 @@ public class Movement : MonoBehaviour
         absorbBiggerEffect.Stop();
         //absorbSmallerShape = absorbSmallerEffect.shape;
         absorbSmallerEffect.Stop();
-        
 
         enableInput = false;
     }
@@ -334,8 +333,8 @@ public class Movement : MonoBehaviour
             {
                 if (GameManager.instance.uiManager.TurnOnVibration)
                 {
-                    //VibrateNow();
-                    //Invoke("CancelVibration", 0.2f);
+                    VibrateNow();
+                    Invoke("CancelVibration", 0.2f);
                 }
                 playerJustDied = true;
             }
@@ -617,7 +616,7 @@ public class Movement : MonoBehaviour
                         {
                             mousePressed = false;
                             spawnDot = false;
-
+                            slowMoFX.SetActive(false);
                             cancelIndicator.SetActive(false);
                             Time.timeScale = 1.0f;
                         }
@@ -1573,15 +1572,15 @@ public class Movement : MonoBehaviour
         }
     }
 
-    //public void VibrateNow()
-    //{
-    //    Vibrator.Vibrate(200);
-    //}
+    public void VibrateNow()
+    {
+        Vibrator.Vibrate(200);
+    }
 
-    //void CancelVibration()
-    //{
-    //    Vibrator.Cancel();
-    //}
+    void CancelVibration()
+    {
+        Vibrator.Cancel();
+    }
 
     void Falling()
     {

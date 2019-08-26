@@ -42,18 +42,21 @@ public class BuyConfirmation : MonoBehaviour
                 if (Shop.instance.skinSelecting.name == "Skin 12")
                 {
                     priceText.text = "Purchase Starter Pack";
-                }
-                else if (Shop.instance.skinSelecting.name == "Skin 33" || Shop.instance.skinSelecting.name == "LegendaryEnvironment")
-                {
-                    priceText.text = "Purchase Pro Pack";
-                }
+                } 
                 else
                 {
                     priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Plasmas";
                 }
             }
             else
-                priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Platelets";
+            {
+                if (Shop.instance.skinSelecting.name == "Skin 33" || Shop.instance.skinSelecting.name == "LegendaryEnvironment")
+                {
+                    priceText.text = "Purchase Pro Pack";
+                }
+                else priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Platelets";
+            }
+                
         }
         else if (Shop.instance.skinSelecting.GetComponent<Skin>().rarity == Skin.Rarity.Video)
         {
