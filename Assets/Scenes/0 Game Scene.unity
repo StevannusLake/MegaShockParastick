@@ -14794,6 +14794,9 @@ MonoBehaviour:
   abilityWindowSecret: {fileID: 897475023}
   abilityWindowLegendary: {fileID: 1328600481}
   LuckySpinBlocker: {fileID: 369410390}
+  RemoveAdsButton: {fileID: 0}
+  StarterButton: {fileID: 0}
+  ProButton: {fileID: 0}
 --- !u!114 &365027986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50810,6 +50813,9 @@ MonoBehaviour:
   abilityWindowSecret: {fileID: 897475023}
   abilityWindowLegendary: {fileID: 1328600481}
   LuckySpinBlocker: {fileID: 0}
+  RemoveAdsButton: {fileID: 0}
+  StarterButton: {fileID: 0}
+  ProButton: {fileID: 0}
 --- !u!114 &1170094498
 MonoBehaviour:
   m_ObjectHideFlags: 0
