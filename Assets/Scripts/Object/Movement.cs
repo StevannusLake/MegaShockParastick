@@ -959,6 +959,11 @@ public class Movement : MonoBehaviour
             
         }
 
+        if(collision.collider.CompareTag(deadlyTag))
+        {
+            dieFX.SetActive(true);
+        }
+
         if(collision.collider.name == "FirstInitialPlatform" && deadState == 0)
         {
             myEmotion.EmoteIdle();
@@ -1062,7 +1067,7 @@ public class Movement : MonoBehaviour
             myRigidBody.velocity = Vector2.zero;
 
             AudioManager.PlaySound(AudioManager.Sound.PlayerDie);
-
+            
             // Die and Second Chance Menu pop out
             //UIManager.Instance.CallSecondChanceMenu();
             if (deadState == 0)
@@ -1070,7 +1075,7 @@ public class Movement : MonoBehaviour
                 myDeadParticleSystem.Play();
                 dpsEmission = myDeadParticleSystem.emission;
                 dpsEmission.enabled = true;
-                dieFX.SetActive(true);
+                
                 GetComponent<SpriteRenderer>().enabled = false;
                 emotionSpriteRend.enabled = false;
 
