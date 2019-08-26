@@ -25,9 +25,25 @@ public class ShopButtonController : MonoBehaviour
 
     public GameObject LuckySpinBlocker;
 
+    public Button RemoveAdsButton;
+    public Button StarterButton;
+    public Button ProButton;
+
     private void Update()
     {
         coin.text = ""+GameManager.instance.GetCoin();
+        if(PlayerPrefs.GetInt("RemoveAds") == 1)
+        {
+            RemoveAdsButton.interactable = false;
+        }
+        if(PlayerPrefs.GetInt("StarterPack") == 1)
+        {
+            StarterButton.interactable = false;
+        }
+        if(PlayerPrefs.GetInt("ProPack") == 1)
+        {
+            ProButton.interactable = false;
+        }
     }
 
     private void Start()
