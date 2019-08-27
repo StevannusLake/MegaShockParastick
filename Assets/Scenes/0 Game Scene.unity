@@ -1574,7 +1574,7 @@ GameObject:
   - component: {fileID: 48493736}
   - component: {fileID: 48493735}
   m_Layer: 5
-  m_Name: MetalColdSkin (1)
+  m_Name: SecretSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 750
   skinImage: {fileID: 0}
-  backGroundImage: {fileID: 21300000, guid: 4b895ee2ad5238e4ca8900cafb86228f, type: 3}
+  backGroundImage: {fileID: 21300000, guid: de6b66b8dd18ac24fab8230fe615f874, type: 3}
   environmentType: 5
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -51273,31 +51273,31 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 67c730adb328dfb4dbb8895260b195b8, type: 3}
   - {fileID: 21300000, guid: 20439d78f50ee36439bd897f3a35a70a, type: 3}
   - {fileID: 21300000, guid: c631ce1d33a0e1943b646a82c48c2486, type: 3}
-  - {fileID: 21300000, guid: 9657bbeacdc08da4f9771bf8b37e54d4, type: 3}
+  - {fileID: 21300000, guid: 8f20aee0b16206147b91bd8ff7ca190c, type: 3}
   environmentType3:
   - {fileID: 21300000, guid: 313b33ffb16de3f438514d604ccbb022, type: 3}
   - {fileID: 21300000, guid: d0dd802a179d20f47b9fd187761ec279, type: 3}
   - {fileID: 21300000, guid: f0f701fe0d3d9464ca01a3b6082af40f, type: 3}
   - {fileID: 21300000, guid: 89e44db5e60a6e845a7072c5641d77ee, type: 3}
-  - {fileID: 21300000, guid: b717dea671cf55b41bd583cd7515f8ba, type: 3}
+  - {fileID: 21300000, guid: 3fb3fc2003acd0b409346db4569a210c, type: 3}
   environmentType4:
   - {fileID: 21300000, guid: ee4dfaf964e05b940a3cee22bfa14773, type: 3}
   - {fileID: 21300000, guid: 3e4a0d43b0ef70d45adbd3bf195ae2f9, type: 3}
   - {fileID: 21300000, guid: 5bfb2879ccc7dee42b08f29afebcbb54, type: 3}
   - {fileID: 21300000, guid: ccade0c7c9cb2aa43a8e07d12fc05603, type: 3}
-  - {fileID: 21300000, guid: d6ab45a94d2516a4d8f3aec68b6d8c51, type: 3}
+  - {fileID: 21300000, guid: cd58bc574693b394ea144dd8c8a3c7f6, type: 3}
   environmentType5:
   - {fileID: 21300000, guid: ee4dfaf964e05b940a3cee22bfa14773, type: 3}
   - {fileID: 21300000, guid: 3e4a0d43b0ef70d45adbd3bf195ae2f9, type: 3}
   - {fileID: 21300000, guid: 5bfb2879ccc7dee42b08f29afebcbb54, type: 3}
   - {fileID: 21300000, guid: ccade0c7c9cb2aa43a8e07d12fc05603, type: 3}
-  - {fileID: 21300000, guid: d6ab45a94d2516a4d8f3aec68b6d8c51, type: 3}
+  - {fileID: 21300000, guid: 68944a42b0e367d46a752b00e9abfec0, type: 3}
   environmentType6:
   - {fileID: 21300000, guid: ee4dfaf964e05b940a3cee22bfa14773, type: 3}
   - {fileID: 21300000, guid: 3e4a0d43b0ef70d45adbd3bf195ae2f9, type: 3}
   - {fileID: 21300000, guid: 5bfb2879ccc7dee42b08f29afebcbb54, type: 3}
   - {fileID: 21300000, guid: ccade0c7c9cb2aa43a8e07d12fc05603, type: 3}
-  - {fileID: 21300000, guid: d6ab45a94d2516a4d8f3aec68b6d8c51, type: 3}
+  - {fileID: 21300000, guid: 3edbce744118c3242a971265e428c505, type: 3}
 --- !u!114 &1170094499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75736,7 +75736,7 @@ GameObject:
   - component: {fileID: 1734603352}
   - component: {fileID: 1734603351}
   m_Layer: 5
-  m_Name: MetalColdTitle (2)
+  m_Name: LegendaryTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82065,7 +82065,7 @@ GameObject:
   - component: {fileID: 1807879608}
   - component: {fileID: 1807879607}
   m_Layer: 5
-  m_Name: MetalColdSkin (2)
+  m_Name: LegendarySkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82104,7 +82104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 750
   skinImage: {fileID: 0}
-  backGroundImage: {fileID: 21300000, guid: 4b895ee2ad5238e4ca8900cafb86228f, type: 3}
+  backGroundImage: {fileID: 21300000, guid: 3f50e2c64388d5741982c5c446ce01b2, type: 3}
   environmentType: 6
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -82392,7 +82392,7 @@ GameObject:
   - component: {fileID: 1831245835}
   - component: {fileID: 1831245834}
   m_Layer: 5
-  m_Name: MetalColdTitle (1)
+  m_Name: SecretTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110528,7 +110528,7 @@ GameObject:
   - component: {fileID: 2229326514890666791}
   - component: {fileID: 2229326514890666790}
   m_Layer: 5
-  m_Name: PlasticTitle
+  m_Name: CommonTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111388,7 +111388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 500
   skinImage: {fileID: 0}
-  backGroundImage: {fileID: 21300000, guid: d5e994503cfac914ea53991e895048ea, type: 3}
+  backGroundImage: {fileID: 21300000, guid: 7699d829dfe19534aa14f7d17849bcf0, type: 3}
   environmentType: 3
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -111453,7 +111453,7 @@ GameObject:
   - component: {fileID: 3634520116273848863}
   - component: {fileID: 3634520116273848856}
   m_Layer: 5
-  m_Name: WoodSkin
+  m_Name: RareSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111672,7 +111672,7 @@ GameObject:
   - component: {fileID: 3634520116406961499}
   - component: {fileID: 3634520116406961496}
   m_Layer: 5
-  m_Name: WoodTitle
+  m_Name: RareTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111990,7 +111990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 300
   skinImage: {fileID: 0}
-  backGroundImage: {fileID: 21300000, guid: 6a8a419ca2901ce46ab13f3378b39658, type: 3}
+  backGroundImage: {fileID: 21300000, guid: 8f20aee0b16206147b91bd8ff7ca190c, type: 3}
   environmentType: 2
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -112126,7 +112126,7 @@ GameObject:
   - component: {fileID: 3634520117355897160}
   - component: {fileID: 3634520117355897157}
   m_Layer: 5
-  m_Name: PlasticSkin
+  m_Name: CommonSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112200,7 +112200,7 @@ GameObject:
   - component: {fileID: 3634520117513939952}
   - component: {fileID: 3634520117513939953}
   m_Layer: 5
-  m_Name: MetalColdTitle
+  m_Name: EpicTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112462,7 +112462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 750
   skinImage: {fileID: 0}
-  backGroundImage: {fileID: 21300000, guid: 4b895ee2ad5238e4ca8900cafb86228f, type: 3}
+  backGroundImage: {fileID: 21300000, guid: 6a5a5b9d076369942a908f81a70452d0, type: 3}
   environmentType: 4
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -112500,7 +112500,7 @@ GameObject:
   - component: {fileID: 3634520118151991662}
   - component: {fileID: 3634520118151991659}
   m_Layer: 5
-  m_Name: MetalColdSkin
+  m_Name: EpicSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
