@@ -807,6 +807,7 @@ public class Movement : MonoBehaviour
                     emotionSpriteRend.enabled = false;
 
                     deadEffect2.Play();
+                    dieFX.SetActive(true);
 
                     //==================================================================================================
                     deadState = 1;
@@ -996,6 +997,21 @@ public class Movement : MonoBehaviour
     //    }
     //}
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag(surfaceTag) && surfaceStickCount == 1 && myMoveStick == MoveState.FLYING)
+        {
+            surfaceStickCount = 2;
+            collision.gameObject.GetComponent<Surfaces>().stickCount = surfaceStickCount;
+            // myAnimation.PlayIdle();
+            myEmotion.EmoteIdle();
+            // LevelHandler.instance.cameraController.cameraState = CameraFollowingState.NORMAL;
+            LevelHandler.instance.cameraController.currentSurface = null;
+
+
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag(surfaceTag) && deadState != 1)
@@ -1080,6 +1096,7 @@ public class Movement : MonoBehaviour
                 emotionSpriteRend.enabled = false;
 
                 deadEffect2.Play();
+                dieFX.SetActive(true);
 
                 deadState = 1;
 
@@ -1553,6 +1570,7 @@ public class Movement : MonoBehaviour
                 emotionSpriteRend.enabled = false;
 
                 deadEffect2.Play();
+                dieFX.SetActive(true);
 
                 myRigidBody.velocity = Vector2.zero;
                 deadState = 1;
