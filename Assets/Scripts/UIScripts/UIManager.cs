@@ -172,6 +172,7 @@ public class UIManager : MonoBehaviour
     public GameObject MainMenuWindowBlocker2;
     public Button homeButton;
     public GameObject HomePanelBlocker;
+    public GameObject secondLifeFX;
 
     private void Awake()
     {
@@ -188,7 +189,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         EnableMenuButtons();
-
+        
         rippleEffect.enabled = true;
 
         ShopMenu.SetActive(false);
@@ -770,6 +771,8 @@ public class UIManager : MonoBehaviour
 
             secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
 
+          //  Invoke("TurnOnSecondLifeFX", 0.1f);
+
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
 
             GameManager.instance.DecreasePoints(4);
@@ -796,6 +799,11 @@ public class UIManager : MonoBehaviour
     {
         SecondChanceMenu.SetActive(false);
         ReloadScene();
+    }
+
+    void TurnOnSecondLifeFX()
+    {
+        secondLifeFX.SetActive(true);
     }
 
     public void CheckSecondChanceButton()
