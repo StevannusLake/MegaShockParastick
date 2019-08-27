@@ -6,6 +6,12 @@ public class PlayerParticleSystem : MonoBehaviour
 {
     public ParticleSystem myParticleSystem;
     ParticleSystem.EmissionModule myEmission;
+    ParticleSystem.MainModule myMain;
+
+    void Update()
+    {
+        myMain.startSize = transform.localScale.x;
+    }
 
     public void DoubleSlingshotEffect()
     {
