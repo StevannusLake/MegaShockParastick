@@ -435,6 +435,7 @@ public class Movement : MonoBehaviour
             deadState = 1;
             
             playerJustDied = false;
+            slowMoFX.SetActive(false);
             dieFX.SetActive(true);
         }
         //=======================================================================================================================
@@ -486,7 +487,7 @@ public class Movement : MonoBehaviour
             doubleSlingshot = 0;
         }
 
-        if (enableInput)
+        if (enableInput && playerJustDied == true)
         {
             if (mainMenu.GetComponent<AnimationEvent>().canDrag == true)
             {
@@ -824,6 +825,7 @@ public class Movement : MonoBehaviour
 
                     deadEffect2.Play();
                     dieFX.SetActive(true);
+                    slowMoFX.SetActive(false);
 
                     //==================================================================================================
                     deadState = 1;
@@ -966,19 +968,13 @@ public class Movement : MonoBehaviour
 
                 // myAnimation.PlayIdle();
                 myEmotion.EmoteIdle();
-
-                
             }
-            
-            
-               
-            
-            
         }
 
         if(collision.collider.CompareTag(deadlyTag))
         {
             dieFX.SetActive(true);
+            slowMoFX.SetActive(false);
         }
 
         if(collision.collider.name == "FirstInitialPlatform" && deadState == 0)
@@ -1578,6 +1574,8 @@ public class Movement : MonoBehaviour
         {
             if (deadState == 0)
             {
+                dieFX.SetActive(true);
+                slowMoFX.SetActive(false);
                 myDeadParticleSystem.Play();
                 dpsEmission = myDeadParticleSystem.emission;
                 dpsEmission.enabled = true;
