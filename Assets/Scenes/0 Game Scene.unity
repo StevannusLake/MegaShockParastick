@@ -1637,6 +1637,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &48493736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14304,7 +14308,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
     type: 3}
   trailMat: {fileID: 0}
@@ -14316,6 +14320,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &352599151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36875,7 +36883,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 30e94538f5f136746b0a9f1f1be8777e, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
     type: 3}
   trailMat: {fileID: 0}
@@ -36887,6 +36895,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &693302361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50693,7 +50705,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 30e94538f5f136746b0a9f1f1be8777e, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
     type: 3}
   trailMat: {fileID: 0}
@@ -50705,6 +50717,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1155790115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82128,6 +82144,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1807879608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86195,6 +86215,7 @@ MonoBehaviour:
   mainMenu: {fileID: 1354248950}
   myBackground: {fileID: 243787347}
   flyingParticleSystem: {fileID: 532311908}
+  doubleSlingShotParticleSystem: {fileID: 1056853147}
   emotionSpriteRend: {fileID: 1326374545}
   deadEffect2: {fileID: 458542904}
   inGameMenu: {fileID: 946061137}
@@ -107153,7 +107174,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "SUPER FINISHER" Award
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 4289624cfdf946a4ba538d8ed6ac2caa, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
@@ -107165,6 +107186,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107273,7 +107298,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -107285,6 +107310,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107566,7 +107595,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 1c2dfeca430ee2c4fbd5a255594f7048, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
@@ -107578,6 +107607,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108026,7 +108059,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
     type: 3}
   trailMat: {fileID: 0}
@@ -108038,6 +108071,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108183,7 +108220,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "RED BLOOD CELL CHAMPION" Award
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 4289624cfdf946a4ba538d8ed6ac2caa, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
@@ -108195,6 +108232,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108340,7 +108381,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
     type: 3}
   trailMat: {fileID: 0}
@@ -108352,6 +108393,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108611,7 +108656,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -108623,6 +108668,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108776,7 +108825,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 1e4af8eb29e15324c926b6466a0762f9,
     type: 3}
   trailMat: {fileID: 0}
@@ -108788,6 +108837,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108999,7 +109052,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 1c2dfeca430ee2c4fbd5a255594f7048, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
@@ -109011,6 +109064,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109238,7 +109295,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "BEST BOUNCER" Award
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 4289624cfdf946a4ba538d8ed6ac2caa, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
@@ -109250,6 +109307,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109387,7 +109448,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
     type: 3}
   trailMat: {fileID: 0}
@@ -109399,6 +109460,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109670,7 +109735,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -109682,6 +109747,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109899,7 +109968,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
     type: 3}
   trailMat: {fileID: 0}
@@ -109911,6 +109980,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110064,7 +110137,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -110076,6 +110149,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110526,7 +110603,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -110538,6 +110615,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110769,6 +110850,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -111032,7 +111117,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
     type: 3}
   trailMat: {fileID: 0}
@@ -111044,6 +111129,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -111091,7 +111180,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d49a44f1b47f2dc4fabe07760fe79ab6,
     type: 3}
   trailMat: {fileID: 0}
@@ -111103,6 +111192,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111347,7 +111440,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -111359,6 +111452,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111423,7 +111520,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -111435,6 +111532,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111580,7 +111681,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 1c2dfeca430ee2c4fbd5a255594f7048, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
@@ -111592,6 +111693,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111866,7 +111971,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 30e94538f5f136746b0a9f1f1be8777e, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 5e6efdafa292a794da9b38feef7f5aae,
     type: 3}
   trailMat: {fileID: 0}
@@ -111878,6 +111983,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112023,7 +112132,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -112035,6 +112144,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112188,7 +112301,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "PARASITE OF THE YEAR" Award
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 4289624cfdf946a4ba538d8ed6ac2caa, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
@@ -112200,6 +112313,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112418,7 +112535,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: c35bdfc4954172d4db8b74004893805a, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 05f2c96089752a242bb7279a2d686095,
     type: 3}
   trailMat: {fileID: 0}
@@ -112430,6 +112547,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112494,7 +112615,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 967b22779c7f97d4e88d525398ba92e3,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -112506,6 +112627,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112769,7 +112894,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -112781,6 +112906,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -112889,7 +113018,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Win "PLASMA MASTER" Award
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 4289624cfdf946a4ba538d8ed6ac2caa, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
@@ -112901,6 +113030,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112965,7 +113098,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -112977,6 +113110,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113130,7 +113267,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: Complete "Collect 500 Opals" Mission
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 4289624cfdf946a4ba538d8ed6ac2caa, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: d40441e446e36614d88a6760b7b57a4c,
     type: 3}
   trailMat: {fileID: 0}
@@ -113142,6 +113279,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113317,7 +113458,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 1c2dfeca430ee2c4fbd5a255594f7048, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
@@ -113329,6 +113470,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113474,7 +113619,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 2100000, guid: a63d098339deb424b89310c77eff4d57, type: 2}
+  doubleSlingShotMat: {fileID: 2100000, guid: 8aeb6e9774eaa6741b44f42fcbb91f9b, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: 8d0d5fc468e69ac448593dff1c787a05,
     type: 3}
   trailMat: {fileID: 2100000, guid: 2710f9f902a194a438924268666ac440, type: 2}
@@ -113486,6 +113631,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114853,7 +115002,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 0
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 1c2dfeca430ee2c4fbd5a255594f7048, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
@@ -114865,6 +115014,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115051,7 +115204,7 @@ MonoBehaviour:
   watchCount: 0
   notUnlockable: 1
   unlockRequirement: 
-  doubleSlingShotMat: {fileID: 0}
+  doubleSlingShotMat: {fileID: 2100000, guid: 1c2dfeca430ee2c4fbd5a255594f7048, type: 2}
   tradectoryDotsSprite: {fileID: 21300000, guid: bf8e19382a32e934f9c289f62a3000b7,
     type: 3}
   trailMat: {fileID: 0}
@@ -115063,6 +115216,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115368,6 +115525,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0.8431373, g: 0.42352945, b: 0.6156863, a: 1}
   dieEffect1Color: {r: 0.89019614, g: 0.64705884, b: 0.3803922, a: 1}
   dieEffect2Color: {r: 0.9215687, g: 0.70980394, b: 0.69803923, a: 1}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116112,6 +116273,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -116714,6 +116879,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117186,6 +117355,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0, g: 0, b: 0, a: 0}
   dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
   dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
+  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0

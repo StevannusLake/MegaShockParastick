@@ -154,6 +154,7 @@ public class Movement : MonoBehaviour
     float delay = 0.3f;
 
     public ParticleSystem flyingParticleSystem;
+    public ParticleSystem doubleSlingShotParticleSystem;
 
     public SpriteRenderer emotionSpriteRend;
     public ParticleSystem deadEffect2;
@@ -1754,6 +1755,23 @@ public class Movement : MonoBehaviour
         var main4 = deadEffect2.main;
         main4.startColor = Shop.instance.skinUsing.GetComponent<Skin>().dieEffect2Color;
 
+        ParticleSystem.MinMaxGradient rebornGrad = new ParticleSystem.MinMaxGradient();
+        rebornGrad.colorMin = Shop.instance.skinUsing.GetComponent<Skin>().rebornMinColor;
+        rebornGrad.colorMax = Shop.instance.skinUsing.GetComponent<Skin>().rebornMaxColor;
+        rebornGrad.mode = ParticleSystemGradientMode.TwoColors;
+        var main5 = RebornParticleSystem.main;
+        main5.startColor = rebornGrad;
+
+        Gradient doubleSlingShotGrad = new Gradient();
+
+        doubleSlingShotGrad.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().doubleSlingShotMinColor, 0.0f),
+                new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().doubleSlingShotMaxColor, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f),
+                new GradientAlphaKey(1.0f, 1.0f) });
+
+        var main6 = doubleSlingShotParticleSystem.main;
+        main6.startColor = doubleSlingShotGrad;
     }
 }
 
