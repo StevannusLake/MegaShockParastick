@@ -11,6 +11,7 @@ public class PlayerParticleSystem : MonoBehaviour
     {
         // trail renderer will not be turn on when timescale is not 1, means during double slingshot
         myEmission = myParticleSystem.emission;
+        myParticleSystem.Play();
         myEmission.enabled = true;
     }
 

@@ -177,12 +177,20 @@ public class Movement : MonoBehaviour
 
     private bool enableInput = false;
 
+    public ParticleSystem RebornParticleSystem;
+    //public ParticleSystem DoubleSlingshotParticleSystem;
+    //public ParticleSystem.EmissionModule doubleSlingshotEmission;
+
     private void Awake()
     {
         absorbBiggerShape = absorbBiggerEffect.shape;
         absorbBiggerEffect.Stop();
         absorbSmallerShape = absorbSmallerEffect.shape;
         absorbSmallerEffect.Stop();
+
+        //DoubleSlingshotParticleSystem.Stop();
+        //doubleSlingshotEmission = DoubleSlingshotParticleSystem.emission;
+
     }
 
     // Start is called before the first frame update
@@ -216,7 +224,7 @@ public class Movement : MonoBehaviour
 
         playerJustDied = true;
 
-        for(int i=0; i<numDots; i++)
+        for (int i = 0; i < numDots; i++)
         {
             dots[i] = trajectoryDots[i].GetComponent<Dot>();
             dots[i].mySR.sprite = Shop.instance.skinUsing.GetComponent<Skin>().tradectoryDotsSprite;
@@ -225,7 +233,7 @@ public class Movement : MonoBehaviour
         screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
 
         //========== 20/5 ====================================================================================== 
-        if(hand != null && HandTutorial.tutorialCounter < 2)
+        if (hand != null && HandTutorial.tutorialCounter < 2)
         {
             hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
         }
@@ -244,13 +252,19 @@ public class Movement : MonoBehaviour
 
         GetComponent<SpriteRenderer>().sprite = Shop.instance.skinUsing.GetComponent<Skin>().skinImage;
 
-        
+
         //absorbBiggerShape = absorbBiggerEffect.shape;
         absorbBiggerEffect.Stop();
         //absorbSmallerShape = absorbSmallerEffect.shape;
         absorbSmallerEffect.Stop();
 
         enableInput = false;
+
+        if (UIManager.Instance.secondChanceCalled)
+        {
+            RebornParticleSystem.Play();
+        }
+
     }
     
     // Update is called once per frame
@@ -578,6 +592,8 @@ public class Movement : MonoBehaviour
 
                             Time.timeScale = 0.4f;
                             slowMoFX.SetActive(true);
+
+                            myParticleSystem.DoubleSlingshotEffect();
                         }
 
                         if (mousePressed)
@@ -1624,7 +1640,11 @@ public class Movement : MonoBehaviour
         {
             myTrailRenderer.enabled = false;
             myParticleSystem.OffParticleSystem();
+            
             doubleSSEffect = false;
+
+            //DoubleSlingshotParticleSystem.Stop();
+            //doubleSlingshotEmission.enabled = false;
 
             flyingParticleSystem.Stop();
 
@@ -1647,7 +1667,10 @@ public class Movement : MonoBehaviour
                 myTrailRenderer.enabled = false;
                 myParticleSystem.DoubleSlingshotEffect();
 
-                flyingParticleSystem.Stop();
+                //DoubleSlingshotParticleSystem.Play();
+                //doubleSlingshotEmission.enabled = true;
+
+                flyingParticleSystem.Play();
 
                 if (ripplePeriod > 0.1f)
                 {
