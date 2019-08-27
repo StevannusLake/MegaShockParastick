@@ -110660,14 +110660,14 @@ MonoBehaviour:
   tradectoryDotsSprite: {fileID: 21300000, guid: c0167dff9613f4d48adb3cd699c25463,
     type: 3}
   trailMat: {fileID: 2100000, guid: 05b281f03e39f8c4aa6b27c12ca9d5b4, type: 2}
-  flyingMaxColor: {r: 0.9811321, g: 0.66180134, b: 0.66180134, a: 0}
-  flyingMinColor: {r: 0.8773585, g: 0.84350115, b: 0.15312389, a: 0}
-  absorbBigMaxColor: {r: 1, g: 0, b: 0, a: 0}
-  absorbBigMinColor: {r: 1, g: 1, b: 1, a: 0}
-  absorbSmallMaxColor: {r: 0.20624185, g: 1, b: 0, a: 0}
-  absorbSmallMinColor: {r: 0.83886176, g: 0.9528302, b: 0.0764062, a: 0}
-  dieEffect1Color: {r: 0, g: 0, b: 0, a: 0}
-  dieEffect2Color: {r: 0, g: 0, b: 0, a: 0}
+  flyingMaxColor: {r: 0.9215687, g: 0.70980394, b: 0.69803923, a: 1}
+  flyingMinColor: {r: 0.882353, g: 0.7803922, b: 0.70980394, a: 1}
+  absorbBigMaxColor: {r: 0.69803923, g: 0.18823531, b: 0.20392159, a: 1}
+  absorbBigMinColor: {r: 0.82745105, g: 0.38431376, b: 0.33333334, a: 1}
+  absorbSmallMaxColor: {r: 0.882353, g: 0.7803922, b: 0.70980394, a: 1}
+  absorbSmallMinColor: {r: 0.8431373, g: 0.42352945, b: 0.6156863, a: 1}
+  dieEffect1Color: {r: 0.89019614, g: 0.64705884, b: 0.3803922, a: 1}
+  dieEffect2Color: {r: 0.9215687, g: 0.70980394, b: 0.69803923, a: 1}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
