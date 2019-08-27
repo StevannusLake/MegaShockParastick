@@ -80,7 +80,7 @@ public class Movement : MonoBehaviour
     [SerializeField]public static int deadState = 0;
     
     public float deadVelocity;
-    bool isDead;
+    public bool isDead;
     // fix dead update too fast for falling off camera bottom edge
     float deadTimer = 0.5f;
     float deadCounter;
@@ -369,7 +369,7 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter = MAXSLINGSHOT;
             doubleSlingshot = 0;
             myEmotion.EmoteIdle();
-            isDead = false;
+           // isDead = false;
             //deadState = 0; move up to after the menu call, so in second life, it wont play dead movement/animation function twice
             // above theory failed, so ignore that in terms of fixing the mentioned bug
             cancelSlingshotState = 0;
@@ -487,7 +487,7 @@ public class Movement : MonoBehaviour
             doubleSlingshot = 0;
         }
 
-        if (enableInput && playerJustDied == true)
+        if (enableInput && isDead == false)
         {
             if (mainMenu.GetComponent<AnimationEvent>().canDrag == true)
             {
