@@ -183,9 +183,9 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("HighScore"))
         {
-            if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
+            if (player.GetComponent<Movement>().distanceCounter > PlayerPrefs.GetFloat("HighScore", 0))
             {
-                PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
+                PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().distanceCounter);
             }
         }
     }
