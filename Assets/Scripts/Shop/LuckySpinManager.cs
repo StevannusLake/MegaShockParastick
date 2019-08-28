@@ -81,39 +81,39 @@ public class LuckySpinManager : MonoBehaviour
             #region //RandomAngle
             if (reward == RewardType.twoFreeSpins)
             {
-                randomFinalAngle = Random.Range(1f,22f);
+                randomFinalAngle = Random.Range(124f,158f);
             }
             else if(reward == RewardType.twentyFivePoints)
             {
-                randomFinalAngle = Random.Range(32f, 59f);
+                randomFinalAngle = Random.Range(81f, 118f);
             }
             else if(reward == RewardType.fiftyPoints)
             {
-                randomFinalAngle = Random.Range(72f, 101f);
+                randomFinalAngle = Random.Range(42f, 76f);
             }
             else if(reward == RewardType.oneThousandPoints)
             {
-                randomFinalAngle = Random.Range(115f, 143f);
+                randomFinalAngle = Random.Range(3f, 37f);
             }
             else if(reward == RewardType.zonk)
             {
-                randomFinalAngle = Random.Range(161f, 184f);
+                randomFinalAngle = Random.Range(325f, 357f);
             }
             else if(reward == RewardType.fiveHundredPoints)
             {
-                randomFinalAngle = Random.Range(193f, 222f);
+                randomFinalAngle = Random.Range(285f, 320f);
             }
             else if(reward == RewardType.fivePoints)
             {
-                randomFinalAngle = Random.Range(235f, 262f);
+                randomFinalAngle = Random.Range(243f, 278f);
             }
             else if(reward == RewardType.oneHundredPoints)
             {
-                randomFinalAngle = Random.Range(271f, 304f);
+                randomFinalAngle = Random.Range(203f, 238f);
             }
             else if(reward == RewardType.tenPoints)
             {
-                randomFinalAngle = Random.Range(320f, 339f);
+                randomFinalAngle = Random.Range(164f, 197f);
             }
             #endregion
             //_sectorsAngles = new float[] { 351,32 };
@@ -183,7 +183,7 @@ public class LuckySpinManager : MonoBehaviour
         switch ((int)reward)
         {
             case 0:
-                rewardText.text = "Two Spins";
+                rewardText.text = "Two Free Spins";
                 break;
             case 1:
                 rewardText.text = "25 Platelets";
