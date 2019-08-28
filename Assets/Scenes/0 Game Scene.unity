@@ -8272,7 +8272,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: da69ad36ee009284f9f447d91378c09f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -115622,10 +115622,10 @@ MonoBehaviour:
   absorbSmallMinColor: {r: 0.8431373, g: 0.42352945, b: 0.6156863, a: 1}
   dieEffect1Color: {r: 0.89019614, g: 0.64705884, b: 0.3803922, a: 1}
   dieEffect2Color: {r: 0.9215687, g: 0.70980394, b: 0.69803923, a: 1}
-  rebornMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
-  doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
+  rebornMaxColor: {r: 1, g: 0.9830491, b: 0, a: 1}
+  rebornMinColor: {r: 1, g: 0.9934101, b: 0.6462264, a: 1}
+  doubleSlingShotMaxColor: {r: 0.9716981, g: 0.49772444, b: 0.16958882, a: 1}
+  doubleSlingShotMinColor: {r: 0.8431373, g: 0.42352945, b: 0.6156863, a: 1}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0

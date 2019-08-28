@@ -236,7 +236,7 @@ public class Movement : MonoBehaviour
         //========== 20/5 ====================================================================================== 
         if (hand != null && HandTutorial.tutorialCounter < 2)
         {
-            hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
+            //hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
         }
         myParticleSystem.myParticleSystem.GetComponent<ParticleSystemRenderer>().material = Shop.instance.skinUsing.GetComponent<Skin>().doubleSlingShotMat;
         myTrailRenderer.material = Shop.instance.skinUsing.GetComponent<Skin>().trailMat;
@@ -549,11 +549,15 @@ public class Movement : MonoBehaviour
                             isSticking = false;
                             AudioManager.PlaySound(AudioManager.Sound.PlayerUnstick);
 
+
                             //========== 20/5 ====================================================================================== 
+                            /*
                             if (hand != null && HandTutorial.tutorialCounter == 0)
                             {
                                 hand.OffTutorial();
                             }
+                            */
+                            
                         }
 
                         if (Input.GetMouseButtonUp(0))
@@ -575,7 +579,7 @@ public class Movement : MonoBehaviour
                     if (hand != null)
                     {
                         screenMid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
-                        hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
+                        //hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
                     }
 
                     // use mouse to test movement without concerning control
@@ -626,7 +630,7 @@ public class Movement : MonoBehaviour
                             //========== 20/5 ====================================================================================== 
                             if (HandTutorial.tutorialCounter < 2)
                             {
-                                hand.OffTutorial();
+                                //hand.OffTutorial();
                             }
                         }
 
@@ -924,7 +928,7 @@ public class Movement : MonoBehaviour
                 //========== 20/5 ====================================================================================== 
                 if (hand != null && HandTutorial.tutorialCounter < 2)
                 {
-                    hand.OffSprite();
+                    //hand.OffSprite();
                 }
 
                 myRigidBody.velocity = Vector2.zero;

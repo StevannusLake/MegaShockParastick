@@ -33,8 +33,11 @@ public class HandTutorial : MonoBehaviour
         myTransform = GetComponent<Transform>();
     }
 
+    
+    /*
     public void OnTutorial(Vector2 pos)
     {
+        
         if (myTransform.gameObject != null)
         {
             myTransform.position = pos;
@@ -45,14 +48,18 @@ public class HandTutorial : MonoBehaviour
                 handAnim.Play("handTutorial");
             }
         }
+        
     }
+    
     
     public void OnSprite()
     {
+        
         if (hand != null)
         {
             handSR.enabled = true;
         }
+        
     }
 
     public void OffSprite()
@@ -78,4 +85,5 @@ public class HandTutorial : MonoBehaviour
             Destroy(hand);
         }
     }
+    */
 }

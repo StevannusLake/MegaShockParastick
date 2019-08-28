@@ -8,6 +8,12 @@ public class PlayerParticleSystem : MonoBehaviour
     ParticleSystem.EmissionModule myEmission;
     ParticleSystem.MainModule myMain;
 
+    private void Awake()
+    {
+        myMain = myParticleSystem.main;
+        myEmission = myParticleSystem.emission;
+    }
+
     void Update()
     {
         myMain.startSize = transform.localScale.x;
