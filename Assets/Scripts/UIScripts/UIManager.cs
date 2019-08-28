@@ -172,7 +172,6 @@ public class UIManager : MonoBehaviour
     public GameObject MainMenuWindowBlocker2;
     public Button homeButton;
     public GameObject HomePanelBlocker;
-    public GameObject secondLifeFX;
 
     public Sprite discountSecondChanceSprite;
 
