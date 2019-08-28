@@ -847,7 +847,7 @@ public class Movement : MonoBehaviour
                 stick++;
                 if (isRareSkin == true)
                 {
-                    doubleSlingshotCounter += INCREMENTSLINGSHOT;
+                    doubleSlingshotCharge += INCREMENTSLINGSHOT;
                 }
 
                 // reset slingshot after once double slingshot if not in recover
