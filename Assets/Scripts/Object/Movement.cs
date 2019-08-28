@@ -182,6 +182,9 @@ public class Movement : MonoBehaviour
     //public ParticleSystem DoubleSlingshotParticleSystem;
     //public ParticleSystem.EmissionModule doubleSlingshotEmission;
 
+    public ParticleSystem DSRechargingEffect;
+    public ParticleSystem DSRechargedEffect;
+
     private void Awake()
     {
         absorbBiggerShape = absorbBiggerEffect.shape;
@@ -265,6 +268,8 @@ public class Movement : MonoBehaviour
             RebornParticleSystem.Play();
         }
 
+        DSRechargingEffect.Stop();
+        DSRechargedEffect.Stop();
     }
     
     // Update is called once per frame
@@ -462,6 +467,9 @@ public class Movement : MonoBehaviour
         {
             doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
+
+            DSRechargedEffect.Simulate(0);
+            DSRechargedEffect.Play();
         }
 
         if(bounceCounter == maxBounceCounter - 1)
@@ -847,6 +855,9 @@ public class Movement : MonoBehaviour
                 if (isRareSkin == true)
                 {
                     doubleSlingshotCharge += INCREMENTSLINGSHOT;
+
+                    DSRechargingEffect.Simulate(0);
+                    DSRechargingEffect.Play();
                 }
 
                 // reset slingshot after once double slingshot if not in recover
@@ -896,6 +907,9 @@ public class Movement : MonoBehaviour
                 if (isSticking == false)
                 {
                     doubleSlingshotCharge += INCREMENTSLINGSHOT;
+
+                    DSRechargingEffect.Simulate(0);
+                    DSRechargingEffect.Play();
                 }
                
 

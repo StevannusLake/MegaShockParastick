@@ -57,7 +57,7 @@ public class SlingshotCounter : MonoBehaviour
             if (playerMovementScript.doubleSlingshotCharge == 4 || playerMovementScript.doubleSlingshotCharge == 5)
             {
                 slingshotCounters[5].sprite = OnColor;
-            }
+        }
             if (playerMovementScript.doubleSlingshotCharge >= 5)
             {
                 slingshotCounters[4].sprite = OnColor;
