@@ -65,10 +65,11 @@ public class BuyConfirmation : MonoBehaviour
             if (Shop.instance.skinSelecting.name == "Skin 35")
             {
                 unlockButton.SetActive(false);
+                watchButton.SetActive(false);
                 priceText.text = "Purchase Remove Ads Pack";
             }
             else
-                priceText.text = "Watch " + Shop.instance.skinSelecting.GetComponent<Skin>().watchNeeded + " Videos";
+                priceText.text = "Watch " + (Shop.instance.skinSelecting.GetComponent<Skin>().watchNeeded - Shop.instance.skinSelecting.GetComponent<Skin>().watchCount) + " Videos";
         }
         else if (Shop.instance.skinSelecting.GetComponent<Skin>().rarity == Skin.Rarity.Mission)
         {
