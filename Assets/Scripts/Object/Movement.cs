@@ -182,6 +182,10 @@ public class Movement : MonoBehaviour
     //public ParticleSystem DoubleSlingshotParticleSystem;
     //public ParticleSystem.EmissionModule doubleSlingshotEmission;
 
+    public ParticleSystem DSRechargingEffect;
+    public ParticleSystem DSRechargedEffect;
+    public ParticleSystem BounceWallEffect;
+
     private void Awake()
     {
         absorbBiggerShape = absorbBiggerEffect.shape;
@@ -265,6 +269,9 @@ public class Movement : MonoBehaviour
             RebornParticleSystem.Play();
         }
 
+        DSRechargingEffect.Stop();
+        DSRechargedEffect.Stop();
+        BounceWallEffect.Stop();
     }
     
     // Update is called once per frame
@@ -458,10 +465,13 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter = MAXSLINGSHOT;
         }
 
-        if(doubleSlingshotCharge == 5)
+        if(doubleSlingshotCharge >= 5)
         {
             doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
+
+            DSRechargedEffect.Simulate(0);
+            DSRechargedEffect.Play();
         }
 
         if(bounceCounter == maxBounceCounter - 1)
@@ -482,7 +492,7 @@ public class Movement : MonoBehaviour
         {
             doubleSlingshot = 2;
         }
-        else if (doubleSlingshotCounter >= MAXSLINGSHOT)
+        else if (doubleSlingshotCounter == 3 || doubleSlingshotCounter == 6 || doubleSlingshotCounter == 9 || doubleSlingshotCounter == 12 || doubleSlingshotCounter == 15)
         {
             doubleSlingshot = 0;
         }
@@ -847,6 +857,9 @@ public class Movement : MonoBehaviour
                 if (isRareSkin == true)
                 {
                     doubleSlingshotCharge += INCREMENTSLINGSHOT;
+
+                    DSRechargingEffect.Simulate(0);
+                    DSRechargingEffect.Play();
                 }
 
                 // reset slingshot after once double slingshot if not in recover
@@ -896,6 +909,9 @@ public class Movement : MonoBehaviour
                 if (isSticking == false)
                 {
                     doubleSlingshotCharge += INCREMENTSLINGSHOT;
+
+                    DSRechargingEffect.Simulate(0);
+                    DSRechargingEffect.Play();
                 }
                
 
@@ -908,8 +924,11 @@ public class Movement : MonoBehaviour
                 float angle = Mathf.Atan2(pos.y - myTransform.position.y, pos.x - myTransform.position.x);
                 angle *= Mathf.Rad2Deg;
                 angle += 90;
-                mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
-                
+                //mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+
+                BounceWallEffect.Simulate(0);
+                BounceWallEffect.Play();
+
                 FindObjectOfType<BGMAudioManager>().Play("WallBouncing");
                 // ===================================================================================================================================
 
@@ -1073,6 +1092,9 @@ public class Movement : MonoBehaviour
             angle *= Mathf.Rad2Deg;
             angle -= 90;
             mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+
+            BounceWallEffect.Simulate(0);
+            BounceWallEffect.Play();
             // ===================================================================================================================================
 
         }

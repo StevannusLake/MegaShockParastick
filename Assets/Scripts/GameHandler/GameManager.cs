@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         NotificationManager.Cancel(61);
         TimeSpan delayNotifyTime = new TimeSpan(1, 0, 0);
         // schedule without icon
-        NotificationManager.Send(61, delayNotifyTime, "🏆HEY ACHIEVER!🏆", "🧗You know you can achieve more than this!🧗‍♀️", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(61, delayNotifyTime, "🏆HEY ACHIEVER!🏆", "🧗You know you can achieve more than this!🧗‍", Color.red, NotificationIcon.Heart);
 
         ResetDragTimer();
     }
@@ -183,9 +183,9 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("HighScore"))
         {
-            if (player.GetComponent<Movement>().playerDistance > PlayerPrefs.GetFloat("HighScore", 0))
+            if (player.GetComponent<Movement>().distanceCounter > PlayerPrefs.GetFloat("HighScore", 0))
             {
-                PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().playerDistance);
+                PlayerPrefs.SetFloat("HighScore", player.GetComponent<Movement>().distanceCounter);
             }
         }
     }

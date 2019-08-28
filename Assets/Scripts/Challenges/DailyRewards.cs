@@ -49,7 +49,7 @@ public class DailyRewards : MonoBehaviour
         NotificationManager.Cancel(60);
         TimeSpan delayNotifyTime = new TimeSpan(24, 0, 0);
         // schedule without icon
-        NotificationManager.Send(60, TimeSpan.FromDays(1), "🎁IT'S YOURS!🎁", "🤑Don't miss out your DAILY REWARD!!💸", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(60, TimeSpan.FromDays(1), "🎁IT'S YOURS!🎁", "🤑Don't miss your DAILY REWARD!!💸", Color.red, NotificationIcon.Heart);
     }
 
     void CheckBlocker()

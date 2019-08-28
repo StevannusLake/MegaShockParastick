@@ -67,7 +67,7 @@ public class InternetChecker : MonoBehaviour
         NotificationManager.Cancel(62);
         TimeSpan delayNotifyTime = new TimeSpan(5, 0, 0);
         // schedule without icon
-        NotificationManager.Send(62, TimeSpan.FromHours(5), "🏁FAR FAR AWAY🏁", "🎯Reach so far away until nobody can beat you!🥇", Color.red, NotificationIcon.Heart);
+        NotificationManager.Send(62, TimeSpan.FromHours(5), "🏁FAR FAR AWAY🏁", "🎯Reach so far till nobody beat you!🥇", Color.red, NotificationIcon.Heart);
     }
 
     private void InternetIsNotAvailable()
