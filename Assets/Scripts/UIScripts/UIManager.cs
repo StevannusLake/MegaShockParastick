@@ -280,6 +280,8 @@ public class UIManager : MonoBehaviour
         MainMenuWindowBlocker1.SetActive(false);
         MainMenuWindowBlocker2.SetActive(false);
         HomePanelBlocker.SetActive(false);
+
+       
     }
 
     private void Update()
@@ -292,7 +294,7 @@ public class UIManager : MonoBehaviour
 
         //CheckSecondChanceButton();
 
-
+        
 
         coinCounterInGame.text = "" + GameManager.instance.GetCoin();
         pointCounterInGame.text = "" + GameManager.instance.GetPoints();
@@ -771,8 +773,6 @@ public class UIManager : MonoBehaviour
 
             secondChanceMenuAnim.SetBool("OpenSecondChanceMenu", false);
 
-          //  Invoke("TurnOnSecondLifeFX", 0.1f);
-
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
 
             GameManager.instance.DecreasePoints(4);
@@ -801,10 +801,7 @@ public class UIManager : MonoBehaviour
         ReloadScene();
     }
 
-    void TurnOnSecondLifeFX()
-    {
-        secondLifeFX.SetActive(true);
-    }
+    
 
     public void CheckSecondChanceButton()
     {   
@@ -1077,13 +1074,17 @@ public class UIManager : MonoBehaviour
         OpalEffectAnim.SetBool("OpenOpalIcon", true);
     }
 
-
-
     #region Garage Transitioning
 
     public void OpeningGarage()
     {
         GarageAnim.SetBool("OpenGarage", true);
+
+        //if (!MainMenu.activeInHierarchy)
+        //{
+        //    Debug.Log("Turn");
+        //    Invoke("TurnOnSecondLifeFX", 0.0f);
+        //}
     }
 
     public void ClosingGarage()

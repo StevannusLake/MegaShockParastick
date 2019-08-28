@@ -42,23 +42,23 @@ public class SlingshotCounter : MonoBehaviour
         //}
         //if(playerMovementScript.doubleSlingshot != 2)
        // {
-            if(playerMovementScript.doubleSlingshotCharge == 1)
+            if(playerMovementScript.doubleSlingshotCharge == 1 || playerMovementScript.doubleSlingshotCharge == 2)
             {
                 slingshotCounters[8].sprite = OnColor;
             }
-            if (playerMovementScript.doubleSlingshotCharge == 2)
+            if (playerMovementScript.doubleSlingshotCharge == 2 || playerMovementScript.doubleSlingshotCharge == 3)
             {
                 slingshotCounters[7].sprite = OnColor;
             }
-            if (playerMovementScript.doubleSlingshotCharge == 3)
+            if (playerMovementScript.doubleSlingshotCharge == 3 || playerMovementScript.doubleSlingshotCharge == 4)
             {
                 slingshotCounters[6].sprite = OnColor;
             }
-            if (playerMovementScript.doubleSlingshotCharge == 4)
+            if (playerMovementScript.doubleSlingshotCharge == 4 || playerMovementScript.doubleSlingshotCharge == 5)
             {
                 slingshotCounters[5].sprite = OnColor;
             }
-            if (playerMovementScript.doubleSlingshotCharge == 5)
+            if (playerMovementScript.doubleSlingshotCharge >= 5)
             {
                 slingshotCounters[4].sprite = OnColor;
             }

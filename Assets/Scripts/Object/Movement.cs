@@ -458,7 +458,7 @@ public class Movement : MonoBehaviour
             doubleSlingshotCounter = MAXSLINGSHOT;
         }
 
-        if(doubleSlingshotCharge == 5)
+        if(doubleSlingshotCharge >= 5)
         {
             doubleSlingshotCounter += 3;
             doubleSlingshotCharge = 0;
