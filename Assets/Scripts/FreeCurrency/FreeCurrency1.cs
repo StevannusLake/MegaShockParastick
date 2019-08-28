@@ -999,6 +999,7 @@ public class FreeCurrency1 : MonoBehaviour
         {
             if (GUIManager.GetComponent<InternetChecker>().isConnect == true)
             {
+                Debug.Log("Online");
                 shopButton2.GetComponent<Button>().interactable = true;
             }
             canGetFree2 = true;
@@ -1065,18 +1066,18 @@ public class FreeCurrency1 : MonoBehaviour
 
         //--------------Lose Menu---------------\\
 
-        if(GUIManager.GetComponent<InternetChecker>().isConnect == false)
-        {
-            mainButton2.GetComponent<Button>().interactable = false;
-            loseButton2.GetComponent<Button>().interactable = false;
-            shopButton2.GetComponent<Button>().interactable = false;
-        }
-        else
-        {
-            mainButton2.GetComponent<Button>().interactable = true;
-            loseButton2.GetComponent<Button>().interactable = true;
-            shopButton2.GetComponent<Button>().interactable = true;
-        }
+        //if(GUIManager.GetComponent<InternetChecker>().isConnect == false)
+        //{
+        //    mainButton2.GetComponent<Button>().interactable = false;
+        //    loseButton2.GetComponent<Button>().interactable = false;
+        //    shopButton2.GetComponent<Button>().interactable = false;
+        //}
+        //else
+        //{
+        //    mainButton2.GetComponent<Button>().interactable = true;
+        //    loseButton2.GetComponent<Button>().interactable = true;
+        //    shopButton2.GetComponent<Button>().interactable = true;
+        //}
     }
 
     public void GetFreeOpalMainMenu()
