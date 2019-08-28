@@ -41,6 +41,7 @@ public class BuyConfirmation : MonoBehaviour
             {
                 if (Shop.instance.skinSelecting.name == "Skin 12")
                 {
+                    unlockButton.SetActive(false);
                     priceText.text = "Purchase Starter Pack";
                 } 
                 else
@@ -52,6 +53,7 @@ public class BuyConfirmation : MonoBehaviour
             {
                 if (Shop.instance.skinSelecting.name == "Skin 33" || Shop.instance.skinSelecting.name == "LegendaryEnvironment")
                 {
+                    unlockButton.SetActive(false);
                     priceText.text = "Purchase Pro Pack";
                 }
                 else priceText.text = Shop.instance.skinSelecting.GetComponent<Skin>().price + " Platelets";
@@ -62,6 +64,7 @@ public class BuyConfirmation : MonoBehaviour
         {
             if (Shop.instance.skinSelecting.name == "Skin 35")
             {
+                unlockButton.SetActive(false);
                 priceText.text = "Purchase Remove Ads Pack";
             }
             else
