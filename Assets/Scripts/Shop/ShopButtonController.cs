@@ -29,6 +29,8 @@ public class ShopButtonController : MonoBehaviour
     public Button StarterButton;
     public Button ProButton;
 
+    public GameObject AdsScreen;
+
     private void Update()
     {
         coin.text = ""+GameManager.instance.GetCoin();
@@ -249,6 +251,7 @@ public class ShopButtonController : MonoBehaviour
         Shop.instance.skinSelecting.GetComponent<Skin>().watchCount += 1;
         PlayerPrefs.SetInt(gameObject.name + "WatchCount", Shop.instance.skinSelecting.GetComponent<Skin>().watchCount);
         // Show ads here
+        AdsScreen.SetActive(true);
         if(Shop.instance.skinSelecting.GetComponent<Skin>().watchCount >= Shop.instance.skinSelecting.GetComponent<Skin>().watchNeeded)
         {
             Shop.instance.skinSelecting = this.gameObject;
@@ -257,5 +260,10 @@ public class ShopButtonController : MonoBehaviour
             Shop.instance.CheckIsBought();
             GameManager.instance.SaveSkin();
         }
+    }
+
+    public void CloseAdsScreen()
+    {
+        AdsScreen.SetActive(false);
     }
 }
