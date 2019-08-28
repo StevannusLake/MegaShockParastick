@@ -19,6 +19,9 @@ public class MyBackground : MonoBehaviour
 
     public float tempExtraDistance;
 
+    public GameObject inGameMenu;
+    public GameObject mainMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +38,12 @@ public class MyBackground : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        if (inGameMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("InGameOpen") && !mainMenu.activeSelf)
+        {
+            //CheckInitDistance();
+        }
+
         CheckPlayerPos();
         for (int i = 0; i < listOfBackgroundPrefabs.Count; i++)
         {
@@ -71,5 +79,12 @@ public class MyBackground : MonoBehaviour
 
             distanceOfOldBackground = 20 + distanceOfOldBackground + movementScript.distanceCounter;
         }
+    }
+
+    void CheckInitDistance()
+    {
+        distanceOfNewBackground = 3 + movementScript.distanceCounter;
+        distanceOfOldBackground = 15 + movementScript.distanceCounter;
+        rangeOfRemovingOldBackground = 30 + movementScript.distanceCounter;
     }
 }
