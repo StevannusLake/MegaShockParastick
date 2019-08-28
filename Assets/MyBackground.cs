@@ -21,6 +21,7 @@ public class MyBackground : MonoBehaviour
 
     public GameObject inGameMenu;
     public GameObject mainMenu;
+    public bool checkedDistance = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,14 +35,17 @@ public class MyBackground : MonoBehaviour
         oldBackground = 0; //! Always set to 0 because of always removing the last one
 
         justSpawned = false;
+
+        checkedDistance = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inGameMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("InGameOpen") && !mainMenu.activeSelf)
+        if (inGameMenu.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("InGameOpen") && !mainMenu.activeSelf && !checkedDistance)
         {
-            //CheckInitDistance();
+            CheckInitDistance();
+            checkedDistance = true;
         }
 
         CheckPlayerPos();
