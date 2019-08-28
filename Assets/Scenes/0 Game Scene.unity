@@ -2392,7 +2392,11 @@ MonoBehaviour:
   secondLifeFX: {fileID: 367655566}
   mainMenu: {fileID: 1354248950}
   garage: {fileID: 0}
+  uiManager: {fileID: 0}
+  loseMenu: {fileID: 0}
+  secondChanceMenu: {fileID: 0}
   isShow: 0
+  isShow2: 0
 --- !u!1 &90208356
 GameObject:
   m_ObjectHideFlags: 0
@@ -15556,7 +15560,11 @@ MonoBehaviour:
   secondLifeFX: {fileID: 0}
   mainMenu: {fileID: 0}
   garage: {fileID: 84369165}
+  uiManager: {fileID: 0}
+  loseMenu: {fileID: 0}
+  secondChanceMenu: {fileID: 0}
   isShow: 0
+  isShow2: 0
 --- !u!1 &367662356
 GameObject:
   m_ObjectHideFlags: 0
@@ -24359,6 +24367,7 @@ MonoBehaviour:
   homeButton: {fileID: 495321437}
   HomePanelBlocker: {fileID: 1310009240}
   discountSecondChanceSprite: {fileID: 0}
+  reviveCount: 0
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47512,7 +47521,11 @@ MonoBehaviour:
   secondLifeFX: {fileID: 367655566}
   mainMenu: {fileID: 1354248950}
   garage: {fileID: 0}
+  uiManager: {fileID: 508106764}
+  loseMenu: {fileID: 1210811862}
+  secondChanceMenu: {fileID: 1700775326}
   isShow: 0
+  isShow2: 0
 --- !u!1 &949164878
 GameObject:
   m_ObjectHideFlags: 0

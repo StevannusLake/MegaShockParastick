@@ -174,6 +174,7 @@ public class UIManager : MonoBehaviour
     public GameObject HomePanelBlocker;
 
     public Sprite discountSecondChanceSprite;
+    public int reviveCount;
 
     private void Awake()
     {
@@ -190,7 +191,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         EnableMenuButtons();
-        
+        reviveCount = PlayerPrefs.GetInt("ReviveCount");
         rippleEffect.enabled = true;
 
         ShopMenu.SetActive(false);
@@ -796,10 +797,12 @@ public class UIManager : MonoBehaviour
             ButtonManager.instance.secondlife = true;
             // Save boolean using PlayerPrefs
             PlayerPrefs.SetInt("SecondLife", ButtonManager.instance.secondlife ? 1 : 0);
+            reviveCount += 1;
+            PlayerPrefs.SetInt("ReviveCount", reviveCount);
 
             //ButtonManager.instance.TempScore = player.GetComponent<Movement>().playerDistance;
             //! Save Temporary Player Distance
-            PlayerPrefs.SetFloat("TempScore", player.GetComponent<Movement>().playerDistance);
+            PlayerPrefs.SetFloat("TempScore", player.GetComponent<Movement>().distanceCounter);
             
             Movement.deadState = 0;
 

@@ -7,7 +7,11 @@ public class FX : MonoBehaviour
     public GameObject secondLifeFX;
     public GameObject mainMenu;
     public GameObject garage;
+    public GameObject uiManager;
+    public GameObject loseMenu;
+    public GameObject secondChanceMenu;
     public bool isShow = false;
+    public bool isShow2 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +22,22 @@ public class FX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isShow == true && secondLifeFX != null)
+        if (this.gameObject.name == "InGame")
         {
-            secondLifeFX.SetActive(true);
+            if (isShow == true && secondLifeFX != null && uiManager.GetComponent<UIManager>().reviveCount == 1)
+            {
+                secondLifeFX.SetActive(true);
+            }
+
+            if (isShow2 == true)
+            {
+                if (loseMenu.activeInHierarchy || secondChanceMenu.activeInHierarchy)
+                {
+                    uiManager.GetComponent<UIManager>().reviveCount = 0;
+                    PlayerPrefs.SetInt("ReviveCount", uiManager.GetComponent<UIManager>().reviveCount);
+                    isShow2 = false;
+                }
+            }
         }
     }
 
@@ -38,5 +55,10 @@ public class FX : MonoBehaviour
     public void TurnOffBool()
     {
         isShow = false;
+    }
+
+    public void TurnOnBool()
+    {
+        isShow2 = true;
     }
 }
