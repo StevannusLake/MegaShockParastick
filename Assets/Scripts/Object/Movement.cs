@@ -184,7 +184,6 @@ public class Movement : MonoBehaviour
 
     public ParticleSystem DSRechargingEffect;
     public ParticleSystem DSRechargedEffect;
-    public ParticleSystem BounceWallEffect;
 
     private void Awake()
     {
@@ -271,7 +270,6 @@ public class Movement : MonoBehaviour
 
         DSRechargingEffect.Stop();
         DSRechargedEffect.Stop();
-        BounceWallEffect.Stop();
     }
     
     // Update is called once per frame
@@ -924,11 +922,8 @@ public class Movement : MonoBehaviour
                 float angle = Mathf.Atan2(pos.y - myTransform.position.y, pos.x - myTransform.position.x);
                 angle *= Mathf.Rad2Deg;
                 angle += 90;
-                //mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
-
-                BounceWallEffect.Simulate(0);
-                BounceWallEffect.Play();
-
+                mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
+                
                 FindObjectOfType<BGMAudioManager>().Play("WallBouncing");
                 // ===================================================================================================================================
 
@@ -1092,9 +1087,6 @@ public class Movement : MonoBehaviour
             angle *= Mathf.Rad2Deg;
             angle -= 90;
             mySmokeEffect.SpawnSmoke(myTransform.position, 3, angle, "WallBounce");
-
-            BounceWallEffect.Simulate(0);
-            BounceWallEffect.Play();
             // ===================================================================================================================================
 
         }
