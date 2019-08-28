@@ -6865,6 +6865,8 @@ MonoBehaviour:
   listOfBackgroundPrefabs: []
   justSpawned: 0
   tempExtraDistance: 0
+  inGameMenu: {fileID: 946061137}
+  mainMenu: {fileID: 1354248950}
 --- !u!4 &243787348
 Transform:
   m_ObjectHideFlags: 0
