@@ -200,7 +200,7 @@ public class ShopButtonController : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("RemoveAds") == 0)
         {
-            Shop.instance.skinSelecting = Shop.instance.skinList[34];
+            Shop.instance.skinSelecting = Shop.instance.skinList[20];
             GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
             GameManager.instance.numOfSkinCollected++;
             Shop.instance.CheckIsBought();
@@ -232,7 +232,7 @@ public class ShopButtonController : MonoBehaviour
             GameManager.instance.AddCoin(1000);
             GameManager.instance.AddPoints(100);
             // Player Skin
-            Shop.instance.skinSelecting = Shop.instance.skinList[32];
+            Shop.instance.skinSelecting = Shop.instance.skinList[35];
             GameManager.instance.skinCollected.Add(Shop.instance.skinSelecting.gameObject);
             GameManager.instance.numOfSkinCollected++;
             Shop.instance.CheckIsBought();

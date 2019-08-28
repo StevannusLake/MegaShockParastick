@@ -239,7 +239,6 @@ public class Movement : MonoBehaviour
             //hand.OnTutorial(new Vector2(screenMid.x, screenMid.y));
         }
         myParticleSystem.myParticleSystem.GetComponent<ParticleSystemRenderer>().material = Shop.instance.skinUsing.GetComponent<Skin>().doubleSlingShotMat;
-        myTrailRenderer.material = Shop.instance.skinUsing.GetComponent<Skin>().trailMat;
 
         ChangeParticleColors();
 
@@ -1776,6 +1775,16 @@ public class Movement : MonoBehaviour
 
         var main6 = doubleSlingShotParticleSystem.main;
         main6.startColor = doubleSlingShotGrad;
+
+        Gradient trailGrad = new Gradient();
+
+        trailGrad.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().trailMinColor, 0.0f),
+                new GradientColorKey(Shop.instance.skinUsing.GetComponent<Skin>().trailMaxColor, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f),
+                new GradientAlphaKey(1.0f, 1.0f) });
+
+        myTrailRenderer.colorGradient = trailGrad;
     }
 }
 
