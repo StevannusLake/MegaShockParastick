@@ -40,8 +40,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public Color rebornMinColor;
     public Color doubleSlingShotMaxColor;
     public Color doubleSlingShotMinColor;
-    public Color trailMaxColor;
-    public Color trailMinColor;
+    public Material trailMat;
 
     void Awake()
     {   

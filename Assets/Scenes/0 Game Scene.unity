@@ -1640,8 +1640,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &48493736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14399,8 +14398,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &352599151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37072,8 +37070,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &693302361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50896,8 +50893,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1155790115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56955,7 +56951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.38}
-  m_AnchoredPosition: {x: 0, y: -4.2628174}
+  m_AnchoredPosition: {x: 0, y: -4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371127079
@@ -82313,8 +82309,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1807879608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107282,8 +107277,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107407,8 +107401,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107705,8 +107698,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108170,8 +108162,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108332,8 +108323,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108494,8 +108484,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108770,8 +108759,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108940,8 +108928,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109168,8 +109155,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109412,8 +109398,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109566,8 +109551,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109854,8 +109838,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110088,8 +110071,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110258,8 +110240,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110725,8 +110706,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110961,8 +110941,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -111241,8 +111220,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -111305,8 +111283,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111566,8 +111543,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111647,8 +111623,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111809,8 +111784,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112100,8 +112074,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112262,8 +112235,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112432,8 +112404,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112667,8 +112638,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112748,8 +112718,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113028,8 +112997,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -113153,8 +113121,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113234,8 +113201,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113404,8 +113370,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113596,8 +113561,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113758,8 +113722,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115142,8 +115105,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115345,8 +115307,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115655,8 +115616,7 @@ MonoBehaviour:
   rebornMinColor: {r: 1, g: 0.9934101, b: 0.6462264, a: 1}
   doubleSlingShotMaxColor: {r: 0.9716981, g: 0.49772444, b: 0.16958882, a: 1}
   doubleSlingShotMinColor: {r: 0.8431373, g: 0.42352945, b: 0.6156863, a: 1}
-  trailMaxColor: {r: 0.0073931217, g: 1, b: 0, a: 0}
-  trailMinColor: {r: 0.23921567, g: 1, b: 0.6791852, a: 0}
+  trailColor: {r: 0.12014952, g: 0.9433962, b: 0.22928755, a: 0}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116405,8 +116365,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -117012,8 +116971,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117489,8 +117447,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMaxColor: {r: 0, g: 0, b: 0, a: 0}
-  trailMinColor: {r: 0, g: 0, b: 0, a: 0}
+  trailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0
