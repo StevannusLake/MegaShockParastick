@@ -105,7 +105,12 @@ public class DragController : MonoBehaviour
                     isDragging = false;
                 }
             }
-            MoveByDrag(rawDelta);
+
+            if(!Camera.main.GetComponent<ShopButtonController>().buyConfirmationMenu.activeInHierarchy)
+            {
+                MoveByDrag(rawDelta);
+            }
+           
             if (!isDragging)
             {
                 if (UIManager.Instance.ShopMenu.activeInHierarchy)

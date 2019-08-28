@@ -23906,6 +23906,7 @@ MonoBehaviour:
   homeButton: {fileID: 495321437}
   HomePanelBlocker: {fileID: 1310009240}
   secondLifeFX: {fileID: 367655566}
+  discountSecondChanceSprite: {fileID: 0}
 --- !u!114 &508106770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119055,7 +119056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8646306001157498754
 MonoBehaviour:
   m_ObjectHideFlags: 0
