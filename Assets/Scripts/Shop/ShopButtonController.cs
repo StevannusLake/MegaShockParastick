@@ -29,6 +29,10 @@ public class ShopButtonController : MonoBehaviour
     public Button StarterButton;
     public Button ProButton;
 
+    public GameObject RemoveAdsWindow;
+    public GameObject StarterWndow;
+    public GameObject ProWindow;
+
     public GameObject AdsScreen;
 
     private void Update()
@@ -260,6 +264,27 @@ public class ShopButtonController : MonoBehaviour
             Shop.instance.CheckIsBought();
             GameManager.instance.SaveSkin();
         }
+    }
+
+    public void ShowRemoveAdsConfirmation()
+    {
+        if (RemoveAdsWindow.activeInHierarchy)
+            RemoveAdsWindow.SetActive(false);
+        else RemoveAdsWindow.SetActive(true);           
+    }
+
+    public void ShowStarterConfirmation()
+    {
+        if (StarterWndow.activeInHierarchy)
+            StarterWndow.SetActive(false);
+        else StarterWndow.SetActive(true);
+    }
+
+    public void ShowProConfirmation()
+    {
+        if (ProWindow.activeInHierarchy)
+            ProWindow.SetActive(false);
+        else ProWindow.SetActive(true);
     }
 
     public void CloseAdsScreen()
