@@ -8,8 +8,6 @@ public class CutSceneManager : MonoBehaviour
     public GameObject cutScene2;
     public GameObject cutScene3;
     public GameObject cutScene4;
-    public GameObject cutScene5;
-    public GameObject cutScene6;
     public bool isLast = false;
 
     // Start is called before the first frame update
@@ -45,21 +43,9 @@ public class CutSceneManager : MonoBehaviour
         cutScene4.SetActive(true);
     }
 
-    public void ShowCutScene5()
-    {
-        cutScene4.SetActive(false);
-        cutScene5.SetActive(true);
-    }
-
-    public void ShowCutScene6()
-    {
-        cutScene5.SetActive(false);
-        cutScene6.SetActive(true);
-    }
-
     public void HideCutScene()
     {
         PlayerPrefs.SetInt("CutScene", (isLast ? 1 : 0));
-        cutScene6.SetActive(false);
+        cutScene4.SetActive(false);
     }
 }
