@@ -2384,7 +2384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84369165}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e72aa6d19d39364a8401a638f408ec7, type: 3}
   m_Name: 
@@ -47407,6 +47407,7 @@ GameObject:
   - component: {fileID: 946061138}
   - component: {fileID: 946061139}
   - component: {fileID: 946061140}
+  - component: {fileID: 946061141}
   m_Layer: 5
   m_Name: InGame
   m_TagString: Untagged
@@ -47496,6 +47497,22 @@ MonoBehaviour:
   isShow4: 0
   isShow5: 0
   isShow6: 0
+--- !u!114 &946061141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946061137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e72aa6d19d39364a8401a638f408ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondLifeFX: {fileID: 367655566}
+  mainMenu: {fileID: 1354248950}
+  garage: {fileID: 0}
+  isShow: 0
 --- !u!1 &949164878
 GameObject:
   m_ObjectHideFlags: 0
