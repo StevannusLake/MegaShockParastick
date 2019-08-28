@@ -53,6 +53,7 @@ public class Skin : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         confirmationMenu = GameObject.FindWithTag("BuyConfirmationMenu");
         mainCamera = GameObject.FindWithTag("MainCamera");
         player = GameObject.FindWithTag("Player");
+        watchCount = PlayerPrefs.GetInt(gameObject.name + "WatchCount");
     }
 
     void Update()

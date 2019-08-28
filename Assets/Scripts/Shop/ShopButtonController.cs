@@ -249,7 +249,7 @@ public class ShopButtonController : MonoBehaviour
     public void WatchVideoSkin()
     {
         Shop.instance.skinSelecting.GetComponent<Skin>().watchCount += 1;
-        PlayerPrefs.SetInt(gameObject.name + "WatchCount", Shop.instance.skinSelecting.GetComponent<Skin>().watchCount);
+        PlayerPrefs.SetInt(Shop.instance.skinSelecting.name + "WatchCount", Shop.instance.skinSelecting.GetComponent<Skin>().watchCount);
         // Show ads here
         AdsScreen.SetActive(true);
         if(Shop.instance.skinSelecting.GetComponent<Skin>().watchCount >= Shop.instance.skinSelecting.GetComponent<Skin>().watchNeeded)
