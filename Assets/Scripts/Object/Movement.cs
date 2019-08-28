@@ -482,7 +482,7 @@ public class Movement : MonoBehaviour
         {
             doubleSlingshot = 2;
         }
-        else if (doubleSlingshotCounter >= MAXSLINGSHOT)
+        else if (doubleSlingshotCounter == 3 || doubleSlingshotCounter == 6 || doubleSlingshotCounter == 9 || doubleSlingshotCounter == 12 || doubleSlingshotCounter == 15)
         {
             doubleSlingshot = 0;
         }
