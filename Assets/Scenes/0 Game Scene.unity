@@ -51464,31 +51464,31 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 67c730adb328dfb4dbb8895260b195b8, type: 3}
   - {fileID: 21300000, guid: 20439d78f50ee36439bd897f3a35a70a, type: 3}
   - {fileID: 21300000, guid: c631ce1d33a0e1943b646a82c48c2486, type: 3}
-  - {fileID: 21300000, guid: 8f20aee0b16206147b91bd8ff7ca190c, type: 3}
+  - {fileID: 21300000, guid: e3e980dcb5a47944294c1dd96dba2c8e, type: 3}
   environmentType3:
   - {fileID: 21300000, guid: 313b33ffb16de3f438514d604ccbb022, type: 3}
   - {fileID: 21300000, guid: d0dd802a179d20f47b9fd187761ec279, type: 3}
   - {fileID: 21300000, guid: f0f701fe0d3d9464ca01a3b6082af40f, type: 3}
   - {fileID: 21300000, guid: 89e44db5e60a6e845a7072c5641d77ee, type: 3}
-  - {fileID: 21300000, guid: 3fb3fc2003acd0b409346db4569a210c, type: 3}
+  - {fileID: 21300000, guid: d64aa86ff4daf844c9ec3e9153f3e03e, type: 3}
   environmentType4:
   - {fileID: 21300000, guid: ee4dfaf964e05b940a3cee22bfa14773, type: 3}
   - {fileID: 21300000, guid: 3e4a0d43b0ef70d45adbd3bf195ae2f9, type: 3}
   - {fileID: 21300000, guid: 5bfb2879ccc7dee42b08f29afebcbb54, type: 3}
   - {fileID: 21300000, guid: ccade0c7c9cb2aa43a8e07d12fc05603, type: 3}
-  - {fileID: 21300000, guid: cd58bc574693b394ea144dd8c8a3c7f6, type: 3}
+  - {fileID: 21300000, guid: b3e9bf70051abed48bdba50ac73b3e8d, type: 3}
   environmentType5:
   - {fileID: 21300000, guid: ee4dfaf964e05b940a3cee22bfa14773, type: 3}
   - {fileID: 21300000, guid: 3e4a0d43b0ef70d45adbd3bf195ae2f9, type: 3}
   - {fileID: 21300000, guid: 5bfb2879ccc7dee42b08f29afebcbb54, type: 3}
   - {fileID: 21300000, guid: ccade0c7c9cb2aa43a8e07d12fc05603, type: 3}
-  - {fileID: 21300000, guid: 68944a42b0e367d46a752b00e9abfec0, type: 3}
+  - {fileID: 21300000, guid: 22f8453d8c21587449f06976c0e565f5, type: 3}
   environmentType6:
   - {fileID: 21300000, guid: ee4dfaf964e05b940a3cee22bfa14773, type: 3}
   - {fileID: 21300000, guid: 3e4a0d43b0ef70d45adbd3bf195ae2f9, type: 3}
   - {fileID: 21300000, guid: 5bfb2879ccc7dee42b08f29afebcbb54, type: 3}
   - {fileID: 21300000, guid: ccade0c7c9cb2aa43a8e07d12fc05603, type: 3}
-  - {fileID: 21300000, guid: 3edbce744118c3242a971265e428c505, type: 3}
+  - {fileID: 21300000, guid: 9379c3b623c972f4ab7ff1195d661c83, type: 3}
 --- !u!114 &1170094499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82357,7 +82357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 750
   skinImage: {fileID: 0}
-  backGroundImage: {fileID: 21300000, guid: 3f50e2c64388d5741982c5c446ce01b2, type: 3}
+  backGroundImage: {fileID: 21300000, guid: 445b595014b7f364aac123901e6b9175, type: 3}
   environmentType: 6
   confirmationMenu: {fileID: 0}
   mainCamera: {fileID: 0}
