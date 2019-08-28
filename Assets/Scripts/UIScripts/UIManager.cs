@@ -174,6 +174,8 @@ public class UIManager : MonoBehaviour
     public GameObject HomePanelBlocker;
     public GameObject secondLifeFX;
 
+    public Sprite discountSecondChanceSprite;
+
     private void Awake()
     {
         if(instance == null)
@@ -430,6 +432,11 @@ public class UIManager : MonoBehaviour
         if(PlayerPrefs.GetInt("MSIG") == 1)
         {
             mgInstaCoin.SetActive(false);
+        }
+
+        if(PlayerPrefs.GetInt("secondDiscount") == 1)
+        {
+            SecondChanceButton.GetComponent<Image>().sprite = discountSecondChanceSprite;
         }
     }
 
@@ -775,7 +782,14 @@ public class UIManager : MonoBehaviour
 
             AudioManager.PlaySound(AudioManager.Sound.Reborn);
 
-            GameManager.instance.DecreasePoints(4);
+            if(PlayerPrefs.GetInt("secondDiscount") == 0)
+            {
+                GameManager.instance.DecreasePoints(4);
+            }
+            else
+            {
+                GameManager.instance.DecreasePoints(2);
+            }
             GameManager.instance.SavePoints();
             GameManager.instance.LoadData();
             PostRestartDataHolder.instance.UseSecondLife();
@@ -808,7 +822,7 @@ public class UIManager : MonoBehaviour
 
     public void CheckSecondChanceButton()
     {   
-        if(GameManager.instance.secondChanceDiscount == 0)
+        if(PlayerPrefs.GetInt("secondDiscount") == 0)
         {
             if (GameManager.instance.GetPoints() >= 4)
             {
