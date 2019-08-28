@@ -1640,7 +1640,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &48493736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,7 +1920,7 @@ RectTransform:
   - {fileID: 1419569738}
   - {fileID: 504312834}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.16}
   m_AnchorMax: {x: 0.85, y: 0.71}
@@ -8629,7 +8629,7 @@ RectTransform:
   - {fileID: 1306559161}
   - {fileID: 2002761756}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.16}
   m_AnchorMax: {x: 0.85, y: 0.71}
@@ -14398,7 +14398,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &352599151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17150,7 +17150,7 @@ RectTransform:
   - {fileID: 1052263951}
   - {fileID: 405412768}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.03}
   m_AnchorMax: {x: 0.7, y: 0.11}
@@ -17230,7 +17230,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: def3f6cd9925701428a8245377ae2eab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dac63071a20aa6d4fbd2c33fb1859cb3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37070,7 +37070,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &693302361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41083,7 +41083,7 @@ RectTransform:
   - {fileID: 471651195}
   - {fileID: 84201378}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.16}
   m_AnchorMax: {x: 0.85, y: 0.71}
@@ -50893,7 +50893,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1155790115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53274,6 +53274,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252273811}
+  m_CullTransparentMesh: 0
+--- !u!1 &1254865947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254865948}
+  - component: {fileID: 1254865950}
+  - component: {fileID: 1254865949}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1254865948
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254865947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1969588802436986950}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.14}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1254865949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254865947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 5ea509869774f9e4c8efcecd090ea5a1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1254865950
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254865947}
   m_CullTransparentMesh: 0
 --- !u!1 &1256870133
 GameObject:
@@ -55874,7 +55948,7 @@ RectTransform:
   - {fileID: 1462937852}
   - {fileID: 1851329940}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.16}
   m_AnchorMax: {x: 0.85, y: 0.71}
@@ -57954,7 +58028,7 @@ RectTransform:
   - {fileID: 114343935}
   - {fileID: 1646909309}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.16}
   m_AnchorMax: {x: 0.85, y: 0.71}
@@ -73261,8 +73335,8 @@ RectTransform:
   m_Father: {fileID: 3634520116852450964}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.87}
-  m_AnchorMax: {x: 0.26, y: 0.93}
+  m_AnchorMin: {x: 0.06, y: 0.87}
+  m_AnchorMax: {x: 0.17, y: 0.93}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -73284,7 +73358,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -73294,7 +73368,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 854d4da7cfdb8cc44bae45a527c32fe4, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -73339,7 +73413,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 91f251a5d869db743af2061cc94163e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f963a5bc4585024bb51ce2a7f6f31fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74302,7 +74376,7 @@ RectTransform:
   - {fileID: 1734704893}
   - {fileID: 2119693487}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.16}
   m_AnchorMax: {x: 0.85, y: 0.71}
@@ -82309,7 +82383,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1807879608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105523,7 +105597,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0164e31456b9db84090f0d5dde2a9ed1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7480fc344a67b644b42d8efa7e8f98f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -105573,7 +105647,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.78}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -107277,7 +107351,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802007421214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107401,7 +107475,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802060845070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107590,8 +107664,8 @@ RectTransform:
   m_Father: {fileID: 2305953268473086875}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.63, y: 0.72}
-  m_AnchorMax: {x: 1, y: 0.78}
+  m_AnchorMin: {x: 0.63, y: 0.78}
+  m_AnchorMax: {x: 1, y: 0.83}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -107698,7 +107772,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802202944466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108162,7 +108236,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802325472082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108323,7 +108397,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802340291762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108484,7 +108558,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802363271850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108610,6 +108684,7 @@ RectTransform:
   - {fileID: 1969588803763878904}
   - {fileID: 1969588803732131496}
   - {fileID: 1969588802793036159}
+  - {fileID: 1254865948}
   - {fileID: 436585727}
   - {fileID: 1969588803001665754}
   - {fileID: 2964787331133812909}
@@ -108759,7 +108834,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802605092278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108928,7 +109003,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802627638556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109155,7 +109230,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802783224432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109294,7 +109369,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d39d5fbb05b78954b80bb2ae65c58e74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 230e2df1656b07a499747129e130e87f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -109344,7 +109419,7 @@ RectTransform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.78}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -109398,7 +109473,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802838879656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109551,7 +109626,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802844179762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109838,7 +109913,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802945002744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110071,7 +110146,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802963215848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110240,7 +110315,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588802976075578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110371,7 +110446,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: def3f6cd9925701428a8245377ae2eab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dac63071a20aa6d4fbd2c33fb1859cb3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -110402,7 +110477,7 @@ RectTransform:
   - {fileID: 406812926591431216}
   - {fileID: 1867867895}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.03}
   m_AnchorMax: {x: 0.7, y: 0.11}
@@ -110579,8 +110654,8 @@ RectTransform:
   m_Father: {fileID: 2305953268473086875}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.72}
-  m_AnchorMax: {x: 0.33, y: 0.78}
+  m_AnchorMin: {x: 0, y: 0.78}
+  m_AnchorMax: {x: 0.33, y: 0.83}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -110706,7 +110781,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803070356664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110941,7 +111016,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!222 &1969588803250794198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -111220,7 +111295,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!1 &1969588803345681121
 GameObject:
   m_ObjectHideFlags: 0
@@ -111283,7 +111358,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803345681148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111543,7 +111618,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803406909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111623,7 +111698,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803415902822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111784,7 +111859,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803452839786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112074,7 +112149,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803473701010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112235,7 +112310,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803477785624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112404,7 +112479,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803482912236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112638,7 +112713,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803493644846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112718,7 +112793,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803499466610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112997,7 +113072,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!224 &1969588803554714192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -113121,7 +113196,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803554714222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113201,7 +113276,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803561421348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113370,7 +113445,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803603830260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113561,7 +113636,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803664916026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113722,7 +113797,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &1969588803678651012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114445,8 +114520,8 @@ RectTransform:
   m_Father: {fileID: 2305953268473086875}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.33, y: 0.72}
-  m_AnchorMax: {x: 0.63, y: 0.78}
+  m_AnchorMin: {x: 0.33, y: 0.78}
+  m_AnchorMax: {x: 0.63, y: 0.83}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -114733,9 +114808,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.78}
-  m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969588804012774893
 MonoBehaviour:
@@ -114757,7 +114832,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9d44b256ca7d8c84794e88c1fd3a3a04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc33f45704c022f419dc8438e3a22546, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -115105,7 +115180,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &2229326514213486028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115307,7 +115382,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &2229326514480360393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115616,7 +115691,7 @@ MonoBehaviour:
   rebornMinColor: {r: 1, g: 0.9934101, b: 0.6462264, a: 1}
   doubleSlingShotMaxColor: {r: 0.9716981, g: 0.49772444, b: 0.16958882, a: 1}
   doubleSlingShotMinColor: {r: 0.8431373, g: 0.42352945, b: 0.6156863, a: 1}
-  trailColor: {r: 0.12014952, g: 0.9433962, b: 0.22928755, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &2229326514900773539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115834,7 +115909,7 @@ RectTransform:
   - {fileID: 1969588802960080407}
   - {fileID: 1430451088}
   m_Father: {fileID: 1969588802436986950}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.14}
   m_AnchorMax: {x: 1, y: 0.71}
@@ -116365,7 +116440,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!222 &3634520116273848857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -116971,7 +117046,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!114 &3634520117355897160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117447,7 +117522,7 @@ MonoBehaviour:
   rebornMinColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMaxColor: {r: 0, g: 0, b: 0, a: 0}
   doubleSlingShotMinColor: {r: 0, g: 0, b: 0, a: 0}
-  trailColor: {r: 0, g: 0, b: 0, a: 0}
+  trailMat: {fileID: 0}
 --- !u!1 &3634520118151991660
 GameObject:
   m_ObjectHideFlags: 0
@@ -118980,7 +119055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8646306001157498754
 MonoBehaviour:
   m_ObjectHideFlags: 0
